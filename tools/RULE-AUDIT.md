@@ -56,7 +56,7 @@ stops something" is its *observation period*, not a caveat on today's label.
 ## Result
 
 - **P (prevented): 4** — rules 0, 7, 17, 18, where a broken check actually stopped a wrong number
-- **R (recognised): 24** — an event happened and the rule named it afterwards
+- **R (recognised): 25** — an event happened and the rule named it afterwards
 - **N (none): 9** — real thinking, but no event corresponds to them
 
 **No rule is decoration by accident; nine are decorated by my own enthusiasm.** Those nine are
@@ -83,6 +83,7 @@ one row (10c) had no label at all because an escaped pipe `\|` broke the pattern
 | 18 never-changing output | **A** | 'gate has teeth: OK' fixed; fingerprints move 3fb3b211->90640ea9 | **P** |
 | 18a keeping correct things visible | **A** | every other rule finds wrong things; HMMA=0 and the inert README passed forever | **R** |
 | 18b crash beats a plausible default | **A** | GATE_SH undefined and str-not-Path both raised; defensive writes would have printed a hash for nothing | **R** |
+| 18c variation must be correlated | **A** | gate.sh hash moves on logic change; a timestamp would re-degrade the signal | **R** |
 
 ## The blind spot in this whole method (@Orion, adopted)
 
