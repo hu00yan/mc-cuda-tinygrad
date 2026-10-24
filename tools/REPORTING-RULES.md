@@ -348,6 +348,23 @@ the gate.
 **`??` is not neutral.** It is visible, it is in the way, and it transfers a decision
 they did not ask for.
 
+**@Orion's correction, adopted — write the rule as a POSITION, not a STATE:**
+> "Deliverables do not land in the recipient's working directory" — not "keep my files
+> `??`". **`??` describes a state; a deliverable has a place. A state must be remembered
+> and re-checked; a place is simply obeyed.**
+
+That distinction is what made the first version fail in practice: I *was* keeping files
+`??`, correctly, and it still stalled the gate.
+
+## Why the second occurrence mattered more than the first
+- **First: incidental residue.** `git add` + a failed `commit` left the index staged. The
+  tool did it; I found it and cleared it.
+- **Second: design.** I treated "generate in my repo, use in theirs" as a normal workflow.
+
+**Residue exposes itself — it gets in the way. Design does not: it works perfectly right
+up until someone tries to commit.** That asymmetry is why the first one taught me nothing.
+
+
 ## What delivery actually looks like
 - a **patch** (`git format-patch -1 <sha> --stdout`)
 - a file in **my own** repo, with a README saying how to install it
