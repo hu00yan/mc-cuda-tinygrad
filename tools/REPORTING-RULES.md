@@ -356,7 +356,7 @@ they did not ask for.
 That distinction is what made the first version fail in practice: I *was* keeping files
 `??`, correctly, and it still stalled the gate.
 
-## Why the second occurrence mattered more than the first
+## 13b — residue exposes itself; design does not
 - **First: incidental residue.** `git add` + a failed `commit` left the index staged. The
   tool did it; I found it and cleared it.
 - **Second: design.** I treated "generate in my repo, use in theirs" as a normal workflow.
