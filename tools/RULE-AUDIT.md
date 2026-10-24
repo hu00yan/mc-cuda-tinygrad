@@ -191,3 +191,22 @@ hole; fabricated evidence is a filled hole that is wrong.
 Rule 12 cited **`0 / 25`** commits with a trailer. The repo had **7** commits at the time.
 The 25 had no command behind it — **a number produced while explaining that I produce
 numbers without checking.** Corrected to `0 of 5`, which the adjacent command reproduces.
+
+## Where the 10 P rules came from — the only question that matters
+
+**10 of 45 rules have ever stopped anything (class P).** Their entry condition is identical
+in every case: **the rule was turned into something that runs, and the thing that ran
+disagreed with me.** No P rule got there by being written down well.
+
+| became a file | rule |
+|---|---|
+| `test_sass_lint.py` (7 controls) | 0 |
+| `test_independence.py` (A / B / C) | 4 |
+| `marker-guard.sh` | 17 |
+| `verify_gate.py` fingerprints | 18 |
+| negative-count checks | 10, 14 |
+| the audit counter itself | 2b, 7, 20, 20b, 21 |
+
+**The other 35 are prose I agree with.** Not a criticism of prose — just the observation
+that a rule changes behaviour only after it has a failure mode someone can observe
+without me present.
