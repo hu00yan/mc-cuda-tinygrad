@@ -194,18 +194,32 @@ numbers without checking.** Corrected to `0 of 5`, which the adjacent command re
 
 ## Where the 10 P rules came from — the only question that matters
 
-**10 of 45 rules have ever stopped anything (class P).** Their entry condition is identical
+**11 of 46 rules have ever stopped anything (class P).** Their entry condition is identical
 in every case: **the rule was turned into something that runs, and the thing that ran
 disagreed with me.** No P rule got there by being written down well.
 
-| became a file | rule |
-|---|---|
-| `test_sass_lint.py` (7 controls) | 0 |
-| `test_independence.py` (A / B / C) | 4 |
-| `marker-guard.sh` | 17 |
-| `verify_gate.py` fingerprints | 18 |
-| negative-count checks | 10, 14 |
-| the audit counter itself | 2b, 7, 20, 20b, 21 |
+| became a file | rule | can be made RED? |
+|---|---|---|
+| `test_sass_lint.py` (7 controls) | 0 | **P1** |
+| `test_independence.py` (B: `.64` slip) | 4 | **P1** |
+| `marker-guard.sh` (rename `slow:` → `slowtest:`) | 17 | **P1** |
+| `verify_gate.py` fingerprints | 18 | **P1** |
+| negative-count check | 19 | **P1** |
+| negative count only, no red test | 7 | **P2** |
+| re-run evidence (9 → 18) | 20 | **P2** |
+| re-run evidence (10 vs 6) | 20b | **P2** |
+| no check at all | 21 | **P2** |
+| event trace in `check_audit.sh` | 22 | **P2** |
+
+### P1 vs P2 (@Orion): the split that matters more than P itself
+**P1** — has a negative control: *someone can make it fail without me.*
+**P2** — only an event trace: *it stopped something once, and nothing in the machine can
+reproduce that.*
+
+**5 P1, 6 P2.** The ratio is the maturity measure, not the total: **P2 depends on memory,
+and memory is the thing that was failing all night.** Rule 22 is P2 — and it is the most
+valuable rule of the day, so the most valuable rule is also the one I cannot hand to the
+machine.
 
 **The other 35 are prose I agree with.** Not a criticism of prose — just the observation
 that a rule changes behaviour only after it has a failure mode someone can observe
