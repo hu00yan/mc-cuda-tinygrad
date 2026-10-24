@@ -567,3 +567,43 @@ printf '%s\n' "$markers" | grep -qE "^@pytest\.mark\.${MARKER}:" \
 `pyproject.toml` restored byte-identical afterwards.
 
 > **Ask the authority whether a name exists; never re-derive it from a file's appearance.**
+
+
+---
+
+## Rule 18 — a correct output that never changes is attentionally equal to no output
+
+**Earned 2026-10-24** on `verify_gate.py`. After rule 17 was fixed, the verifier printed a
+bare `gate has teeth: OK` on every run. My proposed defence was to print *what* it checks
+— **but that line would also never change.** @Orion supplied the sharper form:
+
+> **A correct output that never changes and no output at all are equivalent in attention.
+> Only a correct output that changes can hold attention over time.**
+
+Now it prints fingerprints of the two things being checked:
+
+```
+gate has teeth: OK  (gate.sh 3fb3b211 · canary 6e7d6f62)
+```
+
+**Verified that it moves:** appending one comment to `gate.sh` produced `90640ea9` while
+the canary hash stayed `6e7d6f62`.
+
+The reading rule is then decidable without trusting my memory:
+- **both hashes match last run** → genuinely nothing changed; ignoring it is *justified*
+- **either hash moved** → it is news
+
+## 18a — this is the only rule today about keeping correct things visible
+Every other rule here governs **how a wrong thing gets found**. This one governs **how a
+right thing avoids becoming furniture** — which is what happened to `HMMA = 0` (a check
+that passed forever on truncated input) and to the `README`'s "controls correctly stay
+silent" (true, unchecked, and therefore inert).
+
+**A green that nobody reads is indistinguishable from a green that would have been red.**
+
+## 18b — both bugs in this change were caught by crashing
+`GATE_SH` did not exist (the variable is `GATE`); `_fp(CANARY_PATH)` passed a `str` where a
+`Path` was required. **Both raised immediately.** Had they been written defensively —
+`getattr(module, "GATE_SH", GATE)` or an `except: return "00000000"` — the output would
+have looked correct while measuring nothing. **Crashing loudly was the better outcome, and
+it only happened because the code did not guard against its own mistakes.**
