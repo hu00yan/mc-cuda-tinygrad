@@ -394,6 +394,7 @@ two things, so it stops discriminating":**
 | `HMMA = 0` | "this is a scalar path" | **a truncated dump** (no FP instructions at all) |
 | an `exclude` is visible in `.gitignore` | "this is excluded" | **visible ≠ read** |
 | `grep canary` → 9 hits | "my files leaked into his suite" | **his own `test_pit_leakage_canary.py`** |
+| `grep -rln canary` → 5 names | "2 files contain it" | **3 of them were `.pyc` caches, and a *third* source file had it too** |
 
 **The shared defect is not "features collide" — it is that I treated a feature as an
 identity.**
@@ -413,6 +414,27 @@ file", which the existing integrity gate already checks.
 **Notice what this rule does NOT say: "be more careful."** That is not executable. The
 output required is **a specific alternative explanation**, and producing none means the
 work is unfinished.
+
+## 14b — make the tool print the candidates; don't rely on thinking of them
+**@Orion's correction, adopted:** "name a second candidate" still requires me to *think of
+something I did not think of* — the exact gap this rule exists to close. So the check is
+two commands, and the alternatives are **printed, not recalled**:
+
+```bash
+grep -rn  "PATTERN" PATH | wc -l                                  # how many
+grep -rln "PATTERN" PATH | grep -v '\.pyc' \
+    | xargs -n1 basename | sort | uniq -c                          # which files
+```
+**Criterion: any file name you cannot explain in one sentence → you counted wrong.**
+
+Run for real on `canary`, this reported 5 names where only 2 were source (**the `.pyc`
+files were a fourth instance of the same "same name, different thing" defect — in the
+check itself**), and it surfaced a file I had never mentioned: `test_quality_value_backtest.py`.
+I had asserted "9 hits, it's his `test_pit_leakage_canary.py`" — **true but incomplete,
+and I could not have discovered that by thinking harder.**
+
+> **Any check whose usefulness depends on my remembering to vary it is not a check.**
+> Prefer the form where the tool enumerates and I subtract.
 
 ## 14a — "nothing went wrong" is not evidence that the procedure was right
 @Orion, on today's collision that did no damage: *the zero loss was not because we chose
