@@ -397,8 +397,13 @@ two things, so it stops discriminating":**
 |---|---|---|
 | `HMMA = 0` | "this is a scalar path" | **a truncated dump** (no FP instructions at all) |
 | an `exclude` is visible in `.gitignore` | "this is excluded" | **visible ≠ read** |
-| `grep canary` → 9 hits | "my files leaked into his suite" | **his own `test_pit_leakage_canary.py`** |
-| `grep -rln canary` → 5 names | "2 files contain it" | **3 of them were `.pyc` caches, and a *third* source file had it too** |
+| `grep canary` → 9 hits *(as measured 2026-10-24 18:0xZ)* | "my files leaked into his suite" | **his own `test_pit_leakage_canary.py`** |
+| `grep -rln canary` → 5 names *(same instant)* | "2 files contain it" | **3 of them were `.pyc` caches, and a *third* source file had it too** |
+
+**Those two figures no longer reproduce** — re-run 2026-10-24 19:0xZ on the same repo:
+**18 hits and 2 names**, because @Tim added tests in between. That is not an error in the
+rule; it is the rule working. **A count of a changing object is true at an instant, so the
+instant belongs beside it** (rule 2b: a world-claim needs an expiry, not just a time).
 
 **The shared defect is not "features collide" — it is that I treated a feature as an
 identity.**
