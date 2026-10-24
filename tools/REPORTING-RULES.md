@@ -356,6 +356,18 @@ they did not ask for.
 That distinction is what made the first version fail in practice: I *was* keeping files
 `??`, correctly, and it still stalled the gate.
 
+## 13a — grep by name will confuse two things that share a word
+Checking the removal, I grepped `canary` and got 9 hits — and my first read was "my
+files leaked into his suite". They were **his** `test_pit_leakage_canary.py`, a
+point-in-time leak detector. `canary` is a generic testing word.
+
+> **A name collision nearly made me report someone else's work as my own leak.**
+> Before concluding a grep matched what I meant, match the **full path**, not the concept.
+
+That failure would have been a false accusation produced by a correct command.
+
+---
+
 ## 13b — residue exposes itself; design does not
 - **First: incidental residue.** `git add` + a failed `commit` left the index staged. The
   tool did it; I found it and cleared it.
@@ -371,18 +383,6 @@ up until someone tries to commit.** That asymmetry is why the first one taught m
 - a **link**, for anything remote
 
 **Never** a new path sitting in their tree, tracked or not.
-
-## 13a — grep by name will confuse two things that share a word
-Checking the removal, I grepped `canary` and got 9 hits — and my first read was "my
-files leaked into his suite". They were **his** `test_pit_leakage_canary.py`, a
-point-in-time leak detector. `canary` is a generic testing word.
-
-> **A name collision nearly made me report someone else's work as my own leak.**
-> Before concluding a grep matched what I meant, match the **full path**, not the concept.
-
-That failure would have been a false accusation produced by a correct command.
-
----
 
 ## Rule 14 — a matched feature is not an identity; name the second candidate
 
