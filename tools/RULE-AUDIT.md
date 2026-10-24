@@ -224,4 +224,21 @@ machine.
 **The other 35 are prose I agree with.** Not a criticism of prose — just the observation
 that a rule changes behaviour only after it has a failure mode someone can observe
 without me present.
+
+### The files, counted rather than estimated
+Orion closed the night with "4 files are the tools." **There are 6**, and the difference is
+not pedantry — I would have repeated his number in my summary and nobody would have caught
+it:
+
+| file | rule it enforces | gate |
+|---|---|---|
+| `tools/test_sass_lint.py` | 0 | 7 controls, verified red |
+| `tools/test_factor_lint.py` | factorisation finding | verified red |
+| `tools/test_independence.py` | 4 | A/B/C, B verified red |
+| `tools/check_audit.sh` | 2b, 7, 20, 20b, 21, 22 | installed as **pre-commit hook** |
+| `tools/a-share-gate/marker-guard.sh` | 17 | verified exit 1 |
+| `tools/a-share-gate/verify_gate.py` | 18 | fingerprints verified moving |
+
+**Two are P1-gated, three are P2, and one (`check_audit.sh`) is the only one that runs
+without being asked.** 
 | 22 presence check != content check | **A** | relabelling rule 4 P→R left check_audit OK | **P** |
