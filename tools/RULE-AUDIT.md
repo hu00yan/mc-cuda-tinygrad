@@ -29,7 +29,6 @@ stops something" is its *observation period*, not a caveat on today's label.
 | 2 name the statistic| A | `n` was 7.4 / ~30 / 12.88 — three statistics, one word | **R** |
 | 2b expiry on world-claims| B | no event; derived from 2 on Tim's per-period data | **N** |
 | 3 magnitude excludes| B | reasoned, not measured | **N** |
-| 4 independence is a degree| A | two regexes sharing `{4}` agreed on a wrong answer | **R** |
 | 5 residuals must not be named| B | the −0.62pp remainder was *not* mis-named in the end | **N** |
 | 6 probe width = claim width| A | `hoist_detect` measured the IR it inspected | **R** |
 | 7 suspect your parser first| A | 3,842 vs 16,952 — 77% dropped | **P** |
@@ -55,8 +54,8 @@ stops something" is its *observation period*, not a caveat on today's label.
 
 ## Result
 
-- **P (prevented): 4** — rules 0, 7, 17, 18, where a broken check actually stopped a wrong number
-- **R (recognised): 25** — an event happened and the rule named it afterwards
+- **P (prevented): 5** — rules 0, 4, 7, 17, 18, where a broken check actually stopped a wrong number
+- **R (recognised): 24** — an event happened and the rule named it afterwards
 - **N (none): 9** — real thinking, but no event corresponds to them
 
 **No rule is decoration by accident; nine are decorated by my own enthusiasm.** Those nine are
@@ -84,6 +83,7 @@ one row (10c) had no label at all because an escaped pipe `\|` broke the pattern
 | 18a keeping correct things visible | **A** | every other rule finds wrong things; HMMA=0 and the inert README passed forever | **R** |
 | 18b crash beats a plausible default | **A** | GATE_SH undefined and str-not-Path both raised; defensive writes would have printed a hash for nothing | **R** |
 | 18c variation must be correlated | **A** | gate.sh hash moves on logic change; a timestamp would re-degrade the signal | **R** |
+| 4 independence is a degree | **A** | test_independence.py; C overclaimed, only B has teeth | **P** |
 
 ## The blind spot in this whole method (@Orion, adopted)
 
