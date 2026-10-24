@@ -210,7 +210,7 @@ disagreed with me.** No P rule got there by being written down well.
 | `check_tables.py` | 20b | **P1** |
 | `check_tables.py` (4 controls, verified red) | 21 | **P1** |
 | Tim's radius method: exempt-with-legal-sample | 22 | **P1** |
-| (definition, not a rule row) | — | — |
+| *(the word P1/P2 in the definitions below is a definition, not a rule row — counted once as a miscount)* | — | — |
 
 ### The score moved the same night (rule 22's own lesson)
 Writing "6 P2" down did not make any of them P1. **Cindy's point — a P2 rule is a TODO, not
@@ -224,7 +224,7 @@ a report on maturity; it is a work queue, and the queue has an owner now.**
 **P2** — only an event trace: *it stopped something once, and nothing in the machine can
 reproduce that.*
 
-**9 P1, 0 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
+**9 P1, 1 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
 and memory is the thing that was failing all night.** Rule 22 is P2 — and it is the most
 valuable rule of the day, so the most valuable rule is also the one I cannot hand to the
 machine.
