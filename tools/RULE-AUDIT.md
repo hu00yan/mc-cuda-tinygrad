@@ -48,7 +48,7 @@ returns in the same shape next time.
 ## Result
 
 - **P (prevented): 2** — rules 0 and 7, where a broken check actually stopped a wrong number
-- **R (recognised): 17** — an event happened and the rule named it afterwards
+- **R (recognised): 21** — an event happened and the rule named it afterwards
 - **N (none): 9** — real thinking, but no event corresponds to them
 
 **No rule is decoration by accident; nine are decorated by my own enthusiasm.** Those nine are
@@ -66,6 +66,10 @@ one row (10c) had no label at all because an escaped pipe `\|` broke the pattern
 
 
 ---
+| 15 summary needs a command | **A** | "P: 2, R: 16" from a table with zero P rows | **R** |
+| 15a undercount beats miscount | **A** | `\|` escape truncated the 10c row; sum still matched rows | **R** |
+| 16 candidates catch surprises, not habits | **A** | every error today was a name I recognised | **R** |
+| 16a different questions have no winner | **A** | disk 10 vs git 5 measure leakage vs ownership | **R** |
 
 ## The blind spot in this whole method (@Orion, adopted)
 

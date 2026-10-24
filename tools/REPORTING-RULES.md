@@ -461,3 +461,54 @@ Had @Orion's commit succeeded, had my canary been named differently, had @Tim ru
 
 > **Rules derived from a near-miss carry the near-miss as their evidence.** Say so when
 > citing them, so a reader knows the rule has never been tested against the bad case.
+
+
+---
+
+## Rule 15 — a summary number needs a re-runnable command beside it
+
+**Earned 2026-10-24** writing `tools/RULE-AUDIT.md`: I summarised its own table as
+"P: 2, R: 16" when the table contained **zero P rows** — my regex never emitted one.
+
+> **A summary number with no command beside it is a claim, not a count.**
+
+Enforced: `tools/check_audit.sh` recounts P/R/N, counts rows by a **different route**
+(`^\| [0-9]`), and requires `sum == rows == rules_in_file`. **Verified it can fail** —
+removing one label gives `sum=27` vs `rows=28` → MISMATCH, exit 1.
+
+## 15a — undercounting is worse than miscounting
+@Orion: a format error that eats a row does not produce **a wrong number — it produces a
+missing one**, and a missing row never reads as wrong in a total.
+
+> **A miscount collides with the total. A missing count makes the total look right.**
+
+My `2 + 17 + 9 = 28` happened to equal the row count, so I could not have noticed a row
+was uncounted. **And I was the one who broke that row** — a `\|` escape in the 10c line
+silently truncated it. **I created the undercount and was then deceived by it.**
+
+## Rule 16 — a candidate-printing check catches surprises, not habits
+
+**@Orion's sharpest point of the day, adopted.** `uniq -c` can catch a name I do not
+recognise. It cannot catch **a name I recognise and recognise wrongly** — and every error
+that day was the second kind: `HMMA = 0`, `canary`, `{4}`, and "P: 2, R: 16".
+
+> **A familiar name must be supported by an instance, or be treated as unfamiliar.**
+
+**"Explainable" ≠ "evidenced":**
+| | grammar | example |
+|---|---|---|
+| explanation | *seems like* | "it is another of Tim's canary tests" |
+| instance | *is* | "at this path, authored by Tim, testing point-in-time leakage" |
+
+## 16a — two different questions have no winner
+I claimed my `grep -rl` (10 files) "beat" @Orion's `git ls-files` (5) on the same pattern.
+Measured, they answer **different questions**:
+
+| command | boundary | question |
+|---|---|---|
+| `grep -rl` | **disk** | did the string leak into any artifact? |
+| `git ls-files` | **git ownership** | which files are mine to account for? |
+
+For "did `canary` leak into a build artifact", **the `.pyc` files are the answer, not
+noise** — and `git ls-files` structurally cannot see `.venv`. **Declaring a winner was
+itself a rule-14 error: two different signals treated as one signal done better.**
