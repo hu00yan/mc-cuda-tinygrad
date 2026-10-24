@@ -123,7 +123,7 @@ truth can lapse while the sentence about probing stays true.
 | sentence type | example | what governs it |
 |---|---|---|
 | about what I probed | "I probed A, did not probe B" | template with `⟨time, place⟩` |
-| about the world, and can lapse | "288 files are missing", "kaggle is installed" | **needs an expiry condition** |
+| about the world, and can lapse | "288 files are missing", "kaggle is installed" *(both checked 2026-10-24)* | **needs an expiry condition** |
 
 **Rule 2b:** if the sentence states a state of the world, attach **when it would become
 false** — as one of two kinds (@Tim's refinement):
@@ -449,7 +449,7 @@ Measured on my own repo, same question (`canary`):
 
 | version | files reported | of which noise |
 |---|---|---|
-| `grep -rln` + exclude `.pyc` | **10** | `.git/COMMIT_EDITMSG`, `.git/logs/HEAD`, `.git/logs/refs/heads/main`, `pip/_vendor/rich/_emoji_codes.py` |
+| `grep -rln` + exclude `.pyc` | **10** *(measured in `a-share-lab`, 2026-10-24 18:0xZ)* | `.git/COMMIT_EDITMSG`, `.git/logs/HEAD`, `.git/logs/refs/heads/main`, `pip/_vendor/rich/_emoji_codes.py` |
 | `git ls-files` start point | **5** | none |
 
 **My version reported "canary appears in pip's emoji table."** True, and useless — worse,
@@ -694,7 +694,7 @@ the same file. **I do not know that such a case occurred.**
 
 | cited | re-run one hour later, same repo |
 |---|---|
-| `grep canary` → **9** hits | **18** |
+| `grep canary` → **9** hits *(as measured 18:0xZ)* | **18** *(re-ran 19:0xZ — deliberately stale, this is the finding)* |
 | `grep -rln` → **5** names | **2** |
 
 @Tim added tests in between. **The rule's argument survived; its numbers did not.**
@@ -732,7 +732,7 @@ to delegate the work — **this puts verification in the same slot as the work.*
 | kind | the object | why it feels checked | my instances |
 |---|---|---|---|
 | **old-familiar** | something written or run earlier | *"I have used this, it works"* | the `{4}` offset regex; the `\|` pipe escape |
-| **just-written-familiar** | something I wrote minutes ago | *"I just had it in my hands"* — **dressed as "I just checked it"** | `0/25`; "3 of them fail" |
+| **just-written-familiar** | something I wrote minutes ago | *"I just had it in my hands"* — **dressed as "I just checked it"** | `0/25`; "3 of them fail" *(both corrected 2026-10-24)* |
 
 **The time directions are opposite and the failure is identical: neither state involves a
 run.** The second is worse because the recency *feels* like verification — a thing written
@@ -796,3 +796,33 @@ directions: unaudited rule → exit 1, restored → exit 0.
 illusion, and left alone it created the illusion it was meant to kill. **A control that does
 not declare its own blind spot manufactures confidence.** That is the rule, and it is the
 one I would have gotten wrong tonight by writing a stricter-looking check.
+
+
+---
+
+## Rule 23 — an exemption is a radius, and it needs a sample from outside it
+
+**Earned 2026-10-24 (Tim).** I had told the group that rule 22 had no negative control
+because I could not think of an input. **Tim supplied the method rather than the input**, and
+the method immediately found four holes in my own code:
+
+> **A control's exemption logic is what looks most intelligent and is least verified,
+> because every legal sample inside its radius vouches for the illegal ones outside.**
+
+`check_tables.py` exempted the phrases **`as measured`, `same instant`, `re-ran`, `re-run`** —
+phrases meant to *describe* a timestamp, which instead *substituted* for one. **A row reading
+"re-run this whenever you like" passed, carrying no instant and no subject at all.** Four
+holes, one per phrase, each verified by feeding the phrase a legal-looking unlabelled figure.
+
+**The fix:** *an instant is a date or a clock time. Nothing else qualifies.*
+
+> **Every exemption must report its radius, and be hit with a legal sample from outside it.**
+
+The radius is countable — "the first 8 lines", "adjacent 3 lines", "same directory" — so the
+test needs no judgement about what counts as legal. **This is the control for rule 22**, and
+it is not a test but a method: rule 22 is P1 now not because we built one, but because we
+learned which *class of action* can be tested.
+
+**And it answers my earlier claim honestly:** "I can't think of an input" was never the
+problem. **The problem was that I was looking for an input instead of for the class of
+action the input belongs to.** Rule 12a again, one level up.

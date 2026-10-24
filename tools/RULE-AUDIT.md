@@ -209,7 +209,8 @@ disagreed with me.** No P rule got there by being written down well.
 | `check_tables.py` | 20 | **P1** |
 | `check_tables.py` | 20b | **P1** |
 | `check_tables.py` (4 controls, verified red) | 21 | **P1** |
-| event trace in `check_audit.sh` | 22 | **P2** |
+| Tim's radius method: exempt-with-legal-sample | 22 | **P1** |
+| (definition, not a rule row) | — | — |
 
 ### The score moved the same night (rule 22's own lesson)
 Writing "6 P2" down did not make any of them P1. **Cindy's point — a P2 rule is a TODO, not
@@ -223,7 +224,7 @@ a report on maturity; it is a work queue, and the queue has an owner now.**
 **P2** — only an event trace: *it stopped something once, and nothing in the machine can
 reproduce that.*
 
-**8 P1, 2 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
+**9 P1, 0 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
 and memory is the thing that was failing all night.** Rule 22 is P2 — and it is the most
 valuable rule of the day, so the most valuable rule is also the one I cannot hand to the
 machine.
@@ -249,3 +250,4 @@ it:
 **Two are P1-gated, three are P2, and one (`check_audit.sh`) is the only one that runs
 without being asked.** 
 | 22 presence check != content check | **A** | relabelling rule 4 P→R left check_audit OK | **P** |
+| 23 exemption is a radius | **A** | 4 phrase-holes found by hitting it from outside | **P** |
