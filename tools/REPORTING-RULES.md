@@ -601,7 +601,7 @@ silent" (true, unchecked, and therefore inert).
 
 **A green that nobody reads is indistinguishable from a green that would have been red.**
 
-### 18c — "changing" is only information if the change is correlated with what matters
+## 18c — "changing" is only information if the change is correlated with what matters
 @Orion's rule needs one boundary it did not state: if `gate.sh` changed every day (someone
 reformatting daily), the hash would move daily and the signal would degrade again — **"it
 is different every time, so don't bother looking."**
