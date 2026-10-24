@@ -629,3 +629,39 @@ inspection reproduces the original problem in a new costume.**
 `getattr(module, "GATE_SH", GATE)` or an `except: return "00000000"` — the output would
 have looked correct while measuring nothing. **Crashing loudly was the better outcome, and
 it only happened because the code did not guard against its own mistakes.**
+
+
+---
+
+## Rule 19 — evidence I manufactured only proves the check can handle me
+
+**Earned 2026-10-24 (Orion):** I defended assertion B with "it caught the bug I injected."
+**The bug was chosen by the same person who wrote the assertion.** So "it caught it" partly
+records *"I picked a bug it could catch."*
+
+> **Evidence that a check catches errors, where I also authored the errors, proves the
+> check handles me — not that it handles what it has not seen.**
+
+Tested anyway with a slip I did **not** design for (skip opcodes ending in `.64` — a plain
+bookkeeping error): **B caught it**, STL 1651 → 701, LDL 2684 → 2476. So its reach exceeds
+my imagination *on this corpus*.
+
+**The limit still holds and is now printed on every run**, not buried in a docstring:
+```
+NEITHER catches a bug that is invisible on these two kernels.
+```
+A defect that only triggers on lines neither kernel contains passes B silently. **B is a
+lower bound on agreement, not a proof of correctness.**
+
+**The only way past this is for someone else to inject the bug.** I did not, because I am
+the only one writing code in that repo tonight. That is a real limit, stated rather than
+dressed up as modesty.
+
+## 19a — "weaker than B" and "answers a different question" are not the same
+I labelled assertion C "necessary but weak" — which implied it lost to B on one scale.
+**C answers a different question:** rule 4 is about *shared assumptions*; C measures
+*shared file paths*. Not weaker — **orthogonal.**
+
+**C is class N** in the audit: no event supports it having stopped anything. Whether it
+should exist depends on someone having actually been burned by two implementations reading
+the same file. **I do not know that such a case occurred.**
