@@ -512,3 +512,39 @@ Measured, they answer **different questions**:
 For "did `canary` leak into a build artifact", **the `.pyc` files are the answer, not
 noise** — and `git ls-files` structurally cannot see `.venv`. **Declaring a winner was
 itself a rule-14 error: two different signals treated as one signal done better.**
+
+
+---
+
+## Rule 17 — a fallback branch must tell "confirmed empty" from "could not read"
+
+**Earned 2026-10-24 on @Tim's `gate.sh`** (@Orion spotted it, I verified the branch is live,
+Tim fixed it, I verified the fix in both directions).
+
+```bash
+pytest -m "slow" --collect-only | grep -E "^tests/" || echo "（slow 层为空）"
+```
+A wrong marker makes pytest exit **5** ("no tests collected"). `grep` matches nothing, so
+`||` fires, and the gate prints **"slow layer is empty"** — **a collection failure reported
+as a normal state**, on the same line a genuinely-empty layer would use.
+
+> **Every `||`, every `catch`, every `or default` translates a failure into a normal state.
+> Each such branch must be able to say which one it is looking at.**
+
+The fix that works is a three-way branch, not two:
+```bash
+if ! out=$(collect ...); then        # could not read  -> ERROR, and fail the gate
+elif names=$(printf '%s' "$out" | grep -E "^tests/"); then   # read, found some -> name them
+else                                  # read, genuinely none -> say "confirmed, 0"
+fi
+```
+
+## 17a — the fix leaves its sibling bug standing
+After the fix, "genuinely empty" and **"marker name misspelled"** look identical: a `-m
+"slow-test"` collects fine, matches 0, and prints *"confirmed: 0 slow tests"* — while one
+exists. **Same shape as the original, one level along.** The prompt fix costs nothing:
+the marker name in `pyproject.toml` and the literal `-m "slow"` in `gate.sh` should come
+from **one source**, not two places that must agree by memory.
+
+**A fix that removes one "cannot distinguish" leaves the next one visible only if you ask
+what the fixed branch can no longer tell apart.**
