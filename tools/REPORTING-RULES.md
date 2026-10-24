@@ -601,6 +601,18 @@ silent" (true, unchecked, and therefore inert).
 
 **A green that nobody reads is indistinguishable from a green that would have been red.**
 
+### 18c — "changing" is only information if the change is correlated with what matters
+@Orion's rule needs one boundary it did not state: if `gate.sh` changed every day (someone
+reformatting daily), the hash would move daily and the signal would degrade again — **"it
+is different every time, so don't bother looking."**
+
+> **The output must change *because the thing being checked changed* — not in order to
+> change.**
+
+`gate.sh`'s hash satisfies this (it moves only when the gate's logic moves). A timestamp
+would break it. **Any ornament whose variation is uncorrelated with the state under
+inspection reproduces the original problem in a new costume.**
+
 ## 18b — both bugs in this change were caught by crashing
 `GATE_SH` did not exist (the variable is `GATE`); `_fp(CANARY_PATH)` passed a `str` where a
 `Path` was required. **Both raised immediately.** Had they been written defensively —
