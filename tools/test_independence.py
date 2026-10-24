@@ -95,7 +95,19 @@ def test_a_no_shared_mechanism(c: Control) -> None:
 
 
 def test_b_agreement_on_known_kernels(c: Control) -> None:
-    """B: on settled inputs both must produce the settled numbers."""
+    """B: on settled inputs both must produce the settled numbers.
+
+    SCOPE (Orion's correction): B's evidence is that it caught bugs I injected — and an
+    injected bug is one I already thought of. Tested against a slip I did NOT design for
+    (skip opcodes ending in ".64", a plausible bookkeeping error), B did catch it:
+    STL 1651 -> 701, LDL 2684 -> 2476. So B's reach is wider than my imagination on this
+    corpus.
+
+    But B still only sees bugs that MOVE these two kernels' numbers. A bug that is
+    invisible on aot16_cc75 and aot16_cc80 — e.g. one triggered only by a 5-digit offset
+    that both kernels happen not to contain — passes B silently. **B is not a proof of
+    correctness; it is a lower bound on agreement.**
+    """
     for kernel, expected in KNOWN.items():
         # Each implementation has its OWN input convention: the regex tool scans a
         # glob of files, the tokenizer takes kernel names. Assuming one interface for
@@ -169,7 +181,9 @@ def main() -> int:
     c = Control()
     print("rule 4 lower bounds — independence is a degree, and here are three of them")
     print("  A: different mechanism   B: agree on settled inputs   C: separate input paths")
-    print("  (B has the teeth; C is necessary but weak — see its docstring)\n")
+    print("  B: agreement on TWO settled kernels — catches slips that move those numbers")
+    print("  C: separate input paths — necessary, weak (see docstring)")
+    print("  NEITHER catches a bug that is invisible on these two kernels.\n")
     test_a_no_shared_mechanism(c)
     test_b_agreement_on_known_kernels(c)
     test_c_no_shared_integrity_assumption(c)
