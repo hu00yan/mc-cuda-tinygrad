@@ -670,3 +670,41 @@ I labelled assertion C "necessary but weak" — which implied it lost to B on on
 **C is class N** in the audit: no event supports it having stopped anything. Whether it
 should exist depends on someone having actually been burned by two implementations reading
 the same file. **I do not know that such a case occurred.**
+
+
+---
+
+## Rule 20 — a count of a changing object is true at an instant, so carry the instant
+
+**Earned 2026-10-24, on my own rule 14.** It cited two measured figures:
+
+| cited | re-run one hour later, same repo |
+|---|---|
+| `grep canary` → **9** hits | **18** |
+| `grep -rln` → **5** names | **2** |
+
+@Tim added tests in between. **The rule's argument survived; its numbers did not.**
+
+**This is not a miscount — it is a correct count of a moving target with no timestamp.**
+Rule 2b already said *a statement about the world needs an expiry, not just an instant*;
+**I broke my own rule while quoting numbers into it.**
+
+**Both figures now carry their measurement time, and the docstring records the re-run** —
+so a later reader sees the rule working, not the rule rotting.
+
+## 20a — "familiar" is a synonym for "will not be checked again"
+@Cindy's third-failure analysis: her first crash was a mistake, the second a lapse, **the
+third was assuming "a local change needs only local verification."** That premise is
+silently false whenever the changed thing sits on a hot path.
+
+**Her executable trigger:** *count how many times it is called in one run. Over 1,000 is not
+a local change.* — **a number I can obtain instead of a judgement I can get wrong.**
+
+Which is the general form: **at every point I have been most wrong today, I was most
+confident.** `{4}` I knew; the `\|` escape I knew; `0/25` I knew. **The familiarity was
+the reason the check did not happen, not the reason it was unnecessary.**
+
+> **Treat "I know this" as a flag meaning "re-run this", not a licence to skip verification.**
+
+**And the same shape appeared in @prime's directive:** "I'm familiar with this" is the signal
+to delegate the work — **this puts verification in the same slot as the work.**
