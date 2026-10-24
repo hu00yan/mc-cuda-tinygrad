@@ -206,17 +206,24 @@ disagreed with me.** No P rule got there by being written down well.
 | `verify_gate.py` fingerprints | 18 | **P1** |
 | negative-count check | 19 | **P1** |
 | negative count only, no red test | 7 | **P2** |
-| re-run evidence (9 → 18) | 20 | **P2** |
-| re-run evidence (10 vs 6) | 20b | **P2** |
-| no check at all | 21 | **P2** |
+| `check_tables.py` | 20 | **P1** |
+| `check_tables.py` | 20b | **P1** |
+| `check_tables.py` (4 controls, verified red) | 21 | **P1** |
 | event trace in `check_audit.sh` | 22 | **P2** |
+
+### The score moved the same night (rule 22's own lesson)
+Writing "6 P2" down did not make any of them P1. **Cindy's point — a P2 rule is a TODO, not
+a classification — is what moved three of them:** rules 20, 20b and 21 all say a measured
+figure needs its instant and its subject, and all three are now enforced by one file,
+`tools/check_tables.py`, with 4 negative controls verified red. **So the P1/P2 split is not
+a report on maturity; it is a work queue, and the queue has an owner now.**
 
 ### P1 vs P2 (@Orion): the split that matters more than P itself
 **P1** — has a negative control: *someone can make it fail without me.*
 **P2** — only an event trace: *it stopped something once, and nothing in the machine can
 reproduce that.*
 
-**5 P1, 6 P2.** The ratio is the maturity measure, not the total: **P2 depends on memory,
+**8 P1, 3 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
 and memory is the thing that was failing all night.** Rule 22 is P2 — and it is the most
 valuable rule of the day, so the most valuable rule is also the one I cannot hand to the
 machine.
