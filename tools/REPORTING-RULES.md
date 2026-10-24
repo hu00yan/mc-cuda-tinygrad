@@ -100,7 +100,7 @@ obvious is exactly the one most likely to arrive unaccompanied.
 
 ---
 
-# Rule 2b — statements about the world need an expiry, not just an instant
+## Rule 2b — statements about the world need an expiry, not just an instant
 
 **Added 2026-10-24 after four people independently hit it in one day.**
 
@@ -186,7 +186,7 @@ catalogued in this file.**
 
 ---
 
-# Rule 9 — commit the output, or it never existed
+## Rule 9 — commit the output, or it never existed
 
 **Added after auditing this repo 2026-10-24 and finding the whole day's work untracked.**
 
@@ -222,7 +222,7 @@ verification (@Orion checked no-source / no-git / zero-refs) is invisible in the
 
 ---
 
-# Rule 10 — a check that cannot go red is not a check
+## Rule 10 — a check that cannot go red is not a check
 
 **Earned** building `a-share-lab/scripts/verify_gate.py` after @Tim worried his own
 `-m "not slow"` might silently drop tests.
@@ -265,7 +265,7 @@ Capture the code directly (`> log; echo $?`) or use `subprocess.run(...).returnc
 
 ---
 
-# Rule 11 — in someone else's repo, leave your files untracked
+## Rule 11 — in someone else's repo, leave your files untracked
 
 `git add` followed by a **failed** `commit` leaves the index staged. The person who did
 it believes *"I didn't commit, so nothing changed."* But `git status` shows `A`, and
@@ -295,7 +295,7 @@ line is not a disclaimer — it is a map of where to aim.
 
 ---
 
-# Rule 12 — "can't be done" is a claim, and it needs evidence like any other
+## Rule 12 — "can't be done" is a claim, and it needs evidence like any other
 
 **Earned 2026-10-24.** I wrote that author provenance "has no machine-readable form, so it
 can't be checked" — without looking. @Orion pointed out the form is a commit-message
