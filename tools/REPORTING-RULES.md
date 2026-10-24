@@ -706,6 +706,11 @@ Rule 2b already said *a statement about the world needs an expiry, not just an i
 **Both figures now carry their measurement time, and the docstring records the re-run** —
 so a later reader sees the rule working, not the rule rotting.
 
+## 20b — a number needs both its instant and its subject
+"10 vs 5" was true in `a-share-lab` and false in `mc-cuda-tinygrad` (10 vs 6). **Undated or
+unattributed, a correct figure becomes a false citation the moment it is re-read somewhere
+else.** This is rule 20 one step further: **20 fixed *when*; 20b fixes *of what*.**
+
 ## 20a — "familiar" is a synonym for "will not be checked again"
 @Cindy's third-failure analysis: her first crash was a mistake, the second a lapse, **the
 third was assuming "a local change needs only local verification."** That premise is
