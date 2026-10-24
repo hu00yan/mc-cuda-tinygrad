@@ -15,7 +15,13 @@ rows=$(grep -cE '^\| [0-9]' "$AUDIT")
 # original rule count, from the rules file, third route
 rules=$(grep -cE '^## (Rule )?[0-9]' "$RULES")
 
+# Orion: an empty queue stops being looked at, and so does a full one — a full queue says
+# "already stocked, no need to look". Printing only the sum is what allowed "0 P2" to be
+# believed for a while tonight: the sum was right, so the composition was assumed.
 echo "P=$p R=$r N=$n  sum=$sum  audit_rows=$rows  rules_in_file=$rules"
+echo "  composition: $p of $rows rules have ever stopped anything; $r are recognised; $n have none."
+echo "  (an empty queue is not looked at, and neither is a full one — so the composition"
+echo "   prints every run, not just the total.)"
 if [ "$sum" -eq "$rows" ] && [ "$rows" -eq "$rules" ]; then
   echo "OK: sum == rows == rules"
   echo "  (this proves only that nothing is UNCOUNTED; whether each classification is"
