@@ -741,3 +741,26 @@ five minutes ago occupies the same slot in memory as a thing verified five minut
 **So the trigger cannot be "check the old things".** It has to be: **the act of writing is the
 moment the item becomes unchecked**, because writing consumes the same familiarity that
 checking would have produced.
+
+
+---
+
+## Rule 21 — formulas do not expire; tables do (@Tim)
+
+> **A formula survives time. A table is a photograph of a moment.**
+
+My rule 20b said a number needs its instant and its subject. **Tim's version is better
+because it says where to look.** Anyone auditing their own document does not ask "which
+numbers are numbers" — they ask **"which of these is a table?"** That is one grep.
+
+**But the deeper half of his point is mine to get wrong:** a table that has gone stale is
+**only a defect if it silently claims to be current.** Two rows in this very file are
+deliberately stale — rule 14's `9 hits` and rule 20's `9 → 18` — and **both must stay
+wrong, because the wrongness is the finding.** Deleting or "fixing" them would remove the
+evidence that the rule works.
+
+> **The distinction is not stale vs fresh. It is stale-and-silent vs stale-and-labelled.**
+
+A table with an instant beside it can be arbitrarily old and still correct — `9 hits
+(18:0xZ)` is a true statement forever. A table without one rots into a lie. **So the fix is
+never "update the numbers"; it is "attach the moment they were taken."**
