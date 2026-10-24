@@ -23,7 +23,14 @@ WHAT IT DOES NOT CHECK (printed on every run, rule 22)
 """
 import re, sys, pathlib
 
-TS = re.compile(r"\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}|as measured|same instant|re-ran|re-run")
+# An instant is a DATE or a CLOCK TIME. Nothing else qualifies.
+#
+# Tim's radius test found the first version wrong: it also exempted the phrases
+# "as measured", "same instant", "re-ran", "re-run" — which were meant to DESCRIBE
+# a timestamp and instead SUBSTITUTED for one. A row reading "re-run this whenever
+# you like" passed, carrying no instant and no subject at all. Four holes, one per
+# phrase, each verified by feeding the phrase a legal-looking unlabelled figure.
+TS = re.compile(r"\d{4}-\d{2}-\d{2}|\d{1,2}:\d{2}")
 NUM = re.compile(r"(?<![0-9a-zA-Z_.])[0-9]{2,}(?![0-9a-zA-Z_.])")
 DELIBERATE = re.compile(r"deliberately stale|stays? (?:wrong|stale)|must stay|stale-and-labelled|no longer reproduces", re.I)
 RULE = re.compile(r"^## (Rule )?[0-9]")
@@ -68,6 +75,15 @@ def self_test():
     Control 2  a timestamped figure must PASS
     Control 3  a deliberately-stale figure must PASS (it must be allowed to stay wrong)
     Control 4  a non-table line quoting a figure must PASS (prose is out of scope)
+    Control 5  TIM'S RADIUS TEST: a phrase that merely DESCRIBES a timestamp must not
+               exempt a row that has no instant. The first version exempted "as
+               measured", "same instant", "re-ran", "re-run" — a row reading "re-run
+               this whenever you like" passed with no instant and no subject.
+
+    A check's exemption logic is the part that looks most intelligent and is least
+    verified: every legal sample inside its radius vouches for the illegal ones
+    outside. So the control is "a legal-looking row outside the radius", not a
+    plausible-looking row inside it.
     """
     tmp = pathlib.Path("tools/.check_tables_selftest.md")
     cases = [
@@ -75,6 +91,9 @@ def self_test():
         ("timestamped passes", "| a claim | 1234 rows | *(2026-10-24 18:0xZ)* |", 0),
         ("deliberately-stale passes", "| a claim | 9 hits | *(deliberately stale, this is the finding)* |", 0),
         ("prose line is out of scope", "some text with 1234 in it but not a table", 0),
+        ("radius: 'as measured' does not exempt", "| a claim | 1234 rows | as measured |", 1),
+        ("radius: 're-run' does not exempt", "| a claim | 1234 rows | re-run whenever you like |", 1),
+        ("radius: a real date does exempt", "| a claim | 1234 rows | 2026-10-24 |", 0),
     ]
     fails = 0
     try:
