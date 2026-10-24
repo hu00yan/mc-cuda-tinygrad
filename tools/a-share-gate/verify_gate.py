@@ -195,7 +195,22 @@ def main() -> int:
         )
         return 1
 
-    print("gate has teeth: OK")
+    # A line that never changes is attentionally identical to no line at all. Print
+    # fingerprints that MOVE when the thing being checked moves, so "I read this" is
+    # distinguishable from "I read this last time". If both hashes match the last run,
+    # ignoring the line is justified; if either moved, it is news.
+    import hashlib
+
+    def _fp(path: Path) -> str:
+        try:
+            return hashlib.sha256(path.read_bytes()).hexdigest()[:8]
+        except OSError:
+            # Never print a plausible-looking hash for a file we could not read.
+            return "UNREADABLE"
+
+    gate_fp = _fp(GATE)
+    canary_fp = _fp(REPOSITORY_ROOT / CANARY_PATH)
+    print(f"gate has teeth: OK  (gate.sh {gate_fp} · canary {canary_fp})")
     print(f"  · 默认 fast 层不收集 canary（{CANARY_PATH}）")
     print("  · 把 canary 单独交给 gate.sh 的 run()+pytest 命令后，门禁判红")
     return 0
