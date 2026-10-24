@@ -10,8 +10,16 @@ holds "how to phrase a ratio" misleads exactly the way `caveats` did.
 > known-good input it MUST accept.** Without both, a check that always returns 0 is
 > indistinguishable from one that always passes.
 
-Implemented as `tools/test_sass_lint.py` (7 controls). Verified: reverting bug 4 makes
-3 of them fail, so they are tests, not decoration.
+Implemented as `tools/test_sass_lint.py` (7 controls). **Re-verified 2026-10-24 19:1xZ by
+reverting bug 4 (`{4,8}` → `{4}`) and running it: exactly 2 controls fail** —
+`counts instructions at 5-digit offsets` and `counts FFMA past 0xffff`. Restored
+byte-identical (sha256 `6d127285`).
+
+**This line said "3 of them fail" all day and I never re-ran it.** The claim was
+directionally right (the controls do go red) and numerically wrong, and nothing in the
+document could have told me which. **A count of a check's failures is exactly the kind of
+figure that reads as verified because it sits next to a verified claim** (@Cindy: is this
+knowledge *run* or *read*?).
 
 ## Rule 1 — never print a bare multiple
 Every ratio carries `(kernel, cc, config, compile-method)`. Three experiments were
