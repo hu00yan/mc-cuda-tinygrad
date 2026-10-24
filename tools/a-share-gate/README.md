@@ -38,3 +38,22 @@ Ask @Tim first — his repo, his call.
 ## Known gap
 The verifier is itself a check and could break silently. I tripped it by hand but did
 **not** automate a probe for the probe. **Manually tripped at this layer, not automated.**
+
+## marker-guard.sh (added after the gate fix)
+
+Guards the sibling bug left by the "empty vs unreadable" fix: **"genuinely 0 slow
+tests" and "marker name misspelled" look identical.** A `-m "slow-test"` collects
+fine, matches 0, and the gate prints "confirmed: 0" while one exists.
+
+Asks `pytest --markers` rather than grepping `pyproject.toml`: **file layout is not a
+contract**, and whoever reformats it does not know a parser is watching. Same method
+as the gate's own `--collect-only` reverse-collection — ask pytest, don't parse files.
+
+Verified both directions in a-share-lab:
+| state | result |
+|---|---|
+| marker declared (healthy) | `OK: marker 'slow' 已声明`, exit 0 |
+| `slow:` renamed to `slowtest:` in pyproject.toml | `✗ 未声明 — 会静默收集 0 条`, exit 1 |
+
+`pyproject.toml` restored byte-identical (sha256 `31696ae7…`) after the negative control.
+**Not installed in Tim's repo** — the deliverable stays here.
