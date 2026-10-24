@@ -63,8 +63,12 @@ def main(argv):
     print(f"table figures: OK ({path.name} — every measured figure carries an instant or a marker)")
     print("  NOT CHECKED: whether any figure is true, or whether the instant is the right one.")
     print("  NOT CHECKED: figures written as prose instead of in a table — they pass silently.")
-    print("  SCOPE: current-state rows only. Event records (the audit's incident column)")
-    print("         do not expire, so this check does not run on RULE-AUDIT.md.")
+    print("  SCOPE (Orion's three-way table, adopted after this check over-applied):")
+    print("    describes a CURRENT state  -> needs instant + subject   [checked here]")
+    print("    describes an EVENT record  -> needs nothing; it does not expire")
+    print("    a FORMULA that varies      -> needs its validity range, not an instant")
+    print("  Only the first row is checked. The other two are real and present in the")
+    print("  rule file, and neither is enforced here.")
     return 0
 
 
