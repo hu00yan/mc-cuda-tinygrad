@@ -54,7 +54,7 @@ stops something" is its *observation period*, not a caveat on today's label.
 
 ## Result
 
-- **P (prevented): 8** — rules 0, 4, 7, 17, 18, 19, 20, 20b, where a broken check actually stopped a wrong number
+- **P (prevented): 9** — rules 0, 4, 7, 17, 18, 19, 20, 20b, where a broken check actually stopped a wrong number
 - **R (recognised): 25** — an event happened and the rule named it afterwards
 - **N (none): 10** — real thinking, but no event corresponds to them
 
@@ -171,6 +171,7 @@ would have skipped that step.**
 | 20 counts need their instant | **A** | rule 14's 9 and 5 re-ran as 18 and 2 within an hour | **P** |
 | 20a familiar means re-run | **A** | most confident at the points I was most wrong ({4}, pipe, 0/25) | **R** |
 | 20b numbers need a subject too | **A** | 10 vs 5 in a-share-lab is 10 vs 6 here | **P** |
+| 20a-i two directions of familiar | **A** | old: {4}, pipe escape; just-written: 0/25, '3 of them fail' | **P** |
 
 ## 12a (Cindy's addition) — "I tried" must be a command and an output
 
