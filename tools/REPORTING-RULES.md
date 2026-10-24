@@ -524,7 +524,8 @@ that day was the second kind: `HMMA = 0`, `canary`, `{4}`, and "P: 2, R: 16".
 | instance | *is* | "at this path, authored by Tim, testing point-in-time leakage" |
 
 ## 16a — two different questions have no winner
-I claimed my `grep -rl` (10 files) "beat" @Orion's `git ls-files` (5) on the same pattern.
+I claimed my `grep -rl` (10 files, measured in `a-share-lab`) "beat" @Orion's `git ls-files`
+(5, same repo, same instant) on the same pattern.
 Measured, they answer **different questions**:
 
 | command | boundary | question |
@@ -535,6 +536,11 @@ Measured, they answer **different questions**:
 For "did `canary` leak into a build artifact", **the `.pyc` files are the answer, not
 noise** — and `git ls-files` structurally cannot see `.venv`. **Declaring a winner was
 itself a rule-14 error: two different signals treated as one signal done better.**
+
+**Re-run in `mc-cuda-tinygrad` (a different repo) the same pair gives 10 and 6, not 10 and
+5.** The figures belong to `a-share-lab` at that instant and that is now stated — otherwise
+a reader re-running them elsewhere concludes the rule is wrong, when it was only
+unlabelled. **Every number needs both its instant and its subject.**
 
 
 ---
