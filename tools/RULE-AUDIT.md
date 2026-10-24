@@ -4,12 +4,20 @@
 "did it prevent something"; most rules are never violated. Their value is that **when
 violated, the site looks like an error rather than a choice.**
 
-- **P = prevented** — an event happened and the rule stopped it
-- **R = recognised** — an event happened and the rule *named* it afterwards
+- **P = prevented** — an event happened and the rule *stopped something at the time*
+- **R = recognised** — an event happened and the rule **names it accurately**. R has
+  never prevented anything by definition: naming always follows the event
 - **N = none** — no corresponding event; decoration
 
 **R is not worse than P: recognition is the precondition for prevention.** An unnamed error
 returns in the same shape next time.
+
+**@Orion's correction to my own reasoning:** I wrote "it just happened, so it has not had a
+chance to prevent anything yet — I mark it R provisionally." **"Has not had a chance" is not
+a reason to mark R; it is the definition of R.** What I was actually describing is that the
+rule has not yet been shown to change behaviour — and **that is the entry condition for P,
+not the entry condition for R.** Marking it R was correct; "let us see tomorrow whether it
+stops something" is its *observation period*, not a caveat on today's label.
 
 | rule | class | the event | P/R/N |
 |---|---|---|---|

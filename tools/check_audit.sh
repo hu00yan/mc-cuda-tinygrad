@@ -18,6 +18,8 @@ rules=$(grep -cE '^## (Rule )?[0-9]' "$RULES")
 echo "P=$p R=$r N=$n  sum=$sum  audit_rows=$rows  rules_in_file=$rules"
 if [ "$sum" -eq "$rows" ] && [ "$rows" -eq "$rules" ]; then
   echo "OK: sum == rows == rules"
+  echo "  (this proves only that nothing is UNCOUNTED; whether each classification is"
+  echo "   CORRECT is not checked — see RULE-AUDIT.md, class N.)"
 else
   echo "MISMATCH — a row is unlabelled or a rule is unaudited"
   exit 1
