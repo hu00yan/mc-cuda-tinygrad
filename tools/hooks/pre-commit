@@ -1,0 +1,5 @@
+#!/bin/sh
+# Runs before every commit. check_audit.sh caught 7 unaudited rules today, every
+# time AFTER the commit already existed. An audit that runs afterwards is a
+# report, not a gate.
+exec bash tools/check_audit.sh
