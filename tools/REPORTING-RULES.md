@@ -381,3 +381,46 @@ point-in-time leak detector. `canary` is a generic testing word.
 > Before concluding a grep matched what I meant, match the **full path**, not the concept.
 
 That failure would have been a false accusation produced by a correct command.
+
+---
+
+## Rule 14 — a matched feature is not an identity; name the second candidate
+
+**Earned 2026-10-24 from three failures that @Orion grouped as "one feature satisfied by
+two things, so it stops discriminating":**
+
+| what I measured | what I concluded | the other thing it could have been |
+|---|---|---|
+| `HMMA = 0` | "this is a scalar path" | **a truncated dump** (no FP instructions at all) |
+| an `exclude` is visible in `.gitignore` | "this is excluded" | **visible ≠ read** |
+| `grep canary` → 9 hits | "my files leaked into his suite" | **his own `test_pit_leakage_canary.py`** |
+
+**The shared defect is not "features collide" — it is that I treated a feature as an
+identity.**
+
+## The check, which fits in one line
+> **Every conclusion from a grep or a count must first answer: what *else* would produce
+> this same signal?**
+
+- Answer **none** → you have not looked. Keep looking.
+- Answer **something, and did not rule it out** → **not a conclusion yet.**
+- Answer **something, and ruled it out** → now it is evidence.
+
+Applying it is cheap: for the `canary` case the answer is "someone else's test named
+canary" and it takes one `grep` on the full path. For `HMMA = 0`, the answer is "truncated
+file", which the existing integrity gate already checks.
+
+**Notice what this rule does NOT say: "be more careful."** That is not executable. The
+output required is **a specific alternative explanation**, and producing none means the
+work is unfinished.
+
+## 14a — "nothing went wrong" is not evidence that the procedure was right
+@Orion, on today's collision that did no damage: *the zero loss was not because we chose
+correctly, but because we never met the moment that would have made us regret it.*
+
+Today I wrote rules 11, 11a, 11b and 13 in the aftermath of things that **did not break**.
+Had @Orion's commit succeeded, had my canary been named differently, had @Tim run
+`git commit -a`, the same day would have produced different rules — or none.
+
+> **Rules derived from a near-miss carry the near-miss as their evidence.** Say so when
+> citing them, so a reader knows the rule has never been tested against the bad case.
