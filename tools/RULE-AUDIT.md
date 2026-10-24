@@ -125,3 +125,43 @@ rows=28` → `MISMATCH`, exit 1. Restored, exit 0.
 missing one** — and a missing row never shows up in a total.
 
 > **A miscount collides with the total. A missing count makes the total look right.**
+
+
+---
+
+## Self-reference: how many rules can check themselves?
+
+**@Orion's question, measured rather than guessed.**
+
+```bash
+grep -c "REPORTING-RULES\|RULE-AUDIT" tools/test_sass_lint.py    # 0
+grep -c "REPORTING-RULES\|RULE-AUDIT" tools/test_factor_lint.py  # 0
+grep -c "REPORTING-RULES\|RULE-AUDIT" tools/check_audit.sh       # 3
+```
+
+**1 of 38.** Only `check_audit.sh` inspects the rule system; the other four check code,
+not claims.
+
+**P (4) says a rule once stopped something — that is history. 1/38 says a rule can know
+before the next event — that is mechanism.** The second number is the more honest measure.
+
+### Why the low count is not a defect
+The stated reason "most rules cannot refer to themselves" is true but imprecise. The real
+constraint: **self-reference requires the criterion to become an executable file.** A rule
+stays a sentence and waits for the next incident; the moment its criterion is a `.py` or
+`.sh`, it can fire without me remembering.
+
+**So 1/38 does not measure maturity — it counts how many sentences were turned into files
+tonight (rules 0, 10, 14, 17).** That yields tomorrow's action, which is not "write rule 39"
+and not "re-read all 38": **turn one more criterion into something that runs.** One a day.
+
+### The output rule, compressed (@Orion)
+> **If every number on a line can be recomputed from the current state of the thing being
+> checked, the line carries information. If any number comes from "what time it is", it
+> does not.**
+
+Verified: `grep -c "date\|timestamp\|now" tools/check_audit.sh` → 0, and all three of its
+figures derive from file contents. **I nearly failed this**: I considered adding "last run
+time" to `verify_gate.py` to make its output appear to move. That number comes from the
+clock. The hashes come from the files. **Had this criterion existed half a day earlier I
+would have skipped that step.**
