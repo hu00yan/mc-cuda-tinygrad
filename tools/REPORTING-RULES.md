@@ -310,7 +310,7 @@ Then I measured, and his fix failed differently:
 
 ```
 git log -20 --format='%b' (a-share-lab)  → 0 commits with an Author: trailer
-git log -5  --format='%b' (my own)       → 0 / 25
+git log -5  --format='%b' (my own)       → 0 of 5
 ```
 
 **Both claims were wrong, in the same way:** we each treated *something agreed in
@@ -475,6 +475,12 @@ Had @Orion's commit succeeded, had my canary been named differently, had @Tim ru
 "P: 2, R: 16" when the table contained **zero P rows** — my regex never emitted one.
 
 > **A summary number with no command beside it is a claim, not a count.**
+
+**Self-correction on this very rule:** the first version of that line read `0 / 25`. That
+`25` was not the number of commits — **the repo had 7 commits at the time.** It was a
+number I produced while explaining that I produce numbers without checking. The figure is
+now `0 of 5`, which the command above reproduces; the `25` had no command behind it, which
+is precisely the failure the rule describes.
 
 Enforced: `tools/check_audit.sh` recounts P/R/N, counts rows by a **different route**
 (`^\| [0-9]`), and requires `sum == rows == rules_in_file`. **Verified it can fail** —
