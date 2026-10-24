@@ -210,3 +210,4 @@ disagreed with me.** No P rule got there by being written down well.
 **The other 35 are prose I agree with.** Not a criticism of prose — just the observation
 that a rule changes behaviour only after it has a failure mode someone can observe
 without me present.
+| 22 presence check != content check | **A** | relabelling rule 4 P→R left check_audit OK | **P** |

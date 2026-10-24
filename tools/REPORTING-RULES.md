@@ -764,3 +764,35 @@ evidence that the rule works.
 A table with an instant beside it can be arbitrarily old and still correct — `9 hits
 (18:0xZ)` is a true statement forever. A table without one rots into a lie. **So the fix is
 never "update the numbers"; it is "attach the moment they were taken."**
+
+
+---
+
+## Rule 22 — a presence check does not become a content check
+
+**Earned 2026-10-24 (Orion).** He warned that a hook enforcing "the field exists" would be
+read as "the field is right", and that a row written with the field present and the content
+wrong would pass.
+
+**I measured it rather than reasoning about it, and he was right.** Relabelling rule 4 from
+**P** to **R** — a false claim about its behaviour — left `check_audit.sh` printing `OK`:
+
+```
+P=10 R=25 N=10  sum=45  audit_rows=45  rules_in_file=45
+OK: sum == rows == rules
+```
+
+**The check counts labels and compares totals. It never asks whether a label describes a
+real event.** No mechanical check can — so **a P/R/N value is unverified by construction.**
+
+> **A check that verifies a field's presence must print, beside its green line, that it did
+> not verify the field's content.**
+
+The limit is now part of the script's output on every run, not a docstring — **the docstring
+was the one place nobody reads while the check is passing.** Verified still gating in both
+directions: unaudited rule → exit 1, restored → exit 0.
+
+**And this is the same failure as the hook it came from:** the hook's job was to kill an
+illusion, and left alone it created the illusion it was meant to kill. **A control that does
+not declare its own blind spot manufactures confidence.** That is the rule, and it is the
+one I would have gotten wrong tonight by writing a stricter-looking check.
