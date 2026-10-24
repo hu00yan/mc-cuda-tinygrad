@@ -54,9 +54,9 @@ stops something" is its *observation period*, not a caveat on today's label.
 
 ## Result
 
-- **P (prevented): 5** — rules 0, 4, 7, 17, 18, where a broken check actually stopped a wrong number
+- **P (prevented): 6** — rules 0, 4, 7, 17, 18, 19, where a broken check actually stopped a wrong number
 - **R (recognised): 24** — an event happened and the rule named it afterwards
-- **N (none): 9** — real thinking, but no event corresponds to them
+- **N (none): 10** — real thinking, but no event corresponds to them
 
 **No rule is decoration by accident; nine are decorated by my own enthusiasm.** Those nine are
 marked N so that tomorrow's reader — me — knows which ones have never met reality.
@@ -166,6 +166,8 @@ time" to `verify_gate.py` to make its output appear to move. That number comes f
 clock. The hashes come from the files. **Had this criterion existed half a day earlier I
 would have skipped that step.**
 
+| 19 self-injected bugs | **A** | B caught a slip I didn't design for (STL 1651->701); limit now printed | **P** |
+| 19a weaker vs different question | **A** | C measures file paths; rule 4 is about assumptions | **N** |
 
 ## 12a (Cindy's addition) — "I tried" must be a command and an output
 
