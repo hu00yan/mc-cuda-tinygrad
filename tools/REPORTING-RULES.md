@@ -69,21 +69,25 @@ These emerged from a *different* repo's investigation. Recorded here because the
 generalise, and because memory gets compressed while a file does not. Each is hung on
 the specific mistake of the day, not on a tidy summary.
 
-**Rule 0 — a container whose name honestly declares its own mixed content is not a
+**Numbered `T0`–`T3`, not `0`–`3`.** The main rules already use 0–18; two numbering
+systems inside one file made "Rule 0" ambiguous, and a citation to "Rule 0" no longer
+says which document is meant.
+
+**T0 — a container whose name honestly declares its own mixed content is not a
 defect.** `price_and_other_residual`, `misc`, `other` already tell the reader they hold
 many things; no misreading occurs. Split only containers whose name promises one thing
-while holding several. *Without Rule 0 the next three degenerate into "tear apart every
+while holding several. *Without T0 the next three degenerate into "tear apart every
 composite structure" — which is tempting because dismantling looks like improvement.*
 
-**Rule 1 — method diversity.** Magnitude, distribution, naming, and decomposition are
+**T1 — method diversity.** Magnitude, distribution, naming, and decomposition are
 different instruments. On the A-share line the three of us each reached a wrong
 mechanism and each was killed by a different instrument than the one that produced it.
 A single method would have stopped at the first plausible answer.
 
-**Rule 2 — a rebuttal must carry something verifiable.** Number, not feeling. Ten
+**T2 — a rebuttal must carry something verifiable.** Number, not feeling. Ten
 invented mechanisms today, eight killed externally, and every kill carried data.
 
-**Rule 3 — concede immediately, and the precondition is evidence, whoever the opponent
+**T3 — concede immediately, and the precondition is evidence, whoever the opponent
 is.** Including yourself: self-correction without evidence is just two evidence-free
 parties (me and yesterday's me) refereeing each other. Tim's counterexample: he
 retracted "I can't reach writee.org" instantly and with no evidence — that was luck,
