@@ -218,3 +218,46 @@ Self-check is not *"did I write a WHY?"* but:
 The third kind leaves no trace in any result, so it must be written at the time or lost.
 That is why the `.agent-scratch/` deletion needed its authorisation recorded — the
 verification (@Orion checked no-source / no-git / zero-refs) is invisible in the outcome.
+
+
+---
+
+# Rule 10 — a check that cannot go red is not a check
+
+**Earned** building `a-share-lab/scripts/verify_gate.py` after @Tim worried his own
+`-m "not slow"` might silently drop tests.
+
+*"A permanently-red gate equals no gate"* is the safe half. The dangerous half is the
+converse: **a canary that never goes red is indistinguishable from a gate that has
+none — both print OK.**
+
+Three one-character mutations leave a gate green forever, output shape unchanged:
+`-m "not slow"` → `-m "slow"`; `if ! "$@"` → `if "$@"`; the pytest line → `true`.
+
+## The method that works
+Do **not** write a copy of the gate command — **extract it from the real script**, then
+point it at a canary that always fails. A copy tests your restatement; extraction tests
+the gate's actual body, so "`run()` swallows failures" is caught too.
+
+| break | expected | measured |
+|---|---|---|
+| `if ! "$@"` → `if true` | red | exit 1, `GATE_WOULD_FAIL` |
+| `collect_ignore = []` | error | exit 1, names the conftest |
+| nothing | green | exit 0 |
+
+## 10a — "I read it and didn't trip" is not "it is untested"
+I read a `collect_ignore`, found it unremarkable, wrote *"so it hasn't been verified,
+only read"* — then broke it and it went red. It had been guarded all along, and the
+docstring **said so in words I had just read**. I turned a reading into a "gap" claim
+*after* seeing the evidence. **The trip is the test.**
+
+## 10b — where the recursion stops
+A verifier is itself a check, so it too can be silently broken. I broke it by hand but
+did not automate a probe for the probe: infinite regress is not the goal. The honest
+label is **"manually tripped at this layer, not automated"** — name which, every time.
+
+## 10c — measure the exit code, not the pipe's tail
+`cmd | tail; echo $?` reports **`tail`'s** status, not `cmd`'s. I did exactly this and
+read "OK" off a broken gate. The same shape as the `{4}` regex that dropped 77% of
+instructions: **I measured the end of the pipe instead of the thing I meant to measure.**
+Capture the code directly (`> log; echo $?`) or use `subprocess.run(...).returncode`.
