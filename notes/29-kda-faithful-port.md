@@ -4,6 +4,19 @@ kind: reference
 
 # 29 — Where TinyGrad's abstraction ends on the KDA kernel, measured
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 **The question this note answers.** A hand-written kernel that beats a DSL is
 usually explained one of two ways: the compiler failed to find something a cost
 model could find (a *scheduling* problem), or the optimisation lives below the

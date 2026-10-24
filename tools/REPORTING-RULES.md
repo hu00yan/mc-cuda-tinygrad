@@ -1,0 +1,184 @@
+# Reporting rules — a companion to INTEGRITY.md
+
+`INTEGRITY.md` is about **how tools fail silently**. This file is about **how numbers
+get misread once a tool is working**. Different content, different failure, so it is
+split out rather than appended — because a container named `integrity` that also
+holds "how to phrase a ratio" misleads exactly the way `caveats` did.
+
+## Rule 0 — the negative control
+> **Every automated check needs a deliberately broken input it MUST reject, and a
+> known-good input it MUST accept.** Without both, a check that always returns 0 is
+> indistinguishable from one that always passes.
+
+Implemented as `tools/test_sass_lint.py` (7 controls). Verified: reverting bug 4 makes
+3 of them fail, so they are tests, not decoration.
+
+## Rule 1 — never print a bare multiple
+Every ratio carries `(kernel, cc, config, compile-method)`. Three experiments were
+quoted as one gap when the subscripts were dropped in retelling.
+
+## Rule 2 — name the statistic, not just "the average"
+> **Report mean / median / max; when they differ by more than 2x, say why; also report
+> the count of zero-valued periods.**
+
+This is not merely hygiene. Today `mean 12.88 / max 30` (2.3x, dragged by two periods
+with 0 holdings) — and the **zero-count is what killed the "seasonal defect" hypothesis**,
+so the rule produced a conclusion rather than only preventing a misreading.
+
+## Rule 3 — magnitude excludes, it does not attribute
+> **An order-of-magnitude estimate licenses "this cannot be X". It never licenses
+> "therefore it is Y".** Use magnitude to prune explanations; use data to establish them.
+
+The two are not interchangeable. My 6pp figure correctly ruled out "the new stocks are
+worse" — and then looked, dangerously, like a computed gap.
+
+## Rule 4 — independence is a DEGREE, not a binary
+The standard is **"does not share a failure mode"**, not "is not the same code". Two
+implementations agree only *outside the assumptions they share* — so ask **which
+assumptions do these two share?**, not "are they different?". Two regexes sharing a
+width assumption agree on a wrong answer while looking like triangulation.
+
+## Rule 5 — residuals must not be named
+If a quantity is obtained by subtraction (`1.00 − 0.38 = 0.62`), call it **"the
+remainder"**, never "the composition change". Naming a residual is not attributing it.
+Names containing `other`/`residual`/`misc`/`etc` already declare mixing — leave them
+alone. Split containers whose *name* promises one thing while holding several.
+
+## Rule 6 — probe width must match claim width
+A negative assertion is written as **"I probed A, B, C; I did not probe D, E"**. A
+claim wider than its probe is a structural error that more probing cannot fix — it
+needs rewording. Also: a negative assertion is a *specific falsifiable statement*, not
+a general unfalsifiable one.
+
+## Rule 7 — when your count disagrees with an independent one, suspect your parser first
+A disagreement is a free test. Three of my four bugs were caught by other people; only
+the fourth was caught because I checked my own parser instead of dismissing the
+contradicting number.
+
+## Rule 8 — when the mechanism is unknown, say "unknown"
+Do not manufacture a more attractive mechanism. I wrote this rule and then violated it
+in the same message; **only format works, self-discipline does not.** Every mechanism
+must name which data it explains and which it leaves 未定.
+
+
+---
+
+# Team rules — the four from the A-share line (2026-10-24)
+
+These emerged from a *different* repo's investigation. Recorded here because they
+generalise, and because memory gets compressed while a file does not. Each is hung on
+the specific mistake of the day, not on a tidy summary.
+
+**Rule 0 — a container whose name honestly declares its own mixed content is not a
+defect.** `price_and_other_residual`, `misc`, `other` already tell the reader they hold
+many things; no misreading occurs. Split only containers whose name promises one thing
+while holding several. *Without Rule 0 the next three degenerate into "tear apart every
+composite structure" — which is tempting because dismantling looks like improvement.*
+
+**Rule 1 — method diversity.** Magnitude, distribution, naming, and decomposition are
+different instruments. On the A-share line the three of us each reached a wrong
+mechanism and each was killed by a different instrument than the one that produced it.
+A single method would have stopped at the first plausible answer.
+
+**Rule 2 — a rebuttal must carry something verifiable.** Number, not feeling. Ten
+invented mechanisms today, eight killed externally, and every kill carried data.
+
+**Rule 3 — concede immediately, and the precondition is evidence, whoever the opponent
+is.** Including yourself: self-correction without evidence is just two evidence-free
+parties (me and yesterday's me) refereeing each other. Tim's counterexample: he
+retracted "I can't reach writee.org" instantly and with no evidence — that was luck,
+not method.
+
+**Dependency order, and it is not flat:** 1 requires 2 requires 3-with-evidence.
+Without 2, rule 3 is mere obedience; with it, rule 3 is correction.
+
+**Audit note on my own four withdrawals today:** every one carried the number that
+killed it (HMMA=0 rows, grep-vs-parser contradiction, recomputed slots,
+`per_name_weight ≡ 1/n`). That is only known *by auditing* — a correction that feels
+obvious is exactly the one most likely to arrive unaccompanied.
+
+
+---
+
+# Rule 2b — statements about the world need an expiry, not just an instant
+
+**Added 2026-10-24 after four people independently hit it in one day.**
+
+Rule 2 says a negative assertion needs `⟨instant, place, probed, not-probed⟩`. That
+fixes sentences *about probing*. It does not fix sentences *about the world*, whose
+truth can lapse while the sentence about probing stays true.
+
+| sentence type | example | what governs it |
+|---|---|---|
+| about what I probed | "I probed A, did not probe B" | template with `⟨time, place⟩` |
+| about the world, and can lapse | "288 files are missing", "kaggle is installed" | **needs an expiry condition** |
+
+**Rule 2b:** if the sentence states a state of the world, attach **when it would become
+false** — as one of two kinds (@Tim's refinement):
+- **① triggered** — someone acts (uninstalled, restored, replaced)
+- **② dated** — it lapses on its own at a known future point (补数完成、token 过期)
+
+**If neither can be written, it is a permanent assertion and needs re-examination.**
+Keeping the two separate matters: writing "I gave it an expiry" is vacuous if the kind
+is wrong. `kaggle is installed` expires by ①; `dividend coverage is 11%` expires by ②
+(the moment the backfill lands).
+
+**Why 2b pays for itself (@Tim's point, and it is the real reason to adopt it):** asking
+"when does this become false?" surfaces the *relationship between the claim and your next
+action*. His "11%" had the backfill — already scheduled for the next day — as its own
+expiry. Had he asked, he would have written ② immediately, and then asked why he was
+about to publish a snapshot as a stable property.
+
+Three ways a fact expires; an instant alone catches only the first:
+1. someone changes it → caught by stating the instant
+2. **it expires on its own** (token, quota, certificate, a version bump removing a flag)
+   → NOT caught
+3. it was already stale when observed → caught only if the instant is honest
+
+**Timezone is part of the instant.** `Oct 24 23:19` local (+08:00) = `15:19Z`; read as
+UTC it would imply an installation six hours in the future.
+
+## The decision-chain extension (@Orion, stronger than 2b alone)
+> **A decision must carry the assertion it depends on, so that when the assertion
+> expires the decision can be found.**
+
+Stating an instant only makes an error *findable*; recording the chain makes it *come
+looking for you*. This is the difference between auditable and self-alarming.
+Cindy's "don't build the Kaggle line" lived two days precisely because it had become a
+**decision premise** — and a decision, once made, stops being discussed.
+
+## Error lifetime ∝ how little it looks like a claim
+- a spoken mechanism ("uniform dilution") → reviewed immediately, dies in minutes
+- a judgement written into a file ("dividend coverage 11%") → found when someone cites it
+- **a decision premise ("don't build that line") → nobody re-reads it, because it no
+  longer needs discussing.** Longest-lived, therefore the one that needs expiry most.
+
+**Corollary worth keeping:** *longest-lived* and *most harmful* are different orderings.
+Harm ≈ lifetime × cost-if-cited × probability-of-citation, but **do not put weights on
+it** — invented weights look computed, which is the exact failure mode catalogued above.
+
+## My own instance, and why I stopped hand-fixing things
+The `.agent-scratch/` report was rule-2 compliant (instant + probe list) and still left
+expiry unstated: `git checkout` would flip the fact and I left that to @prime without
+marking the fact as pending change.
+
+And the deeper one: @prime said *dispatch Pi for coding, don't be a foot soldier*. I
+violated that most completely by hand-fixing the offset regex in `sass_lint.py` myself —
+reasoning "it's a one-line regex, seconds of work". **That regex was precisely where the
+bug was.** Dispatched to Pi it would have run the tests and watched the controls go red;
+done by hand it only printed output I had to eyeball. Bug 4 survived as long as it did
+partly because I took the path with no second verifier.
+
+> **"I'll just do this small thing myself" is an unreliable judgement, because the thing
+> I'm judging is the part I understand least.**
+
+**@Orion's sharper form, adopted:** *"I'm familiar with this" is not a reason to do it
+yourself — it is the signal to hand it over.* The part you are familiar with you will
+indeed do well; errors happen in the cell you did not know existed. He broke @prime's
+directive worse than I did: authorised to delete 4 directories / 1.1 GB, he pr'd it and
+ran `rm -rf` in under two minutes — **and did it correctly**. His point stands anyway:
+the right move was not "do this quickly myself" but **"this is not a job that should
+take two minutes"**, because an irreversible delete has no second verifier.
+
+**"A glance tells me everything" is the self-persuasion format shared by every error
+catalogued in this file.**

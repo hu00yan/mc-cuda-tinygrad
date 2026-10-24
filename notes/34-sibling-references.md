@@ -4,6 +4,19 @@ kind: reference
 
 # 34 — Sibling references: what else runs on the T4, and what it would cost to substitute
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 **The question.** The KDA arm of this study is a comparison against hand-written
 code, and its reference is `fla`. On a Tesla T4 `fla` does not refuse — it
 **degrades**: `kda/baseline_pin.py` pins twelve narrowing sites and they all

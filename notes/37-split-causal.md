@@ -4,6 +4,19 @@ kind: reference
 
 # 37 — Is `SPLIT = 256` the mechanism behind TinyGrad's 25.96× scan gap?
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 `notes/33-tinygrad-axis.md` reports a **25.96×** gap on its `scan` rung, the
 worst of seven rungs whose others sit between 0.96× and 2.97×, and attributes it
 to `Tensor.cumsum` being a hand-placed two-stage windowed re-summation whose

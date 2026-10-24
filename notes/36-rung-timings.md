@@ -4,6 +4,19 @@ kind: reference
 
 # 36 — the five rungs, all timed: where the wall clock leaves the instruction count
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 **The gap this fills.** `notes/23` built a five-rung ablation ladder in
 `minecu_tg_opt/` — `naive`, `int_cursor`, `flat_gather`, `incremental`, `lean`,
 each rung the one above plus exactly one algorithmic rewrite — and priced the

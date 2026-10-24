@@ -4,6 +4,19 @@ kind: reference
 
 # 25 — What the real KDA kernel actually does to the UT transform
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 **The problem this note closes.** A previous audit found that this repo's
 spec and its TinyGrad port disagree about how the UT transform is performed,
 and did not say which is right. This note settles it from the source.

@@ -4,6 +4,19 @@ kind: reference
 
 # 24 — The UT transform: what the kernel does, what the naive port did, and what blocking it is worth
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 **The claim under test.** `kda/tiny_kda.py:178-194` solves the UT transform with
 `C x (C-1) = 4032` sequentially dependent TinyGrad ops, one scalar per
 `(batch, chunk, head)`, and its comment says that unrolled forward substitution

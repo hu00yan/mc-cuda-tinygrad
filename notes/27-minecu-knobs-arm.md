@@ -4,6 +4,19 @@ kind: reference
 
 # 27 — arm B: the same DDA, plus the knobs TinyGrad actually exposes
 
+> **⚠️ CITATION STATUS — read before following any path below.**
+> The `.agent-scratch/` tree referenced in this note was **deleted from disk**
+> (288 files, entire directory). Every `.agent-scratch/...` path in this file is
+> currently broken. The content is **recoverable** — it is all in commit
+> `9e6767f` — so restore with:
+> ```
+> git checkout 9e6767f -- .agent-scratch/
+> ```
+> Until that is run, treat the paths below as *pointers to committed history*,
+> not as live files. The measured values quoted in this note are unaffected;
+> only their on-disk evidence is missing.
+
+
 `MEASURED`. The codegen census and the SASS counts are from this host with an
 `sm_75` target and nothing executed; the timings are from one Tesla T4, one
 session, 56 timed configurations. Every number below is measured here, modelled
