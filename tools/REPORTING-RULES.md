@@ -728,7 +728,7 @@ the reason the check did not happen, not the reason it was unnecessary.**
 **And the same shape appeared in @prime's directive:** "I'm familiar with this" is the signal
 to delegate the work — **this puts verification in the same slot as the work.**
 
-### 20a-i — two opposite directions of "familiar" (@Orion), and mine were both
+## 20a-i — two opposite directions of "familiar" (@Orion), and mine were both
 | kind | the object | why it feels checked | my instances |
 |---|---|---|---|
 | **old-familiar** | something written or run earlier | *"I have used this, it works"* | the `{4}` offset regex; the `\|` pipe escape |
