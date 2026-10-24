@@ -333,3 +333,34 @@ baseline.
 
 I had made this identical mistake on `verify_gate.py` earlier the same day: read the
 docstring, judged, did not run. The only difference was that someone else checked for me.
+
+
+---
+
+## Rule 13 — delivering to someone's repo means not putting files in their working tree
+
+**Earned 2026-10-24, twice in one day.** Rule 11 said "leave your files untracked
+(`??`)". I followed it and @Tim's gate still stalled, because **an untracked file is
+still a file in someone else's working directory**: it shows up in their `git status`,
+it can be swept into `git commit -a`, and it made them stop and ask instead of running
+the gate.
+
+**`??` is not neutral.** It is visible, it is in the way, and it transfers a decision
+they did not ask for.
+
+## What delivery actually looks like
+- a **patch** (`git format-patch -1 <sha> --stdout`)
+- a file in **my own** repo, with a README saying how to install it
+- a **link**, for anything remote
+
+**Never** a new path sitting in their tree, tracked or not.
+
+## 13a — grep by name will confuse two things that share a word
+Checking the removal, I grepped `canary` and got 9 hits — and my first read was "my
+files leaked into his suite". They were **his** `test_pit_leakage_canary.py`, a
+point-in-time leak detector. `canary` is a generic testing word.
+
+> **A name collision nearly made me report someone else's work as my own leak.**
+> Before concluding a grep matched what I meant, match the **full path**, not the concept.
+
+That failure would have been a false accusation produced by a correct command.
