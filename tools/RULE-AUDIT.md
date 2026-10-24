@@ -63,3 +63,47 @@ one row (10c) had no label at all because an escaped pipe `\|` broke the pattern
 
 > **The audit needed auditing.** Which is precisely rule 14 — I wrote a summary *about* the
 > table without asking what else would produce that summary.
+
+
+---
+
+## The blind spot in this whole method (@Orion, adopted)
+
+**`uniq -c` catches a name I do not recognise. It cannot catch a name I recognise and
+recognise wrongly** — and every one of today's errors was the second kind: `HMMA = 0` I
+recognised, `canary` I recognised, `{4}` I recognised, and in this very file I wrote
+"P: 2, R: 16" from numbers I thought I knew.
+
+> **A check that prints candidates catches surprises, not habits. A familiar name must
+> either be supported by an instance or be treated as unfamiliar.**
+
+**"Explainable" and "evidenced" are different:** *"it is another of Tim's canary tests"* is an
+explanation (grammar: *seems like*); *"it is at this path, authored by Tim, and it tests
+point-in-time leakage"* is an instance (grammar: *is*).
+
+## And the 10-vs-5 "win" was not a win
+The two commands measure **different questions**, not one question better:
+
+| command | boundary | question |
+|---|---|---|
+| `grep -rl` (10) | **disk** | did the string leak into any artifact? |
+| `git ls-files` (5) | **git ownership** | is this file mine to account for? |
+
+For "did `canary` leak into a build artifact", **my 10 is correct and the `.pyc` files are
+the answer, not noise.** Stating a winner was itself an error of the rule-14 kind: two
+different signals, treated as one.
+
+## Rule: no summary number without a command beside it
+> **A summary figure with no re-runnable command is a claim, not a count.**
+
+`tools/check_audit.sh` enforces this for the audit: it recounts P/R/N, counts rows by a
+**different route** (`^\| [0-9]`), and requires `sum == rows == rules_in_file`.
+
+**Verified it can fail:** removing one row's label gives `P=2 R=16 N=9, sum=27,
+rows=28` → `MISMATCH`, exit 1. Restored, exit 0.
+
+## Why undercounting is worse than miscounting
+@Orion: a format error that eats a row does not produce **a wrong number, it produces a
+missing one** — and a missing row never shows up in a total.
+
+> **A miscount collides with the total. A missing count makes the total look right.**
