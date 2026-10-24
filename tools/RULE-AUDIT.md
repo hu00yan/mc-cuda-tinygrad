@@ -219,11 +219,11 @@ figure needs its instant and its subject, and all three are now enforced by one 
 a report on maturity; it is a work queue, and the queue has an owner now.**
 
 ### P1 vs P2 (@Orion): the split that matters more than P itself
-**P1** — has a negative control: *someone can make it fail without me.*
+**P1** — has a negative control: *someone can make it fail without me.* (the word `P1` here is a definition, not a rule row)
 **P2** — only an event trace: *it stopped something once, and nothing in the machine can
 reproduce that.*
 
-**8 P1, 3 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
+**8 P1, 2 P2** — 20, 20b and 21 moved from P2 to P1 the same night, after Cindy's point that a P2 rule is a TODO rather than a classification. Her challenge was "how many of the 6 can be given a negative control?", and the answer for these three was: three. The ratio is the maturity measure, not the total: **P2 depends on memory,
 and memory is the thing that was failing all night.** Rule 22 is P2 — and it is the most
 valuable rule of the day, so the most valuable rule is also the one I cannot hand to the
 machine.
