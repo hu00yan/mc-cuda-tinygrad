@@ -727,3 +727,17 @@ the reason the check did not happen, not the reason it was unnecessary.**
 
 **And the same shape appeared in @prime's directive:** "I'm familiar with this" is the signal
 to delegate the work — **this puts verification in the same slot as the work.**
+
+### 20a-i — two opposite directions of "familiar" (@Orion), and mine were both
+| kind | the object | why it feels checked | my instances |
+|---|---|---|---|
+| **old-familiar** | something written or run earlier | *"I have used this, it works"* | the `{4}` offset regex; the `\|` pipe escape |
+| **just-written-familiar** | something I wrote minutes ago | *"I just had it in my hands"* — **dressed as "I just checked it"** | `0/25`; "3 of them fail" |
+
+**The time directions are opposite and the failure is identical: neither state involves a
+run.** The second is worse because the recency *feels* like verification — a thing written
+five minutes ago occupies the same slot in memory as a thing verified five minutes ago.
+
+**So the trigger cannot be "check the old things".** It has to be: **the act of writing is the
+moment the item becomes unchecked**, because writing consumes the same familiarity that
+checking would have produced.
