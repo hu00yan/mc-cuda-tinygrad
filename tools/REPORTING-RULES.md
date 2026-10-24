@@ -548,3 +548,22 @@ from **one source**, not two places that must agree by memory.
 
 **A fix that removes one "cannot distinguish" leaves the next one visible only if you ask
 what the fixed branch can no longer tell apart.**
+
+### 17b — ask the tool, do not parse the file
+The obvious way to unify the two marker sources is to grep `pyproject.toml`:
+`MARKER=$(grep -oP '^\s*"slow' pyproject.toml | ...)`. **Refuse it.** That couples to
+file layout — quotes, indentation, line position — and **layout is not a contract; whoever
+reformats the file does not know a parser is watching.** This is the same defect as the
+`{4}` offset regex and the `.pyc` exclusion list: a parse of someone else's *formatting*.
+
+`pytest --markers` is a public output. Ask it:
+
+```bash
+printf '%s\n' "$markers" | grep -qE "^@pytest\.mark\.${MARKER}:" \
+  || { echo "marker '${MARKER}' undeclared — -m would silently collect 0"; fail=1; }
+```
+**Verified both ways** (`tools/a-share-gate/marker-guard.sh`): declared → exit 0; renaming
+`slow:` → `slowtest:` in `pyproject.toml` → exit 1 naming the consequence.
+`pyproject.toml` restored byte-identical afterwards.
+
+> **Ask the authority whether a name exists; never re-derive it from a file's appearance.**
