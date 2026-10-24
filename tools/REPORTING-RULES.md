@@ -182,3 +182,39 @@ take two minutes"**, because an irreversible delete has no second verifier.
 
 **"A glance tells me everything" is the self-persuasion format shared by every error
 catalogued in this file.**
+
+
+---
+
+# Rule 9 — commit the output, or it never existed
+
+**Added after auditing this repo 2026-10-24 and finding the whole day's work untracked.**
+
+Everything produced that day — 7 fail-able negative controls, two independent SASS
+implementations, 9 reporting rules — sat outside version control. One `git clean -fdx`
+from gone. And worse: `README.md` claimed factor_lint's controls "correctly stay
+silent" on the strength of **one manual check, never automated** — the same shape as
+the four silent failures `INTEGRITY.md` documents: *a claim that looked verified*.
+
+> **A correct method whose output vanishes fails exactly like a wrong method — silently.
+> The only difference is that nothing is wrong until it is gone.**
+
+## Rule 9a — the commit message carries the WHY, not an inventory
+My first commit was a file list ("Six tools and docs that were untracked...").
+Format correct, WHAT complete, **WHY absent** — Tim's counterexample, committed by me
+minutes after he described it.
+
+Self-check is not *"did I write a WHY?"* but:
+> **Six months from now, someone runs `git log` and reads this line — can they tell why
+> this had to exist?**
+
+## Rule 9b — why some rationale is never recoverable from results
+| kind of rationale | what happens if unrecorded |
+|---|---|
+| efficiency ("this is 3x faster") | **recoverable** — the result shows it |
+| correctness ("this prevents X") | **partly recoverable** — X recurs and you rediscover it |
+| **provenance / authorisation ("@prime said delete, verified no source")** | **never** — nothing in the output encodes who allowed it or what was checked |
+
+The third kind leaves no trace in any result, so it must be written at the time or lost.
+That is why the `.agent-scratch/` deletion needed its authorisation recorded — the
+verification (@Orion checked no-source / no-git / zero-refs) is invisible in the outcome.
