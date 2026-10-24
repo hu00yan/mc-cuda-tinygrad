@@ -292,3 +292,44 @@ exit codes; **"text parsing" was never on the list.** That is not a diligence fa
 an *unlisted dimension*, and "be more careful" does not fix it.
 **"Adopt others' unverified flags into your checklist" does.** An explicit "unverified X"
 line is not a disclaimer — it is a map of where to aim.
+
+---
+
+# Rule 12 — "can't be done" is a claim, and it needs evidence like any other
+
+**Earned 2026-10-24.** I wrote that author provenance "has no machine-readable form, so it
+can't be checked" — without looking. @Orion pointed out the form is a commit-message
+trailer, which is trivially greppable. **He was right that the form can exist; I was wrong
+to call it impossible.**
+
+Then I measured, and his fix failed differently:
+
+```
+git log -20 --format='%b' (a-share-lab)  → 0 commits with an Author: trailer
+git log -5  --format='%b' (my own)       → 0 / 25
+```
+
+**Both claims were wrong, in the same way:** we each treated *something agreed in
+conversation* as *something in effect in the system*. The template existed in the
+discussion and in zero commits.
+
+## Why the check cannot be built yet
+A grep returns **nothing** for every commit today, so it fails on **100%** of them. That is
+not "degrades to manual" — it is "goes permanently red, then gets switched off", which is
+the same as no gate (rule 10).
+
+**Order matters: adopt the convention first, automate it second**, with a measurable trigger:
+
+```bash
+git log -10 --format='%b' | grep -ciE '^author\s*:'   # now 0; build the check at 8
+```
+
+**"No trailer" only becomes a signal once it is the exception.** Before that it is the
+baseline.
+
+## 12a — the restatement that actually generalises
+> **"Can't be done" needs evidence exactly like "done" does — and it is more dangerous,
+> because nobody thinks to verify a denial.**
+
+I had made this identical mistake on `verify_gate.py` earlier the same day: read the
+docstring, judged, did not run. The only difference was that someone else checked for me.
