@@ -826,3 +826,31 @@ learned which *class of action* can be tested.
 **And it answers my earlier claim honestly:** "I can't think of an input" was never the
 problem. **The problem was that I was looking for an input instead of for the class of
 action the input belongs to.** Rule 12a again, one level up.
+
+
+---
+
+## Rule 24 — a queue that looks empty is not looked at, and neither is one that looks full
+
+**Earned 2026-10-24, from my own false "0 P2".** I reported the P2 queue as cleared. Rule 7
+was still in it. **The count was wrong, and so was the conclusion built on it** — and the
+reason it survived long enough to be sent was that "cleared" reads as *nothing left to do*.
+
+> **An empty queue stops being looked at. A full one does too — "already stocked" is also a
+> reason not to look.**
+
+Tonight's 25 R and 10 N rules are that full queue, and **10 of them have no corresponding
+event at all.** Their presence makes the system look like it has inventory.
+
+**The only thing that treats both failures:** the queue reports its own composition on every
+run. `check_audit.sh` now prints, derived from the same variables as the gate so they cannot
+drift:
+```
+composition: 12 of 47 rules have ever stopped anything; 25 are recognised; 10 have none.
+```
+**Verified it cannot drift:** relabelling one rule moved both lines together and the gate
+caught `sum=48` against `rows=47`.
+
+**Rule 18a again, in its general form:** *a correct output that never changes is
+attentionally equal to no output* — and **the version that reports only "nothing is
+missing" without saying what is present is the one that stops being read.**
