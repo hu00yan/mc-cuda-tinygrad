@@ -43,7 +43,7 @@ stops something" is its *observation period*, not a caveat on today's label.
 | 11 files stay untracked| A | staged then failed commit left the index dirty | **R** |
 | 11a failure mode not label| A | parser raises (not guesses) — opposite of the guess | **R** |
 | 11b checklist from blanks| B | real but from one conversation, no measurement | **N** |
-| 12 "can't be done" needs evidence| A | 0/25 commits had the trailer I claimed existed | **R** |
+| 12 "can't be done" needs evidence| A | 0 of 5 commits had the trailer I claimed existed | **R** |
 | 12a restatement| A | same event; also `verify_gate.py` earlier that day | **R** |
 | 13 delivery is a position| A | my files in Tim's tree stalled his gate run | **R** |
 | 13a grep by name| A | 9 hits were his `test_pit_leakage_canary.py` | **R** |
@@ -165,3 +165,22 @@ figures derive from file contents. **I nearly failed this**: I considered adding
 time" to `verify_gate.py` to make its output appear to move. That number comes from the
 clock. The hashes come from the files. **Had this criterion existed half a day earlier I
 would have skipped that step.**
+
+
+## 12a (Cindy's addition) — "I tried" must be a command and an output
+
+> **Writing "what I tried" must be a reproducible command plus one actual output.
+> "I analysed it" is not trying; "I ran X, output Y" is.**
+
+**Why it matters:** the rule's failure mode is not "nobody writes it" — it is **"someone
+writes reasoning, and reasoning written well looks like a verified conclusion."**
+Cindy's own instance: she decided a vectorised change "obviously correct" and pushed to
+Kaggle three times without a single local run; 3,947 of 5,000 random boards were wrong.
+
+**Fabricated evidence is harder to catch than missing evidence.** Missing evidence is a
+hole; fabricated evidence is a filled hole that is wrong.
+
+### Applying her standard broke my own rule 12
+Rule 12 cited **`0 / 25`** commits with a trailer. The repo had **7** commits at the time.
+The 25 had no command behind it — **a number produced while explaining that I produce
+numbers without checking.** Corrected to `0 of 5`, which the adjacent command reproduces.
