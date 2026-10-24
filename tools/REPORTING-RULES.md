@@ -261,3 +261,34 @@ label is **"manually tripped at this layer, not automated"** — name which, eve
 read "OK" off a broken gate. The same shape as the `{4}` regex that dropped 77% of
 instructions: **I measured the end of the pipe instead of the thing I meant to measure.**
 Capture the code directly (`> log; echo $?`) or use `subprocess.run(...).returncode`.
+
+
+---
+
+# Rule 11 — in someone else's repo, leave your files untracked
+
+`git add` followed by a **failed** `commit` leaves the index staged. The person who did
+it believes *"I didn't commit, so nothing changed."* But `git status` shows `A`, and
+**anyone else's `git commit -a` sweeps those files into their commit.**
+
+The state is invisible to whoever caused it, and visible only to whoever it happens to.
+
+**Rule:** hand files over as `??`. The index belongs to the repo's owner.
+
+Three of us edited one repo today and nothing was lost — because one commit happened to
+fail. **The absence of a collision was not evidence of coordination.**
+
+## 11a — an unverified item needs its failure mode, not just the label
+"未复核 this parser's boundary" is honest but unactionable: a reader cannot tell whether
+to panic. The next line must be **"if this is wrong, it breaks *like this*"**.
+
+When tripped, the answer was the opposite of the obvious guess — the parser *raises* on
+structural change rather than guessing a partial command. Labelled risk ("may parse
+wrong") and actual risk ("refuses to parse") need different remedies.
+
+## 11b — a checklist expands from other people's marked blanks
+My checks are the ones I thought to list. I dispatched the implementation and verified
+exit codes; **"text parsing" was never on the list.** That is not a diligence failure but
+an *unlisted dimension*, and "be more careful" does not fix it.
+**"Adopt others' unverified flags into your checklist" does.** An explicit "unverified X"
+line is not a disclaimer — it is a map of where to aim.
