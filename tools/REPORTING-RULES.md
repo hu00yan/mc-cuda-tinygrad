@@ -421,17 +421,32 @@ something I did not think of* — the exact gap this rule exists to close. So th
 two commands, and the alternatives are **printed, not recalled**:
 
 ```bash
-grep -rn  "PATTERN" PATH | wc -l                                  # how many
-grep -rln "PATTERN" PATH | grep -v '\.pyc' \
-    | xargs -n1 basename | sort | uniq -c                          # which files
+{ git ls-files; git ls-files --others --exclude-standard; } \
+  | xargs grep -ln "PATTERN" | sort | uniq -c
 ```
 **Criterion: any file name you cannot explain in one sentence → you counted wrong.**
 
-Run for real on `canary`, this reported 5 names where only 2 were source (**the `.pyc`
-files were a fourth instance of the same "same name, different thing" defect — in the
-check itself**), and it surfaced a file I had never mentioned: `test_quality_value_backtest.py`.
-I had asserted "9 hits, it's his `test_pit_leakage_canary.py`" — **true but incomplete,
-and I could not have discovered that by thinking harder.**
+### Why the start point, not an exclusion list (@Orion's refinement)
+My first version was `grep -rln ... | grep -v '\.pyc'` — a **maintained exclusion list**.
+Measured on my own repo, same question (`canary`):
+
+| version | files reported | of which noise |
+|---|---|---|
+| `grep -rln` + exclude `.pyc` | **10** | `.git/COMMIT_EDITMSG`, `.git/logs/HEAD`, `.git/logs/refs/heads/main`, `pip/_vendor/rich/_emoji_codes.py` |
+| `git ls-files` start point | **5** | none |
+
+**My version reported "canary appears in pip's emoji table."** True, and useless — worse,
+it looks like a finding.
+
+> **Any exclusion list I maintain by hand has an expiry time I do not know about.**
+> `.git/`, `.venv/`, `.pytest_cache/` were never in mine. Adding `.pyc` did not fix the
+> class of bug — it shrank the hole, exactly as `{4}` → `{4,8}` shrank the regex hole
+> without changing the approach. **Ask "where do I start counting", not "what do I skip".**
+
+### What it caught that I could not have thought of
+On the original question it surfaced `test_quality_value_backtest.py`, which I had never
+mentioned. My assertion "9 hits, it is his `test_pit_leakage_canary.py`" was **true but
+incomplete, and no amount of thinking harder would have found the third file.**
 
 > **Any check whose usefulness depends on my remembering to vary it is not a check.**
 > Prefer the form where the tool enumerates and I subtract.
