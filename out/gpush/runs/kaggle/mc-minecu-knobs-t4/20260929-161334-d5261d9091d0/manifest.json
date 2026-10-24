@@ -1,0 +1,297 @@
+{
+  "bytes": 1126262,
+  "entries": [
+    {
+      "mtime_ns": 1790559287084568470,
+      "path": "derivation/_fp32.py",
+      "sha256": "08208028be8e9cd2f49375d5f4016704db3015e496394e884510fa2f843366ef",
+      "size": 13518
+    },
+    {
+      "mtime_ns": 1790553055336736613,
+      "path": "derivation/_util.py",
+      "sha256": "850fd87051eab1eb76e51e653f8c5ab61ca7ad988e4f7d59768c74ca9548ee6d",
+      "size": 14455
+    },
+    {
+      "mtime_ns": 1790561437592956583,
+      "path": "derivation/divide.py",
+      "sha256": "c05c073e3b9e4a583fdb51d462be856d674246122d800ba7e6a7ce526fc938ec",
+      "size": 46728
+    },
+    {
+      "mtime_ns": 1790552916795615465,
+      "path": "derivation/divide_backends.py",
+      "sha256": "862e99023c52e9f8f2cf50e451e2d79c172be165b422da3bc98f59fbe801898b",
+      "size": 18182
+    },
+    {
+      "mtime_ns": 1790553181244811238,
+      "path": "derivation/kda_decay.py",
+      "sha256": "24c2ea4a9856b6eacc76a8094abd588938b7494ad6f1bbca264080b0d8cf9d03",
+      "size": 29686
+    },
+    {
+      "mtime_ns": 1790652948838821466,
+      "path": "derivation/minecu_gap.py",
+      "sha256": "be0335404371a3e8a3fc88db26da43bafc5897c99d7926e2751d31b031550a39",
+      "size": 16389
+    },
+    {
+      "mtime_ns": 1790581479550478616,
+      "path": "minecu_ref/bench/bench.cu",
+      "sha256": "990fdfc069ff8e59dcce5ee85ec2068a99b7b575b5800b1429185b066d3964a5",
+      "size": 86029
+    },
+    {
+      "mtime_ns": 1790576462362083160,
+      "path": "minecu_ref/bench/dda_model.py",
+      "sha256": "f5ff7fe2e15f7d9b1313484187747da987c0d5fc165ec35b30daf3b10fc049bd",
+      "size": 19326
+    },
+    {
+      "mtime_ns": 1790576422870176142,
+      "path": "minecu_ref/bench/stepcount_fast.json",
+      "sha256": "dfdfae31c90c65efef12e33ab9f64a159eb36e7b5335634f7055fb1e06851d83",
+      "size": 877
+    },
+    {
+      "mtime_ns": 1790576465323335616,
+      "path": "minecu_ref/bench/stepcount_fp32.json",
+      "sha256": "39fa8ad39f57e5d409443672ce78a9d72b953d950879eaacf6684299aca04534",
+      "size": 700
+    },
+    {
+      "mtime_ns": 1790576465222296779,
+      "path": "minecu_ref/bench/stepcount_prebasis.json",
+      "sha256": "f546e10e5ebdc31293220f613d38c4c4a3676718ed9b7ca98b0c90cecd41b567",
+      "size": 699
+    },
+    {
+      "mtime_ns": 1790598914599027373,
+      "path": "minecu_tg/README.md",
+      "sha256": "389bc45d0de859364f05e2ff3d05fb6caa971c46a0b14796c4fd58aead56d0ab",
+      "size": 7472
+    },
+    {
+      "mtime_ns": 1790582691147674739,
+      "path": "minecu_tg/__init__.py",
+      "sha256": "6f376400341dd1015acd5f32e687e2fed7a85b4a26d4269b71680ec1f0c0d7d5",
+      "size": 1580
+    },
+    {
+      "mtime_ns": 1790586624733468258,
+      "path": "minecu_tg/analyse_codegen.py",
+      "sha256": "0972d45d060a1f6426c1bc6376d59788d145a5563c0cc0c66e8931ddc7382ec7",
+      "size": 4038
+    },
+    {
+      "mtime_ns": 1790596201857832073,
+      "path": "minecu_tg/battery.py",
+      "sha256": "b363a884cfad373559af625926a29d34443e628002bb00a752d453d3ce3f96f8",
+      "size": 18784
+    },
+    {
+      "mtime_ns": 1790589280507071199,
+      "path": "minecu_tg/bench.py",
+      "sha256": "7ec6927c711e0eec2b4de27d8eb03bb6c2f7e0d660edd8dfa969dba61434c539",
+      "size": 10819
+    },
+    {
+      "mtime_ns": 1790582465734135856,
+      "path": "minecu_tg/blocks.py",
+      "sha256": "752ffaea2028475df25e81eaa186ce8ae089e36eed53d96eeecd531663dabed9",
+      "size": 2109
+    },
+    {
+      "mtime_ns": 1790586449564651383,
+      "path": "minecu_tg/capture_cuda.py",
+      "sha256": "f1957fb652054f63b93e9bbf0d5629391504f7bc2116eef1cc4192f874a97d0b",
+      "size": 5939
+    },
+    {
+      "mtime_ns": 1790584653008073179,
+      "path": "minecu_tg/census_main.py",
+      "sha256": "6728d1441da31b7aa78642eaef709fb0d23d29cc5a32c5a0246d7b24fa4345b6",
+      "size": 4059
+    },
+    {
+      "mtime_ns": 1790586444204425194,
+      "path": "minecu_tg/codegen.py",
+      "sha256": "f926389a8c3064d17224da3f6152330468712e74f27e95a0ff628d6e97a05fb3",
+      "size": 9906
+    },
+    {
+      "mtime_ns": 1790582623112650746,
+      "path": "minecu_tg/cpu_reference.py",
+      "sha256": "d3d6356552db2be483430751924970d288cb1c128a56709aa074d7e18a908108",
+      "size": 5494
+    },
+    {
+      "mtime_ns": 1790605649672849138,
+      "path": "minecu_tg/kaggle/kernel/kernel-metadata.json",
+      "sha256": "0372ca593a817cdca711edf5dc84c441989ed30e867607c0a73982c6482abca7",
+      "size": 484
+    },
+    {
+      "mtime_ns": 1790605649672651845,
+      "path": "minecu_tg/kaggle/kernel/minecu_tg_t4.ipynb",
+      "sha256": "70386801599cefdb603ce9e549d771a82569ce1dc8f18ce7e897b9f88ea2808c",
+      "size": 478887
+    },
+    {
+      "mtime_ns": 1790603362969221877,
+      "path": "minecu_tg/kaggle/make_notebook.py",
+      "sha256": "5153916d66bc5f89cbceab4b46f71683d7bfd12d9ae11bc3536146227ef7bccf",
+      "size": 30545
+    },
+    {
+      "mtime_ns": 1790601721974627376,
+      "path": "minecu_tg/kaggle/refdrv.cu",
+      "sha256": "d3a0931d642d67bd5e6fbe22e77a732da72edc3502ca8296f87f615a224965e8",
+      "size": 16756
+    },
+    {
+      "mtime_ns": 1790604557179251545,
+      "path": "minecu_tg/kaggle/run.sh",
+      "sha256": "d62bd26a44ea8c07576965a2c935dea0e35467110a8370349552dc4de2d49091",
+      "size": 18458
+    },
+    {
+      "mtime_ns": 1790594799528374072,
+      "path": "minecu_tg/render.py",
+      "sha256": "fe85581f80ed7fdba57398a6c04fe744a7fd59917d99b132ea0eb2dcfa457952",
+      "size": 14184
+    },
+    {
+      "mtime_ns": 1790593816878989170,
+      "path": "minecu_tg/sass_matrix.py",
+      "sha256": "dedf5437ebfbaf0b574203f7dd5960d895cf2c6aeb260936b4834aed795a23af",
+      "size": 8385
+    },
+    {
+      "mtime_ns": 1790590380789594232,
+      "path": "minecu_tg/sass_tg.sh",
+      "sha256": "2cc844c97337b7c3a9168205b53784292ae941378c24f64276af91e6c2454857",
+      "size": 3575
+    },
+    {
+      "mtime_ns": 1790591985791529302,
+      "path": "minecu_tg/verify.py",
+      "sha256": "a79e7cdcfbbb10c7b4adef880f87a27b3d471489c283c6d5c07d74aa80843caf",
+      "size": 12046
+    },
+    {
+      "mtime_ns": 1790582570442332369,
+      "path": "minecu_tg/world.py",
+      "sha256": "6c75c0e1e9cfc105e152f06c63c7695eff08781b9b8aa3e49ba098fe299ffbc3",
+      "size": 6390
+    },
+    {
+      "mtime_ns": 1790668701629724396,
+      "path": "minecu_tg_knobs/__init__.py",
+      "sha256": "9c5f6ee8b051010301f1ea60fed0836959c7828ead9906f77497bb249b6df9da",
+      "size": 4869
+    },
+    {
+      "mtime_ns": 1790669596507537754,
+      "path": "minecu_tg_knobs/battery.py",
+      "sha256": "da5f1633134382992d12928b78ee7f79f2a4a400b2f44b721d7b6ecd05974f4c",
+      "size": 21689
+    },
+    {
+      "mtime_ns": 1790667016835745015,
+      "path": "minecu_tg_knobs/codegen.py",
+      "sha256": "f2c8ccea3bdf03ab20e45cb1b9dfb918c334de47d286599f552657e8becd314f",
+      "size": 31771
+    },
+    {
+      "mtime_ns": 1790668905338471959,
+      "path": "minecu_tg_knobs/kaggle/run.sh",
+      "sha256": "032be2e00e89a7b0d8189b4404aece9b522e205162e6f0cc5004a5503a0aae6e",
+      "size": 4757
+    },
+    {
+      "mtime_ns": 1790667288782753178,
+      "path": "minecu_tg_knobs/knobs_table.py",
+      "sha256": "131ebda63cf327991022b2cfbd092b3eb1e6536280f96df69655bac61aef636e",
+      "size": 30378
+    },
+    {
+      "mtime_ns": 1790655993977075675,
+      "path": "minecu_tg_knobs/lean.py",
+      "sha256": "1090d5804c06b850682960b9abe825cd700092d5cac47abf80d1b732a0a46de4",
+      "size": 15729
+    },
+    {
+      "mtime_ns": 1790659492816144173,
+      "path": "minecu_tg_knobs/registry.py",
+      "sha256": "fc2309a0404d0624ac829ad6f4ecd43bcec6c4d1c555655c9667b1a8457450f6",
+      "size": 23833
+    },
+    {
+      "mtime_ns": 1790664826638612530,
+      "path": "minecu_tg_knobs/sass.sh",
+      "sha256": "5cc9a29d2fedda4986a7a142696281fc2c120b20175f955b2d116e13d487c6f9",
+      "size": 5674
+    },
+    {
+      "mtime_ns": 1790668613091342161,
+      "path": "minecu_tg_knobs/sass_census.py",
+      "sha256": "25a2fa0f7b14a7b6a169e638b12bb8d2263f239cdf045fd743082dc1f9f3d2a0",
+      "size": 16345
+    },
+    {
+      "mtime_ns": 1790663869080075899,
+      "path": "minecu_tg_knobs/verify.py",
+      "sha256": "8019beb0d3eeecc1a97b33c32d428a611edb2b8a15f4d87cec021e8c4c35097d",
+      "size": 10519
+    },
+    {
+      "mtime_ns": 1790520187300749324,
+      "path": "tools/archlab/build_image.sh",
+      "sha256": "8a6ec5088003cbaff071e59fbd3f41b5268703c6d691f06d1ffa178329e83869",
+      "size": 3445
+    },
+    {
+      "mtime_ns": 1790526590701125655,
+      "path": "tools/archlab/demo.sh",
+      "sha256": "fd2eec2ed52ce7f7c69038c878bedbc56bb66595d4e968731ba2514dbb8870d0",
+      "size": 3689
+    },
+    {
+      "mtime_ns": 1790525191050654543,
+      "path": "tools/archlab/fla_kda_chunk_h_sig.json",
+      "sha256": "f5c08d6a3b1f6345f7bca514a26480a4feffb85ce27691406b308f51ea3d7dca",
+      "size": 898
+    },
+    {
+      "mtime_ns": 1790521368693489741,
+      "path": "tools/archlab/inspect_ptx.py",
+      "sha256": "1db65d800a1f4ac2820a273a6e6a221de87650f3365fe2784a8182eea0f35708",
+      "size": 20018
+    },
+    {
+      "mtime_ns": 1790526971263134217,
+      "path": "tools/archlab/test_inspect.py",
+      "sha256": "f38a1191b975067c731e12d9ace7c947c719896af92e5e869167f736b3889a55",
+      "size": 5625
+    },
+    {
+      "mtime_ns": 1790524456491944725,
+      "path": "tools/archlab/tinygrad_cuda.py",
+      "sha256": "1a338183eb5589979a6829878b3a6900dc3290f913ad99e77dea2304605ab5b9",
+      "size": 10811
+    },
+    {
+      "mtime_ns": 1790525525061730782,
+      "path": "tools/archlab/triton_aot.py",
+      "sha256": "f75d1117493f9e84772fea83caebfe2dc95bc51966d9da6d2fd5be59d6a43b3f",
+      "size": 9713
+    }
+  ],
+  "files": 48,
+  "fingerprint": "d5261d9091d069f5c8c06eddbabe04e63a22c99be5a8bde228773205f395482c",
+  "schema": "gpush/manifest@1",
+  "source": "git"
+}

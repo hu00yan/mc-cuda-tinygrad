@@ -1,0 +1,460 @@
+[{"stream_name":"stderr","time":10.241750346,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.241789405,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.65722134,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.657253086,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.657256799,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.657259231,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.420588616,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.420629697,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.420636292,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.420640947,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.948558789,"data":"  ok  axis/__init__.py               0 B  e3b0c44298fc1c14\n"}
+,{"stream_name":"stdout","time":13.948585197,"data":"  ok  axis/refkernels.cu         35706 B  07476e119c57aad4\n"}
+,{"stream_name":"stdout","time":13.948595183,"data":"  ok  axis/rungs.py              21459 B  a11063135986c431\n"}
+,{"stream_name":"stdout","time":13.948598534,"data":"  ok  axis/simref.py             37543 B  abba1a7a3999206c\n"}
+,{"stream_name":"stdout","time":13.948601027,"data":"  ok  axis/verify.py             27309 B  0acc0392339e02b0\n"}
+,{"stream_name":"stdout","time":13.948603747,"data":"  ok  axis/harness.py            53001 B  5b9ee21a8d08a129\n"}
+,{"stream_name":"stdout","time":13.948606284,"data":"  ok  axis/sass_census.py         3161 B  14b50b29af7a2855\n"}
+,{"stream_name":"stdout","time":13.948608585,"data":"  ok  axis/classify.py           24859 B  502c1f55b2878481\n"}
+,{"stream_name":"stdout","time":13.948610965,"data":"\n"}
+,{"stream_name":"stdout","time":13.948613102,"data":"  8 payloads verified and written to /kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":23.095494737,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 31.8 MB/s eta 0:00:00\r\n"}
+,{"stream_name":"stdout","time":23.295462231,"data":"  tinygrad imports; default device: CUDA\n"}
+,{"stream_name":"stdout","time":23.295488718,"data":"  available: \u003cgenerator object _Device.get_available_devices at 0x788e78dbbd30\u003e\n"}
+,{"stream_name":"stdout","time":25.986929093,"data":"  numpy 2.0.2\n"}
+,{"stream_name":"stdout","time":26.068484472,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":26.325765721,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":26.32579261,"data":"axis/verify.py -- CPU gate. No GPU. Runs before any Kaggle push.\r\n"}
+,{"stream_name":"stdout","time":26.325798461,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":26.325803695,"data":"\r\n"}
+,{"stream_name":"stdout","time":26.325820761,"data":"1. the TinyGrad side is pure Tensor (task constraint, checked by AST)\r\n"}
+,{"stream_name":"stdout","time":26.375836879,"data":"   [PASS] rungs.py imports only tinygrad + numpy; no custom_kernel,\r\n"}
+,{"stream_name":"stdout","time":26.375863401,"data":"          no ctypes, no driver API, no foreign framework.\r\n"}
+,{"stream_name":"stdout","time":26.375866987,"data":"\r\n"}
+,{"stream_name":"stdout","time":26.37586974,"data":"2. every rung's TinyGrad arm against an independent float64 oracle\r\n"}
+,{"stream_name":"stdout","time":26.375872252,"data":"   (a green gate is necessary, not sufficient -- notes/06 5b)\r\n"}
+,{"stream_name":"stdout","time":26.375874808,"data":"   small shapes, CPU: {'ew': {'n': 4096}, 'red': {'R': 64, 'K': 32}, 'gemm32': {'M': 32, 'N': 32, 'K': 32}, 'gemm16': {'M': 32, 'N': 32, 'K': 32}, 'gather': {'n': 4096, 'table': 1024}, 'scan': {'R': 16, 'N': 64}, 'trisolve': {'B': 8, 'C': 64, 'BC': 16}}\r\n"}
+,{"stream_name":"stdout","time":27.539724285,"data":"   [PASS] ew        worst relerr 3.348e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":27.793133639,"data":"   [PASS] red       worst relerr 1.385e-07  (tol 1e-05)  shape (64,)\r\n"}
+,{"stream_name":"stdout","time":27.844056944,"data":"   [PASS] gemm32    worst relerr 1.200e-07  (tol 1e-05)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":28.249215269,"data":"   [PASS] gemm16    worst relerr 3.235e-04  (tol 5e-02)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":28.401391791,"data":"   [PASS] gather    worst relerr 4.102e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":28.553690496,"data":"   [PASS] scan      worst relerr 8.196e-08  (tol 1e-05)  shape (16, 64)\r\n"}
+,{"stream_name":"stdout","time":37.57195447,"data":"   [PASS] trisolve  worst relerr 1.873e-07  (tol 1e-04)  shape (8, 64, 64)\r\n"}
+,{"stream_name":"stdout","time":37.571988074,"data":"\r\n"}
+,{"stream_name":"stdout","time":37.571993935,"data":"3. the REFERENCE arm, emulated on the host (axis/simref.py)\r\n"}
+,{"stream_name":"stdout","time":37.571999233,"data":"   the other half of the comparison; both of the defects that cost a\r\n"}
+,{"stream_name":"stdout","time":37.572004347000004,"data":"   GPU session were in this file, and neither was visible to a compile\r\n"}
+,{"stream_name":"stdout","time":37.572009341,"data":"   or a SASS census\r\n"}
+,{"stream_name":"stdout","time":37.572014595,"data":"   [PASS] ew        worst relerr 5.989e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":37.572019587,"data":"   [PASS] red       worst relerr 9.949e-08  (tol 1e-05)  shape (64,)\r\n"}
+,{"stream_name":"stdout","time":38.782994039,"data":"   [PASS] gemm32    worst relerr 1.689e-07  (tol 1e-05)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":38.783024228,"data":"   [PASS] gemm16    worst relerr 3.235e-04  (tol 5e-02)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":38.833667596,"data":"   [PASS] gather    worst relerr 4.102e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":38.83369623,"data":"   [PASS] scan      worst relerr 2.406e-07  (tol 1e-05)  shape (3, 4096)\r\n"}
+,{"stream_name":"stdout","time":39.844760444,"data":"   [PASS] trisolve  worst relerr 1.875e-07  (tol 1e-04)  shape (8, 64, 64)\r\n"}
+,{"stream_name":"stdout","time":39.844805724,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.844811346,"data":"4. every scan entry point in refkernels.cu, each on its own shape\r\n"}
+,{"stream_name":"stdout","time":39.844814876,"data":"   [PASS] axis_scan_scalar worst relerr 6.775e-08  shape (16, 64)\r\n"}
+,{"stream_name":"stdout","time":39.844818182,"data":"   [PASS] axis_scan_v1   worst relerr 1.509e-07  shape (4, 1024)\r\n"}
+,{"stream_name":"stdout","time":39.895393814,"data":"   [PASS] axis_scan_v2   worst relerr 2.308e-07  shape (4, 2048)\r\n"}
+,{"stream_name":"stdout","time":39.89542792,"data":"   [PASS] axis_scan_v4   worst relerr 2.406e-07  shape (3, 4096)\r\n"}
+,{"stream_name":"stdout","time":39.94592263,"data":"   [PASS] axis_scan_v8   worst relerr 3.505e-07  shape (2, 8192)\r\n"}
+,{"stream_name":"stdout","time":39.996553272,"data":"   [PASS] axis_scan_v16  worst relerr 5.713e-07  shape (2, 16384)\r\n"}
+,{"stream_name":"stdout","time":39.996579998,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.996585002,"data":"5. the gate's own falsifier -- re-inject the historical defects\r\n"}
+,{"stream_name":"stdout","time":39.996588735,"data":"   and require the oracle to reject each one, signature included\r\n"}
+,{"stream_name":"stdout","time":41.81996608,"data":"   [CAUGHT] scan: `run` reset to loop-local            relerr 1.106e-01\r\n"}
+,{"stream_name":"stdout","time":41.819996715,"data":"            row 0: exact at 0-3 = True, wrong at 4-15 = True, 75.0% of elements off\r\n"}
+,{"stream_name":"stdout","time":41.820001775,"data":"   [CAUGHT] trisolve: `c \u003e i` (upper-triangular X)     relerr 9.599e-01\r\n"}
+,{"stream_name":"stdout","time":41.820005868,"data":"            worst at (6, 15, 2): got 0.000000 want 0.420140\r\n"}
+,{"stream_name":"stdout","time":41.820009449,"data":"   [CAUGHT] trisolve: block-Schur sum from k = j+1     relerr 1.000e+00\r\n"}
+,{"stream_name":"stdout","time":41.820017512,"data":"            worst at (4, 56, 3): got -0.000000 want -0.437686\r\n"}
+,{"stream_name":"stdout","time":41.820020834,"data":"   [CAUGHT] scan: drop the `e`-equivalent offset (warp_tot) term relerr 8.373e-01\r\n"}
+,{"stream_name":"stdout","time":41.820023315,"data":"            row 0: exact at 0-3 = True, wrong at 4-15 = False, 87.5% of elements off\r\n"}
+,{"stream_name":"stdout","time":41.820025825,"data":"\r\n"}
+,{"stream_name":"stdout","time":41.8200281,"data":"6. the naive controls exist and are separate measurements\r\n"}
+,{"stream_name":"stdout","time":42.630241288,"data":"   [ok  ] red       naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":43.18803396,"data":"   [ok  ] scan      naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":43.188071701,"data":"\r\n"}
+,{"stream_name":"stdout","time":43.188077323,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.188082338,"data":"ALL CHECKS PASS -- 7 rungs, both arms\r\n"}
+,{"stream_name":"stdout","time":43.188087515,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.628729198,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":62.457643631,"data":"  ref                    0.0210 ms   (min 0.0204, max 0.0216)\r\n"}
+,{"stream_name":"stdout","time":62.457687111,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":62.457693041,"data":"  tg   vs oracle    1.000e+00  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":62.457697689,"data":"  ref  vs oracle    1.000e+00\r\n"}
+,{"stream_name":"stdout","time":62.457702401,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":62.457706898,"data":"  tg_naive               0.0397 ms   (naive habit spelling)\r\n"}
+,{"stream_name":"stdout","time":62.457716738,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":62.457720054,"data":"\r\n"}
+,{"stream_name":"stdout","time":62.457723046,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":62.457737263,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\r\n"}
+,{"stream_name":"stdout","time":62.457740162,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":62.457742423,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\r\n"}
+,{"stream_name":"stdout","time":62.457744826,"data":"  shapes : {'B': 8, 'C': 64, 'BC': 16}\r\n"}
+,{"stream_name":"stdout","time":62.457748423,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":62.457768551,"data":"  tg_device              0.0660 ms   (min 0.0588, max 0.0733)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":62.457773659,"data":"  tg                   919.0464 ms   (min 912.0425, max 926.0503)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":62.457777601,"data":"  ref                    0.1233 ms   (min 0.1224, max 0.1243)\r\n"}
+,{"stream_name":"stdout","time":62.457781672,"data":"  tg kernels        585\r\n"}
+,{"stream_name":"stdout","time":62.457785556,"data":"  tg   vs oracle    1.873e-07  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":62.457789496,"data":"  ref  vs oracle    1.875e-07\r\n"}
+,{"stream_name":"stdout","time":62.457792933,"data":"  ref  vs tg        1.362e-07\r\n"}
+,{"stream_name":"stdout","time":62.457796237,"data":"  RATIO tg/ref      0.535x\r\n"}
+,{"stream_name":"stdout","time":62.457799565,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":62.457802811,"data":"\r\n"}
+,{"stream_name":"stdout","time":62.457806054,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":62.457809496,"data":"  the axis\r\n"}
+,{"stream_name":"stdout","time":62.457812795,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":62.45781622,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\r\n"}
+,{"stream_name":"stdout","time":62.457819729,"data":"  --------------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":62.457823127,"data":"  ew             1.5092     0.0196   2.274x       0.0    0.0%  OK\r\n"}
+,{"stream_name":"stdout","time":62.457826544,"data":"  red            1.9907     0.0203   2.227x       0.0    0.0%  OK\r\n"}
+,{"stream_name":"stdout","time":62.45782992,"data":"  gemm32         2.2792     0.0368   1.650x       0.0       -  OK\r\n"}
+,{"stream_name":"stdout","time":62.457833433,"data":"  gemm16         3.9506     0.0606   0.958x       0.0       -  OK\r\n"}
+,{"stream_name":"stdout","time":62.457841471,"data":"  gather         6.2857     0.0190   4.034x       0.0    0.0%  OK\r\n"}
+,{"stream_name":"stdout","time":62.457844356,"data":"  scan           3.6542     0.0210        -         -       -  INVALID_reference_disagrees_with_oracle\r\n"}
+,{"stream_name":"stdout","time":62.457846671,"data":"  trisolve     919.0464     0.1233   0.535x       0.0       -  OK\r\n"}
+,{"stream_name":"stdout","time":62.457848922,"data":"\r\n"}
+,{"stream_name":"stdout","time":62.457851647,"data":"  wrote /kaggle/working/axis_smoke.json\r\n"}
+,{"stream_name":"stdout","time":62.457869244,"data":"\r\n"}
+,{"stream_name":"stdout","time":62.457873285,"data":"  6/7 rungs OK; 1 not OK\r\n"}
+,{"stream_name":"stdout","time":62.709203143,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":63.049234582,"data":"\r\n"}
+,{"stream_name":"stdout","time":63.049280693,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":63.049286793,"data":"  1. environment\r\n"}
+,{"stream_name":"stdout","time":63.049290619,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":63.352922363,"data":"  Device.DEFAULT     CUDA\r\n"}
+,{"stream_name":"stdout","time":63.352948373,"data":"  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad\r\n"}
+,{"stream_name":"stdout","time":63.352953227,"data":"  tinygrad_version   0.14.0\r\n"}
+,{"stream_name":"stdout","time":63.352956815,"data":"  numpy              2.0.2\r\n"}
+,{"stream_name":"stdout","time":63.35296089,"data":"  python             3.12.13\r\n"}
+,{"stream_name":"stdout","time":63.352965507,"data":"  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":63.352969742,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":63.352973923,"data":"\r\n"}
+,{"stream_name":"stdout","time":63.352977308,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":63.352981038,"data":"  2. compile the reference for sm_75 (on this card)\r\n"}
+,{"stream_name":"stdout","time":63.35298451,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":64.722742071,"data":"  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc\r\n"}
+,{"stream_name":"stdout","time":66.189890151,"data":"  SASS 1008064 B, 14 kernels\r\n"}
+,{"stream_name":"stdout","time":66.189918704,"data":"  kernel              pattern  expected  match\r\n"}
+,{"stream_name":"stdout","time":66.18992358,"data":"  axis_ew               ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":66.189927197,"data":"  axis_rowdot           pppii     pppii  yes\r\n"}
+,{"stream_name":"stdout","time":66.189930741,"data":"  axis_gemm_f32        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":66.189934277,"data":"  axis_gemm_f16        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":66.189938077,"data":"  axis_gather           ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":66.189942088,"data":"  axis_scan_v4           ppii      ppii  yes\r\n"}
+,{"stream_name":"stdout","time":66.189945866,"data":"  axis_trisolve           ppi       ppi  yes\r\n"}
+,{"stream_name":"stdout","time":66.189949392,"data":"  all reference signatures match the launcher's argument lists\r\n"}
+,{"stream_name":"stdout","time":66.189953104,"data":"  cubin 88672 B  sha256 92d93ab4bbe0b0c0\r\n"}
+,{"stream_name":"stdout","time":66.189956582,"data":"  kernel               regs    smem B  params\r\n"}
+,{"stream_name":"stdout","time":66.18996011,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x798ce2111650\u003e)\r\n"}
+,{"stream_name":"stdout","time":66.849084979,"data":"\r\n"}
+,{"stream_name":"stdout","time":66.849125155,"data":"  memory floor on THIS card: fill 232.9 GB/s (write-only), copy 239.3 GB/s (read+write)\r\n"}
+,{"stream_name":"stdout","time":66.849132574,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\r\n"}
+,{"stream_name":"stdout","time":66.849136266,"data":"\r\n"}
+,{"stream_name":"stdout","time":66.849139616,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":66.849143526,"data":"  rung ew: elementwise, pure bandwidth\r\n"}
+,{"stream_name":"stdout","time":66.849161061,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":66.849164736,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\r\n"}
+,{"stream_name":"stdout","time":66.849174701,"data":"  shapes : {'n': 16777216}\r\n"}
+,{"stream_name":"stdout","time":71.513836555,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":71.513871873,"data":"  tg_device              1.0549 ms   (min 1.0506, max 1.0829)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":71.513876813,"data":"  tg                     2.3729 ms   (min 2.3309, max 2.6463)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":71.513880084,"data":"  ref                    1.0852 ms   (min 1.0814, max 1.0997)\r\n"}
+,{"stream_name":"stdout","time":71.513883221,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":71.513886342,"data":"  tg   vs oracle    3.287e-08  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":71.513905852,"data":"  ref  vs oracle    3.287e-08\r\n"}
+,{"stream_name":"stdout","time":71.513911216,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":71.513916191,"data":"  RATIO tg/ref      0.972x\r\n"}
+,{"stream_name":"stdout","time":71.513921075,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":71.513926038,"data":"\r\n"}
+,{"stream_name":"stdout","time":71.51393052,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":71.51393504,"data":"  rung red: wide reduction (row-dot)\r\n"}
+,{"stream_name":"stdout","time":71.513939451,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":71.513944212,"data":"  demands: one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.\r\n"}
+,{"stream_name":"stdout","time":71.513948708,"data":"  shapes : {'R': 65536, 'K': 256}\r\n"}
+,{"stream_name":"stdout","time":73.99956471,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":73.99959586,"data":"  tg_device              1.0093 ms   (min 1.0047, max 1.0660)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":73.999601641,"data":"  tg                     2.8660 ms   (min 2.8257, max 3.2003)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":73.999606489,"data":"  ref                    0.5262 ms   (min 0.5243, max 0.5350)\r\n"}
+,{"stream_name":"stdout","time":73.999611011,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":73.999615837,"data":"  tg   vs oracle    1.500e-07  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":73.99962015,"data":"  ref  vs oracle    1.082e-07\r\n"}
+,{"stream_name":"stdout","time":73.999624371,"data":"  ref  vs tg        1.794e-07\r\n"}
+,{"stream_name":"stdout","time":73.999628627,"data":"  RATIO tg/ref      1.918x\r\n"}
+,{"stream_name":"stdout","time":73.999632883,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":73.999637155,"data":"\r\n"}
+,{"stream_name":"stdout","time":73.999641295,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":73.999645793,"data":"  rung gemm32: matmul fp32, no tensor core on sm_75\r\n"}
+,{"stream_name":"stdout","time":73.999650326,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":73.999654896,"data":"  demands: reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.\r\n"}
+,{"stream_name":"stdout","time":73.999670488,"data":"  shapes : {'M': 1024, 'N': 1024, 'K': 1024}\r\n"}
+,{"stream_name":"stdout","time":74.8619641,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":74.861990092,"data":"  tg_device              4.6465 ms   (min 4.6286, max 4.6775)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":74.86199481,"data":"  tg                     9.5965 ms   (min 7.6108, max 9.9104)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":74.861999001,"data":"  ref                    1.5464 ms   (min 1.5398, max 1.5586)\r\n"}
+,{"stream_name":"stdout","time":74.862003309,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":74.862007168,"data":"  tg   vs oracle    1.398e-06  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":74.862027572,"data":"  ref  vs oracle    1.398e-06\r\n"}
+,{"stream_name":"stdout","time":74.862031249,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":74.862034762,"data":"  RATIO tg/ref      3.005x\r\n"}
+,{"stream_name":"stdout","time":74.862038268,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":74.862041813,"data":"\r\n"}
+,{"stream_name":"stdout","time":74.862045341,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":74.862049459,"data":"  rung gemm16: matmul fp16, tensor cores present\r\n"}
+,{"stream_name":"stdout","time":74.862053124,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":74.862057109,"data":"  demands: the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).\r\n"}
+,{"stream_name":"stdout","time":74.862061142,"data":"  shapes : {'M': 2048, 'N': 2048, 'K': 2048}\r\n"}
+,{"stream_name":"stdout","time":76.590123352,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":76.590150838,"data":"  tg_device              1.9351 ms   (min 1.7019, max 2.3755)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":76.590155696,"data":"  tg                     6.5160 ms   (min 6.4331, max 6.7715)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":76.590159817,"data":"  ref                    1.3311 ms   (min 1.2360, max 1.3501)\r\n"}
+,{"stream_name":"stdout","time":76.590163497,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":76.590166935,"data":"  tg   vs oracle    2.264e-04  (tol 0.05)\r\n"}
+,{"stream_name":"stdout","time":76.590170402,"data":"  ref  vs oracle    2.264e-04\r\n"}
+,{"stream_name":"stdout","time":76.590173823,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":76.590177069,"data":"  RATIO tg/ref      1.454x\r\n"}
+,{"stream_name":"stdout","time":76.590180503,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":76.590183894,"data":"\r\n"}
+,{"stream_name":"stdout","time":76.590187178,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":76.590190767,"data":"  rung gather: random access gather, no reuse\r\n"}
+,{"stream_name":"stdout","time":76.590194295,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":76.590197751,"data":"  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.\r\n"}
+,{"stream_name":"stdout","time":76.590201359,"data":"  shapes : {'n': 8388608, 'table': 4194304}\r\n"}
+,{"stream_name":"stdout","time":79.024398528,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":79.024438722,"data":"  tg_device              3.7758 ms   (min 3.7643, max 3.7965)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":79.024445706,"data":"  tg                     8.2290 ms   (min 8.0054, max 8.9300)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":79.024452415,"data":"  ref                    3.9371 ms   (min 3.9324, max 3.9691)\r\n"}
+,{"stream_name":"stdout","time":79.024460528,"data":"  tg kernels        1\r\n"}
+,{"stream_name":"stdout","time":79.024463915,"data":"  tg   vs oracle    3.447e-08  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":79.024467121,"data":"  ref  vs oracle    3.447e-08\r\n"}
+,{"stream_name":"stdout","time":79.02447007,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":79.024472915,"data":"  RATIO tg/ref      0.959x\r\n"}
+,{"stream_name":"stdout","time":79.024475848,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":79.024478811,"data":"\r\n"}
+,{"stream_name":"stdout","time":79.024481671,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":79.024484715,"data":"  rung scan: carried dependency chain (prefix sum)\r\n"}
+,{"stream_name":"stdout","time":79.024487593,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":79.02449062,"data":"  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.\r\n"}
+,{"stream_name":"stdout","time":79.024493588,"data":"  shapes : {'R': 4096, 'N': 4096}\r\n"}
+,{"stream_name":"stdout","time":83.185454365,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":83.185483363,"data":"  tg_device             22.2371 ms   (min 22.0164, max 22.4460)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":83.18550261,"data":"  tg                    30.3794 ms   (min 29.9302, max 41.5975)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":83.185508248,"data":"  ref                    0.8411 ms   (min 0.8376, max 0.8472)\r\n"}
+,{"stream_name":"stdout","time":83.185513238,"data":"  tg kernels        3\r\n"}
+,{"stream_name":"stdout","time":83.185518265,"data":"  tg   vs oracle    3.546e-07  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":83.185523187,"data":"  ref  vs oracle    3.185e-07\r\n"}
+,{"stream_name":"stdout","time":83.18552764,"data":"  ref  vs tg        4.920e-07\r\n"}
+,{"stream_name":"stdout","time":83.18553184,"data":"  RATIO tg/ref      26.438x\r\n"}
+,{"stream_name":"stdout","time":83.185536183,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":83.185540378,"data":"\r\n"}
+,{"stream_name":"stdout","time":83.185544647,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":83.185554087,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\r\n"}
+,{"stream_name":"stdout","time":83.185557302,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":83.185560283,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\r\n"}
+,{"stream_name":"stdout","time":83.185563277,"data":"  shapes : {'B': 16384, 'C': 64, 'BC': 16}\r\n"}
+,{"stream_name":"stdout","time":185.339525322,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":185.339574388,"data":"  tg_device             71.7895 ms   (min 70.9319, max 73.0260)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":185.339579944,"data":"  tg                  1935.2210 ms   (min 1913.2621, max 2100.9441)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":185.339584174,"data":"  ref                   24.6429 ms   (min 24.6298, max 36.1842)\r\n"}
+,{"stream_name":"stdout","time":185.33958867,"data":"  tg kernels        585\r\n"}
+,{"stream_name":"stdout","time":185.339592442,"data":"  tg   vs oracle    3.077e-07  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":185.339596374,"data":"  ref  vs oracle    2.257e-07\r\n"}
+,{"stream_name":"stdout","time":185.33960038,"data":"  ref  vs tg        2.559e-07\r\n"}
+,{"stream_name":"stdout","time":185.33960415,"data":"  RATIO tg/ref      2.913x\r\n"}
+,{"stream_name":"stdout","time":185.339607757,"data":"  ref ERROR: None\r\n"}
+,{"stream_name":"stdout","time":185.339611685,"data":"\r\n"}
+,{"stream_name":"stdout","time":185.33961562,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":185.339619571,"data":"  the axis\r\n"}
+,{"stream_name":"stdout","time":185.339623342,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":185.339627197,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\r\n"}
+,{"stream_name":"stdout","time":185.339631147,"data":"  --------------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":185.339635036,"data":"  ew             2.3729     1.0852   0.972x     113.1   47.3%  OK\r\n"}
+,{"stream_name":"stdout","time":185.33963898,"data":"  red            2.8660     0.5262   1.918x      46.8   19.6%  OK\r\n"}
+,{"stream_name":"stdout","time":185.33964267,"data":"  gemm32         9.5965     1.5464   3.005x       1.7       -  OK\r\n"}
+,{"stream_name":"stdout","time":185.339646732,"data":"  gemm16         6.5160     1.3311   1.454x       5.1       -  OK\r\n"}
+,{"stream_name":"stdout","time":185.33965053,"data":"  gather         8.2290     3.9371   0.959x      14.3    6.0%  OK\r\n"}
+,{"stream_name":"stdout","time":185.339654186,"data":"  scan          30.3794     0.8411  26.438x       4.4    1.8%  OK\r\n"}
+,{"stream_name":"stdout","time":185.339658117,"data":"  trisolve    1935.2210    24.6429   2.913x       0.3       -  OK\r\n"}
+,{"stream_name":"stdout","time":185.339661975,"data":"\r\n"}
+,{"stream_name":"stdout","time":185.339665707,"data":"  wrote /kaggle/working/axis_report.json\r\n"}
+,{"stream_name":"stdout","time":185.33966983,"data":"\r\n"}
+,{"stream_name":"stdout","time":185.339673585,"data":"  7/7 rungs OK; 0 not OK\r\n"}
+,{"stream_name":"stdout","time":186.391494694,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":186.711030288,"data":"usage: harness.py [-h] [--iters ITERS] [--warmup WARMUP] [--skip-controls]\r\n"}
+,{"stream_name":"stdout","time":186.711069882,"data":"                  [--rungs RUNGS] [--smoke] [--no-naive] [--no-knob]\r\n"}
+,{"stream_name":"stdout","time":186.711073364,"data":"                  [--floor-n FLOOR_N] [--json JSON]\r\n"}
+,{"stream_name":"stdout","time":186.71107589,"data":"harness.py: error: argument --iters: invalid int value: '{iters}'\r\n"}
+,{"stream_name":"stdout","time":186.837295191,"data":"  axis_report.json     20523\n"}
+,{"stream_name":"stdout","time":186.837320906,"data":"  axis_smoke.json      21293\n"}
+,{"stream_name":"stdout","time":186.837325086,"data":"  axis_controls.json   MISSING\n"}
+,{"stream_name":"stdout","time":186.83734418,"data":"\n"}
+,{"stream_name":"stdout","time":186.837346932,"data":"---- axis_report.json ----\n"}
+,{"stream_name":"stdout","time":186.837349533,"data":"{\n"}
+,{"stream_name":"stdout","time":186.83735176,"data":"  \"cubin_bytes\": 88672,\n"}
+,{"stream_name":"stdout","time":186.837354112,"data":"  \"cubin_sha256\": \"92d93ab4bbe0b0c0d5a545b1e93ae6541f0ae017463c6f30b6e0757f1623e568\",\n"}
+,{"stream_name":"stdout","time":186.837356618,"data":"  \"nvcc\": \"/usr/local/cuda/bin/nvcc\",\n"}
+,{"stream_name":"stdout","time":186.837358978,"data":"  \"regs\": {},\n"}
+,{"stream_name":"stdout","time":186.837361177,"data":"  \"smem\": {},\n"}
+,{"stream_name":"stdout","time":186.837363306,"data":"  \"param_counts\": {\n"}
+,{"stream_name":"stdout","time":186.837365565,"data":"    \"axis_fill\": \"pi\",\n"}
+,{"stream_name":"stdout","time":186.837367842,"data":"    \"axis_copy\": \"ppi\",\n"}
+,{"stream_name":"stdout","time":186.837370073,"data":"    \"axis_ew\": \"ppppi\",\n"}
+,{"stream_name":"stdout","time":186.837372335,"data":"    \"axis_rowdot\": \"pppii\",\n"}
+,{"stream_name":"stdout","time":186.837374638,"data":"    \"axis_gemm_f32\": \"pppiii\",\n"}
+,{"stream_name":"stdout","time":186.837376902,"data":"    \"axis_gemm_f16\": \"pppiii\",\n"}
+,{"stream_name":"stdout","time":186.837379124,"data":"    \"axis_gather\": \"ppppi\",\n"}
+,{"stream_name":"stdout","time":186.837381331,"data":"    \"axis_scan_v1\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837383643,"data":"    \"axis_scan_v2\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837385892,"data":"    \"axis_scan_v4\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837388108,"data":"    \"axis_scan_v8\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837390807,"data":"    \"axis_scan_v16\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837393055,"data":"    \"axis_scan_scalar\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":186.837395297,"data":"    \"axis_trisolve\": \"ppi\"\n"}
+,{"stream_name":"stdout","time":186.83739754,"data":"  }\n"}
+,{"stream_name":"stdout","time":186.837399665,"data":"}\n"}
+,{"stream_name":"stdout","time":186.83740187,"data":"  floor   {\"fill_ms\": 1.1527360081672668, \"fill_GBps\": 232.868110389633, \"copy_ms\": 2.2438559532165527, \"copy_GBps\": 239.26264572839403, \"n\": 67108864}\n"}
+,{"stream_name":"stdout","time":186.837404717,"data":"  device  {\"SMs\": 40, \"l2_bytes\": 4194304, \"max_smem_per_block\": 49152, \"clock_khz\": 1590000, \"compute_cap\": \"7.5\"}\n"}
+,{"stream_name":"stdout","time":186.837407385,"data":"  ew        tg_dev=1.0548959970474243 ref=1.085200011730194 ratio=0.9720751802845501 OK\n"}
+,{"stream_name":"stdout","time":186.837409717,"data":"  red       tg_dev=1.0092639923095703 ref=0.5262399911880493 ratio=1.917877791900682 OK\n"}
+,{"stream_name":"stdout","time":186.83741196,"data":"  gemm32    tg_dev=4.646496057510376 ref=1.5463520288467407 ratio=3.0048113048202243 OK\n"}
+,{"stream_name":"stdout","time":186.837414197,"data":"  gemm16    tg_dev=1.9351359605789185 ref=1.3310719728469849 ratio=1.453817674817329 OK\n"}
+,{"stream_name":"stdout","time":186.837416443,"data":"  gather    tg_dev=3.7757760286331177 ref=3.9371360540390015 ratio=0.9590158878963939 OK\n"}
+,{"stream_name":"stdout","time":186.837418728,"data":"  scan      tg_dev=22.237135887145996 ref=0.8411040008068085 ratio=26.438033662680912 OK\n"}
+,{"stream_name":"stdout","time":186.837421015,"data":"  trisolve  tg_dev=71.78948593139648 ref=24.64292812347412 ratio=2.913188139481361 OK\n"}
+,{"stream_name":"stdout","time":186.837423317,"data":"\n"}
+,{"stream_name":"stdout","time":186.837425462,"data":"---- tail of axis_run.log ----\n"}
+,{"stream_name":"stdout","time":186.837430357,"data":" 2.6463)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.837432705,"data":"  ref                    1.0852 ms   (min 1.0814, max 1.0997)\n"}
+,{"stream_name":"stdout","time":186.837434982,"data":"  tg kernels        1\n"}
+,{"stream_name":"stdout","time":186.837441736,"data":"  tg   vs oracle    3.287e-08  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837443988,"data":"  ref  vs oracle    3.287e-08\n"}
+,{"stream_name":"stdout","time":186.837446171,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":186.837448348,"data":"  RATIO tg/ref      0.972x\n"}
+,{"stream_name":"stdout","time":186.837450535,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837452662,"data":"\n"}
+,{"stream_name":"stdout","time":186.83745476,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837457035,"data":"  rung red: wide reduction (row-dot)\n"}
+,{"stream_name":"stdout","time":186.837476538,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837480805,"data":"  demands: one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.\n"}
+,{"stream_name":"stdout","time":186.837484591,"data":"  shapes : {'R': 65536, 'K': 256}\n"}
+,{"stream_name":"stdout","time":186.837487684,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.83749063,"data":"  tg_device              1.0093 ms   (min 1.0047, max 1.0660)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837494473,"data":"  tg                     2.8660 ms   (min 2.8257, max 3.2003)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.83749782,"data":"  ref                    0.5262 ms   (min 0.5243, max 0.5350)\n"}
+,{"stream_name":"stdout","time":186.837501011,"data":"  tg kernels        1\n"}
+,{"stream_name":"stdout","time":186.837504185,"data":"  tg   vs oracle    1.500e-07  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837507228,"data":"  ref  vs oracle    1.082e-07\n"}
+,{"stream_name":"stdout","time":186.83751052,"data":"  ref  vs tg        1.794e-07\n"}
+,{"stream_name":"stdout","time":186.837513812,"data":"  RATIO tg/ref      1.918x\n"}
+,{"stream_name":"stdout","time":186.837517027,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837520112,"data":"\n"}
+,{"stream_name":"stdout","time":186.837523758,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837528248,"data":"  rung gemm32: matmul fp32, no tensor core on sm_75\n"}
+,{"stream_name":"stdout","time":186.837532326,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837535756,"data":"  demands: reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.\n"}
+,{"stream_name":"stdout","time":186.837539237,"data":"  shapes : {'M': 1024, 'N': 1024, 'K': 1024}\n"}
+,{"stream_name":"stdout","time":186.837542565,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.837545852,"data":"  tg_device              4.6465 ms   (min 4.6286, max 4.6775)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837549143,"data":"  tg                     9.5965 ms   (min 7.6108, max 9.9104)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.837552809,"data":"  ref                    1.5464 ms   (min 1.5398, max 1.5586)\n"}
+,{"stream_name":"stdout","time":186.837560889,"data":"  tg kernels        1\n"}
+,{"stream_name":"stdout","time":186.837564274,"data":"  tg   vs oracle    1.398e-06  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837567563,"data":"  ref  vs oracle    1.398e-06\n"}
+,{"stream_name":"stdout","time":186.837570724,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":186.83757409,"data":"  RATIO tg/ref      3.005x\n"}
+,{"stream_name":"stdout","time":186.837577424,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837580734,"data":"\n"}
+,{"stream_name":"stdout","time":186.837584014,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837588054,"data":"  rung gemm16: matmul fp16, tensor cores present\n"}
+,{"stream_name":"stdout","time":186.837591361,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.83759471,"data":"  demands: the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).\n"}
+,{"stream_name":"stdout","time":186.837598524,"data":"  shapes : {'M': 2048, 'N': 2048, 'K': 2048}\n"}
+,{"stream_name":"stdout","time":186.837601935,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.837605284,"data":"  tg_device              1.9351 ms   (min 1.7019, max 2.3755)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837609707,"data":"  tg                     6.5160 ms   (min 6.4331, max 6.7715)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.837614021,"data":"  ref                    1.3311 ms   (min 1.2360, max 1.3501)\n"}
+,{"stream_name":"stdout","time":186.837617821,"data":"  tg kernels        1\n"}
+,{"stream_name":"stdout","time":186.837621183,"data":"  tg   vs oracle    2.264e-04  (tol 0.05)\n"}
+,{"stream_name":"stdout","time":186.837624242,"data":"  ref  vs oracle    2.264e-04\n"}
+,{"stream_name":"stdout","time":186.83762745,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":186.837630757,"data":"  RATIO tg/ref      1.454x\n"}
+,{"stream_name":"stdout","time":186.837634031,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837637343,"data":"\n"}
+,{"stream_name":"stdout","time":186.837641173,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837645199,"data":"  rung gather: random access gather, no reuse\n"}
+,{"stream_name":"stdout","time":186.837648867,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837652343,"data":"  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.\n"}
+,{"stream_name":"stdout","time":186.837656091,"data":"  shapes : {'n': 8388608, 'table': 4194304}\n"}
+,{"stream_name":"stdout","time":186.837660118,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.837663543,"data":"  tg_device              3.7758 ms   (min 3.7643, max 3.7965)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837667312,"data":"  tg                     8.2290 ms   (min 8.0054, max 8.9300)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.837671424,"data":"  ref                    3.9371 ms   (min 3.9324, max 3.9691)\n"}
+,{"stream_name":"stdout","time":186.837674764,"data":"  tg kernels        1\n"}
+,{"stream_name":"stdout","time":186.837678111,"data":"  tg   vs oracle    3.447e-08  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837685998,"data":"  ref  vs oracle    3.447e-08\n"}
+,{"stream_name":"stdout","time":186.837689692,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":186.83769312,"data":"  RATIO tg/ref      0.959x\n"}
+,{"stream_name":"stdout","time":186.837696535,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837700532,"data":"\n"}
+,{"stream_name":"stdout","time":186.837703953,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837707593,"data":"  rung scan: carried dependency chain (prefix sum)\n"}
+,{"stream_name":"stdout","time":186.837711015,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837714398,"data":"  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.\n"}
+,{"stream_name":"stdout","time":186.83771844,"data":"  shapes : {'R': 4096, 'N': 4096}\n"}
+,{"stream_name":"stdout","time":186.837722746,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.837726369,"data":"  tg_device             22.2371 ms   (min 22.0164, max 22.4460)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837730254,"data":"  tg                    30.3794 ms   (min 29.9302, max 41.5975)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.83773381,"data":"  ref                    0.8411 ms   (min 0.8376, max 0.8472)\n"}
+,{"stream_name":"stdout","time":186.837737187,"data":"  tg kernels        3\n"}
+,{"stream_name":"stdout","time":186.837740853,"data":"  tg   vs oracle    3.546e-07  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837744209,"data":"  ref  vs oracle    3.185e-07\n"}
+,{"stream_name":"stdout","time":186.83774752,"data":"  ref  vs tg        4.920e-07\n"}
+,{"stream_name":"stdout","time":186.83775092,"data":"  RATIO tg/ref      26.438x\n"}
+,{"stream_name":"stdout","time":186.837754227,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837757475,"data":"\n"}
+,{"stream_name":"stdout","time":186.837760692,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837764725,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\n"}
+,{"stream_name":"stdout","time":186.83776948,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.83777343,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\n"}
+,{"stream_name":"stdout","time":186.837777858,"data":"  shapes : {'B': 16384, 'C': 64, 'BC': 16}\n"}
+,{"stream_name":"stdout","time":186.837781908,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":186.837786144,"data":"  tg_device             71.7895 ms   (min 70.9319, max 73.0260)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":186.837789483,"data":"  tg                  1935.2210 ms   (min 1913.2621, max 2100.9441)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":186.83779308,"data":"  ref                   24.6429 ms   (min 24.6298, max 36.1842)\n"}
+,{"stream_name":"stdout","time":186.837796382,"data":"  tg kernels        585\n"}
+,{"stream_name":"stdout","time":186.837799778,"data":"  tg   vs oracle    3.077e-07  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":186.837803695,"data":"  ref  vs oracle    2.257e-07\n"}
+,{"stream_name":"stdout","time":186.837807846,"data":"  ref  vs tg        2.559e-07\n"}
+,{"stream_name":"stdout","time":186.83781573,"data":"  RATIO tg/ref      2.913x\n"}
+,{"stream_name":"stdout","time":186.837819268,"data":"  ref ERROR: None\n"}
+,{"stream_name":"stdout","time":186.837822618,"data":"\n"}
+,{"stream_name":"stdout","time":186.83782601,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.83782942,"data":"  the axis\n"}
+,{"stream_name":"stdout","time":186.837832562,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":186.837835953,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\n"}
+,{"stream_name":"stdout","time":186.837839652,"data":"  --------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":186.837843799,"data":"  ew             2.3729     1.0852   0.972x     113.1   47.3%  OK\n"}
+,{"stream_name":"stdout","time":186.837847328,"data":"  red            2.8660     0.5262   1.918x      46.8   19.6%  OK\n"}
+,{"stream_name":"stdout","time":186.837850983,"data":"  gemm32         9.5965     1.5464   3.005x       1.7       -  OK\n"}
+,{"stream_name":"stdout","time":186.837854569,"data":"  gemm16         6.5160     1.3311   1.454x       5.1       -  OK\n"}
+,{"stream_name":"stdout","time":186.837858181,"data":"  gather         8.2290     3.9371   0.959x      14.3    6.0%  OK\n"}
+,{"stream_name":"stdout","time":186.837861618,"data":"  scan          30.3794     0.8411  26.438x       4.4    1.8%  OK\n"}
+,{"stream_name":"stdout","time":186.837865703,"data":"  trisolve    1935.2210    24.6429   2.913x       0.3       -  OK\n"}
+,{"stream_name":"stdout","time":186.837869368,"data":"\n"}
+,{"stream_name":"stdout","time":186.837872595,"data":"  wrote /kaggle/working/axis_report.json\n"}
+,{"stream_name":"stdout","time":186.837876011,"data":"\n"}
+,{"stream_name":"stdout","time":186.837879238,"data":"  7/7 rungs OK; 0 not OK\n"}
+,{"stream_name":"stdout","time":186.837882839,"data":"\n"}
+,{"stream_name":"stderr","time":189.936843689,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":189.936888855,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":190.135891379,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":190.135915825,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":190.787375794,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":191.11373726,"data":"[NbConvertApp] Writing 312125 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":193.405094383,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":194.222248082,"data":"[NbConvertApp] Writing 593963 bytes to __results__.html\n"}
+]

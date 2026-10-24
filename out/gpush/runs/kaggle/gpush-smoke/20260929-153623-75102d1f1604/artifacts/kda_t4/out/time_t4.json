@@ -1,0 +1,725 @@
+{
+  "rows": [
+    {
+      "shape": {
+        "B": 1,
+        "T": 512,
+        "H": 4,
+        "HV": 4,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T512_H4_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 2.0254080295562744,
+          "min": 2.0064640045166016,
+          "max": 2.1295039653778076,
+          "iters": 10,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 0.3092480003833771,
+          "min": 0.29023998975753784,
+          "max": 0.34409600496292114,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 0.024320000782608986,
+          "min": 0.0225600004196167,
+          "max": 0.03254399821162224,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 17420.99533800001,
+          "min": 17327.07106099997,
+          "max": 19017.84920199998,
+          "iters": 3
+        },
+        "tiny_kda_opt": {
+          "median": 0.28060799837112427,
+          "min": 0.2662400007247925,
+          "max": 0.301503986120224,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 0.022752000018954277,
+          "min": 0.022592000663280487,
+          "max": 0.026784000918269157,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 454.8579519998839,
+          "min": 452.12022499981686,
+          "max": 512.1512739999616,
+          "iters": 3
+        },
+        "tiny_kda_faithful": {
+          "median": 0.2826560139656067,
+          "min": 0.2667520046234131,
+          "max": 0.2984960079193115,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 0.023135999217629433,
+          "min": 0.022592000663280487,
+          "max": 0.027264000847935677,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 2339.34552300002,
+          "min": 2314.294345999997,
+          "max": 2345.6521649998194,
+          "iters": 3
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0791015625,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_opt": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_faithful": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 1,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 5.279327869415283,
+          "min": 5.238783836364746,
+          "max": 5.298655986785889,
+          "iters": 10,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 0.28809601068496704,
+          "min": 0.2677760124206543,
+          "max": 0.33087998628616333,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 0.03484800085425377,
+          "min": 0.024831999093294144,
+          "max": 0.0759039968252182,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 19395.95337799983,
+          "min": 19346.370711999953,
+          "max": 23262.325616,
+          "iters": 3
+        },
+        "tiny_kda_opt": {
+          "median": 0.2831040024757385,
+          "min": 0.268095999956131,
+          "max": 0.30105599761009216,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 0.022816000506281853,
+          "min": 0.02252800017595291,
+          "max": 0.0272000003606081,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 626.413083999978,
+          "min": 624.6003090000158,
+          "max": 662.1592249998685,
+          "iters": 3
+        },
+        "tiny_kda_faithful": {
+          "median": 0.346015989780426,
+          "min": 0.30931198596954346,
+          "max": 0.36048001050949097,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 0.02848000079393387,
+          "min": 0.025472000241279602,
+          "max": 0.04070400074124336,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 2495.364562999839,
+          "min": 2478.03229200008,
+          "max": 2511.399585999925,
+          "iters": 3
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0771484375,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_opt": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_faithful": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 8.824735641479492,
+          "min": 8.752096176147461,
+          "max": 8.90675163269043,
+          "iters": 10,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 0.300927996635437,
+          "min": 0.2683520019054413,
+          "max": 0.3521600067615509,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 0.02473600022494793,
+          "min": 0.02393599972128868,
+          "max": 0.032127998769283295,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 19818.907491999653,
+          "min": 19618.498868999723,
+          "max": 26052.09815199987,
+          "iters": 3
+        },
+        "tiny_kda_opt": {
+          "median": 0.28300800919532776,
+          "min": 0.27238398790359497,
+          "max": 0.30275198817253113,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 0.0244159996509552,
+          "min": 0.02143999934196472,
+          "max": 0.02723200060427189,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 665.8837810000477,
+          "min": 665.6298699999752,
+          "max": 675.5797040000289,
+          "iters": 3
+        },
+        "tiny_kda_faithful": {
+          "median": 0.2969599962234497,
+          "min": 0.2720640003681183,
+          "max": 0.4370880126953125,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 0.03017600066959858,
+          "min": 0.024224000051617622,
+          "max": 0.0326399989426136,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 3278.1693739998445,
+          "min": 3258.1306490001225,
+          "max": 3293.0663810002443,
+          "iters": 3
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.08544921875,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_opt": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_faithful": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 2048,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T2048_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 18.64352035522461,
+          "min": 18.50694465637207,
+          "max": 19.21833610534668,
+          "iters": 10,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 0.28492799401283264,
+          "min": 0.2694079875946045,
+          "max": 0.3115200102329254,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 0.02409599907696247,
+          "min": 0.022495999932289124,
+          "max": 0.030368000268936157,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 20231.357240000307,
+          "min": 20221.790257000066,
+          "max": 20437.276612000005,
+          "iters": 3
+        },
+        "tiny_kda_opt": {
+          "median": 0.2826240062713623,
+          "min": 0.271807998418808,
+          "max": 0.30902400612831116,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 0.022911999374628067,
+          "min": 0.021023999899625778,
+          "max": 0.026847999542951584,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 1017.9424409998319,
+          "min": 1015.9822300001906,
+          "max": 1056.0852189996695,
+          "iters": 3
+        },
+        "tiny_kda_faithful": {
+          "median": 0.2802880108356476,
+          "min": 0.2666560113430023,
+          "max": 0.3113279938697815,
+          "iters": 10,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 0.024032000452280045,
+          "min": 0.02252800017595291,
+          "max": 0.028672000393271446,
+          "iters": 3,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 3676.294771999892,
+          "min": 3659.114187000341,
+          "max": 3778.4028330002,
+          "iters": 3
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0751953125,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_opt": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        },
+        "tiny_kda_faithful": {
+          "n_outputs_captured": 2,
+          "n_launch_o": 1,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "o_dtype": "dtypes.float"
+        }
+      }
+    }
+  ],
+  "agreement": [
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000627078115940094,
+      "median_rel": 0.00436713699070662,
+      "p99_rel": 0.21481601305072848,
+      "cosine": 0.9999891434402091,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000627078115940094,
+      "median_rel": 0.004367224343148214,
+      "p99_rel": 0.21481601305072848,
+      "cosine": 0.9999891434409203,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006270632147789001,
+      "median_rel": 0.004366802666077016,
+      "p99_rel": 0.21481396117610502,
+      "cosine": 0.9999891434560108,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874447524547577,
+      "median_rel": 0.004425995166485126,
+      "p99_rel": 0.22290049322578714,
+      "cosine": 0.9999889773770457,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874447524547577,
+      "median_rel": 0.004425995166485126,
+      "p99_rel": 0.22289875311643734,
+      "cosine": 0.9999889773763174,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874484777450562,
+      "median_rel": 0.004426177896437098,
+      "p99_rel": 0.22299940489514675,
+      "cosine": 0.9999889773646874,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000577680766582489,
+      "median_rel": 0.004397937662276342,
+      "p99_rel": 0.21281535216155087,
+      "cosine": 0.9999890998618888,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000577680766582489,
+      "median_rel": 0.004397964477539063,
+      "p99_rel": 0.21281438741230693,
+      "cosine": 0.9999890998625934,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005776844918727875,
+      "median_rel": 0.004398041357593468,
+      "p99_rel": 0.21282379374440336,
+      "cosine": 0.9999890998473291,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155557930469513,
+      "median_rel": 0.0044361143060826745,
+      "p99_rel": 0.21778756899621024,
+      "cosine": 0.9999889921651207,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155557930469513,
+      "median_rel": 0.004436115530394491,
+      "p99_rel": 0.2177880542977902,
+      "cosine": 0.9999889921647284,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155408918857574,
+      "median_rel": 0.004436071283807583,
+      "p99_rel": 0.21779645975550946,
+      "cosine": 0.9999889921578654,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    }
+  ],
+  "scope": {
+    "label": "fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best",
+    "short": "fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]",
+    "selected": [
+      {
+        "key": "(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')",
+        "kwargs": {
+          "BV": "32"
+        },
+        "num_warps": 4,
+        "num_stages": 1
+      }
+    ],
+    "distinct": {
+      "BV": [
+        32
+      ],
+      "num_stages": [
+        1,
+        2
+      ],
+      "num_warps": [
+        2,
+        4
+      ]
+    },
+    "model_vs_observed": {
+      "model_BV": [
+        32
+      ],
+      "model_num_stages": [
+        2,
+        1
+      ],
+      "observed_BV": [
+        32
+      ],
+      "observed_num_stages": [
+        1,
+        2
+      ],
+      "observed_num_warps": [
+        2,
+        4
+      ],
+      "agree": true
+    },
+    "fwd_finite": true,
+    "optin": [
+      49152,
+      65536
+    ],
+    "n_configs": 4
+  },
+  "ports_present": [
+    "tiny_kda (naive)",
+    "tiny_kda_opt",
+    "tiny_kda_faithful"
+  ],
+  "ports_missing": [],
+  "iters": 10,
+  "ladder": [
+    [
+      1,
+      512,
+      4,
+      4,
+      128,
+      128,
+      64
+    ],
+    [
+      1,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      2048,
+      8,
+      8,
+      128,
+      128,
+      64
+    ]
+  ]
+}

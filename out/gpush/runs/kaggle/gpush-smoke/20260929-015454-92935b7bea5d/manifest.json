@@ -1,0 +1,39 @@
+{
+  "bytes": 122569,
+  "entries": [
+    {
+      "mtime_ns": 1790559287084568470,
+      "path": "derivation/_fp32.py",
+      "sha256": "08208028be8e9cd2f49375d5f4016704db3015e496394e884510fa2f843366ef",
+      "size": 13518
+    },
+    {
+      "mtime_ns": 1790553055336736613,
+      "path": "derivation/_util.py",
+      "sha256": "850fd87051eab1eb76e51e653f8c5ab61ca7ad988e4f7d59768c74ca9548ee6d",
+      "size": 14455
+    },
+    {
+      "mtime_ns": 1790561437592956583,
+      "path": "derivation/divide.py",
+      "sha256": "c05c073e3b9e4a583fdb51d462be856d674246122d800ba7e6a7ce526fc938ec",
+      "size": 46728
+    },
+    {
+      "mtime_ns": 1790552916795615465,
+      "path": "derivation/divide_backends.py",
+      "sha256": "862e99023c52e9f8f2cf50e451e2d79c172be165b422da3bc98f59fbe801898b",
+      "size": 18182
+    },
+    {
+      "mtime_ns": 1790553181244811238,
+      "path": "derivation/kda_decay.py",
+      "sha256": "24c2ea4a9856b6eacc76a8094abd588938b7494ad6f1bbca264080b0d8cf9d03",
+      "size": 29686
+    }
+  ],
+  "files": 5,
+  "fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+  "schema": "gpush/manifest@1",
+  "source": "git"
+}

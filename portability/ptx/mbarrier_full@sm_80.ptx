@@ -1,0 +1,17 @@
+.version 7.8
+.target sm_80
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<16>;
+  .reg .pred %p<8>;
+  mov.b32 %r1, 0;
+  mov.b32 %r2, 1;
+  mbarrier.init.shared.b64 [%r1], %r2;
+  mbarrier.arrive.shared.b64 _, [%r1];
+  mbarrier.test_wait.parity.shared.b64 %p1, [%r1], 0;
+  mbarrier.inval.shared.b64 [%r1];
+  ret;
+}

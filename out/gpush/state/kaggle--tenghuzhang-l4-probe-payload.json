@@ -1,0 +1,110 @@
+{
+  "backend": "kaggle",
+  "fingerprint": "557335a0dfcc7dbac3aa565bd407739d42d5626e0d5159ee5e853ba6eabf9cd1",
+  "manifest": {
+    "bytes": 206499,
+    "entries": [
+      {
+        "mtime_ns": 1790658801456655735,
+        "path": "kda_t4/INSTALL.sh",
+        "sha256": "ac7517b3b0091800755f4ce5908d3da019d2c2ff718360c51d76d17bac505523",
+        "size": 4037
+      },
+      {
+        "mtime_ns": 1790687321807363075,
+        "path": "kda_t4/README.md",
+        "sha256": "c83a510e40bedb312a74d117c031211d8302a3dae7668452c8a5cd995054f3f4",
+        "size": 5445
+      },
+      {
+        "mtime_ns": 1790667363008770863,
+        "path": "kda_t4/gate_observed.py",
+        "sha256": "8c4c0f891ed2b8d4ee9f8154bc7f20838f8b7e2662e27cc23a1f03f4ded96e11",
+        "size": 33520
+      },
+      {
+        "mtime_ns": 1790740781130040811,
+        "path": "kda_t4/l4_probe.py",
+        "sha256": "6386142b6711f844fbbe3031e86fc160d2e7fb593c8ebe54b5224f19ace1c565",
+        "size": 43966
+      },
+      {
+        "mtime_ns": 1790741045118782747,
+        "path": "kda_t4/l4_push.py",
+        "sha256": "60dea450cfef246a13575688637902e78adab41b71d2ee9e1452328a12b37f38",
+        "size": 20185
+      },
+      {
+        "mtime_ns": 1790739208425370904,
+        "path": "kda_t4/l4_run.sh",
+        "sha256": "3c17fd9ce9075a22b7aa5abede6cc06e52a00c2dc8566bafed3f24873b6c03ed",
+        "size": 2085
+      },
+      {
+        "mtime_ns": 1790741320519463671,
+        "path": "kda_t4/l4_shape_census.py",
+        "sha256": "afc7e4fa679e63233abdb950594f04b9fd01ce84a366cd11064cf8cfead466dc",
+        "size": 8520
+      },
+      {
+        "mtime_ns": 1790741616213883799,
+        "path": "kda_t4/out/census/hunt-6.json",
+        "sha256": "fd2b5dbb5eaf6aaf06eacc54e07a5f9b48d077d3a07376ad99fcecde7da77534",
+        "size": 1797
+      },
+      {
+        "mtime_ns": 1790659144447859685,
+        "path": "kda_t4/pin_t4.py",
+        "sha256": "97b66ecb3d2319716f1a441d1438ef569e3d36fe1d0d482ab5c97143f784115b",
+        "size": 10898
+      },
+      {
+        "mtime_ns": 1790660337686607985,
+        "path": "kda_t4/probe_env.py",
+        "sha256": "eba49933d9d17bd02a4f532d6a5e996e9331594f171d91a062d3f2682ac581b6",
+        "size": 12319
+      },
+      {
+        "mtime_ns": 1790678169870552293,
+        "path": "kda_t4/run.sh",
+        "sha256": "3b702dbf309ba19af5668629a10ee3f3ca5cd0460617a97ce56e1a46302ca70c",
+        "size": 3552
+      },
+      {
+        "mtime_ns": 1790675399583028063,
+        "path": "kda_t4/sass_t4.py",
+        "sha256": "513af250878ad0d4327ce45b9381951b74cb625969733de9f4417eb2e9247e95",
+        "size": 32373
+      },
+      {
+        "mtime_ns": 1790667375977737309,
+        "path": "kda_t4/time_t4.py",
+        "sha256": "2fde6488f7340c5721a8967a31cac44618141e0baa91410f28cba224b229277a",
+        "size": 24214
+      },
+      {
+        "mtime_ns": 1790660373113224163,
+        "path": "kda_t4/world.py",
+        "sha256": "72540dad6a3e7e5e553877d11f4fe9994864e228d40561049560ed2589cd1501",
+        "size": 3588
+      }
+    ],
+    "files": 14,
+    "fingerprint": "557335a0dfcc7dbac3aa565bd407739d42d5626e0d5159ee5e853ba6eabf9cd1",
+    "schema": "gpush/manifest@1",
+    "source": "git"
+  },
+  "pending_note": "uploaded, not yet attested by a run",
+  "pending_since": "2026-09-30T12:14:12+08:00",
+  "remote": {
+    "bytes": 67370,
+    "dataset": "tenghuzhang/l4-probe-payload",
+    "sha256": "d972402113b199cb269ffb5d82884727ce0d7d4ffb205c1af0107070455ed493",
+    "tarball": "payload.tgz"
+  },
+  "runs": [],
+  "schema": "gpush/baseline@1",
+  "state": "pending",
+  "target": "tenghuzhang/l4-probe-payload",
+  "updated": "2026-09-30T12:14:12+08:00"
+}

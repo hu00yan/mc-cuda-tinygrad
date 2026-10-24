@@ -1,0 +1,76 @@
+arch                sm_75
+functions           22
+sass instructions   9648
+
+verdict             no sm_75-illegal instructions
+portability gates (count must be 0 for sm_75-illegal ops)
+  HMMA                           0   OK   tensor core, fp16, sm_80+
+  HGMMA                          0   OK   tensor core, fp_16 on sm_90a only
+  IMMA                           0   OK   tensor core, integer, sm_75+ (legal on T4)
+  MMA                            0   OK   generic tensor core tag
+  LDGSTS                         0   OK   cp.async, sm_80+ (Turing has no async copy)
+  LDGSTS.E.BYPASS                0   OK   cp.async bypass, sm_80+
+  LDSM                           0   OK   ldmatrix, sm_75+ (legal on T4)
+  BAR.RED                        0   OK   warp reduce barrier, sm_80+ (Volta+ has BAR.SYNC only)
+  REDUX                          0   OK   redux.sync, sm_80+
+  ELECT                          0   OK   warp ballot elect, sm_80+
+  F2FP                           0   OK   fp8 conversion, sm_89+
+  E4M3                           0   OK   fp8 type, sm_89+
+  STG.E.U8.SYS                 140   expected: uint8 global store (expected: this is the obs write)
+  LDG.E.S8.CONSTANT.SYS        112   expected: int8 __ldg read (expected: this is the voxel read)
+
+per-kernel sass instruction counts
+    1296  _Z24render_kernel_uint8_fastPKaPKfPhiiiiiffi
+    1240  _Z19render_kernel_uint8PKaPKfPhiiiiiff
+    1224  _Z13render_kernelPKaPKfPfiiiiiff
+     824  _Z24render_kernel_uint8_fp16PKaPKfPhiiiiiff
+     808  _Z27render_kernel_uint8_minimalPKaPKfPhiiiiiff
+     776  _Z28render_kernel_uint8_prebasisPKaPKfPhiiiiiii
+     760  _Z24render_kernel_uint8_smemPKaPKfPhiiiii
+     696  _Z29render_kernel_uint8_coalescedPKaPKfPhiiiii
+     680  _Z18place_house_kernelPaiiiiiii
+     272  _Z28generate_world_kernel_maskedPaPKbiiiii
+     240  _Z23raycast_interact_kernelPaPKfS1_S1_PKbS3_Pfiiiiaf
+     208  _Z20raycast_break_kernelPaPKfS1_S1_PKbPfiiiiaf
+     160  _Z21generate_world_kernelPaiiiiij
+      88  _Z14physics_kernelPfS_S_S_PbPKfS2_S2_S2_PKbS2_iiiiffff
+      72  _Z24place_tree_kernel_maskedPaPKbiiiiiii
+      64  _Z17place_tree_kernelPaiiiiiii
+      64  _Z21decode_actions_kernelPKaPKfPfS3_S3_S3_PbS4_S4_S3_if
+      56  _Z30precompute_camera_basis_kernelPKfPfiiif
+      40  _Z12reset_kernelPfS_S_S_PbPKbifff
+      32  update_cameras_kernel
+      24  _Z21episode_update_kernelPiPKbi
+      24  _Z20episode_check_kernelPKiPbii
+
+top 30 opcodes
+     962  IMAD.MOV.U32
+     848  BRA
+     620  IADD3
+     538  IMAD
+     433  FADD.FTZ
+     424  SHF.R.S32.HI
+     420  IMAD.IADD
+     339  FSETP.GEU.FTZ.AND
+     282  IADD3.X
+     277  BMOV.32.CLEAR
+     277  BSSY
+     277  BSYNC
+     257  ISETP.GT.AND
+     200  ISETP.GE.AND
+     190  FMUL.FTZ
+     184  BREAK
+     165  LOP3.LUT
+     160  ISETP.GE.U32.OR
+     159  ISETP.LT.AND
+     144  ISETP.GE.OR
+     140  STG.E.U8.SYS
+     129  MOV
+     119  FFMA.FTZ
+     114  ISETP.GE.U32.AND
+     112  LDG.E.S8.CONSTANT.SYS
+      84  MUFU.RCP
+      83  IMAD.MOV
+      75  FSETP.GE.FTZ.AND
+      72  PRMT
+      72  I2F

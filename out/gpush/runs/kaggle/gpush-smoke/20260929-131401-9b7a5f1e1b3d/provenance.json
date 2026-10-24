@@ -1,0 +1,475 @@
+{
+  "artefacts": [
+    {
+      "bytes": 222,
+      "path": "GPUSH-VERIFY.json",
+      "sha256": "cd472f33a7430d0026cd312b58c8d3bc63186e821141dd252202162f4688b709"
+    },
+    {
+      "bytes": 8539,
+      "path": "gpush-smoke.log",
+      "sha256": "1d9eb3037c4d03b28cc823839ef4e600c557e28732af25ce1ab25b428866fbed"
+    },
+    {
+      "bytes": 28,
+      "path": "gpush-root.txt",
+      "sha256": "4b3cfc9176dd95c980b4de48098c6a1a651917fc7bddf50369f41c776f6f5b3f"
+    },
+    {
+      "bytes": 1817,
+      "path": "gpush-run.txt",
+      "sha256": "cf1d266b1f9b84327f203c3f8537d0dae433a736e3ce70aee49a3fee97283b42"
+    },
+    {
+      "bytes": 3677,
+      "path": "tree/GPUSH-ATTEST.json",
+      "sha256": "387224d9e79afcdfa90530ed5358beca3075a7bc4243a735e7c777aa1e4095b7"
+    },
+    {
+      "bytes": 54200,
+      "path": "tree/payload/kda/kda_vs_fla.py",
+      "sha256": "879ed0912c681795dcd178aeef89b636eae234f03b4ff109416c50d13a92bd72"
+    },
+    {
+      "bytes": 6221,
+      "path": "tree/payload/kda/test_tiny.py",
+      "sha256": "cd5407aa76a2a44eb7fe2086fc8827ee49b24110f0c9ff6cda08a7f3bc013413"
+    },
+    {
+      "bytes": 51871,
+      "path": "tree/payload/kda/tiny_kda_faithful.py",
+      "sha256": "ad01f09c976f1f56bc100b3f84bb9b3da434864d3c21aea2619fd2f35b515736"
+    },
+    {
+      "bytes": 18237,
+      "path": "tree/payload/kda/tiny_kda_opt.py",
+      "sha256": "fc07944a2377eec06d4cb55dfb6ead5def7c9519293eb112e217cea4e769cdfe"
+    },
+    {
+      "bytes": 72733,
+      "path": "tree/payload/kda/baseline_pin.py",
+      "sha256": "5ef26f8aaaa3c30cdaa9a4f83cf14dd20c4529f876e33dff2cae1f96f461ba35"
+    },
+    {
+      "bytes": 6931,
+      "path": "tree/payload/kda/replay_kda.py",
+      "sha256": "6e4dcaf1de7a38af45a8caf9799e082546adf6d08f953f89b29070289e8e27ac"
+    },
+    {
+      "bytes": 18898,
+      "path": "tree/payload/kda/ref.py",
+      "sha256": "e343d67bc38259b4d6d72d216712ed2f53573fc82b3af18f0d9364d1797cc3f9"
+    },
+    {
+      "bytes": 49505,
+      "path": "tree/payload/kda/materialisation.py",
+      "sha256": "9ff6b8ec04fed685a88e045f7b6bc14982afc88b2e3f081ee0de44f0a6d0b785"
+    },
+    {
+      "bytes": 13213,
+      "path": "tree/payload/kda/tiny_kda.py",
+      "sha256": "3d063c44403485a8f4f3d92eef149b8fedb882cf567c3e977ea84ae0ebdb5c6d"
+    },
+    {
+      "bytes": 25683,
+      "path": "tree/payload/kda/SPEC.md",
+      "sha256": "cb06ddf9e9f28b961591e146ae78646416b352bde33d320f5ff7bb88f074d2c1"
+    },
+    {
+      "bytes": 7326,
+      "path": "tree/payload/kda/perf_kda.py",
+      "sha256": "b4ea97dc145b163610a5c0b993b3f28db32a7b1851c42aa0337a8a7161e0cba7"
+    },
+    {
+      "bytes": 11220,
+      "path": "tree/payload/kda/cost.py",
+      "sha256": "c089839d62812575f50f4277aac78b666b385dffeda51cddcd07258c9a9d9a9a"
+    },
+    {
+      "bytes": 22322,
+      "path": "tree/payload/kda/NOTES.md",
+      "sha256": "b1642dcc8104cbc5f11bf8f710c6e8250eb8a455cba9e1a950ba4c84ba4d9b39"
+    },
+    {
+      "bytes": 29843,
+      "path": "tree/payload/kda/test_ref.py",
+      "sha256": "baafff1926910fbf0a4b0146d3e415b622f323dbab1c65871595e004639548d7"
+    },
+    {
+      "bytes": 37087,
+      "path": "tree/payload/kda/materialisation_verdict.md",
+      "sha256": "2338a565f5ff3f790e5636f725c86f2b3c6c36ccc410314e618b40b935595745"
+    },
+    {
+      "bytes": 6126,
+      "path": "tree/payload/kda/codegen_diff.py",
+      "sha256": "8f9c834323c51fdde3301d3d59baf7e18d9060de4d732e46de06f538be298798"
+    },
+    {
+      "bytes": 67561,
+      "path": "tree/payload/kda/schedule_census_cuda.py",
+      "sha256": "47de6067032a35fa7508ea56024e3b77eb1be5b0337fc0a259b0542e67adfadf"
+    },
+    {
+      "bytes": 14077,
+      "path": "tree/payload/kda/tpu/shapes.py",
+      "sha256": "5c2d48e44b5908bb1002098b2a0504ccef208d584af88a365987cc1ce81f8278"
+    },
+    {
+      "bytes": 16613,
+      "path": "tree/payload/kda/tpu/pallas_kda.py",
+      "sha256": "66ea0d5f57965926e1bb089a3626f956e1aeec2d9246e3ab4196dbbc81d59e6e"
+    },
+    {
+      "bytes": 18495,
+      "path": "tree/payload/kda/tpu/tiling_check.py",
+      "sha256": "2fb9f386c78f807e29b1b27e8f34ed5540254c9c319741ba088a1d95f5b9d8e1"
+    },
+    {
+      "bytes": 10431,
+      "path": "tree/payload/kda/tpu/README.md",
+      "sha256": "0810f13d9fd2e9b68253e735f861d23005e9dabd9ce62b62b455273dd586ba0c"
+    },
+    {
+      "bytes": 10638,
+      "path": "tree/payload/kda/tpu/roofline.py",
+      "sha256": "a7a5ad7421908b4b6a31545e6789c3aafd95af91727c3b01a6513d75d733ac57"
+    },
+    {
+      "bytes": 9252,
+      "path": "tree/payload/kda/tpu/xla_kda.py",
+      "sha256": "09bba2abdf5c6be3566e442584ab86043d60a9abac0fce28e8e7bf23c91ab742"
+    },
+    {
+      "bytes": 20459,
+      "path": "tree/payload/kda/tpu/test_design.py",
+      "sha256": "d3d098a80f89bb426ef03e07085b2e32c2ad1decfd864bf58b5f0ce445ba47e4"
+    },
+    {
+      "bytes": 10811,
+      "path": "tree/payload/tools/archlab/tinygrad_cuda.py",
+      "sha256": "1a338183eb5589979a6829878b3a6900dc3290f913ad99e77dea2304605ab5b9"
+    },
+    {
+      "bytes": 20018,
+      "path": "tree/payload/tools/archlab/inspect_ptx.py",
+      "sha256": "1db65d800a1f4ac2820a273a6e6a221de87650f3365fe2784a8182eea0f35708"
+    },
+    {
+      "bytes": 3689,
+      "path": "tree/payload/tools/archlab/demo.sh",
+      "sha256": "fd2eec2ed52ce7f7c69038c878bedbc56bb66595d4e968731ba2514dbb8870d0"
+    },
+    {
+      "bytes": 3445,
+      "path": "tree/payload/tools/archlab/build_image.sh",
+      "sha256": "8a6ec5088003cbaff071e59fbd3f41b5268703c6d691f06d1ffa178329e83869"
+    },
+    {
+      "bytes": 9713,
+      "path": "tree/payload/tools/archlab/triton_aot.py",
+      "sha256": "f75d1117493f9e84772fea83caebfe2dc95bc51966d9da6d2fd5be59d6a43b3f"
+    },
+    {
+      "bytes": 5625,
+      "path": "tree/payload/tools/archlab/test_inspect.py",
+      "sha256": "f38a1191b975067c731e12d9ace7c947c719896af92e5e869167f736b3889a55"
+    },
+    {
+      "bytes": 898,
+      "path": "tree/payload/tools/archlab/fla_kda_chunk_h_sig.json",
+      "sha256": "f5c08d6a3b1f6345f7bca514a26480a4feffb85ce27691406b308f51ea3d7dca"
+    },
+    {
+      "bytes": 4037,
+      "path": "tree/payload/kda_t4/INSTALL.sh",
+      "sha256": "ac7517b3b0091800755f4ce5908d3da019d2c2ff718360c51d76d17bac505523"
+    },
+    {
+      "bytes": 12270,
+      "path": "tree/payload/kda_t4/probe_env.py",
+      "sha256": "461cd1513f050c6301489988f39c6815126df4b3483b810c2985a7a2f64aa47b"
+    },
+    {
+      "bytes": 3527,
+      "path": "tree/payload/kda_t4/README.md",
+      "sha256": "efeae79381f5811cc9b75dd569c12c12f3e8d8fc8a2afca6220c8c15972ab3ef"
+    },
+    {
+      "bytes": 3296,
+      "path": "tree/payload/kda_t4/out/install.log",
+      "sha256": "0f56fdb3f1ad40e2c8e8dd9d81aa530c02c7be44af26c3dffd62a520ef7c25b9"
+    },
+    {
+      "bytes": 54200,
+      "path": "artifacts/kda/kda_vs_fla.py",
+      "sha256": "879ed0912c681795dcd178aeef89b636eae234f03b4ff109416c50d13a92bd72"
+    },
+    {
+      "bytes": 6221,
+      "path": "artifacts/kda/test_tiny.py",
+      "sha256": "cd5407aa76a2a44eb7fe2086fc8827ee49b24110f0c9ff6cda08a7f3bc013413"
+    },
+    {
+      "bytes": 51871,
+      "path": "artifacts/kda/tiny_kda_faithful.py",
+      "sha256": "ad01f09c976f1f56bc100b3f84bb9b3da434864d3c21aea2619fd2f35b515736"
+    },
+    {
+      "bytes": 18237,
+      "path": "artifacts/kda/tiny_kda_opt.py",
+      "sha256": "fc07944a2377eec06d4cb55dfb6ead5def7c9519293eb112e217cea4e769cdfe"
+    },
+    {
+      "bytes": 72733,
+      "path": "artifacts/kda/baseline_pin.py",
+      "sha256": "5ef26f8aaaa3c30cdaa9a4f83cf14dd20c4529f876e33dff2cae1f96f461ba35"
+    },
+    {
+      "bytes": 6931,
+      "path": "artifacts/kda/replay_kda.py",
+      "sha256": "6e4dcaf1de7a38af45a8caf9799e082546adf6d08f953f89b29070289e8e27ac"
+    },
+    {
+      "bytes": 18898,
+      "path": "artifacts/kda/ref.py",
+      "sha256": "e343d67bc38259b4d6d72d216712ed2f53573fc82b3af18f0d9364d1797cc3f9"
+    },
+    {
+      "bytes": 49505,
+      "path": "artifacts/kda/materialisation.py",
+      "sha256": "9ff6b8ec04fed685a88e045f7b6bc14982afc88b2e3f081ee0de44f0a6d0b785"
+    },
+    {
+      "bytes": 13213,
+      "path": "artifacts/kda/tiny_kda.py",
+      "sha256": "3d063c44403485a8f4f3d92eef149b8fedb882cf567c3e977ea84ae0ebdb5c6d"
+    },
+    {
+      "bytes": 25683,
+      "path": "artifacts/kda/SPEC.md",
+      "sha256": "cb06ddf9e9f28b961591e146ae78646416b352bde33d320f5ff7bb88f074d2c1"
+    },
+    {
+      "bytes": 7326,
+      "path": "artifacts/kda/perf_kda.py",
+      "sha256": "b4ea97dc145b163610a5c0b993b3f28db32a7b1851c42aa0337a8a7161e0cba7"
+    },
+    {
+      "bytes": 11220,
+      "path": "artifacts/kda/cost.py",
+      "sha256": "c089839d62812575f50f4277aac78b666b385dffeda51cddcd07258c9a9d9a9a"
+    },
+    {
+      "bytes": 22322,
+      "path": "artifacts/kda/NOTES.md",
+      "sha256": "b1642dcc8104cbc5f11bf8f710c6e8250eb8a455cba9e1a950ba4c84ba4d9b39"
+    },
+    {
+      "bytes": 29843,
+      "path": "artifacts/kda/test_ref.py",
+      "sha256": "baafff1926910fbf0a4b0146d3e415b622f323dbab1c65871595e004639548d7"
+    },
+    {
+      "bytes": 37087,
+      "path": "artifacts/kda/materialisation_verdict.md",
+      "sha256": "2338a565f5ff3f790e5636f725c86f2b3c6c36ccc410314e618b40b935595745"
+    },
+    {
+      "bytes": 6126,
+      "path": "artifacts/kda/codegen_diff.py",
+      "sha256": "8f9c834323c51fdde3301d3d59baf7e18d9060de4d732e46de06f538be298798"
+    },
+    {
+      "bytes": 67561,
+      "path": "artifacts/kda/schedule_census_cuda.py",
+      "sha256": "47de6067032a35fa7508ea56024e3b77eb1be5b0337fc0a259b0542e67adfadf"
+    },
+    {
+      "bytes": 14077,
+      "path": "artifacts/kda/tpu/shapes.py",
+      "sha256": "5c2d48e44b5908bb1002098b2a0504ccef208d584af88a365987cc1ce81f8278"
+    },
+    {
+      "bytes": 16613,
+      "path": "artifacts/kda/tpu/pallas_kda.py",
+      "sha256": "66ea0d5f57965926e1bb089a3626f956e1aeec2d9246e3ab4196dbbc81d59e6e"
+    },
+    {
+      "bytes": 18495,
+      "path": "artifacts/kda/tpu/tiling_check.py",
+      "sha256": "2fb9f386c78f807e29b1b27e8f34ed5540254c9c319741ba088a1d95f5b9d8e1"
+    },
+    {
+      "bytes": 10431,
+      "path": "artifacts/kda/tpu/README.md",
+      "sha256": "0810f13d9fd2e9b68253e735f861d23005e9dabd9ce62b62b455273dd586ba0c"
+    },
+    {
+      "bytes": 10638,
+      "path": "artifacts/kda/tpu/roofline.py",
+      "sha256": "a7a5ad7421908b4b6a31545e6789c3aafd95af91727c3b01a6513d75d733ac57"
+    },
+    {
+      "bytes": 9252,
+      "path": "artifacts/kda/tpu/xla_kda.py",
+      "sha256": "09bba2abdf5c6be3566e442584ab86043d60a9abac0fce28e8e7bf23c91ab742"
+    },
+    {
+      "bytes": 20459,
+      "path": "artifacts/kda/tpu/test_design.py",
+      "sha256": "d3d098a80f89bb426ef03e07085b2e32c2ad1decfd864bf58b5f0ce445ba47e4"
+    },
+    {
+      "bytes": 10811,
+      "path": "artifacts/tools/archlab/tinygrad_cuda.py",
+      "sha256": "1a338183eb5589979a6829878b3a6900dc3290f913ad99e77dea2304605ab5b9"
+    },
+    {
+      "bytes": 20018,
+      "path": "artifacts/tools/archlab/inspect_ptx.py",
+      "sha256": "1db65d800a1f4ac2820a273a6e6a221de87650f3365fe2784a8182eea0f35708"
+    },
+    {
+      "bytes": 3689,
+      "path": "artifacts/tools/archlab/demo.sh",
+      "sha256": "fd2eec2ed52ce7f7c69038c878bedbc56bb66595d4e968731ba2514dbb8870d0"
+    },
+    {
+      "bytes": 3445,
+      "path": "artifacts/tools/archlab/build_image.sh",
+      "sha256": "8a6ec5088003cbaff071e59fbd3f41b5268703c6d691f06d1ffa178329e83869"
+    },
+    {
+      "bytes": 9713,
+      "path": "artifacts/tools/archlab/triton_aot.py",
+      "sha256": "f75d1117493f9e84772fea83caebfe2dc95bc51966d9da6d2fd5be59d6a43b3f"
+    },
+    {
+      "bytes": 5625,
+      "path": "artifacts/tools/archlab/test_inspect.py",
+      "sha256": "f38a1191b975067c731e12d9ace7c947c719896af92e5e869167f736b3889a55"
+    },
+    {
+      "bytes": 898,
+      "path": "artifacts/tools/archlab/fla_kda_chunk_h_sig.json",
+      "sha256": "f5c08d6a3b1f6345f7bca514a26480a4feffb85ce27691406b308f51ea3d7dca"
+    },
+    {
+      "bytes": 4037,
+      "path": "artifacts/kda_t4/INSTALL.sh",
+      "sha256": "ac7517b3b0091800755f4ce5908d3da019d2c2ff718360c51d76d17bac505523"
+    },
+    {
+      "bytes": 12270,
+      "path": "artifacts/kda_t4/probe_env.py",
+      "sha256": "461cd1513f050c6301489988f39c6815126df4b3483b810c2985a7a2f64aa47b"
+    },
+    {
+      "bytes": 3527,
+      "path": "artifacts/kda_t4/README.md",
+      "sha256": "efeae79381f5811cc9b75dd569c12c12f3e8d8fc8a2afca6220c8c15972ab3ef"
+    },
+    {
+      "bytes": 3296,
+      "path": "artifacts/kda_t4/out/install.log",
+      "sha256": "0f56fdb3f1ad40e2c8e8dd9d81aa530c02c7be44af26c3dffd62a520ef7c25b9"
+    }
+  ],
+  "backend": "kaggle",
+  "bytes": 672975,
+  "command": [
+    "bash",
+    "kda_t4/INSTALL.sh",
+    "--cmd",
+    "&&",
+    "--cmd",
+    "python3",
+    "--cmd",
+    "kda_t4/probe_env.py"
+  ],
+  "command_line": "bash kda_t4/INSTALL.sh --cmd && --cmd python3 --cmd kda_t4/probe_env.py",
+  "compute_capability_reported": "sm_75",
+  "device": {
+    "compute_cap": "7.5",
+    "count": 2,
+    "cpu_count": 4,
+    "cuda_runtime": "13.0",
+    "driver": "580.159.04",
+    "gpu": true,
+    "hostname": "e58b65fc64f0",
+    "kernel": "6.12.90+",
+    "machine": "x86_64",
+    "memory_mb": 15360,
+    "name": "Tesla T4",
+    "nvcc": "12.8",
+    "os": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "reason": ""
+  },
+  "exit_code": 0,
+  "files": 34,
+  "fingerprint": "9b7a5f1e1b3da94f19a0501c0131a23ea6d2cb4529edc09789dced69a089ce53",
+  "finished": "20260929-131601",
+  "gates": [
+    {
+      "detail": "'gpush smoke' slugs to 'gpush-smoke' (derived from the slug, never hand-edited)",
+      "name": "title round-trip",
+      "ok": true
+    },
+    {
+      "detail": "34 files, 217.5 KB, sha256 6f26847a792282ed",
+      "name": "pack",
+      "ok": true
+    },
+    {
+      "detail": "new version published",
+      "name": "dataset version",
+      "ok": true
+    },
+    {
+      "detail": "dataset reports ready",
+      "name": "dataset READY",
+      "ok": true
+    },
+    {
+      "detail": "Kaggle lists exactly ['SHA256SUMS', 'payload.tgz']",
+      "name": "published file set",
+      "ok": true
+    },
+    {
+      "detail": "published archive re-hashed: 34 members match the manifest exactly",
+      "name": "published bytes",
+      "ok": true
+    }
+  ],
+  "gpush_version": "1.0.0",
+  "host": {
+    "gpush": "1.0.0",
+    "host": "TenghudeMacBook-Pro-4.local",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "manifest_source": "git",
+  "note": "pushed; session cap 40m enforced server-side by -t",
+  "plan": {
+    "added": 34,
+    "base_fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+    "deleted": 5,
+    "modified": 0,
+    "new_fingerprint": "9b7a5f1e1b3da94f19a0501c0131a23ea6d2cb4529edc09789dced69a089ce53",
+    "unchanged": 0
+  },
+  "remote": {
+    "dataset": "tenghuzhang/gpush-smoke-payload",
+    "fingerprint": "9b7a5f1e1b3da94f19a0501c0131a23ea6d2cb4529edc09789dced69a089ce53",
+    "kernel": "tenghuzhang/gpush-smoke",
+    "sha256": "6f26847a792282edff97453e33b9d5687f07d21c25c3898dc664e097b0867fc7"
+  },
+  "run_id": "20260929-131401-9b7a5f1e1b3d",
+  "schema": "gpush/provenance@1",
+  "started": "20260929-131419",
+  "status": "COMPLETE",
+  "target": "tenghuzhang/gpush-smoke-payload",
+  "transport": "REST API only. A tree ships as a versioned dataset, a kernel attaches it via dataset_sources and walks /kaggle/input. No SSH, no tunnel, no inbound route."
+}

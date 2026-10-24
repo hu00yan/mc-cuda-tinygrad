@@ -1,0 +1,46 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'axis_trisolve' for 'sm_75'
+ptxas info    : Function properties for axis_trisolve
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 42 registers, used 1 barriers, 35456 bytes smem, 372 bytes cmem[0]
+ptxas info    : Compile time = 45.915 ms
+ptxas info    : Compiling entry function 'axis_scan' for 'sm_75'
+ptxas info    : Function properties for axis_scan
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 71 registers, used 1 barriers, 1056 bytes smem, 376 bytes cmem[0]
+ptxas info    : Compile time = 20.499 ms
+ptxas info    : Compiling entry function 'axis_gather' for 'sm_75'
+ptxas info    : Function properties for axis_gather
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 16 registers, used 0 barriers, 388 bytes cmem[0]
+ptxas info    : Compile time = 1.569 ms
+ptxas info    : Compiling entry function 'axis_gemm_f16' for 'sm_75'
+ptxas info    : Function properties for axis_gemm_f16
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 96 registers, used 1 barriers, 12032 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compile time = 126.115 ms
+ptxas info    : Compiling entry function 'axis_gemm_f32' for 'sm_75'
+ptxas info    : Function properties for axis_gemm_f32
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 102 registers, used 1 barriers, 8192 bytes smem, 388 bytes cmem[0]
+ptxas info    : Compile time = 64.494 ms
+ptxas info    : Compiling entry function 'axis_rowdot' for 'sm_75'
+ptxas info    : Function properties for axis_rowdot
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 46 registers, used 0 barriers, 384 bytes cmem[0]
+ptxas info    : Compile time = 9.911 ms
+ptxas info    : Compiling entry function 'axis_ew' for 'sm_75'
+ptxas info    : Function properties for axis_ew
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 56 registers, used 0 barriers, 388 bytes cmem[0]
+ptxas info    : Compile time = 5.709 ms
+ptxas info    : Compiling entry function 'axis_copy' for 'sm_75'
+ptxas info    : Function properties for axis_copy
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, used 0 barriers, 372 bytes cmem[0]
+ptxas info    : Compile time = 0.993 ms
+ptxas info    : Compiling entry function 'axis_fill' for 'sm_75'
+ptxas info    : Function properties for axis_fill
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 6 registers, used 0 barriers, 364 bytes cmem[0]
+ptxas info    : Compile time = 0.792 ms

@@ -1,0 +1,77 @@
+[{"stream_name":"stderr","time":7.748720407,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.748779827,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.748786359,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.748790618,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.350337526,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.350366456,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.350371359,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.350375046,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.69843747,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.698500386,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.698506248,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.698510721,"data":"archive      /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.698514977,"data":"mount        /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload\n"}
+,{"stream_name":"stdout","time":9.698520681,"data":"\n"}
+,{"stream_name":"stdout","time":9.698527465,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":10.106101889,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"e58b65fc64f0\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":10.106135856,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.106155894,"data":"\n"}
+,{"stream_name":"stdout","time":10.106162442,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":10.1061669,"data":"expected 34 files, the tree we will execute has 34\n"}
+,{"stream_name":"stdout","time":10.106170778,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":10.106174532,"data":"\n"}
+,{"stream_name":"stdout","time":10.275847599,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.275879779,"data":"$ bash kda_t4/INSTALL.sh --cmd \u0026\u0026 --cmd python3 --cmd kda_t4/probe_env.py\n"}
+,{"stream_name":"stdout","time":10.275885831,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.275889444,"data":"  at    2026-09-29 05:14:37 UTC\n"}
+,{"stream_name":"stdout","time":10.275892883,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":63.385166622,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":63.385214035,"data":"kda_t4 INSTALL  2026-09-29T05:14:37Z\n"}
+,{"stream_name":"stdout","time":63.385221015,"data":"python  : 3.12.13\n"}
+,{"stream_name":"stdout","time":63.385226125,"data":"pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)\n"}
+,{"stream_name":"stdout","time":63.385238999,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":63.385243172,"data":"\n"}
+,{"stream_name":"stdout","time":63.385246999,"data":"--\u003e einops\n"}
+,{"stream_name":"stdout","time":63.385251237,"data":"    $ python3 -m pip install --disable-pip-version-check einops\n"}
+,{"stream_name":"stdout","time":63.38525592,"data":"    OK einops\n"}
+,{"stream_name":"stdout","time":63.385259799,"data":"\n"}
+,{"stream_name":"stdout","time":63.385263325,"data":"--\u003e fla-core\n"}
+,{"stream_name":"stdout","time":63.385267021,"data":"    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2\n"}
+,{"stream_name":"stdout","time":63.385270724,"data":"    OK fla-core\n"}
+,{"stream_name":"stdout","time":63.385274248,"data":"\n"}
+,{"stream_name":"stdout","time":63.385277716,"data":"--\u003e flash-linear-attention\n"}
+,{"stream_name":"stdout","time":63.38528151,"data":"    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2\n"}
+,{"stream_name":"stdout","time":63.385285316,"data":"    OK flash-linear-attention\n"}
+,{"stream_name":"stdout","time":63.385289033,"data":"\n"}
+,{"stream_name":"stdout","time":63.385292429,"data":"--\u003e tinygrad\n"}
+,{"stream_name":"stdout","time":63.385296005,"data":"    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0\n"}
+,{"stream_name":"stdout","time":63.385299766,"data":"    OK tinygrad\n"}
+,{"stream_name":"stdout","time":63.38530335,"data":"\n"}
+,{"stream_name":"stdout","time":63.385306871,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":63.385310565,"data":"installed, as the card sees it\n"}
+,{"stream_name":"stdout","time":63.385314234,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":63.385318093,"data":"  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385321708,"data":"  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385325731,"data":"  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385329413,"data":"  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385333245,"data":"  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385337161,"data":"  flash_linear_attention 0.5.2          \u003cimport failed: ModuleNotFoundError: No module named 'flash_linear_attention'\u003e\n"}
+,{"stream_name":"stdout","time":63.385341129,"data":"  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+,{"stream_name":"stdout","time":63.385345222,"data":"\n"}
+,{"stream_name":"stdout","time":63.385348358,"data":"  torch.cuda.is_available()    True\n"}
+,{"stream_name":"stdout","time":63.385351483,"data":"  device_count                 2\n"}
+,{"stream_name":"stdout","time":63.385354825,"data":"\n"}
+,{"stream_name":"stdout","time":63.385357883,"data":"done.\n"}
+,{"stream_name":"stdout","time":63.385361864,"data":"\n"}
+,{"stream_name":"stdout","time":63.385365733,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":63.385369497,"data":"exit 0 after 53.3 s\n"}
+,{"stream_name":"stdout","time":63.404057268,"data":"collected 35 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":65.717472887,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":65.717504502,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":65.87999923,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":65.880026802,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":66.515205272,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":66.807464031,"data":"[NbConvertApp] Writing 21643 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":69.145585649,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":69.946787455,"data":"[NbConvertApp] Writing 330350 bytes to __results__.html\n"}
+]

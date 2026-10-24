@@ -1,0 +1,27 @@
+$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned
+cwd: /kaggle/working/tree/payload
+exit: 1
+wall: 211.0 s
+
+--- stdout ---
+  installed tinygrad ? (/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py)
+==============================================================================
+  minecu_tg_knobs -- the on-card battery, one run, same card
+  device  {"gpu": "Tesla T4", "memory_mb": 15360, "compute_cap": "7.5", "driver": "580.159.04", "nvcc": "12.8", "hostname": "45d732d721c7"}
+  shape   batch 1024, res 32, max_steps 32, world 32^3
+==============================================================================
+
+--- stderr ---
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/tree/payload/minecu_tg_knobs/battery.py", line 473, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/kaggle/working/tree/payload/minecu_tg_knobs/battery.py", line 407, in main
+    warm = time_graph(thunk, iters=1, warmup=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/tree/payload/minecu_tg_knobs/battery.py", line 178, in time_graph
+    events = time_call(thunk, reps=1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: time_call() got an unexpected keyword argument 'reps'

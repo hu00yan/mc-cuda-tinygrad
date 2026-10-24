@@ -1,0 +1,24 @@
+# CUTLASS is a pinned nested clone, not vendored source. It must never be
+# committed into this repo: git would record it as a gitlink (a commit reference
+# with no content), which loses the tree entirely. Provenance is the tag/commit
+# pair in RESULTS.md plus the clone command in docker/Dockerfile's history; if the
+# clone is lost, re-create it with:
+#
+#   git clone --depth 1 --branch v4.8.0 --filter=blob:none --sparse \
+#       https://github.com/NVIDIA/cutlass.git cutlass
+#   cd cutlass && git sparse-checkout set include tools/util
+#   # verify: git rev-parse HEAD  ==  098de2a652cf8f00fd70b2df54051c7eccbb855a
+cutlass/
+
+# Compiled binaries. Large, arch-specific, and reproducible with
+# cutlass_lab/harness/build.sh.
+build/
+
+# Raw nvcc output is kept on purpose (it is the evidence for every claim in
+# RESULTS.md), but the machine-generated TSVs are derived.
+*.o
+*.so
+
+# Scratch output for the GPU run path; nothing in here was produced in this
+# environment, because there is no GPU.
+out/

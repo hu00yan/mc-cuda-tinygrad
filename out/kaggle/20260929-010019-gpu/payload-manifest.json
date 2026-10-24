@@ -1,0 +1,175 @@
+{
+  "dataset": "tenghuzhang/mc-cuda-tinygrad-payload",
+  "dataset_version_files": {
+    "payload.sha256": 78,
+    "payload.tgz": 78507
+  },
+  "delta": {
+    "added": 0,
+    "changed": 1,
+    "deleted": 0,
+    "unchanged": 24
+  },
+  "files": {
+    "probe/kda/codegen_diff.py": {
+      "bytes": 6126,
+      "mode": "0o644",
+      "sha256": "8f9c834323c51fdde3301d3d59baf7e18d9060de4d732e46de06f538be298798",
+      "src": "kda/codegen_diff.py"
+    },
+    "probe/kda/cost.py": {
+      "bytes": 11220,
+      "mode": "0o644",
+      "sha256": "c089839d62812575f50f4277aac78b666b385dffeda51cddcd07258c9a9d9a9a",
+      "src": "kda/cost.py"
+    },
+    "probe/kda/kda_vs_fla.py": {
+      "bytes": 54200,
+      "mode": "0o644",
+      "sha256": "879ed0912c681795dcd178aeef89b636eae234f03b4ff109416c50d13a92bd72",
+      "src": "kda/kda_vs_fla.py"
+    },
+    "probe/kda/perf_kda.py": {
+      "bytes": 7326,
+      "mode": "0o644",
+      "sha256": "b4ea97dc145b163610a5c0b993b3f28db32a7b1851c42aa0337a8a7161e0cba7",
+      "src": "kda/perf_kda.py"
+    },
+    "probe/kda/ref.py": {
+      "bytes": 18898,
+      "mode": "0o644",
+      "sha256": "e343d67bc38259b4d6d72d216712ed2f53573fc82b3af18f0d9364d1797cc3f9",
+      "src": "kda/ref.py"
+    },
+    "probe/kda/replay_kda.py": {
+      "bytes": 6931,
+      "mode": "0o644",
+      "sha256": "6e4dcaf1de7a38af45a8caf9799e082546adf6d08f953f89b29070289e8e27ac",
+      "src": "kda/replay_kda.py"
+    },
+    "probe/kda/test_ref.py": {
+      "bytes": 29843,
+      "mode": "0o644",
+      "sha256": "baafff1926910fbf0a4b0146d3e415b622f323dbab1c65871595e004639548d7",
+      "src": "kda/test_ref.py"
+    },
+    "probe/kda/test_tiny.py": {
+      "bytes": 6221,
+      "mode": "0o644",
+      "sha256": "cd5407aa76a2a44eb7fe2086fc8827ee49b24110f0c9ff6cda08a7f3bc013413",
+      "src": "kda/test_tiny.py"
+    },
+    "probe/kda/tiny_kda.py": {
+      "bytes": 13213,
+      "mode": "0o644",
+      "sha256": "3d063c44403485a8f4f3d92eef149b8fedb882cf567c3e977ea84ae0ebdb5c6d",
+      "src": "kda/tiny_kda.py"
+    },
+    "probe/probes/bench.py": {
+      "bytes": 932,
+      "mode": "0o644",
+      "sha256": "629554d786a15a690b1e19fe3a2e8956339193d265f699de2c7ce87cf9dc3b61",
+      "src": "probes/bench.py"
+    },
+    "probe/probes/divide_precision.py": {
+      "bytes": 9394,
+      "mode": "0o644",
+      "sha256": "7f090f34b2876e85e0195006aa8492247e1952fd42c32e661c0b98726046a8e2",
+      "src": "probes/divide_precision.py"
+    },
+    "probe/probes/fp32_correctness.py": {
+      "bytes": 9413,
+      "mode": "0o644",
+      "sha256": "ad48a91be89839c2ddfc9752249edb778a9a9a9c83f92dcb164f1458b3312aed",
+      "src": "probes/fp32_correctness.py"
+    },
+    "probe/probes/gather_floor.py": {
+      "bytes": 2638,
+      "mode": "0o644",
+      "sha256": "f8348ac064855f1f42997369863fb0de5d646575e071bae2cd6e2f5166226dbc",
+      "src": "probes/gather_floor.py"
+    },
+    "probe/probes/gather_scale.py": {
+      "bytes": 2930,
+      "mode": "0o644",
+      "sha256": "da9a947d82938cb62066a599606ad60e58201079b9b92265686d96d9fff6c4e3",
+      "src": "probes/gather_scale.py"
+    },
+    "probe/probes/oc/Makefile": {
+      "bytes": 590,
+      "mode": "0o644",
+      "sha256": "64708f4305e751b0c01830719f4e503cfa4fc0741a23f20e36e62f782eef7861",
+      "src": "probes/oc/Makefile"
+    },
+    "probe/probes/oc/dbg_oc.py": {
+      "bytes": 2395,
+      "mode": "0o644",
+      "sha256": "a2bdfce3225fa245a6a5c70709c9ca5abdc7328cba178fbac87bb1bf198ee7d7",
+      "src": "probes/oc/dbg_oc.py"
+    },
+    "probe/probes/oc/np_oc.py": {
+      "bytes": 5519,
+      "mode": "0o644",
+      "sha256": "4733481c50c9bf47c2f0d099329439a6887a8843f13d5e22244d563122aa444d",
+      "src": "probes/oc/np_oc.py"
+    },
+    "probe/probes/oc/oc_report.py": {
+      "bytes": 7918,
+      "mode": "0o644",
+      "sha256": "ff947cf0850d9961224da48a60b5c33dffe642aba095004873aaa6518e86459c",
+      "src": "probes/oc/oc_report.py"
+    },
+    "probe/probes/oc/ref_oc.c": {
+      "bytes": 8224,
+      "mode": "0o644",
+      "sha256": "e580d781397e56f4f60a2413954362edf0114b7fc8835788a4266c06f6951a73",
+      "src": "probes/oc/ref_oc.c"
+    },
+    "probe/probes/oc/run_oc.py": {
+      "bytes": 4661,
+      "mode": "0o644",
+      "sha256": "6b1dcea6879a0e412acd5b71b6775a64d8eb53ba493e1e3e9b0ebcd68e144d11",
+      "src": "probes/oc/run_oc.py"
+    },
+    "probe/probes/oc/tiny_oc.py": {
+      "bytes": 13300,
+      "mode": "0o644",
+      "sha256": "3acf66f5da07e0d205230268e803f0323846affe92b7afdfd5d1b644ff88a2db",
+      "src": "probes/oc/tiny_oc.py"
+    },
+    "probe/probes/oc/trace2_oc.py": {
+      "bytes": 5508,
+      "mode": "0o644",
+      "sha256": "8f13994998a3e8df903b8dbca665d0efeb7de6acbb6fe84cd304c7d3bcac0054",
+      "src": "probes/oc/trace2_oc.py"
+    },
+    "probe/probes/oc/trace_oc.py": {
+      "bytes": 3119,
+      "mode": "0o644",
+      "sha256": "ab196133066a674606a08f1c1433054a811da1afae827a0c69da0298b854146e",
+      "src": "probes/oc/trace_oc.py"
+    },
+    "probe/probes/real_gather.py": {
+      "bytes": 6237,
+      "mode": "0o644",
+      "sha256": "fd95afa7f15022fcd2495dc38d68d8d067946916a4c611117ead2497ca1d4e48",
+      "src": "probes/real_gather.py"
+    },
+    "probe/remote/preflight.py": {
+      "bytes": 5370,
+      "mode": "0o644",
+      "sha256": "94ce3bd642fe174aaa0a32dc1ff3f6a9826950841d4241b902785db60c41f54a",
+      "src": "remote/preflight.py"
+    }
+  },
+  "note": "written by remote/sync.py after a successful dataset version; the baseline every diff is taken against",
+  "pushed_at": "2026-09-28T16:57:03Z",
+  "schema": "mc-cuda-tinygrad/payload-manifest@1",
+  "sync_seconds": 20.9,
+  "tarball": {
+    "bytes": 78507,
+    "path": "payload.tgz",
+    "sha256": "7753e2c2303574e9f1906999836898f27ebc6101835931b8a2ed8339f7edc10a"
+  },
+  "tree": "84f8af500c1b2c637a8224a91ea57e9eaddece4cbf9e4c422083e9fb9a8c654d"
+}

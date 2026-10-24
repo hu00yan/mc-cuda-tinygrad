@@ -1,0 +1,34 @@
+
+============================================================================
+kda_t4 SASS -- instruction mix of the reference, counted from cubins
+============================================================================
+
+============================================================================
+A. THE REAL ARTIFACT -- cubins fla compiled on THIS card
+============================================================================
+  fusing nothing, mocking nothing: call the op, then take the objects
+  triton actually produced.
+  ran chunk_kda B=1 T=256 H=2 K=128 V=128 bf16; finite=False
+
+  walking triton's on-card kernel cache for the cubins just written:
+  45 cubins newer than this run started
+  !! (A) failed: AttributeError: 'dict' object has no attribute 'most_common'
+
+============================================================================
+B. THE AOT SWEEP -- same source, same triton, five architectures
+============================================================================
+  A Triton compiler does not need the hardware it targets, so the
+  other cards in this study's card table can be COMPILED here, on a T4,
+  by passing an explicit GPUTarget.  What comes out is a statement about
+  a compilation at that arch.  It is not a timing, and nothing in this
+  section may be read as one.
+  triton 3.6.0
+  source: /usr/local/lib/python3.12/dist-packages/fla/ops/common/chunk_delta_h.py
+  sha256 ff461bcc40e9cd0b...  794 lines
+  stripped copy written to out/sass/aot_kernel.py (decorators removed, body untouched)
+  could not import the stripped kernel: NameError: name 'fla_cache_autotune' is not defined
+
+============================================================================
+C. per-arch summary, from the gated config space (B only)
+============================================================================
+  no rows

@@ -1,0 +1,339 @@
+{
+  "artefacts": [
+    {
+      "bytes": 222,
+      "path": "GPUSH-VERIFY.json",
+      "sha256": "09ed525c8c2a53293674197222c357d985afd72fa064f278b498325f33da3d55"
+    },
+    {
+      "bytes": 16389,
+      "path": "artifacts/derivation/minecu_gap.py",
+      "sha256": "be0335404371a3e8a3fc88db26da43bafc5897c99d7926e2751d31b031550a39"
+    },
+    {
+      "bytes": 46728,
+      "path": "artifacts/derivation/divide.py",
+      "sha256": "c05c073e3b9e4a583fdb51d462be856d674246122d800ba7e6a7ce526fc938ec"
+    },
+    {
+      "bytes": 18182,
+      "path": "artifacts/derivation/divide_backends.py",
+      "sha256": "862e99023c52e9f8f2cf50e451e2d79c172be165b422da3bc98f59fbe801898b"
+    },
+    {
+      "bytes": 13518,
+      "path": "artifacts/derivation/_fp32.py",
+      "sha256": "08208028be8e9cd2f49375d5f4016704db3015e496394e884510fa2f843366ef"
+    },
+    {
+      "bytes": 14455,
+      "path": "artifacts/derivation/_util.py",
+      "sha256": "850fd87051eab1eb76e51e653f8c5ab61ca7ad988e4f7d59768c74ca9548ee6d"
+    },
+    {
+      "bytes": 29686,
+      "path": "artifacts/derivation/kda_decay.py",
+      "sha256": "24c2ea4a9856b6eacc76a8094abd588938b7494ad6f1bbca264080b0d8cf9d03"
+    },
+    {
+      "bytes": 19909,
+      "path": "artifacts/minecu_tg_faithful/boundary.py",
+      "sha256": "61f2ee07da425e50ae455d6b121b59ec73b33b2042ad02ad3368af5820b6e8ef"
+    },
+    {
+      "bytes": 4182,
+      "path": "artifacts/minecu_tg_faithful/sass_build.sh",
+      "sha256": "7530ff8bd6760681cd5758d037a60c4d81871f34a4f7da6d227765d36df0338a"
+    },
+    {
+      "bytes": 7959,
+      "path": "artifacts/minecu_tg_faithful/census.py",
+      "sha256": "81c0428362f730febb7e4cda2e7d40fbbef0021e6fb9a9459751a7e0bf9fce19"
+    },
+    {
+      "bytes": 20370,
+      "path": "artifacts/minecu_tg_faithful/render.py",
+      "sha256": "85b5a0b5fb843e9791b3ef8303a88724483be51544ee18af795f200ffe152419"
+    },
+    {
+      "bytes": 18002,
+      "path": "artifacts/minecu_tg_faithful/battery.py",
+      "sha256": "2d5e3e1974915e9e0ee547cb25aca9f5dbfe4b3a8aac04cb9ac4504578682052"
+    },
+    {
+      "bytes": 1599,
+      "path": "artifacts/minecu_tg_faithful/__init__.py",
+      "sha256": "cecf6f98be10403115d4db675ad31d2061d79dcab01370e607467ecfe288ef6d"
+    },
+    {
+      "bytes": 15574,
+      "path": "artifacts/minecu_tg_faithful/sass.py",
+      "sha256": "945502a10ff9de9409bcc832f0d41c681eb2bafba4b4c81835049e80326fd92d"
+    },
+    {
+      "bytes": 7891,
+      "path": "artifacts/minecu_tg_faithful/probe_knobs.py",
+      "sha256": "d5cc1863bb8fa2453c8616c64d508b1a5e803b77e2e6a14b157f78adcd8f614d"
+    },
+    {
+      "bytes": 26844,
+      "path": "artifacts/minecu_tg_faithful/crossings.py",
+      "sha256": "c0d94bc0c822ccc490e5dbb185622aa9f37edd086f7786a56ba4c4b8c94e4e5d"
+    },
+    {
+      "bytes": 8357,
+      "path": "artifacts/minecu_tg_faithful/load_accounting.py",
+      "sha256": "8f9d606853da3b4526bfb7687c17899d756a8df646c35fded792359a0afa6efd"
+    },
+    {
+      "bytes": 15804,
+      "path": "artifacts/minecu_tg_faithful/verify.py",
+      "sha256": "6cccf455e7190b850220572df4fff95d40063808408d9ec8b275b03e5fe10c32"
+    },
+    {
+      "bytes": 10200,
+      "path": "artifacts/minecu_tg_faithful/kaggle/run.sh",
+      "sha256": "648e7257602693f1b9f1842baefcb02d294204de061eb53bafc935991fa36803"
+    },
+    {
+      "bytes": 19187,
+      "path": "artifacts/minecu_tg_faithful/kaggle/make_notebook.py",
+      "sha256": "d5634cc6dc415f3ae4f8bccd858067f405ddd0997a6cab77589b8717bb8dd2e1"
+    },
+    {
+      "bytes": 544,
+      "path": "artifacts/minecu_tg_faithful/kaggle/kernel/kernel-metadata.json",
+      "sha256": "61c068a6c5a51ee38ba38dfb56d200bf80dbce556169e160ab76a9ac008e1735"
+    },
+    {
+      "bytes": 366223,
+      "path": "artifacts/minecu_tg_faithful/kaggle/kernel/minecu_faithful_t4.ipynb",
+      "sha256": "efa6fac1adde95dcb3e3b393cadd42cd3df730ca209e42c54895a2406fae9b2d"
+    },
+    {
+      "bytes": 700,
+      "path": "artifacts/minecu_ref/bench/stepcount_fp32.json",
+      "sha256": "39fa8ad39f57e5d409443672ce78a9d72b953d950879eaacf6684299aca04534"
+    },
+    {
+      "bytes": 19326,
+      "path": "artifacts/minecu_ref/bench/dda_model.py",
+      "sha256": "f5ff7fe2e15f7d9b1313484187747da987c0d5fc165ec35b30daf3b10fc049bd"
+    },
+    {
+      "bytes": 699,
+      "path": "artifacts/minecu_ref/bench/stepcount_prebasis.json",
+      "sha256": "f546e10e5ebdc31293220f613d38c4c4a3676718ed9b7ca98b0c90cecd41b567"
+    },
+    {
+      "bytes": 877,
+      "path": "artifacts/minecu_ref/bench/stepcount_fast.json",
+      "sha256": "dfdfae31c90c65efef12e33ab9f64a159eb36e7b5335634f7055fb1e06851d83"
+    },
+    {
+      "bytes": 86029,
+      "path": "artifacts/minecu_ref/bench/bench.cu",
+      "sha256": "990fdfc069ff8e59dcce5ee85ec2068a99b7b575b5800b1429185b066d3964a5"
+    },
+    {
+      "bytes": 6390,
+      "path": "artifacts/minecu_tg/world.py",
+      "sha256": "6c75c0e1e9cfc105e152f06c63c7695eff08781b9b8aa3e49ba098fe299ffbc3"
+    },
+    {
+      "bytes": 5494,
+      "path": "artifacts/minecu_tg/cpu_reference.py",
+      "sha256": "d3d6356552db2be483430751924970d288cb1c128a56709aa074d7e18a908108"
+    },
+    {
+      "bytes": 14184,
+      "path": "artifacts/minecu_tg/render.py",
+      "sha256": "fe85581f80ed7fdba57398a6c04fe744a7fd59917d99b132ea0eb2dcfa457952"
+    },
+    {
+      "bytes": 18784,
+      "path": "artifacts/minecu_tg/battery.py",
+      "sha256": "b363a884cfad373559af625926a29d34443e628002bb00a752d453d3ce3f96f8"
+    },
+    {
+      "bytes": 5939,
+      "path": "artifacts/minecu_tg/capture_cuda.py",
+      "sha256": "f1957fb652054f63b93e9bbf0d5629391504f7bc2116eef1cc4192f874a97d0b"
+    },
+    {
+      "bytes": 1580,
+      "path": "artifacts/minecu_tg/__init__.py",
+      "sha256": "6f376400341dd1015acd5f32e687e2fed7a85b4a26d4269b71680ec1f0c0d7d5"
+    },
+    {
+      "bytes": 8385,
+      "path": "artifacts/minecu_tg/sass_matrix.py",
+      "sha256": "dedf5437ebfbaf0b574203f7dd5960d895cf2c6aeb260936b4834aed795a23af"
+    },
+    {
+      "bytes": 3575,
+      "path": "artifacts/minecu_tg/sass_tg.sh",
+      "sha256": "2cc844c97337b7c3a9168205b53784292ae941378c24f64276af91e6c2454857"
+    },
+    {
+      "bytes": 10819,
+      "path": "artifacts/minecu_tg/bench.py",
+      "sha256": "7ec6927c711e0eec2b4de27d8eb03bb6c2f7e0d660edd8dfa969dba61434c539"
+    },
+    {
+      "bytes": 7472,
+      "path": "artifacts/minecu_tg/README.md",
+      "sha256": "389bc45d0de859364f05e2ff3d05fb6caa971c46a0b14796c4fd58aead56d0ab"
+    },
+    {
+      "bytes": 4059,
+      "path": "artifacts/minecu_tg/census_main.py",
+      "sha256": "6728d1441da31b7aa78642eaef709fb0d23d29cc5a32c5a0246d7b24fa4345b6"
+    },
+    {
+      "bytes": 12046,
+      "path": "artifacts/minecu_tg/verify.py",
+      "sha256": "a79e7cdcfbbb10c7b4adef880f87a27b3d471489c283c6d5c07d74aa80843caf"
+    },
+    {
+      "bytes": 2109,
+      "path": "artifacts/minecu_tg/blocks.py",
+      "sha256": "752ffaea2028475df25e81eaa186ce8ae089e36eed53d96eeecd531663dabed9"
+    },
+    {
+      "bytes": 9906,
+      "path": "artifacts/minecu_tg/codegen.py",
+      "sha256": "f926389a8c3064d17224da3f6152330468712e74f27e95a0ff628d6e97a05fb3"
+    },
+    {
+      "bytes": 4038,
+      "path": "artifacts/minecu_tg/analyse_codegen.py",
+      "sha256": "0972d45d060a1f6426c1bc6376d59788d145a5563c0cc0c66e8931ddc7382ec7"
+    },
+    {
+      "bytes": 18458,
+      "path": "artifacts/minecu_tg/kaggle/run.sh",
+      "sha256": "d62bd26a44ea8c07576965a2c935dea0e35467110a8370349552dc4de2d49091"
+    },
+    {
+      "bytes": 16756,
+      "path": "artifacts/minecu_tg/kaggle/refdrv.cu",
+      "sha256": "d3a0931d642d67bd5e6fbe22e77a732da72edc3502ca8296f87f615a224965e8"
+    },
+    {
+      "bytes": 30545,
+      "path": "artifacts/minecu_tg/kaggle/make_notebook.py",
+      "sha256": "5153916d66bc5f89cbceab4b46f71683d7bfd12d9ae11bc3536146227ef7bccf"
+    },
+    {
+      "bytes": 478887,
+      "path": "artifacts/minecu_tg/kaggle/kernel/minecu_tg_t4.ipynb",
+      "sha256": "70386801599cefdb603ce9e549d771a82569ce1dc8f18ce7e897b9f88ea2808c"
+    },
+    {
+      "bytes": 484,
+      "path": "artifacts/minecu_tg/kaggle/kernel/kernel-metadata.json",
+      "sha256": "0372ca593a817cdca711edf5dc84c441989ed30e867607c0a73982c6482abca7"
+    },
+    {
+      "bytes": 4156,
+      "path": "artifacts/minecu_tg_knobs/__init__.py",
+      "sha256": "2f8f751963e87dc1471a7ecdd3ab032fbe8a08c3280f5de9263f35cf80610357"
+    }
+  ],
+  "backend": "kaggle",
+  "bytes": 3639069,
+  "command": [
+    "python3",
+    "-m",
+    "minecu_tg_knobs.battery",
+    "--out",
+    "/kaggle/working/out/minecu_tg_knobs",
+    "--ports",
+    "naive,lean,lean-no-flat,lean-no-unsigned"
+  ],
+  "command_line": "python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned",
+  "compute_capability_reported": "sm_75",
+  "device": {
+    "compute_cap": "7.5",
+    "count": 2,
+    "cpu_count": 4,
+    "cuda_runtime": "13.0",
+    "driver": "580.159.04",
+    "gpu": true,
+    "hostname": "f17cbdc3328e",
+    "kernel": "6.12.90+",
+    "machine": "x86_64",
+    "memory_mb": 15360,
+    "name": "Tesla T4",
+    "nvcc": "12.8",
+    "os": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "reason": ""
+  },
+  "exit_code": 0,
+  "files": 87,
+  "fingerprint": "68838532421e35cee097dca7a9c68d25f7edc30925e179a0637802e58f4898c1",
+  "finished": "20260929-155636",
+  "gates": [
+    {
+      "detail": "'mc minecu knobs t4' slugs to 'mc-minecu-knobs-t4' (derived from the slug, never hand-edited)",
+      "name": "title round-trip",
+      "ok": true
+    },
+    {
+      "detail": "87 files, 1065.4 KB, sha256 b83d8a43c250afe5",
+      "name": "pack",
+      "ok": true
+    },
+    {
+      "detail": "new version published",
+      "name": "dataset version",
+      "ok": true
+    },
+    {
+      "detail": "dataset reports ready",
+      "name": "dataset READY",
+      "ok": true
+    },
+    {
+      "detail": "Kaggle lists exactly ['SHA256SUMS', 'payload.tgz']",
+      "name": "published file set",
+      "ok": true
+    },
+    {
+      "detail": "published archive re-hashed: 87 members match the manifest exactly",
+      "name": "published bytes",
+      "ok": true
+    }
+  ],
+  "gpush_version": "1.0.0",
+  "host": {
+    "gpush": "1.0.0",
+    "host": "TenghudeMacBook-Pro-4.local",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "manifest_source": "git",
+  "note": "pushed; session cap 30m enforced server-side by -t",
+  "plan": {
+    "added": 1,
+    "base_fingerprint": "81289793ee66bfb37c1a172e4cd4a5ade5ec7ce6e4880d0dad7c3329dcdc9237",
+    "deleted": 0,
+    "modified": 5,
+    "new_fingerprint": "68838532421e35cee097dca7a9c68d25f7edc30925e179a0637802e58f4898c1",
+    "unchanged": 81
+  },
+  "remote": {
+    "dataset": "tenghuzhang/mc-minecu-knobs-payload",
+    "fingerprint": "68838532421e35cee097dca7a9c68d25f7edc30925e179a0637802e58f4898c1",
+    "kernel": "tenghuzhang/mc-minecu-knobs-t4",
+    "sha256": "b83d8a43c250afe55781e7fdecc173d1af110cb351c328f48b7835386495811d"
+  },
+  "run_id": "20260929-155509-68838532421e",
+  "schema": "gpush/provenance@1",
+  "started": "20260929-155539",
+  "status": "COMPLETE",
+  "target": "tenghuzhang/mc-minecu-knobs-payload",
+  "transport": "REST API only. A tree ships as a versioned dataset, a kernel attaches it via dataset_sources and walks /kaggle/input. No SSH, no tunnel, no inbound route."
+}

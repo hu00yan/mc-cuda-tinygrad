@@ -1,0 +1,35 @@
+$ /usr/bin/python3 probes/fp32_correctness.py
+# cwd .
+
+
+=== near 1.0 (LUT regime)  (n=2,097,152) ===
+op   tinygrad vs correctly-rounded   numpy vs correctly-rounded
++                0 ( 0.000%)              0 ( 0.000%)
+-                0 ( 0.000%)              0 ( 0.000%)
+*                0 ( 0.000%)              0 ( 0.000%)
+/          260,261 (12.410%)              0 ( 0.000%)
+
+=== mixed +-2  (n=2,097,152) ===
+op   tinygrad vs correctly-rounded   numpy vs correctly-rounded
++                0 ( 0.000%)              0 ( 0.000%)
+-                0 ( 0.000%)              0 ( 0.000%)
+*                0 ( 0.000%)              0 ( 0.000%)
+/          322,233 (15.365%)              0 ( 0.000%)
+
+=== wide +-1e3  (n=2,097,152) ===
+op   tinygrad vs correctly-rounded   numpy vs correctly-rounded
++                0 ( 0.000%)              0 ( 0.000%)
+-                0 ( 0.000%)              0 ( 0.000%)
+*                0 ( 0.000%)              0 ( 0.000%)
+/          318,044 (15.166%)              0 ( 0.000%)
+
+A correctly-rounded implementation shows 0 in both right-hand columns.
+A nonzero TinyGrad column is a precision bug in the Metal backend, not a
+rounding artefact of the test.
+
+Measured result: + - * are exact (0 of 6,291,456 ops wrong). / is wrong in
+12.4% - 15.4% of cases depending on magnitude. See
+notes/02-obs-camera-residuals.md.
+
+division error magnitude: median 1.0 ULP, p99 1.0 ULP, max 1 ULP
+

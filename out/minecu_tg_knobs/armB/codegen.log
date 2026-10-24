@@ -1,0 +1,56 @@
+==============================================================================
+  minecu_tg_knobs -- the codegen census, offline, sm_75 target
+  device NULL:CUDA:sm_75   PARALLEL=0
+  registry gates PASS: 8 knobs, 7 sweepable
+==============================================================================
+
+  one row per (port, knob configuration). `same as default` is a BYTE comparison
+  of the hot kernel's sha256, not an impression.
+
+  port              knob configuration                kern   hot  src lines  g_reads  g_writes  local    lb         vs default
+  ----------------------------------------------------------------------------------------------------------------------------
+  naive             default                              8     6      15859      511         0      0   128          (control)
+  lean              default                              3     2      12313      511         0      0   128          (control)
+  lean-no-flat      default                              1     0      15305      511         0      0   128          (control)
+  lean-no-unsigned  default                              1     0      12358      511         0      0   128          (control)
+  naive             USE_TC=0                             8     6      15859      511         0      0   128   IDENTICAL source
+  lean              USE_TC=0                             3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      USE_TC=0                             1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  USE_TC=0                             1     0      12358      511         0      0   128   IDENTICAL source
+  naive             TC_SELECT=0                          8     6      15859      511         0      0   128   IDENTICAL source
+  lean              TC_SELECT=0                          3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      TC_SELECT=0                          1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  TC_SELECT=0                          1     0      12358      511         0      0   128   IDENTICAL source
+  naive             TC_SELECT=2                          8     6      15859      511         0      0   128   IDENTICAL source
+  lean              TC_SELECT=2                          3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      TC_SELECT=2                          1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  TC_SELECT=2                          1     0      12358      511         0      0   128   IDENTICAL source
+  naive             TC_OPT=1                             8     6      15859      511         0      0   128   IDENTICAL source
+  lean              TC_OPT=1                             3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      TC_OPT=1                             1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  TC_OPT=1                             1     0      12358      511         0      0   128   IDENTICAL source
+  naive             TC_OPT=2                             8     6      15859      511         0      0   128   IDENTICAL source
+  lean              TC_OPT=2                             3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      TC_OPT=2                             1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  TC_OPT=2                             1     0      12358      511         0      0   128   IDENTICAL source
+  naive             ALLOW_TF32=1                         8     6      15859      511         0      0   128   IDENTICAL source
+  lean              ALLOW_TF32=1                         3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      ALLOW_TF32=1                         1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  ALLOW_TF32=1                         1     0      12358      511         0      0   128   IDENTICAL source
+  naive             NOLOCALS=1                           8     6      15857      511         0      0     1 **SOURCE DIFFERS**
+  lean              NOLOCALS=1                           3     2      12311      511         0      0     1 **SOURCE DIFFERS**
+  lean-no-flat      NOLOCALS=1                           1     0      15303      511         0      0     1 **SOURCE DIFFERS**
+  lean-no-unsigned  NOLOCALS=1                           1     0      12356      511         0      0     1 **SOURCE DIFFERS**
+  naive             IMAGE=1                              8     6      15859      511         0      0   128   IDENTICAL source
+  lean              IMAGE=1                              3     2      12313      511         0      0   128   IDENTICAL source
+  lean-no-flat      IMAGE=1                              1     0      15305      511         0      0   128   IDENTICAL source
+  lean-no-unsigned  IMAGE=1                              1     0      12358      511         0      0   128   IDENTICAL source
+  naive             TRANSCENDENTAL=2                     8     6      16307      511         0      0   128 **SOURCE DIFFERS**
+  lean              TRANSCENDENTAL=2                     3     2      12761      511         0      0   128 **SOURCE DIFFERS**
+  lean-no-flat      TRANSCENDENTAL=2                     1     0      15753      511         0      0   128 **SOURCE DIFFERS**
+  lean-no-unsigned  TRANSCENDENTAL=2                     1     0      12806      511         0      0   128 **SOURCE DIFFERS**
+  naive             NOLOCALS=0+TRANSCENDENTAL=2          8     6      16307      511         0      0   128 **SOURCE DIFFERS**
+  lean              NOLOCALS=0+TRANSCENDENTAL=2          3     2      12761      511         0      0   128 **SOURCE DIFFERS**
+  lean-no-flat      NOLOCALS=0+TRANSCENDENTAL=2          1     0      15753      511         0      0   128 **SOURCE DIFFERS**
+  lean-no-unsigned  NOLOCALS=0+TRANSCENDENTAL=2          1     0      12806      511         0      0   128 **SOURCE DIFFERS**
+EXIT=0

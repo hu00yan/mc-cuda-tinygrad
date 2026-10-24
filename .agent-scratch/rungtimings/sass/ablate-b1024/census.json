@@ -1,0 +1,1009 @@
+[
+  {
+    "device": "NULL",
+    "parallel": "0",
+    "capture_note": null,
+    "rows": [
+      {
+        "max_steps": 4,
+        "kernel_launches": 10,
+        "new_distinct_programs": 6,
+        "new_sources_captured": 6,
+        "uops_total_graph": 108511232,
+        "bytes_estimate": 28172884,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#122240",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#122240": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_naive/max_steps_0004",
+        "source_bytes": [
+          543,
+          477,
+          1992,
+          1751,
+          93153,
+          925
+        ]
+      },
+      {
+        "max_steps": 8,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 234340352,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#746d20",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#746d20": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_naive/max_steps_0008",
+        "source_bytes": [
+          192070
+        ]
+      },
+      {
+        "max_steps": 16,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 485998592,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#836e70",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#836e70": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_naive/max_steps_0016",
+        "source_bytes": [
+          390310
+        ]
+      },
+      {
+        "max_steps": 32,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 989315072,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#6290d0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#6290d0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_naive/max_steps_0032",
+        "source_bytes": [
+          803167
+        ]
+      },
+      {
+        "max_steps": 64,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 1995948032,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#87d310",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#87d310": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_naive/max_steps_0064",
+        "source_bytes": [
+          1650496
+        ]
+      }
+    ],
+    "variant": "naive",
+    "uops": [
+      108511232,
+      234340352,
+      485998592,
+      989315072,
+      1995948032
+    ]
+  },
+  {
+    "device": "NULL",
+    "parallel": "0",
+    "capture_note": null,
+    "rows": [
+      {
+        "max_steps": 4,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 95731712,
+        "bytes_estimate": 23978580,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#b65dc0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#b65dc0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_int_cursor/max_steps_0004",
+        "source_bytes": [
+          78923
+        ]
+      },
+      {
+        "max_steps": 8,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 208977920,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#e43b00",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#e43b00": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_int_cursor/max_steps_0008",
+        "source_bytes": [
+          160004
+        ]
+      },
+      {
+        "max_steps": 16,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 435470336,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#f4eea0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#f4eea0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_int_cursor/max_steps_0016",
+        "source_bytes": [
+          322572
+        ]
+      },
+      {
+        "max_steps": 32,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 888455168,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#03d430",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#03d430": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_int_cursor/max_steps_0032",
+        "source_bytes": [
+          652914
+        ]
+      },
+      {
+        "max_steps": 64,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 1794424832,
+        "bytes_estimate": 25027156,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1233b0",
+          "r_1024_16_16#120b60",
+          "E_512_2_8_8_4_4#fb4a10",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1233b0": 1,
+          "r_1024_16_16#120b60": 1,
+          "E_512_2_8_8_4_4#fb4a10": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_int_cursor/max_steps_0064",
+        "source_bytes": [
+          1348339
+        ]
+      }
+    ],
+    "variant": "int_cursor",
+    "uops": [
+      95731712,
+      208977920,
+      435470336,
+      888455168,
+      1794424832
+    ]
+  },
+  {
+    "device": "NULL",
+    "parallel": "0",
+    "capture_note": null,
+    "rows": [
+      {
+        "max_steps": 4,
+        "kernel_launches": 9,
+        "new_distinct_programs": 3,
+        "new_sources_captured": 3,
+        "uops_total_graph": 38617088,
+        "bytes_estimate": 23925332,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1017c0",
+          "r_1024_16_16#101a90",
+          "E_512_2_8_8_4_4#103080",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1017c0": 1,
+          "r_1024_16_16#101a90": 1,
+          "E_512_2_8_8_4_4#103080": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_flat_gather/max_steps_0004",
+        "source_bytes": [
+          1844,
+          996,
+          63690
+        ]
+      },
+      {
+        "max_steps": 8,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 76365824,
+        "bytes_estimate": 24973908,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1017c0",
+          "r_1024_16_16#101a90",
+          "E_512_2_8_8_4_4#443e30",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1017c0": 1,
+          "r_1024_16_16#101a90": 1,
+          "E_512_2_8_8_4_4#443e30": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_flat_gather/max_steps_0008",
+        "source_bytes": [
+          124447
+        ]
+      },
+      {
+        "max_steps": 16,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 151863296,
+        "bytes_estimate": 24973908,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1017c0",
+          "r_1024_16_16#101a90",
+          "E_512_2_8_8_4_4#88d520",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1017c0": 1,
+          "r_1024_16_16#101a90": 1,
+          "E_512_2_8_8_4_4#88d520": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_flat_gather/max_steps_0016",
+        "source_bytes": [
+          246767
+        ]
+      },
+      {
+        "max_steps": 32,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 302858240,
+        "bytes_estimate": 24973908,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1017c0",
+          "r_1024_16_16#101a90",
+          "E_512_2_8_8_4_4#fc2a50",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1017c0": 1,
+          "r_1024_16_16#101a90": 1,
+          "E_512_2_8_8_4_4#fc2a50": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_flat_gather/max_steps_0032",
+        "source_bytes": [
+          491407
+        ]
+      },
+      {
+        "max_steps": 64,
+        "kernel_launches": 9,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 604848128,
+        "bytes_estimate": 24973908,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_128_4_8_16_4#1017c0",
+          "r_1024_16_16#101a90",
+          "E_512_2_8_8_4_4#903560",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_128_4_8_16_4#1017c0": 1,
+          "r_1024_16_16#101a90": 1,
+          "E_512_2_8_8_4_4#903560": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 6,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 6,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_flat_gather/max_steps_0064",
+        "source_bytes": [
+          1000480
+        ]
+      }
+    ],
+    "variant": "flat_gather",
+    "uops": [
+      38617088,
+      76365824,
+      151863296,
+      302858240,
+      604848128
+    ]
+  },
+  {
+    "device": "NULL",
+    "parallel": "0",
+    "capture_note": null,
+    "rows": [
+      {
+        "max_steps": 4,
+        "kernel_launches": 7,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 44105728,
+        "bytes_estimate": 24173140,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#182ed0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#182ed0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 4,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 4,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_incremental/max_steps_0004",
+        "source_bytes": [
+          76209
+        ]
+      },
+      {
+        "max_steps": 8,
+        "kernel_launches": 7,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 81854464,
+        "bytes_estimate": 24173140,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#9ca450",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#9ca450": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 4,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 4,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_incremental/max_steps_0008",
+        "source_bytes": [
+          139425
+        ]
+      },
+      {
+        "max_steps": 16,
+        "kernel_launches": 7,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 157351936,
+        "bytes_estimate": 24173140,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#30e660",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#30e660": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 4,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 4,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_incremental/max_steps_0016",
+        "source_bytes": [
+          266113
+        ]
+      },
+      {
+        "max_steps": 32,
+        "kernel_launches": 7,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 308346880,
+        "bytes_estimate": 24173140,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#552de0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#552de0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 4,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 4,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_incremental/max_steps_0032",
+        "source_bytes": [
+          519489
+        ]
+      },
+      {
+        "max_steps": 64,
+        "kernel_launches": 7,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 610336768,
+        "bytes_estimate": 24173140,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8_32_4#123890",
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#a36570",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8_32_4#123890": 1,
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#a36570": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 4,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8_32_4#123890",
+        "n_distinct_names": 4,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_incremental/max_steps_0064",
+        "source_bytes": [
+          1056897
+        ]
+      }
+    ],
+    "variant": "incremental",
+    "uops": [
+      44105728,
+      81854464,
+      157351936,
+      308346880,
+      610336768
+    ]
+  },
+  {
+    "device": "NULL",
+    "parallel": "0",
+    "capture_note": null,
+    "rows": [
+      {
+        "max_steps": 4,
+        "kernel_launches": 6,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 41943040,
+        "bytes_estimate": 24171092,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#3390d0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#3390d0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 3,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8192_32_4#123290",
+        "n_distinct_names": 3,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_lean/max_steps_0004",
+        "source_bytes": [
+          73593
+        ]
+      },
+      {
+        "max_steps": 8,
+        "kernel_launches": 6,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 75497472,
+        "bytes_estimate": 24171092,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#7fc590",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#7fc590": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 3,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8192_32_4#123290",
+        "n_distinct_names": 3,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_lean/max_steps_0008",
+        "source_bytes": [
+          132791
+        ]
+      },
+      {
+        "max_steps": 16,
+        "kernel_launches": 6,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 142606336,
+        "bytes_estimate": 24171092,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#3f3b30",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#3f3b30": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 3,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8192_32_4#123290",
+        "n_distinct_names": 3,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_lean/max_steps_0016",
+        "source_bytes": [
+          251415
+        ]
+      },
+      {
+        "max_steps": 32,
+        "kernel_launches": 6,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 276824064,
+        "bytes_estimate": 24171092,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#b71670",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#b71670": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 3,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8192_32_4#123290",
+        "n_distinct_names": 3,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_lean/max_steps_0032",
+        "source_bytes": [
+          488663
+        ]
+      },
+      {
+        "max_steps": 64,
+        "kernel_launches": 6,
+        "new_distinct_programs": 1,
+        "new_sources_captured": 1,
+        "uops_total_graph": 545259520,
+        "bytes_estimate": 24171092,
+        "obs_shape": [
+          1024,
+          32,
+          32,
+          3
+        ],
+        "obs_bytes": 3145728,
+        "launch_keys_ordered": [
+          "E_8192_32_4#123290",
+          "E_512_2_8_8_4_4#9a6bd0",
+          "E_32768_32_3#122870"
+        ],
+        "launch_counts_by_program": {
+          "E_8192_32_4#123290": 1,
+          "E_512_2_8_8_4_4#9a6bd0": 1,
+          "E_32768_32_3#122870": 1
+        },
+        "distinct_programs_launched": 3,
+        "n_repeated_program": 1,
+        "n_repeated_program_key": "E_8192_32_4#123290",
+        "n_distinct_names": 3,
+        "sources_dir": ".agent-scratch/rungtimings/sass/ablate-b1024/_stage_lean/max_steps_0064",
+        "source_bytes": [
+          988816
+        ]
+      }
+    ],
+    "variant": "lean",
+    "uops": [
+      41943040,
+      75497472,
+      142606336,
+      276824064,
+      545259520
+    ]
+  }
+]

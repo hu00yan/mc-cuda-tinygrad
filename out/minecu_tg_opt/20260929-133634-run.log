@@ -1,0 +1,19 @@
+=== minecu_tg_opt: verify both ports on this host (CPU, no GPU) ===
+  SKIPPED (--no-verify). The notebook runs minecu_tg_opt/verify_opt.py on
+  the card as well, so a real push is still gated; this only skips the
+  ~17 min of local CPU.
+
+=== assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/minecu_tgopt_t4.ipynb  (616291 B)
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/kernel-metadata.json
+  22 payloads, 591156 b64 bytes
+  batches [256, 512, 1024, 2048, 4096], variants naive,lean, iters 8
+  kernel id tenghuzhang/mc-minecu-tgopt-t4  title 'mc minecu tgopt t4'
+  notebook valid: 3 cells, 611783 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+
+=== pre-flight: the exact nvcc commands the notebook runs, for sm_75 ===
+  pre-flight passed: both binaries build and link for sm_75
+
+DRY RUN / BUILD ONLY: no network calls made.

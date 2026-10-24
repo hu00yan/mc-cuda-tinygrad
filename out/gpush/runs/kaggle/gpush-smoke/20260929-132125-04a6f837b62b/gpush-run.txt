@@ -1,0 +1,9 @@
+$ bash -lc 'bash kda_t4/INSTALL.sh && python3 kda_t4/probe_env.py && python3 kda_t4/pin_t4.py && python3 kda_t4/gate_observed.py'
+cwd: /kaggle/working/tree/payload
+exit: 127
+wall: 0.0 s
+
+--- stdout ---
+
+--- stderr ---
+bash: line 1: bash kda_t4/INSTALL.sh && python3 kda_t4/probe_env.py && python3 kda_t4/pin_t4.py && python3 kda_t4/gate_observed.py: No such file or directory

@@ -1,0 +1,215 @@
+[{"stream_name":"stderr","time":7.203618597,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.203701958,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.203707798,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.203711493,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.787194169,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.787221341,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.787226334,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.787232058,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.137823177,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":9.138751215,"data":"minecu_tg_opt -- a competent TinyGrad port, against the hand-written CUDA\n"}
+,{"stream_name":"stdout","time":9.139688046,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":9.140499233,"data":"\n"}
+,{"stream_name":"stdout","time":9.14141243,"data":"--- provenance: every payload is hash-checked before anything is built ---\n"}
+,{"stream_name":"stdout","time":9.142107858,"data":"  minecu_ref/src/kernels.cu              116131 B  sha256 c6ed8f06ee64d40a  OK\n"}
+,{"stream_name":"stdout","time":9.143282922,"data":"  minecu_tg/kaggle/refdrv.cu              16756 B  sha256 d3a0931d642d67bd  OK\n"}
+,{"stream_name":"stdout","time":9.144500043,"data":"  minecu_ref/bench/bench.cu               86029 B  sha256 990fdfc069ff8e59  OK\n"}
+,{"stream_name":"stdout","time":9.145368782,"data":"  minecu_ref/bench/dda_model.py           19326 B  sha256 f5ff7fe2e15f7d9b  OK\n"}
+,{"stream_name":"stdout","time":9.146307173,"data":"  minecu_tg/__init__.py                    1580 B  sha256 6f376400341dd101  OK\n"}
+,{"stream_name":"stdout","time":9.147119485,"data":"  minecu_tg/blocks.py                      2109 B  sha256 752ffaea2028475d  OK\n"}
+,{"stream_name":"stdout","time":9.148684968,"data":"  minecu_tg/world.py                       6390 B  sha256 6c75c0e1e9cfc105  OK\n"}
+,{"stream_name":"stdout","time":9.149431681,"data":"  minecu_tg/render.py                     14184 B  sha256 fe85581f80ed7fdb  OK\n"}
+,{"stream_name":"stdout","time":9.150218268,"data":"  minecu_tg/cpu_reference.py               5494 B  sha256 d3d6356552db2be4  OK\n"}
+,{"stream_name":"stdout","time":9.151383433,"data":"  minecu_tg/verify.py                     12046 B  sha256 a79e7cdcfbbb10c7  OK\n"}
+,{"stream_name":"stdout","time":9.152427037,"data":"  minecu_tg/codegen.py                     9906 B  sha256 f926389a8c3064d1  OK\n"}
+,{"stream_name":"stdout","time":9.153525514,"data":"  minecu_tg/bench.py                      10819 B  sha256 7ec6927c711e0eec  OK\n"}
+,{"stream_name":"stdout","time":9.154775077,"data":"  minecu_tg/battery.py                    18784 B  sha256 b363a884cfad3735  OK\n"}
+,{"stream_name":"stdout","time":9.155697805,"data":"  minecu_tg/sass_matrix.py                 8385 B  sha256 dedf5437ebfbaf0b  OK\n"}
+,{"stream_name":"stdout","time":9.157072225,"data":"  tools/archlab/inspect_ptx.py            20018 B  sha256 1db65d800a1f4ac2  OK\n"}
+,{"stream_name":"stdout","time":9.157938936,"data":"  minecu_tg_opt/__init__.py                2691 B  sha256 2c8563730347dc15  OK\n"}
+,{"stream_name":"stdout","time":9.158921085,"data":"  minecu_tg_opt/render.py                 22362 B  sha256 714bcc5d05c340bc  OK\n"}
+,{"stream_name":"stdout","time":9.159820452,"data":"  minecu_tg_opt/verify_opt.py             11986 B  sha256 ea4bdea13bc33da9  OK\n"}
+,{"stream_name":"stdout","time":9.160647942,"data":"  minecu_tg_opt/capture_opt.py             6946 B  sha256 ceca81a28b4d2ff8  OK\n"}
+,{"stream_name":"stdout","time":9.161875285,"data":"  minecu_tg_opt/opcount.py                46826 B  sha256 31828e3ee028b433  OK\n"}
+,{"stream_name":"stdout","time":9.162920393,"data":"  minecu_tg_opt/census_opt.py              5999 B  sha256 9fbbb3ea25c55abf  OK\n"}
+,{"stream_name":"stdout","time":9.164258838,"data":"  minecu_tg_opt/battery_opt.py            16888 B  sha256 5359bd9d97ea3ecf  OK\n"}
+,{"stream_name":"stdout","time":9.16519388,"data":"\n"}
+,{"stream_name":"stdout","time":9.165825698,"data":"--- tinygrad ---\n"}
+,{"stream_name":"stdout","time":16.839465934,"data":"  pip install tinygrad rc=0\n"}
+,{"stream_name":"stdout","time":16.916467113,"data":"  tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+,{"stream_name":"stdout","time":16.924846478,"data":"  minecu_tg.render      from /kaggle/working/minecu_tg/render.py\n"}
+,{"stream_name":"stdout","time":16.925644646,"data":"  minecu_tg_opt.render  from /kaggle/working/minecu_tg_opt/render.py\n"}
+,{"stream_name":"stdout","time":16.926355524999998,"data":"\n"}
+,{"stream_name":"stdout","time":16.927032292,"data":"--- the CPU correctness gate ---\n"}
+,{"stream_name":"stdout","time":16.927794487,"data":"  NOT RUN ON THIS CARD, and not skipped for time: this image has no C\n"}
+,{"stream_name":"stdout","time":16.928585701,"data":"  compiler that can target bare-metal x86-64, so tinygrad's CPU backend\n"}
+,{"stream_name":"stdout","time":16.929410908,"data":"  cannot execute here (compiler_cpu.py:21 passes\n"}
+,{"stream_name":"stdout","time":16.930089901,"data":"  --target=x86_64-none-unknown-elf; CC=gcc fails the same way). The full\n"}
+,{"stream_name":"stdout","time":16.930816324,"data":"  gate ran on the host in run.sh before this push and is in the push log.\n"}
+,{"stream_name":"stdout","time":16.93153887,"data":"  The gate that matters for this notebook is cell 3: both ports render the\n"}
+,{"stream_name":"stdout","time":16.932479561,"data":"  hand-written side's OWN state on THIS card and are compared to its OWN\n"}
+,{"stream_name":"stdout","time":16.933412431,"data":"  bytes.\n"}
+,{"stream_name":"stdout","time":16.934347638,"data":"\n"}
+,{"stream_name":"stdout","time":16.935261054,"data":"--- build the hand-written side for sm_75 ---\n"}
+,{"stream_name":"stdout","time":16.936173477,"data":"  staged kernels.cu     116131 B\n"}
+,{"stream_name":"stdout","time":16.936860557,"data":"  staged refdrv.cu       16756 B\n"}
+,{"stream_name":"stdout","time":16.937578131,"data":"  staged bench.cu        86029 B\n"}
+,{"stream_name":"stdout","time":16.956647416,"data":"  Cuda compilation tools, release 12.8, V12.8.93\n"}
+,{"stream_name":"stdout","time":16.956666085,"data":"  Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+,{"stream_name":"stdout","time":23.227165927,"data":"  nvcc refdrv   rc=0 in 6.3s -\u003e refdrv_sm_75\n"}
+,{"stream_name":"stdout","time":30.574601996,"data":"  nvcc bench    rc=0 in 7.3s -\u003e bench_sm_75\n"}
+,{"stream_name":"stdout","time":31.345377354,"data":"  SASS census of the reference binary: HMMA=0  HGMMA=0  LDGSTS=0  REDUX=0  ELECT=0  BAR.RED=0  F2FP=0\n"}
+,{"stream_name":"stdout","time":31.345943593,"data":"\n"}
+,{"stream_name":"stdout","time":31.346749913,"data":"--- the hand-written side, per batch (cudaEvent, this card, this run) ---\n"}
+,{"stream_name":"stdout","time":32.016866599,"data":"  batch    256  render      88.1 us  step     129.0 us  rc=0  (0.7s)\n"}
+,{"stream_name":"stdout","time":32.581165829,"data":"  batch    512  render     166.5 us  step     208.9 us  rc=0  (0.6s)\n"}
+,{"stream_name":"stdout","time":33.148794902,"data":"  batch   1024  render     323.6 us  step     369.1 us  rc=0  (0.6s)\n"}
+,{"stream_name":"stdout","time":33.723997601,"data":"  batch   2048  render     598.6 us  step     646.1 us  rc=0  (0.6s)\n"}
+,{"stream_name":"stdout","time":34.324821618,"data":"  batch   4096  render    1185.8 us  step    1237.5 us  rc=0  (0.6s)\n"}
+,{"stream_name":"stdout","time":34.325686104,"data":"\n"}
+,{"stream_name":"stdout","time":34.326441506,"data":"cell 1 done: the hand-written side's timings are in ref_timing.json\n"}
+,{"stream_name":"stdout","time":34.357945607,"data":"\n"}
+,{"stream_name":"stdout","time":34.359315806,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":34.359611976,"data":"  the two TinyGrad ports, same card, same run, same world, max_steps 32\n"}
+,{"stream_name":"stdout","time":34.360389378,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":34.361064688,"data":"  timing batches [256, 512, 1024, 2048]; the identity stage uses batch 4096\n"}
+,{"stream_name":"stdout","time":1316.156217685,"data":"  battery_opt.py rc=0 in 1281.8s\n"}
+,{"stream_name":"stdout","time":1316.157115427,"data":"\n"}
+,{"stream_name":"stdout","time":1316.157134622,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157140781,"data":"  0. configuration gate\n"}
+,{"stream_name":"stdout","time":1316.157145338,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157150951,"data":"  world=16 res=32 ground=4 max_steps=32 variants=['naive', 'lean'] batches=[256, 512, 1024, 2048]\n"}
+,{"stream_name":"stdout","time":1316.157156357,"data":"  PASS\n"}
+,{"stream_name":"stdout","time":1316.157160762,"data":"\n"}
+,{"stream_name":"stdout","time":1316.157165579,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157170064,"data":"  1. environment\n"}
+,{"stream_name":"stdout","time":1316.15717435,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157178846,"data":"  Device.DEFAULT         CUDA\n"}
+,{"stream_name":"stdout","time":1316.157184876,"data":"  numpy                  2.0.2\n"}
+,{"stream_name":"stdout","time":1316.157189437,"data":"  tinygrad_path          /usr/local/lib/python3.12/dist-packages/tinygrad\n"}
+,{"stream_name":"stdout","time":1316.157209149,"data":"  PARALLEL               0\n"}
+,{"stream_name":"stdout","time":1316.157215974,"data":"  nvidia_smi             Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":1316.157221083,"data":"Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":1316.157226077,"data":"\n"}
+,{"stream_name":"stdout","time":1316.157231023,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157236243,"data":"  2. identity on this card: optimized vs naive port, byte for byte\n"}
+,{"stream_name":"stdout","time":1316.157240774,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.15725655,"data":"  batch 64, 65,536 pixels, 32x32, max_steps 32\n"}
+,{"stream_name":"stdout","time":1316.157260283,"data":"  naive         pixels differing         0 /     65536   sha256 5a4083930424efb2c29592ab  IDENTICAL\n"}
+,{"stream_name":"stdout","time":1316.157265467,"data":"  lean          pixels differing         0 /     65536   sha256 5a4083930424efb2c29592ab  IDENTICAL\n"}
+,{"stream_name":"stdout","time":1316.157271828,"data":"\n"}
+,{"stream_name":"stdout","time":1316.157273994,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157276228,"data":"  3. timing the render graph, max_steps=32\n"}
+,{"stream_name":"stdout","time":1316.157278412,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157280755,"data":"  a 1200s budget over 4 batches x 2 variants; a shape that has not started when it is gone is reported as skipped, not as slow\n"}
+,{"stream_name":"stdout","time":1316.157283088,"data":"  batch    256 naive         device 13.698 ms over 41 kernels  peak     133.8 MiB  (91s to build+time)     19.14 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157285436,"data":"  batch    256 lean          device 16.0 ms over 38 kernels  peak     129.0 MiB  (66s to build+time)     16.38 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157287772,"data":"  batch    512 naive         device 13.648 ms over 41 kernels  peak     143.6 MiB  (85s to build+time)     38.42 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157290176,"data":"  batch    512 lean          device 15.958 ms over 38 kernels  peak     130.0 MiB  (63s to build+time)     32.85 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157293457,"data":"  batch   1024 naive         device 8.811 ms over 10 kernels  peak      39.3 MiB  (189s to build+time)    119.01 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157295811,"data":"  batch   1024 lean          device 2.923 ms over 6 kernels  peak       4.0 MiB  (80s to build+time)    358.73 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157298136,"data":"  batch   2048 naive         device 17.192 ms over 11 kernels  peak      78.0 MiB  (190s to build+time)    121.98 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157300524,"data":"    DDA mean 16.540  at cap 41.9%  first voxel 0.0%  gate PASS\n"}
+,{"stream_name":"stdout","time":1316.157302762,"data":"  batch   2048 lean          device 5.54 ms over 6 kernels  peak       0.0 MiB  (80s to build+time)    378.56 Mpixel/s\n"}
+,{"stream_name":"stdout","time":1316.157305097,"data":"    DDA mean 16.540  at cap 41.9%  first voxel 0.0%  gate PASS\n"}
+,{"stream_name":"stdout","time":1316.157307321,"data":"\n"}
+,{"stream_name":"stdout","time":1316.1573095,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157311761,"data":"  wrote /kaggle/working/tgopt/report.json\n"}
+,{"stream_name":"stdout","time":1316.157313963,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1316.157316199,"data":"\n"}
+,{"stream_name":"stdout","time":1316.158236313,"data":"\n"}
+,{"stream_name":"stdout","time":1316.158901018,"data":"cell 2 done: timings in tgopt/report.json\n"}
+,{"stream_name":"stdout","time":1316.190982074,"data":"\n"}
+,{"stream_name":"stdout","time":1316.191734434,"data":"--- the hand-written side dumps its settled state (batch 4096) ---\n"}
+,{"stream_name":"stdout","time":1316.925921924,"data":"  voxels (4096, 16, 16, 16)  basis (4096, 13)  obs (4096, 32, 32, 3)\n"}
+,{"stream_name":"stdout","time":1502.040001207,"data":"  the naive port rendered 4096 envs in 185.1s\n"}
+,{"stream_name":"stdout","time":1502.102358353,"data":"  reference   obs sha256 21e13f67fa003c488a7d5c9868944850\n"}
+,{"stream_name":"stdout","time":1502.173294991,"data":"  naive port  obs sha256 21e13f67fa003c488a7d5c9868944850\n"}
+,{"stream_name":"stdout","time":1583.858752713,"data":"  naive         pixels differing         0 /   4194304  (0.0000%)  sha256 21e13f67fa003c488a7d5c9868944850\n"}
+,{"stream_name":"stdout","time":1583.965524962,"data":"  naive         pixels differing         0 /   4194304  (0.0000%)  sha256 21e13f67fa003c488a7d5c9868944850\n"}
+,{"stream_name":"stdout","time":1584.08298781,"data":"  lean          pixels differing         0 /   4194304  (0.0000%)  sha256 21e13f67fa003c488a7d5c9868944850\n"}
+,{"stream_name":"stdout","time":1584.084003364,"data":"  BOTH PORTS ARE BYTE-IDENTICAL to the hand-written side, on this card,\n"}
+,{"stream_name":"stdout","time":1584.084842641,"data":"  on the state the hand-written side itself produced. The comparison in\n"}
+,{"stream_name":"stdout","time":1584.085700584,"data":"  cell 4 is therefore between two implementations of one computation.\n"}
+,{"stream_name":"stdout","time":1584.086636942,"data":"\n"}
+,{"stream_name":"stdout","time":1584.087292426,"data":"cell 3 done: the gate passed\n"}
+,{"stream_name":"stdout","time":1584.125080947,"data":"\n"}
+,{"stream_name":"stdout","time":1584.125935948,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1584.126869995,"data":"SUMMARY\n"}
+,{"stream_name":"stdout","time":1584.127722348,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1584.128672473,"data":"\n"}
+,{"stream_name":"stdout","time":1584.129573994,"data":"RENDER VERSUS RENDER, equal batch, same card, same run, same world, max_steps 32, uint8 out\n"}
+,{"stream_name":"stdout","time":1584.130475896,"data":"  ref render / ref step are cudaEvent medians in MICROSECONDS.\n"}
+,{"stream_name":"stdout","time":1584.131399797,"data":"  tg is the sum of per-kernel device times for the whole generated graph.\n"}
+,{"stream_name":"stdout","time":1584.132133865,"data":"  Every row is render against render: the same computation, the same\n"}
+,{"stream_name":"stdout","time":1584.13294617,"data":"  output, the same dtype, the same card. Nothing here divides a per-step\n"}
+,{"stream_name":"stdout","time":1584.133837363,"data":"  number by a per-op number.\n"}
+,{"stream_name":"stdout","time":1584.134791887,"data":"\n"}
+,{"stream_name":"stdout","time":1584.13571182,"data":"    batch  ref render us   ref step us   naive ms    lean ms  naive/ref  lean/ref    kernels n/l\n"}
+,{"stream_name":"stdout","time":1584.13658663,"data":"      256           88.1         129.0     13.698       16.0       6.43      5.51          41/38\n"}
+,{"stream_name":"stdout","time":1584.138148737,"data":"      512          166.5         208.9     13.648     15.958      12.20     10.43          41/38\n"}
+,{"stream_name":"stdout","time":1584.138425261,"data":"     1024          323.6         369.1      8.811      2.923      36.73    110.71           10/6\n"}
+,{"stream_name":"stdout","time":1584.139326299,"data":"     2048          598.6         646.1     17.192       5.54      34.82    108.05           11/6\n"}
+,{"stream_name":"stdout","time":1584.14019877,"data":"     4096         1185.8        1237.5          -          -          -         -      None/None\n"}
+,{"stream_name":"stdout","time":1584.141067927,"data":"\n"}
+,{"stream_name":"stdout","time":1584.141985165,"data":"MEMORY, the allocator's own peak\n"}
+,{"stream_name":"stdout","time":1584.142884469,"data":"  batch    256 naive    peak     133.8 MiB  allocs 26\n"}
+,{"stream_name":"stdout","time":1584.143765288,"data":"  batch    256 lean     peak     129.0 MiB  allocs 1\n"}
+,{"stream_name":"stdout","time":1584.144653883,"data":"  batch    512 naive    peak     143.6 MiB  allocs 11\n"}
+,{"stream_name":"stdout","time":1584.145464882,"data":"  batch    512 lean     peak     130.0 MiB  allocs 1\n"}
+,{"stream_name":"stdout","time":1584.146169935,"data":"  batch   1024 naive    peak      39.3 MiB  allocs 11\n"}
+,{"stream_name":"stdout","time":1584.147064122,"data":"  batch   1024 lean     peak       4.0 MiB  allocs 1\n"}
+,{"stream_name":"stdout","time":1584.147971163,"data":"  batch   2048 naive    peak      78.0 MiB  allocs 11\n"}
+,{"stream_name":"stdout","time":1584.148829847,"data":"  batch   2048 lean     peak       0.0 MiB  allocs 0\n"}
+,{"stream_name":"stdout","time":1584.149746273,"data":"\n"}
+,{"stream_name":"stdout","time":1584.150652865,"data":"THE DDA WORKLOAD EACH TIMING ACTUALLY DID\n"}
+,{"stream_name":"stdout","time":1584.151611418,"data":"  batch   2048 naive    mean 16.540  at the 32 cap  41.9%  first voxel  0.0%  gate PASS\n"}
+,{"stream_name":"stdout","time":1584.15260746,"data":"  batch   2048 lean     mean 16.540  at the 32 cap  41.9%  first voxel  0.0%  gate PASS\n"}
+,{"stream_name":"stdout","time":1584.153588352,"data":"\n"}
+,{"stream_name":"stdout","time":1584.154512363,"data":"IDENTITY, on the state the reference itself produced\n"}
+,{"stream_name":"stdout","time":1584.155463507,"data":"  naive                 0 /   4194304 pixels differ   BYTE-IDENTICAL\n"}
+,{"stream_name":"stdout","time":1584.15623269,"data":"  naive                 0 /   4194304 pixels differ   BYTE-IDENTICAL\n"}
+,{"stream_name":"stdout","time":1584.157146651,"data":"  lean                  0 /   4194304 pixels differ   BYTE-IDENTICAL\n"}
+,{"stream_name":"stdout","time":1584.158085118,"data":"\n"}
+,{"stream_name":"stdout","time":1584.159021297,"data":"THE TWO RATIOS, AND WHAT EACH IS\n"}
+,{"stream_name":"stdout","time":1584.160029753,"data":"  batch   256: naive   6.43x, lean   5.51x, and the optimization removes  14.4% of the generated side's time\n"}
+,{"stream_name":"stdout","time":1584.160906917,"data":"  batch   512: naive  12.20x, lean  10.43x, and the optimization removes  14.5% of the generated side's time\n"}
+,{"stream_name":"stdout","time":1584.16181817,"data":"  batch  1024: naive  36.73x, lean 110.71x, and the optimization removes -201.4% of the generated side's time\n"}
+,{"stream_name":"stdout","time":1584.162740851,"data":"  batch  2048: naive  34.82x, lean 108.05x, and the optimization removes -210.3% of the generated side's time\n"}
+,{"stream_name":"stdout","time":1584.163614656,"data":"\n"}
+,{"stream_name":"stdout","time":1584.164439743,"data":"  The naive column is the port that recomputes the flat voxel\n"}
+,{"stream_name":"stdout","time":1584.165420813,"data":"  address from three float coordinates on every one of 32 steps.\n"}
+,{"stream_name":"stdout","time":1584.166365277,"data":"  The lean column is the same computation with that arithmetic\n"}
+,{"stream_name":"stdout","time":1584.167267043,"data":"  hoisted into a maintained address and precomputed strides, and\n"}
+,{"stream_name":"stdout","time":1584.168276033,"data":"  with the per-axis bounds test computed once per ray. Both are\n"}
+,{"stream_name":"stdout","time":1584.169125073,"data":"  plain TinyGrad: no custom_kernel, no tile size, no Context, no\n"}
+,{"stream_name":"stdout","time":1584.170070065,"data":"  hand-unrolling, no codegen knob.\n"}
+,{"stream_name":"stdout","time":1584.170895066,"data":"\n"}
+,{"stream_name":"stdout","time":1584.171817565,"data":"WHAT TO READ\n"}
+,{"stream_name":"stdout","time":1584.172598498,"data":"  * Both ports render the observation the hand-written kernel produced,\n"}
+,{"stream_name":"stdout","time":1584.173543856,"data":"    on the state the hand-written kernel produced, byte for byte, on this\n"}
+,{"stream_name":"stdout","time":1584.174314904,"data":"    card in this run. That is what makes the ratio a statement about code\n"}
+,{"stream_name":"stdout","time":1584.175030799,"data":"    generation rather than about two different computations.\n"}
+,{"stream_name":"stdout","time":1584.176049625,"data":"  * `naive` is minecu_tg/render.py verbatim; `lean` is the same\n"}
+,{"stream_name":"stdout","time":1584.176729752,"data":"    computation with the index arithmetic hoisted. The difference between\n"}
+,{"stream_name":"stdout","time":1584.177424864,"data":"    the two columns is the port's cost, not the compiler's.\n"}
+,{"stream_name":"stdout","time":1584.178052982,"data":"  * No number here is transcribed from any notes file. Every figure is\n"}
+,{"stream_name":"stdout","time":1584.178769077,"data":"    produced by an instrument in this notebook on this card.\n"}
+,{"stream_name":"stdout","time":1584.179500793,"data":"  * Instruction and register counts are NOT taken from this notebook:\n"}
+,{"stream_name":"stdout","time":1584.180158694,"data":"    they are a property of a compiler version, this image is CUDA 12.8,\n"}
+,{"stream_name":"stdout","time":1584.180828964,"data":"    and the offline sm_75 route is 12.9 on BOTH sides.\n"}
+,{"stream_name":"stdout","time":1584.181620423,"data":"    minecu_tg_opt/opcount.py is where the SASS numbers come from, and it\n"}
+,{"stream_name":"stdout","time":1584.182258757,"data":"    re-derives the hand-written side's own 776 and its 38-instruction step\n"}
+,{"stream_name":"stdout","time":1584.182902063,"data":"    from minecu_ref/build/kernels_sm_75.sass rather than quoting them.\n"}
+,{"stream_name":"stdout","time":1584.183616318,"data":"\n"}
+,{"stream_name":"stdout","time":1584.184256965,"data":"wrote /kaggle/working/SUMMARY.txt\n"}
+,{"stream_name":"stdout","time":1584.184887304,"data":"cell 4 done.\n"}
+,{"stream_name":"stderr","time":1589.159639412,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1589.159672474,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1589.326526221,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1589.326562069,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1589.941823506,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1590.254580277,"data":"[NbConvertApp] Writing 664272 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1592.582210062,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1593.436252428,"data":"[NbConvertApp] Writing 1014872 bytes to __results__.html\n"}
+]

@@ -1,0 +1,17 @@
+19:48:46  attempt 1: Kernel push error: Maximum batch GPU session count of 2 reached.
+19:49:51  PUSHED (attempt 2)
+Kernel version 17 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-axis-t4
+19:49:58  RUNNING
+19:51:01  RUNNING
+19:52:03  RUNNING
+19:53:06  RUNNING
+19:54:08  COMPLETE
+19:54:39  fetched -> /Users/huyan00/mycode/mc-cuda-tinygrad/out/axis/20260929-194846
+total 208
+drwxr-xr-x@  7 huyan00  staff    224 Sep 29 19:54 .
+drwxr-xr-x@ 38 huyan00  staff   1216 Sep 29 19:54 ..
+-rw-r--r--@  1 huyan00  staff  20533 Sep 29 19:54 axis_report.json
+-rw-r--r--@  1 huyan00  staff   8054 Sep 29 19:54 axis_run.log
+-rw-r--r--@  1 huyan00  staff  21290 Sep 29 19:54 axis_smoke.json
+drwxr-xr-x@  3 huyan00  staff     96 Sep 29 19:54 axisrepo
+-rw-r--r--@  1 huyan00  staff  47094 Sep 29 19:54 mc-axis-t4.log

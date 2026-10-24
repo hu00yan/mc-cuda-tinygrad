@@ -1,0 +1,67 @@
+==============================================================================
+batch 256   time (ms): naive=13.720  int_cursor=13.293  flat_gather=13.402  incremental=16.258  lean=16.508
+  launches: naive=41  int_cursor=40  flat_gather=40  incremental=39  lean=38
+    launch count (measured)            spearman -0.6669   pearson -0.8583   [41, 40, 40, 39, 38]
+    graph ops / pixel / step           spearman -0.6156   pearson -0.6460   [30, 27, 9, 9, 8]
+    SASS / pixel / step                spearman -0.6000   pearson -0.7985   [74.3682, 69.9021, 59.3829, 51.9736, 53.4522]
+    registers                          spearman +0.5774   pearson +0.6427   [168, 168, 255, 255, 255]
+    local spill bytes @ ms=32          spearman -0.3000   pearson -0.5633   [20932, 13216, 3068, 2984, 3572]
+    generated stmts / pixel / step     spearman -0.2000   pearson -0.4718   [30.5065, 24.4052, 16.2701, 19.0186, 17.0166]
+    NOTE: every candidate above is a cost that should INCREASE time,
+    so the correlation is expected NEGATIVE. The ranking is what
+    matters, and rank is scale-free.
+==============================================================================
+batch 512   time (ms): naive=13.682  int_cursor=13.285  flat_gather=13.369  incremental=15.897  lean=16.039
+  launches: naive=41  int_cursor=40  flat_gather=40  incremental=39  lean=38
+    launch count (measured)            spearman -0.6669   pearson -0.8490   [41, 40, 40, 39, 38]
+    graph ops / pixel / step           spearman -0.6156   pearson -0.6395   [30, 27, 9, 9, 8]
+    SASS / pixel / step                spearman -0.6000   pearson -0.7947   [74.3682, 69.9021, 59.3829, 51.9736, 53.4522]
+    registers                          spearman +0.5774   pearson +0.6374   [168, 168, 255, 255, 255]
+    local spill bytes @ ms=32          spearman -0.3000   pearson -0.5565   [20932, 13216, 3068, 2984, 3572]
+    generated stmts / pixel / step     spearman -0.2000   pearson -0.4617   [30.5065, 24.4052, 16.2701, 19.0186, 17.0166]
+    NOTE: every candidate above is a cost that should INCREASE time,
+    so the correlation is expected NEGATIVE. The ranking is what
+    matters, and rank is scale-free.
+==============================================================================
+batch 1024   time (ms): naive=8.880  int_cursor=6.034  flat_gather=3.020  incremental=2.741  lean=2.950
+  launches: naive=9  int_cursor=9  flat_gather=9  incremental=7  lean=6
+    SASS / pixel / step                spearman +1.0000   pearson +0.9458   [74.3682, 69.9021, 59.3829, 51.9736, 53.4522]
+    local spill bytes @ ms=32          spearman +0.9000   pearson +0.9986   [20932, 13216, 3068, 2984, 3572]
+    registers                          spearman -0.8660   pearson -0.9267   [168, 168, 255, 255, 255]
+    graph ops / pixel / step           spearman +0.8208   pearson +0.9576   [30, 27, 9, 9, 8]
+    launch count (measured)            spearman +0.7826   pearson +0.6105   [9, 9, 9, 7, 6]
+    generated stmts / pixel / step     spearman +0.6000   pearson +0.9786   [30.5065, 24.4052, 16.2701, 19.0186, 17.0166]
+    NOTE: every candidate above is a cost that should INCREASE time,
+    so the correlation is expected NEGATIVE. The ranking is what
+    matters, and rank is scale-free.
+==============================================================================
+batch 2048   time (ms): naive=17.460  int_cursor=11.949  flat_gather=5.817  incremental=5.105  lean=5.512
+  launches: naive=11  int_cursor=10  flat_gather=10  incremental=7  lean=6
+    SASS / pixel / step                spearman +1.0000   pearson +0.9517   [74.3682, 69.9021, 59.3829, 51.9736, 53.4522]
+    local spill bytes @ ms=32          spearman +0.9000   pearson +0.9985   [20932, 13216, 3068, 2984, 3572]
+    launch count (measured)            spearman +0.8721   pearson +0.7467   [11, 10, 10, 7, 6]
+    registers                          spearman -0.8660   pearson -0.9320   [168, 168, 255, 255, 255]
+    graph ops / pixel / step           spearman +0.8208   pearson +0.9617   [30, 27, 9, 9, 8]
+    generated stmts / pixel / step     spearman +0.6000   pearson +0.9770   [30.5065, 24.4052, 16.2701, 19.0186, 17.0166]
+    NOTE: every candidate above is a cost that should INCREASE time,
+    so the correlation is expected NEGATIVE. The ranking is what
+    matters, and rank is scale-free.
+
+==============================================================================
+THE STEP-BY-STEP PREDICTION: what each rewrite was worth
+==============================================================================
+  at batch 1024
+  rewrite                             measured  from sass   excess  from spill   excess
+  1  cursor cast once                   1.472x     1.064x   1.383x      1.584x   0.929x
+  2  one flat index                     1.998x     1.177x   1.697x      4.308x   0.464x
+  3  maintained address                 1.102x     1.143x   0.964x      1.028x   1.072x
+  4  no found flag                      0.929x     0.972x   0.956x      0.835x   1.112x
+  cumulative excess over the whole ladder: sass 2.164x, spill 0.514x
+  the same, from the naive end: measured 3.011x, sass explains 1.391x, spill explains 5.860x
+
+  hand-written reference: 38 SASS per pixel per DDA step
+    naive           74.4 = 1.957x the reference
+    int_cursor      69.9 = 1.840x the reference
+    flat_gather     59.4 = 1.563x the reference
+    incremental     52.0 = 1.368x the reference
+    lean            53.5 = 1.407x the reference

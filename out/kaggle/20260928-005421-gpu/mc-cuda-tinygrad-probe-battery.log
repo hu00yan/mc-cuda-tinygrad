@@ -1,0 +1,642 @@
+[{"stream_name":"stderr","time":10.149547655,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.149607385,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.608283213,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.608312372,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.608317858,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.60832133,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.397887141,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.397917155,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.397922586,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.397928157,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.798346701,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.799287483,"data":"device\n"}
+,{"stream_name":"stdout","time":13.800271251,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.800937109,"data":"  python      3.12.13  Linux-6.12.90+-x86_64-with-glibc2.35\n"}
+,{"stream_name":"stdout","time":13.801944469,"data":"  cwd         /kaggle/working\n"}
+,{"stream_name":"stdout","time":13.802841239,"data":"  kaggle inputTrue  ['datasets']\n"}
+,{"stream_name":"stdout","time":13.80390022,"data":"  nvidia-smi  Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":13.803916468,"data":"Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":13.804829334,"data":"  tpu nodes   unavailable\n"}
+,{"stream_name":"stdout","time":13.805740167,"data":"  ==\u003e this is a GPU runner\n"}
+,{"stream_name":"stdout","time":13.806627452,"data":"  env CUDA_HOME=/usr/local/cuda\n"}
+,{"stream_name":"stdout","time":13.807562998,"data":"  env CUDA_VERSION=12.8.1\n"}
+,{"stream_name":"stdout","time":13.808499115,"data":"  env KAGGLE_API_V1_TOKEN=/etc/secrets/kaggle/api-v1-token\n"}
+,{"stream_name":"stdout","time":13.809578896,"data":"  env KAGGLE_CONTAINER_NAME=kaggle_8TcW9wGKggdNWKeS28nVzV9ERabQDbKsQ4tIH5TggYM-353359205-webtier\n"}
+,{"stream_name":"stdout","time":13.810526486,"data":"  env KAGGLE_DATA_PROXY_PROJECT=kaggle-161607\n"}
+,{"stream_name":"stdout","time":13.811367623,"data":"  env KAGGLE_DATA_PROXY_TOKEN=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.jyH5N3Aalakl820jpGt2-r4SR2b0wSCJT10riqMEg_suj2qRuJ6yng.F1OsBgYVRCG20EHDwOw\n"}
+,{"stream_name":"stdout","time":13.812256332,"data":"  env KAGGLE_DATA_PROXY_URL=https://dp.kaggle.net\n"}
+,{"stream_name":"stdout","time":13.813128662,"data":"  env KAGGLE_DOCKER_IMAGE=gcr.io/kaggle-gpu-images/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461\n"}
+,{"stream_name":"stdout","time":13.81405856,"data":"  env KAGGLE_GCP_ZONE=us-central1-a\n"}
+,{"stream_name":"stdout","time":13.815240851,"data":"  env KAGGLE_GRPC_DATA_PROXY_URL=dp.kaggle.net:443\n"}
+,{"stream_name":"stdout","time":13.816040937,"data":"  env KAGGLE_KERNEL_INTEGRATIONS=\n"}
+,{"stream_name":"stdout","time":13.81705077,"data":"  env KAGGLE_KERNEL_RUN_TYPE=Batch\n"}
+,{"stream_name":"stdout","time":13.81773696,"data":"  env KAGGLE_URL_BASE=https://api.kaggle.com\n"}
+,{"stream_name":"stdout","time":13.818598174,"data":"  env KAGGLE_USER_SECRETS_TOKEN=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..uufH3ycKJv0NfHqppj8t0A.ftLbtisEfTvOZ8Zs9g6n_2s2nIoGil2L-71N6ushdrV6-kmRbTj3\n"}
+,{"stream_name":"stdout","time":13.81930838,"data":"  env LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib64\n"}
+,{"stream_name":"stdout","time":13.820193346,"data":"  env NVIDIA_DRIVER_CAPABILITIES=compute,utility\n"}
+,{"stream_name":"stdout","time":13.820961938,"data":"  env NVIDIA_PRODUCT_NAME=CUDA\n"}
+,{"stream_name":"stdout","time":13.821757305,"data":"  env NVIDIA_REQUIRE_CUDA=cuda\u003e=12.8 brand=unknown,driver\u003e=470,driver\u003c471 brand=grid,driver\u003e=470,driver\u003c471 brand=tesla,driver\u003e=470,driver\u003c471 brand=nvidia,\n"}
+,{"stream_name":"stdout","time":13.822850798,"data":"  env NVIDIA_VISIBLE_DEVICES=all\n"}
+,{"stream_name":"stdout","time":13.823794492,"data":"  disk        /dev/loop2       20G  184K   20G   1% /kaggle/working\n"}
+,{"stream_name":"stdout","time":13.824547984,"data":"  cpus        4\n"}
+,{"stream_name":"stdout","time":13.859305054,"data":"\n"}
+,{"stream_name":"stdout","time":13.860263814,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.861091721,"data":"payload\n"}
+,{"stream_name":"stdout","time":13.861816147,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":13.89847082,"data":"  archive     /kaggle/input/datasets/tenghuzhang/mc-cuda-tinygrad-payload/payload.tgz  72.1 KB\n"}
+,{"stream_name":"stdout","time":13.899193095,"data":"  sha256      41fb3e10a6eadb4bbec2c9c0cbd12c6b8b563d117ccc2d67324cc609550d805d\n"}
+,{"stream_name":"stdout","time":13.899898485,"data":"  sha256      matches payload.sha256\n"}
+,{"stream_name":"stdout","time":13.911723475,"data":"  extracted   25 files into /tmp/mc-cuda-tinygrad, 0 hash mismatches\n"}
+,{"stream_name":"stdout","time":14.073125598,"data":"  venv        FAILED (rc=1) venv --system-site-packages: Error: Command '['/tmp/mc-cuda-tinygrad/probe/.venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.\n"}
+,{"stream_name":"stdout","time":14.229390069,"data":"  venv        FAILED (rc=1) venv: Error: Command '['/tmp/mc-cuda-tinygrad/probe/.venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.\n"}
+,{"stream_name":"stdout","time":14.230220802,"data":"  venv        unavailable; using the system interpreter /usr/bin/python3\n"}
+,{"stream_name":"stdout","time":23.379950239,"data":"  pip install tinygrad numpy tabulate ok (with ['no flag'])\n"}
+,{"stream_name":"stdout","time":36.577438649,"data":"  torch       2.10.0+cu128 (preinstalled)\n"}
+,{"stream_name":"stdout","time":43.121766034,"data":"  fla         ok\n"}
+,{"stream_name":"stdout","time":45.053596413,"data":"  pip freeze written to logs/01-pip-freeze.txt\n"}
+,{"stream_name":"stdout","time":45.054723953,"data":"  CC          /usr/bin/gcc (exported for tinygrad's CPU backend)\n"}
+,{"stream_name":"stdout","time":45.055720452,"data":"  versions    fla-core 0.5.2, flash-linear-attention 0.5.2, numpy 2.0.2, tinygrad 0.14.0, torch 2.10.0+cu128, triton 3.6.0\n"}
+,{"stream_name":"stdout","time":45.056490851,"data":"  working tree /tmp/mc-cuda-tinygrad/probe  (outside /kaggle/working, so it is not in the output zip)\n"}
+,{"stream_name":"stdout","time":45.074321458,"data":"\n"}
+,{"stream_name":"stdout","time":45.075270541,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":45.075972462,"data":"camera C reference (netherite headers)\n"}
+,{"stream_name":"stdout","time":45.07675781,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":46.859743043,"data":"  clone       Cloning into '/tmp/mc-cuda-tinygrad/probe/netherite'...\n"}
+,{"stream_name":"stdout","time":48.565689317,"data":"  sparse      ok\n"}
+,{"stream_name":"stdout","time":48.566549439,"data":"  headers     /tmp/mc-cuda-tinygrad/probe/netherite/blaze/core ok\n"}
+,{"stream_name":"stdout","time":48.568669586,"data":"  clang       not found, trying apt-get\n"}
+,{"stream_name":"stdout","time":85.959944448,"data":"  apt-get     W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?) /  / /sbin/ldconfig.real: /usr/local/lib/libtbbmalloc.so.2 is not a symbolic link /  / /sbin/ldconfig.real: /us\n"}
+,{"stream_name":"stdout","time":86.012454689,"data":"  clang       Ubuntu clang version 14.0.0-1ubuntu1.1\n"}
+,{"stream_name":"stdout","time":86.013181077,"data":"  ==\u003e camera C comparison ENABLED\n"}
+,{"stream_name":"stdout","time":86.045432755,"data":"\n"}
+,{"stream_name":"stdout","time":86.046442277,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":86.047218671,"data":"battery\n"}
+,{"stream_name":"stdout","time":86.047955568,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":86.252944482,"data":"\n"}
+,{"stream_name":"stdout","time":86.253774618,"data":"--- preflight: /usr/bin/python3 remote/preflight.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":143.079072149,"data":"    \n"}
+,{"stream_name":"stdout","time":143.080213955,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.081272511,"data":"    1. the machine\n"}
+,{"stream_name":"stdout","time":143.08211838,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.082988445,"data":"      hostname                 a61c608a4f8b\n"}
+,{"stream_name":"stdout","time":143.083974126,"data":"      platform                 linux x86_64\n"}
+,{"stream_name":"stdout","time":143.084887673,"data":"      python                   3.12.13\n"}
+,{"stream_name":"stdout","time":143.085805812,"data":"      ram                      32.9 GB\n"}
+,{"stream_name":"stdout","time":143.086926338,"data":"      gpu                      Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":143.087819935,"data":"      gpu                      Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":143.088815453,"data":"    \n"}
+,{"stream_name":"stdout","time":143.089791798,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.090644828,"data":"    2. torch (needed only for the fla/triton comparison)\n"}
+,{"stream_name":"stdout","time":143.091609555,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.092577056,"data":"      torch                    2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":143.093629345,"data":"      cuda available           yes, sm_75\n"}
+,{"stream_name":"stdout","time":143.094443316,"data":"      bf16 tensor cores        NO (sm\u003c80)   \u003c- fla KDA will use a non-MMA path\n"}
+,{"stream_name":"stdout","time":143.095122905,"data":"      vram                     15.6 GB\n"}
+,{"stream_name":"stdout","time":143.095877016,"data":"    \n"}
+,{"stream_name":"stdout","time":143.096702666,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.097489926,"data":"    3. can TinyGrad see a device, and which is default\n"}
+,{"stream_name":"stdout","time":143.098215872,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.098860668,"data":"      available                ['CUDA', 'NULL', 'PYTHON', 'WEBGPU', 'DISK', 'TINYFS', 'CPU', 'METAL', 'NPY', 'HIP', 'QCOM', 'AMD', 'NV', 'RDMA', 'CL', 'DSP']\n"}
+,{"stream_name":"stdout","time":143.099584006,"data":"      DEFAULT                  CUDA\n"}
+,{"stream_name":"stdout","time":143.100272099,"data":"    \n"}
+,{"stream_name":"stdout","time":143.100955302,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.101759989,"data":"    4. can TinyGrad EXECUTE on the default device\n"}
+,{"stream_name":"stdout","time":143.10260531,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.103351885,"data":"      elementwise + reduce     ok (got 1048576.0, want 1048576.0)\n"}
+,{"stream_name":"stdout","time":143.104062249,"data":"    \n"}
+,{"stream_name":"stdout","time":143.104743249,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.105542334,"data":"    5. the real port, 1 second of it\n"}
+,{"stream_name":"stdout","time":143.106300558,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.107026721,"data":"      KDA port                 relerr 2.273e-07  ok\n"}
+,{"stream_name":"stdout","time":143.107754374,"data":"    \n"}
+,{"stream_name":"stdout","time":143.108543409,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.109274231,"data":"    verdict\n"}
+,{"stream_name":"stdout","time":143.109983766,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.110775692,"data":"      READY\n"}
+,{"stream_name":"stdout","time":143.111554876,"data":"  [ok     ] preflight             56.8s  is this box able to run the probes\n"}
+,{"stream_name":"stdout","time":143.112297277,"data":"\n"}
+,{"stream_name":"stdout","time":143.112977621,"data":"--- test_ref: /usr/bin/python3 test_ref.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":143.497452669,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.498434998,"data":"    KDA reference validation   (numpy 2.0.2, float64)\n"}
+,{"stream_name":"stdout","time":143.499238977,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.500187729,"data":"      PASS  chunked == naive recurrence  (THE test)   [worst relerr 4.46e-15]\n"}
+,{"stream_name":"stdout","time":143.50109177,"data":"      PASS  chunk-size invariance (C=1..32)   [worst relerr 3.95e-16]\n"}
+,{"stream_name":"stdout","time":143.502066435,"data":"      PASS  UT-transform sign convention\n"}
+,{"stream_name":"stdout","time":143.502990384,"data":"      PASS  intermediate shapes + dtypes\n"}
+,{"stream_name":"stdout","time":143.503890168,"data":"      PASS  input shape assertions\n"}
+,{"stream_name":"stdout","time":143.504766741,"data":"      PASS  degenerate: g=0 -\u003e DeltaNet\n"}
+,{"stream_name":"stdout","time":143.505652112,"data":"      PASS  degenerate: alpha=0 (hard wipe)\n"}
+,{"stream_name":"stdout","time":143.506717646,"data":"      PASS  degenerate: beta=0 (no writes)\n"}
+,{"stream_name":"stdout","time":143.507747414,"data":"      PASS  degenerate: beta=1, no decay\n"}
+,{"stream_name":"stdout","time":143.508755798,"data":"      PASS  causality (no future leakage)\n"}
+,{"stream_name":"stdout","time":143.509703811,"data":"      PASS  decay differences are \u003c= 0\n"}
+,{"stream_name":"stdout","time":143.510553964,"data":"      PASS  scale applies to q only\n"}
+,{"stream_name":"stdout","time":143.511480083,"data":"      PASS  GVA head grouping\n"}
+,{"stream_name":"stdout","time":143.512471079,"data":"      PASS  gate activation (softplus / lb)\n"}
+,{"stream_name":"stdout","time":143.513394045,"data":"      PASS  L2 norm + end-to-end\n"}
+,{"stream_name":"stdout","time":143.514125347,"data":"      PASS  division form K/gamma overflows\n"}
+,{"stream_name":"stdout","time":143.51488782,"data":"      PASS  masked vs literal gram agree\n"}
+,{"stream_name":"stdout","time":143.515640175,"data":"    ------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":143.516333788,"data":"    17 passed, 0 failed\n"}
+,{"stream_name":"stdout","time":143.517048322,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":143.517741719,"data":"  [ok     ] test_ref               0.4s  float64 reference, 17 tests\n"}
+,{"stream_name":"stdout","time":143.518540329,"data":"\n"}
+,{"stream_name":"stdout","time":143.519351649,"data":"--- test_tiny: /usr/bin/python3 test_tiny.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":282.308445308,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":282.309308472,"data":"    TinyGrad KDA vs the float64 reference   (numpy 2.0.2)\n"}
+,{"stream_name":"stdout","time":282.310114285,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":282.310886644,"data":"      PASS  matches recurrence   [worst relerr 8.56e-06]\n"}
+,{"stream_name":"stdout","time":282.311679299,"data":"      PASS  chunk size invariance   [worst relerr 4.81e-07]\n"}
+,{"stream_name":"stdout","time":282.312418861,"data":"      PASS  with initial state   [worst relerr 8.36e-07]\n"}
+,{"stream_name":"stdout","time":282.313188595,"data":"      PASS  degenerate gates   [worst relerr 8.29e-07]\n"}
+,{"stream_name":"stdout","time":282.31391336,"data":"      PASS  causality   [worst relerr 0.00e+00]\n"}
+,{"stream_name":"stdout","time":282.314729122,"data":"      PASS  dtype and shapes\n"}
+,{"stream_name":"stdout","time":282.315519561,"data":"    ------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":282.316278181,"data":"    6 passed, 0 failed\n"}
+,{"stream_name":"stdout","time":282.317019853,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":282.317822666,"data":"  [ok     ] test_tiny            138.8s  TinyGrad port vs the reference\n"}
+,{"stream_name":"stdout","time":282.318621794,"data":"\n"}
+,{"stream_name":"stdout","time":282.319410824,"data":"--- codegen_diff: /usr/bin/python3 codegen_diff.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":284.584362888,"data":"        float4 val18 = (*((float4*)((data3_4096+alu45))));\n"}
+,{"stream_name":"stdout","time":284.585031259,"data":"        float4 val19 = (*((float4*)((data3_4096+alu42))));\n"}
+,{"stream_name":"stdout","time":284.586133337,"data":"        *(buf0+0) = ((*(buf0+0))+(exp2((((val7.x-val11.x)+alu17)*1.4426950216293335f))*val15.x*val19.x)+(exp2((((val7.y-val11.y)+alu17)*1.4426950216293335f))*\n"}
+,{"stream_name":"stdout","time":284.586929993,"data":"        *(buf0+1) = ((*(buf0+1))+(exp2((((val7.x-val8.x)+alu18)*1.4426950216293335f))*val15.x*val16.x)+(exp2((((val7.y-val8.y)+alu18)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.58815683,"data":"        *(buf0+2) = ((*(buf0+2))+(exp2((((val7.x-val9.x)+alu19)*1.4426950216293335f))*val15.x*val17.x)+(exp2((((val7.y-val9.y)+alu19)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.589309713,"data":"        *(buf0+3) = ((*(buf0+3))+(exp2((((val7.x-val10.x)+alu20)*1.4426950216293335f))*val15.x*val18.x)+(exp2((((val7.y-val10.y)+alu20)*1.4426950216293335f))*\n"}
+,{"stream_name":"stdout","time":284.590034009,"data":"        *(buf0+4) = ((*(buf0+4))+(exp2((((val4.x-val11.x)+alu5)*1.4426950216293335f))*val12.x*val19.x)+(exp2((((val4.y-val11.y)+alu5)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.59117359,"data":"        *(buf0+5) = ((*(buf0+5))+(exp2((((val4.x-val8.x)+alu6)*1.4426950216293335f))*val12.x*val16.x)+(exp2((((val4.y-val8.y)+alu6)*1.4426950216293335f))*val1\n"}
+,{"stream_name":"stdout","time":284.592206519,"data":"        *(buf0+6) = ((*(buf0+6))+(exp2((((val4.x-val9.x)+alu7)*1.4426950216293335f))*val12.x*val17.x)+(exp2((((val4.y-val9.y)+alu7)*1.4426950216293335f))*val1\n"}
+,{"stream_name":"stdout","time":284.593282483,"data":"        *(buf0+7) = ((*(buf0+7))+(exp2((((val4.x-val10.x)+alu8)*1.4426950216293335f))*val12.x*val18.x)+(exp2((((val4.y-val10.y)+alu8)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.59436464,"data":"        *(buf0+8) = ((*(buf0+8))+(exp2((((val5.x-val11.x)+alu9)*1.4426950216293335f))*val13.x*val19.x)+(exp2((((val5.y-val11.y)+alu9)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.59541001,"data":"        *(buf0+9) = ((*(buf0+9))+(exp2((((val5.x-val8.x)+alu10)*1.4426950216293335f))*val13.x*val16.x)+(exp2((((val5.y-val8.y)+alu10)*1.4426950216293335f))*va\n"}
+,{"stream_name":"stdout","time":284.596529391,"data":"        *(buf0+10) = ((*(buf0+10))+(exp2((((val5.x-val9.x)+alu11)*1.4426950216293335f))*val13.x*val17.x)+(exp2((((val5.y-val9.y)+alu11)*1.4426950216293335f))*\n"}
+,{"stream_name":"stdout","time":284.597470942,"data":"        *(buf0+11) = ((*(buf0+11))+(exp2((((val5.x-val10.x)+alu12)*1.4426950216293335f))*val13.x*val18.x)+(exp2((((val5.y-val10.y)+alu12)*1.4426950216293335f)\n"}
+,{"stream_name":"stdout","time":284.598417234,"data":"        *(buf0+12) = ((*(buf0+12))+(exp2((((val6.x-val11.x)+alu13)*1.4426950216293335f))*val14.x*val19.x)+(exp2((((val6.y-val11.y)+alu13)*1.4426950216293335f)\n"}
+,{"stream_name":"stdout","time":284.599531144,"data":"        *(buf0+13) = ((*(buf0+13))+(exp2((((val6.x-val8.x)+alu14)*1.4426950216293335f))*val14.x*val16.x)+(exp2((((val6.y-val8.y)+alu14)*1.4426950216293335f))*\n"}
+,{"stream_name":"stdout","time":284.600545244,"data":"        *(buf0+14) = ((*(buf0+14))+(exp2((((val6.x-val9.x)+alu15)*1.4426950216293335f))*val14.x*val17.x)+(exp2((((val6.y-val9.y)+alu15)*1.4426950216293335f))*\n"}
+,{"stream_name":"stdout","time":284.601584987,"data":"        *(buf0+15) = ((*(buf0+15))+(exp2((((val6.x-val10.x)+alu16)*1.4426950216293335f))*val14.x*val18.x)+(exp2((((val6.y-val10.y)+alu16)*1.4426950216293335f)\n"}
+,{"stream_name":"stdout","time":284.602697767,"data":"    \n"}
+,{"stream_name":"stdout","time":284.603736636,"data":"      ^ note what is NOT here: no tensor-core MMA (`tl.dot` equivalent),\n"}
+,{"stream_name":"stdout","time":284.604757837,"data":"        no `exp2`, and the decay is a [C,C,K] tensor that had to be\n"}
+,{"stream_name":"stdout","time":284.605836958,"data":"        materialised before the reduction over K could happen.\n"}
+,{"stream_name":"stdout","time":284.606864148,"data":"    \n"}
+,{"stream_name":"stdout","time":284.607937933,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":284.608961159,"data":"    SIDE BY SIDE\n"}
+,{"stream_name":"stdout","time":284.609981724,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":284.611060664,"data":"      step       TRITON (fla, hand-written)                           TINYGRAD\n"}
+,{"stream_name":"stdout","time":284.612096412,"data":"      --------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":284.61318667,"data":"      grid       grid = (NT, NC, B * HV)            # NT=T/64, NC=64/ \n"}
+,{"stream_name":"stdout","time":284.614228438,"data":"      constexpr  BT = 64;  BC = 16;  NC = cdiv(BT, BC) = 4            \n"}
+,{"stream_name":"stdout","time":284.615368139,"data":"      load       b_k0  = tl.load(p_k0, mask=m_ck0).to(tl.float32)     \n"}
+,{"stream_name":"stdout","time":284.616577545,"data":"      load       b_g0  = tl.load(p_g0, mask=m_ck0).to(tl.float32)     \n"}
+,{"stream_name":"stdout","time":284.617617071,"data":"      load       b_gn1 = tl.load(g + ... + o_k, mask=m_k).to(tl.float \n"}
+,{"stream_name":"stdout","time":284.618755533,"data":"      decay      b_gqn = tl.where(m_tc1[:, None], exp2(b_g1 - b_gn1[N \n"}
+,{"stream_name":"stdout","time":284.619848254,"data":"      decay      b_kgt = tl.trans(b_k0 * exp2(b_gn1[None, :] - b_g0)) \n"}
+,{"stream_name":"stdout","time":284.620935529,"data":"      mma        b_Akk10 = tl.dot(b_k1 * b_gqn, b_kgt, b_Akk10)       \n"}
+,{"stream_name":"stdout","time":284.62198023,"data":"      store      tl.store(p_Akk10, b_Akk10.to(dtype), mask=m_c1)      \n"}
+,{"stream_name":"stdout","time":284.623037317,"data":"                 the [BC, BC] score block never leaves registers; the only\n"}
+,{"stream_name":"stdout","time":284.624101521,"data":"                 extra buffer is Akkd = empty(B, T, HV, BC) -- [T,16], not [T,T]\n"}
+,{"stream_name":"stdout","time":284.625306042,"data":"    \n"}
+,{"stream_name":"stdout","time":284.626467548,"data":"      TinyGrad's equivalent of the three Triton lines is:\n"}
+,{"stream_name":"stdout","time":284.627575966,"data":"          decay = (gcum[:,:,:, :,None] - gcum[:,:,:,None,:]).exp()   -\u003e [C,C,K]\n"}
+,{"stream_name":"stdout","time":284.628664247,"data":"          gram  = (decay * k[:,:,:,:,None] * k[:,:,:,None,:]).sum(-1) -\u003e [C,C]\n"}
+,{"stream_name":"stdout","time":284.629720563,"data":"      Same result, but the intermediate is C x C x K instead of BC x K,\n"}
+,{"stream_name":"stdout","time":284.630723964,"data":"      and the contraction is a generic sum() rather than a tensor-core MMA.\n"}
+,{"stream_name":"stdout","time":284.63178687,"data":"  [ok     ] codegen_diff           2.3s  generated code vs hand-written Triton\n"}
+,{"stream_name":"stdout","time":332.784389567,"data":"\n"}
+,{"stream_name":"stdout","time":332.785569767,"data":"--- kda_vs_fla: /usr/bin/python3 kda_vs_fla.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1233.334341635,"data":"      available       ['CUDA', 'NULL', 'PYTHON', 'WEBGPU', 'DISK', 'TINYFS', 'CPU', 'METAL', 'NPY', 'HIP', 'QCOM', 'AMD', 'NV', 'RDMA', 'CL', 'DSP']\n"}
+,{"stream_name":"stdout","time":1233.335389126,"data":"    \n"}
+,{"stream_name":"stdout","time":1233.336489276,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.337399109,"data":"    oracle self-check -- kda_recurrent vs independent closed forms\n"}
+,{"stream_name":"stdout","time":1233.338441343,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.339228377,"data":"      V1  plain-Python transcription (B=H=HV=1, V=1, K=1..32, T=1..40)\n"}
+,{"stream_name":"stdout","time":1233.340007773,"data":"          the 'control' column is the same transcription with the decay and\n"}
+,{"stream_name":"stdout","time":1233.340764676,"data":"          the delta correction swapped; it MUST disagree, or V1 proves nothing\n"}
+,{"stream_name":"stdout","time":1233.341579321,"data":"             K     T       relerr      control   verdict\n"}
+,{"stream_name":"stdout","time":1233.342371539,"data":"             1     1    0.000e+00    2.616e-02   ok\n"}
+,{"stream_name":"stdout","time":1233.343102104,"data":"             1     5    0.000e+00    1.418e+00   ok\n"}
+,{"stream_name":"stdout","time":1233.343850985,"data":"             1    40    2.679e-16    2.902e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.344630865,"data":"             2     1    0.000e+00    2.390e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.345406951,"data":"             2     5    0.000e+00    6.358e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.346167087,"data":"             2    40    8.410e-17    4.931e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.346888679,"data":"             8     1    0.000e+00    3.176e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.347676523,"data":"             8     5    2.016e-16    4.706e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.348418031,"data":"             8    40    3.582e-16    6.206e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.349126396,"data":"            32     1    3.728e-16    1.180e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.349830934,"data":"            32     5    9.043e-17    4.588e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.350607798,"data":"            32    40    2.399e-16    4.666e-01   ok\n"}
+,{"stream_name":"stdout","time":1233.351388987,"data":"          PASS matches the transcription; PASS control has teeth (worst control disagreement 1.42e+00)\n"}
+,{"stream_name":"stdout","time":1233.352084163,"data":"      V2  WY triangular-inverse closed form, g=0, K!=V, G\u003e1\n"}
+,{"stream_name":"stdout","time":1233.352832567,"data":"          B2 T10 H2 HV2 K16 V16   o 2.348e-16   S 2.236e-16\n"}
+,{"stream_name":"stdout","time":1233.353606288,"data":"          B1 T8 H1 HV1 K32 V16   o 3.970e-16   S 2.865e-16\n"}
+,{"stream_name":"stdout","time":1233.354372232,"data":"          B2 T6 H1 HV2 K8 V32   o 2.064e-16   S 2.538e-16\n"}
+,{"stream_name":"stdout","time":1233.355099754,"data":"          PASS matches the closed form\n"}
+,{"stream_name":"stdout","time":1233.355895709,"data":"      =\u003e oracle VERIFIED\n"}
+,{"stream_name":"stdout","time":1233.356792679,"data":"    \n"}
+,{"stream_name":"stdout","time":1233.357695708,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.358557497,"data":"    realize() is a no-op on a realized graph (why the graph is rebuilt)\n"}
+,{"stream_name":"stdout","time":1233.359417381,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.360106191,"data":"      first realize()    146.981 ms   kernels compiled: 1\n"}
+,{"stream_name":"stdout","time":1233.360825957,"data":"      realize() again       0.061 ms   kernels compiled: 0   \u003c- no-op, this is the trap\n"}
+,{"stream_name":"stdout","time":1233.361723214,"data":"      fresh graph          1.907 ms   kernels compiled: 0\n"}
+,{"stream_name":"stdout","time":1233.362549935,"data":"      (a 'fresh graph' compiling 0 means tinygrad's on-disk cache already had\n"}
+,{"stream_name":"stdout","time":1233.363423501,"data":"       the kernel, so the compile count is not the signal -- the TIME is:\n"}
+,{"stream_name":"stdout","time":1233.364248543,"data":"       31x more than re-realizing, for identical work.)\n"}
+,{"stream_name":"stdout","time":1233.364989757,"data":"      =\u003e every timing below rebuilds the graph inside the timed region.\n"}
+,{"stream_name":"stdout","time":1233.365766703,"data":"    \n"}
+,{"stream_name":"stdout","time":1233.366566708,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.367357588,"data":"    correctness -- both against the float64 per-token recurrence\n"}
+,{"stream_name":"stdout","time":1233.368101684,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1233.368895617,"data":"    \n"}
+,{"stream_name":"stdout","time":1233.369674656,"data":"    \u003cTIMED OUT after 900s\u003e\n"}
+,{"stream_name":"stdout","time":1233.370483473,"data":"  [TIMEOUT] kda_vs_fla           900.5s  the N-vs-N comparison\n"}
+,{"stream_name":"stdout","time":1233.371193161,"data":"\n"}
+,{"stream_name":"stdout","time":1233.371941052,"data":"--- perf_kda: /usr/bin/python3 perf_kda.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1566.667662372,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1566.668541743,"data":"    KDA cost model   device=CUDA\n"}
+,{"stream_name":"stdout","time":1566.669295348,"data":"      B=2 T=512 H=4 HV=4 K=64 V=64  chunk C=64  NT=8\n"}
+,{"stream_name":"stdout","time":1566.670025565,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1566.670782817,"data":"    \n"}
+,{"stream_name":"stdout","time":1566.671531952,"data":"    intermediates the port builds (bf16 = 2 bytes, as the kernels use):\n"}
+,{"stream_name":"stdout","time":1566.672266769,"data":"      tensor                             elements    bf16 MB\n"}
+,{"stream_name":"stdout","time":1566.672990186,"data":"      g_cum   [B,NT,HV,C,K]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.673750713,"data":"      Dq_all  [B,NT,HV,C,C,K]          16,777,216       33.6\n"}
+,{"stream_name":"stdout","time":1566.674476992,"data":"      Dl      [B,NT,HV,C,C,K]          16,777,216       33.6\n"}
+,{"stream_name":"stdout","time":1566.675168678,"data":"      Z/Btri  [B,NT,HV,C,C]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.67582793,"data":"      M       [B,NT,HV,C,C]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.676584034,"data":"      Aqk     [B,NT,HV,C,C]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.677318626,"data":"      w       [B,NT,HV,C,K]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.678041334,"data":"      u       [B,NT,HV,C,V]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.678723588,"data":"      v_new   [B,NT,HV,C,V]               262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.679442354,"data":"      o       [B,T,HV,V]                  262,144        0.5\n"}
+,{"stream_name":"stdout","time":1566.680120985,"data":"      S (state, live) [B,HV,K,V]           32,768        0.1\n"}
+,{"stream_name":"stdout","time":1566.680841785,"data":"    \n"}
+,{"stream_name":"stdout","time":1566.681564174,"data":"    sequential depth (unrolled, no TinyGrad loop primitive):\n"}
+,{"stream_name":"stdout","time":1566.682227464,"data":"      UT transform   C  = 64 steps   (forward substitution)\n"}
+,{"stream_name":"stdout","time":1566.682897086,"data":"      inter-chunk    NT = 8 steps  (carrying [B,HV,K,V] = 32,768 floats)\n"}
+,{"stream_name":"stdout","time":1566.683623779,"data":"      total                    72 steps, each becoming graph ops\n"}
+,{"stream_name":"stdout","time":1566.684348842,"data":"      the camera probe found 1 extra kernel per sequential step, so the\n"}
+,{"stream_name":"stdout","time":1566.685005168,"data":"      prediction is ~72 kernels before the real matmuls.\n"}
+,{"stream_name":"stdout","time":1566.68571543,"data":"    \n"}
+,{"stream_name":"stdout","time":1566.686404744,"data":"    measured (Metal, B=2 T=512 K=64 C=64):\n"}
+,{"stream_name":"stdout","time":1566.687111611,"data":"      kernels per call : 12082\n"}
+,{"stream_name":"stdout","time":1566.687885444,"data":"      GPU time         : 224,604 us  (224.6 ms)\n"}
+,{"stream_name":"stdout","time":1566.688636461,"data":"        r     7984 kernels     166,543 us   74.1%\n"}
+,{"stream_name":"stdout","time":1566.689360219,"data":"        E     4098 kernels      58,061 us   25.9%\n"}
+,{"stream_name":"stdout","time":1566.690023313,"data":"    \n"}
+,{"stream_name":"stdout","time":1566.690754709,"data":"    wall time:\n"}
+,{"stream_name":"stdout","time":1566.691458747,"data":"      numpy float64 reference :     541.3 ms\n"}
+,{"stream_name":"stdout","time":1566.69213176,"data":"      tinygrad float32        :   20725.5 ms\n"}
+,{"stream_name":"stdout","time":1566.692827171,"data":"      ratio                   :     38.29x\n"}
+,{"stream_name":"stdout","time":1566.69359773,"data":"      of which GPU             :     224.6 ms (1%)\n"}
+,{"stream_name":"stdout","time":1566.694280217,"data":"      of which python/build   :   20500.9 ms (99%)\n"}
+,{"stream_name":"stdout","time":1566.694963082,"data":"  [ok     ] perf_kda             333.3s  kernel count, GPU/wall split\n"}
+,{"stream_name":"stdout","time":1566.695703634,"data":"\n"}
+,{"stream_name":"stdout","time":1566.696509711,"data":"--- replay_kda: /usr/bin/python3 replay_kda.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1928.412027057,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1928.4128581,"data":"    KDA graph replay   device=CUDA\n"}
+,{"stream_name":"stdout","time":1928.413630668,"data":"      B=2 T=512 H=4 K=64 V=64 C=64\n"}
+,{"stream_name":"stdout","time":1928.414433173,"data":"    ==============================================================================\n"}
+,{"stream_name":"stdout","time":1928.415176259,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.415886901,"data":"    1. COLD  (first call, includes compile) :     99,019 ms\n"}
+,{"stream_name":"stdout","time":1928.416640487,"data":"    2. WARM  (rebuild Python graph each call):     20,506 ms\n"}
+,{"stream_name":"stdout","time":1928.417393756,"data":"    3. BUILD only (no realize)              :      4,580 ms\n"}
+,{"stream_name":"stdout","time":1928.418132145,"data":"       =\u003e schedule + launch + execute       :     15,926 ms\n"}
+,{"stream_name":"stdout","time":1928.418911465,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.419629277,"data":"    4. REPLAY attempt -- build the graph once, then re-dispatch\n"}
+,{"stream_name":"stdout","time":1928.420383001,"data":"       graph built and realized: 20,506 ms\n"}
+,{"stream_name":"stdout","time":1928.42109257,"data":"       second call, new inputs, rebuild      :     20,282 ms\n"}
+,{"stream_name":"stdout","time":1928.421787914,"data":"       same inputs twice -\u003e identical out   : True\n"}
+,{"stream_name":"stdout","time":1928.422580627,"data":"       new inputs      -\u003e different out     : True\n"}
+,{"stream_name":"stdout","time":1928.423336358,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.424127583,"data":"    build / total = 22.3% of the warm call\n"}
+,{"stream_name":"stdout","time":1928.424814565,"data":"    GPU time      = ~109 ms, i.e. 0.53% of the warm call\n"}
+,{"stream_name":"stdout","time":1928.425573517,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.426304818,"data":"    DECOMPOSITION of the 20.5 s warm call:\n"}
+,{"stream_name":"stdout","time":1928.427057834,"data":"        4.58 s   Python constructing UOps\n"}
+,{"stream_name":"stdout","time":1928.427773617,"data":"       15.82 s   TinyGrad's SCHEDULER (rewrite passes)\n"}
+,{"stream_name":"stdout","time":1928.428575884,"data":"        0.11 s   GPU execution (measured separately in perf_kda.py)\n"}
+,{"stream_name":"stdout","time":1928.429334156,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.430079111,"data":"    So it is NOT '99% Python'. It is mostly SCHEDULER.\n"}
+,{"stream_name":"stdout","time":1928.430774003,"data":"    The kernels ARE compiled once -- COLD is 49.5 s and WARM does not\n"}
+,{"stream_name":"stdout","time":1928.431523365,"data":"    recompile -- but tinygrad re-runs every rewrite pass on every\n"}
+,{"stream_name":"stdout","time":1928.432218547,"data":"    realize(), because there is no separation between 'compile' and\n"}
+,{"stream_name":"stdout","time":1928.432891702,"data":"    'execute' in the API. A replay path that cached the SCHEDULED\n"}
+,{"stream_name":"stdout","time":1928.433641192,"data":"    PROGRAM LIST, not just the compiled kernels, would bring the per-call\n"}
+,{"stream_name":"stdout","time":1928.434415397,"data":"    cost down to the 109 ms of GPU time.\n"}
+,{"stream_name":"stdout","time":1928.43518485,"data":"  [ok     ] replay_kda           361.7s  graph replay: the python tax\n"}
+,{"stream_name":"stdout","time":1928.435908679,"data":"\n"}
+,{"stream_name":"stdout","time":1928.436703656,"data":"--- cost: /usr/bin/python3 cost.py  (cwd=kda, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1928.503119467,"data":"    total forward FLOPs               96.60 GFLOP\n"}
+,{"stream_name":"stdout","time":1928.503922144,"data":"    traffic, kernel rows             2454.0 MB  (2.40 GiB)\n"}
+,{"stream_name":"stdout","time":1928.504867712,"data":"    traffic, ref-only rows          16384.0 MB  (never built by a kernel)\n"}
+,{"stream_name":"stdout","time":1928.505854177,"data":"    arithmetic intensity              37.54 FLOP/byte  (kernel rows)\n"}
+,{"stream_name":"stdout","time":1928.506743342,"data":"      H100 SXM bf16 ridge point     295 FLOP/byte  -\u003e  this operator is   7.9x MEMORY BOUND\n"}
+,{"stream_name":"stdout","time":1928.507702366,"data":"      A100 80GB bf16 ridge point     201 FLOP/byte  -\u003e  this operator is   5.4x MEMORY BOUND\n"}
+,{"stream_name":"stdout","time":1928.508435309,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.509252526,"data":"        C    NT    GFLOP  traffic MB   FLOP/byte   C^2 share\n"}
+,{"stream_name":"stdout","time":1928.510126969,"data":"       16   256    62.40      2161.5       27.53       17.4%\n"}
+,{"stream_name":"stdout","time":1928.51107351,"data":"       32   128    73.53      2259.0       31.04       29.9%\n"}
+,{"stream_name":"stdout","time":1928.511976657,"data":"       64    64    96.60      2454.0       37.54       46.6%\n"}
+,{"stream_name":"stdout","time":1928.512888255,"data":"      128    32   145.96      2844.0       48.95       64.7%\n"}
+,{"stream_name":"stdout","time":1928.513763349,"data":"      256    16   257.56      3624.0       67.78       80.0%\n"}
+,{"stream_name":"stdout","time":1928.514947082,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.515945246,"data":"    paper Eq.13 FLOPs/head        520,093,696  -\u003e 66.57 GFLOP\n"}
+,{"stream_name":"stdout","time":1928.516870591,"data":"    this count   FLOPs/head      754,712,576  -\u003e 96.60 GFLOP\n"}
+,{"stream_name":"stdout","time":1928.517804925,"data":"    ratio                               1.451\n"}
+,{"stream_name":"stdout","time":1928.518607203,"data":"      Counting every matmul at 2 FLOP/MAC, there are FIVE C x C x d_h\n"}
+,{"stream_name":"stdout","time":1928.519469741,"data":"      intra-chunk matmuls (Z, w, u, Aqk, Aqk@v_new), not three.  Eq. 13's\n"}
+,{"stream_name":"stdout","time":1928.520303668,"data":"      3TC*d_h also counts 1 FLOP/MAC while its 6Td_h^2 term counts 2.\n"}
+,{"stream_name":"stdout","time":1928.521249345,"data":"      Sizing hardware off Eq. 13 undershoots by ~1.45x.\n"}
+,{"stream_name":"stdout","time":1928.52221044,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.523273181,"data":"    UT fwd substitution, naive C-step:       258,048 FLOP/chunk/head\n"}
+,{"stream_name":"stdout","time":1928.524247624,"data":"    UT fwd substitution, 16x16 blocked:      162,816  (1.58x cheaper, and the blocked form is parallel)\n"}
+,{"stream_name":"stdout","time":1928.525004898,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.525919472,"data":"    --- what fusing across the scan boundary is worth ---\n"}
+,{"stream_name":"stdout","time":1928.526667415,"data":"    v_new [B,NT,HV,C,V] spilled (write+read)      256.0 MB\n"}
+,{"stream_name":"stdout","time":1928.527497912,"data":"      intensity, fused across the scan (base)       37.5 FLOP/B\n"}
+,{"stream_name":"stdout","time":1928.528192877,"data":"      intensity, v_new spilled to DRAM               34.0 FLOP/B\n"}
+,{"stream_name":"stdout","time":1928.52915526,"data":"      absolute floor: read q,k,v,g + write o        640.0 MB  -\u003e  143.9 FLOP/B\n"}
+,{"stream_name":"stdout","time":1928.530087138,"data":"      so even a PERFECTLY fused KDA is still 2.1x below the H100 ridge point (295).\n"}
+,{"stream_name":"stdout","time":1928.530974887,"data":"      The gate + cumsum alone (steps 0,1) are 1280 MB = 52% of the traffic and 0 of the FLOPs.\n"}
+,{"stream_name":"stdout","time":1928.531849031,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.532532375,"data":"    --- the traps (what a naive tensorised port would materialise) ---\n"}
+,{"stream_name":"stdout","time":1928.533208943,"data":"    h, per-chunk states [B,NT,HV,K,V]      256.0 MB   (0.27 GB)  \u003c- only avoidable by fusing the scan\n"}
+,{"stream_name":"stdout","time":1928.533907403,"data":"    full score matrix  [B,H,T,T]           4096.0 MB   (4.29 GB)  \u003c- softmax-attention shape; KDA must NOT do this\n"}
+,{"stream_name":"stdout","time":1928.53461524,"data":"      per head: 32.0 MB, i.e. O(T^2).  A compiler that fuses the\n"}
+,{"stream_name":"stdout","time":1928.535321049,"data":"      chunk loop into one graph never has to build it -- but it also\n"}
+,{"stream_name":"stdout","time":1928.53603147,"data":"      cannot parallelise the loop, which is the actual difficulty.\n"}
+,{"stream_name":"stdout","time":1928.536751269,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.537455884,"data":"    reference-only decay tensor [B,NT,HV,C,C,K]  8192.0 MB  (ref.py builds this; kernels do not)\n"}
+,{"stream_name":"stdout","time":1928.538134072,"data":"    \n"}
+,{"stream_name":"stdout","time":1928.539021121,"data":"    bytes for one [B,T,HV,V] bf16 tensor:      128.0 MB\n"}
+,{"stream_name":"stdout","time":1928.540158679,"data":"    bytes for one [B,T,HV,K] bf16 tensor:      128.0 MB\n"}
+,{"stream_name":"stdout","time":1928.540927415,"data":"    ====================================================================================================\n"}
+,{"stream_name":"stdout","time":1928.541678954,"data":"  [ok     ] cost                   0.1s  analytic FLOP/byte model\n"}
+,{"stream_name":"stdout","time":1928.542416548,"data":"\n"}
+,{"stream_name":"stdout","time":1928.543150071,"data":"--- fp32_correctness: /usr/bin/python3 probes/fp32_correctness.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1930.97623493,"data":"    \n"}
+,{"stream_name":"stdout","time":1930.976810366,"data":"    === near 1.0 (LUT regime)  (n=2,097,152) ===\n"}
+,{"stream_name":"stdout","time":1930.977615608,"data":"    op   tinygrad vs correctly-rounded   numpy vs correctly-rounded\n"}
+,{"stream_name":"stdout","time":1930.978468668,"data":"    +                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.979464452,"data":"    -                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.980462605,"data":"    *                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.981292721,"data":"    /          260,261 (12.410%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.982342437,"data":"    \n"}
+,{"stream_name":"stdout","time":1930.983103828,"data":"    === mixed +-2  (n=2,097,152) ===\n"}
+,{"stream_name":"stdout","time":1930.983852218,"data":"    op   tinygrad vs correctly-rounded   numpy vs correctly-rounded\n"}
+,{"stream_name":"stdout","time":1930.984636814,"data":"    +                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.985507478,"data":"    -                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.986377226,"data":"    *                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.987195015,"data":"    /          322,233 (15.365%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.988192679,"data":"    \n"}
+,{"stream_name":"stdout","time":1930.989626534,"data":"    === wide +-1e3  (n=2,097,152) ===\n"}
+,{"stream_name":"stdout","time":1930.990247409,"data":"    op   tinygrad vs correctly-rounded   numpy vs correctly-rounded\n"}
+,{"stream_name":"stdout","time":1930.991033576,"data":"    +                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.991852434,"data":"    -                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.99257996,"data":"    *                0 ( 0.000%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.993421621,"data":"    /          318,044 (15.166%)              0 ( 0.000%)\n"}
+,{"stream_name":"stdout","time":1930.994096959,"data":"    \n"}
+,{"stream_name":"stdout","time":1930.994830899,"data":"    A correctly-rounded implementation shows 0 in both right-hand columns.\n"}
+,{"stream_name":"stdout","time":1930.995897061,"data":"    A nonzero TinyGrad column is a precision bug in the Metal backend, not a\n"}
+,{"stream_name":"stdout","time":1930.996705324,"data":"    rounding artefact of the test.\n"}
+,{"stream_name":"stdout","time":1930.997440748,"data":"    \n"}
+,{"stream_name":"stdout","time":1930.99817269,"data":"    Measured result: + - * are exact (0 of 6,291,456 ops wrong). / is wrong in\n"}
+,{"stream_name":"stdout","time":1930.998874986,"data":"    12.4% - 15.4% of cases depending on magnitude. See\n"}
+,{"stream_name":"stdout","time":1930.999653252,"data":"    notes/02-obs-camera-residuals.md.\n"}
+,{"stream_name":"stdout","time":1931.000441063,"data":"    \n"}
+,{"stream_name":"stdout","time":1931.001162474,"data":"    division error magnitude: median 1.0 ULP, p99 1.0 ULP, max 1 ULP\n"}
+,{"stream_name":"stdout","time":1931.001916516,"data":"  [ok     ] fp32_correctness       2.4s  is float32 correctly rounded\n"}
+,{"stream_name":"stdout","time":1931.002753299,"data":"\n"}
+,{"stream_name":"stdout","time":1931.003551374,"data":"--- divide_precision: /usr/bin/python3 probes/divide_precision.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1932.641035987,"data":"        self.prgs:dict[Callable, CPUProgram] = {f: CPUProgram(self, do_to_program(f().sink(arg=KernelInfo(f.__name__), tag=1), clang).to_elf())\n"}
+,{"stream_name":"stdout","time":1932.64210646,"data":"                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.643083568,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1544, in __wrapper\n"}
+,{"stream_name":"stdout","time":1932.64409078,"data":"        ret = func(*args, **kwargs)\n"}
+,{"stream_name":"stdout","time":1932.645089558,"data":"              ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.645908027,"data":"      File \"/usr/lib/python3.12/contextlib.py\", line 81, in inner\n"}
+,{"stream_name":"stdout","time":1932.646974304,"data":"        return func(*args, **kwds)\n"}
+,{"stream_name":"stdout","time":1932.648030658,"data":"               ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.648931922,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 488, in do_to_program\n"}
+,{"stream_name":"stdout","time":1932.649904061,"data":"        prg = graph_rewrite(prg, pm_to_program, ctx=renderer, name=\"linearize/render\")\n"}
+,{"stream_name":"stdout","time":1932.650936161,"data":"              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.65192443,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1525, in __wrapper\n"}
+,{"stream_name":"stdout","time":1932.652922795,"data":"        if TRACK_MATCH_STATS \u003c 2 and not new_ctx: return func(*args, **kwargs)\n"}
+,{"stream_name":"stdout","time":1932.65389327,"data":"                                                         ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.654901547,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1746, in graph_rewrite\n"}
+,{"stream_name":"stdout","time":1932.655898596,"data":"        return rewrite_ctx.walk_rewrite(sink) if walk else rewrite_ctx.unified_rewrite(sink)\n"}
+,{"stream_name":"stdout","time":1932.65678224,"data":"                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.657695098,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1722, in unified_rewrite\n"}
+,{"stream_name":"stdout","time":1932.658585393,"data":"        if self.pm is None or (new_src_n:=self.pm_rewrite(new_n)) is None:\n"}
+,{"stream_name":"stdout","time":1932.659436317,"data":"                                          ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.660310257,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1642, in pm_rewrite\n"}
+,{"stream_name":"stdout","time":1932.661055972,"data":"        def pm_rewrite(self, x:UOp) -\u003e UOp|None: return unwrap(self.pm).rewrite(x, self.ctx)\n"}
+,{"stream_name":"stdout","time":1932.662024175,"data":"                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.662803264,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1478, in rewrite\n"}
+,{"stream_name":"stdout","time":1932.663561755,"data":"        if (ret:=match(uop, ctx)) is not None and ret is not uop: return ret\n"}
+,{"stream_name":"stdout","time":1932.664383136,"data":"                 ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.665458811,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1452, in lazy_compile\n"}
+,{"stream_name":"stdout","time":1932.666398544,"data":"        return entry[1](uop, ctx)\n"}
+,{"stream_name":"stdout","time":1932.667358971,"data":"               ^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.66829412,"data":"      File \"\u003cstring\u003e\", line 3, in compiled_match\n"}
+,{"stream_name":"stdout","time":1932.669395043,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 451, in do_compile\n"}
+,{"stream_name":"stdout","time":1932.670264154,"data":"        lib = ctx.compiler.compile_cached(source.arg)\n"}
+,{"stream_name":"stdout","time":1932.671185839,"data":"              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.671949847,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 310, in compile_cached\n"}
+,{"stream_name":"stdout","time":1932.672704228,"data":"        lib = self.compile(src)\n"}
+,{"stream_name":"stdout","time":1932.673448336,"data":"              ^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.674178334,"data":"      File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/support/compiler_cpu.py\", line 21, in compile\n"}
+,{"stream_name":"stdout","time":1932.674992947,"data":"        return subprocess.check_output([getenv(\"CC\", 'clang'), '-c', '-x', 'c', '-O2', '-fPIC', '-ffreestanding', '-fno-math-errno', '-nostdlib',\n"}
+,{"stream_name":"stdout","time":1932.67579712,"data":"               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.676611877,"data":"      File \"/usr/lib/python3.12/subprocess.py\", line 466, in check_output\n"}
+,{"stream_name":"stdout","time":1932.677413589,"data":"        return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n"}
+,{"stream_name":"stdout","time":1932.678187703,"data":"               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":1932.678974102,"data":"      File \"/usr/lib/python3.12/subprocess.py\", line 571, in run\n"}
+,{"stream_name":"stdout","time":1932.679736393,"data":"        raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stdout","time":1932.680460768,"data":"    subprocess.CalledProcessError: Command '['/usr/bin/gcc', '-c', '-x', 'c', '-O2', '-fPIC', '-ffreestanding', '-fno-math-errno', '-nostdlib', '-fno-ident', '--target=x86_64-none-unknown-elf', '-march=na\n"}
+,{"stream_name":"stdout","time":1932.681098447,"data":"  [rc=1   ] divide_precision       1.6s  the a*(1/b) rewrite\n"}
+,{"stream_name":"stdout","time":1932.681776074,"data":"\n"}
+,{"stream_name":"stdout","time":1932.682472283,"data":"--- gather_floor: /usr/bin/python3 probes/gather_floor.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1951.65868014,"data":"    Gathering 64 elements out of a source of growing size.\n"}
+,{"stream_name":"stdout","time":1951.659629268,"data":"    If cost tracks source size, the gather has an O(source) floor.\n"}
+,{"stream_name":"stdout","time":1951.660606065,"data":"    \n"}
+,{"stream_name":"stdout","time":1951.661630536,"data":"          source   src MB        us   GB/s over src  reduces\n"}
+,{"stream_name":"stdout","time":1951.662606344,"data":"          65,536      0.3      53.7             4.9        1\n"}
+,{"stream_name":"stdout","time":1951.663565105,"data":"         262,144      1.0      56.2            18.7        1\n"}
+,{"stream_name":"stdout","time":1951.664374601,"data":"       1,048,576      4.2     111.0            37.8        1\n"}
+,{"stream_name":"stdout","time":1951.665131731,"data":"       1,328,176      5.3      60.3            88.1        1\n"}
+,{"stream_name":"stdout","time":1951.665925724,"data":"       4,194,304     16.8      52.8           317.9        1\n"}
+,{"stream_name":"stdout","time":1951.666722593,"data":"      16,777,216     67.1     338.9           198.0        2\n"}
+,{"stream_name":"stdout","time":1951.667517174,"data":"    \n"}
+,{"stream_name":"stdout","time":1951.668237208,"data":"    For contrast, many elements from a small source (the case a\n"}
+,{"stream_name":"stdout","time":1951.66915417,"data":"    compiler is designed for):\n"}
+,{"stream_name":"stdout","time":1951.670037609,"data":"    \n"}
+,{"stream_name":"stdout","time":1951.670776147,"data":"          source        out        us  reduces\n"}
+,{"stream_name":"stdout","time":1951.671509813,"data":"          16,384      4,096      32.9        0\n"}
+,{"stream_name":"stdout","time":1951.672198148,"data":"          16,384     65,536      37.8        0\n"}
+,{"stream_name":"stdout","time":1951.672896573,"data":"          16,384  1,048,576      83.7        0\n"}
+,{"stream_name":"stdout","time":1951.673633959,"data":"  [ok     ] gather_floor          19.0s  O(source) floor on a gather\n"}
+,{"stream_name":"stdout","time":1951.674339091,"data":"\n"}
+,{"stream_name":"stdout","time":1951.675058745,"data":"--- gather_scale: /usr/bin/python3 probes/gather_scale.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1962.11459682,"data":"    indexed load, output fixed at 73,728 elements, source varied\n"}
+,{"stream_name":"stdout","time":1962.115482404,"data":"    \n"}
+,{"stream_name":"stdout","time":1962.116301545,"data":"        source src MB (i32)     GPU us   us/1k src elems  kernels\n"}
+,{"stream_name":"stdout","time":1962.117021411,"data":"         1,024          0.0     2769.9         2704.9805  1 device: E_768_32_3\n"}
+,{"stream_name":"stdout","time":1962.117749213,"data":"        16,384          0.1     2869.2          175.1233  1 device: E_768_32_3\n"}
+,{"stream_name":"stdout","time":1962.118491269,"data":"       262,144          1.0     3329.8           12.7023  2 device: E_4608_16_8_4, r_768_32_3_32\n"}
+,{"stream_name":"stdout","time":1962.119240773,"data":"     1,328,176          5.3     8017.4            6.0364  2 device: E_768_19_32_2_3, r_768_32_3_38\n"}
+,{"stream_name":"stdout","time":1962.119963648,"data":"     5,312,704         21.3    20178.2            3.7981  2 device: E_768_19_32_2_3, r_768_32_3_38\n"}
+,{"stream_name":"stdout","time":1962.120686528,"data":"    \n"}
+,{"stream_name":"stdout","time":1962.121420326,"data":"    If the last column is flat, the gather is O(output) (a real indexed\n"}
+,{"stream_name":"stdout","time":1962.122176305,"data":"    load). If it grows with source, it is O(source) (one-hot + sum).\n"}
+,{"stream_name":"stdout","time":1962.122932833,"data":"  [ok     ] gather_scale          10.4s  indexed load O(out) or O(src)\n"}
+,{"stream_name":"stdout","time":1962.123689069,"data":"\n"}
+,{"stream_name":"stdout","time":1962.124493384,"data":"--- real_gather: /usr/bin/python3 probes/real_gather.py  (cwd=., timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1964.151855119,"data":"    real_gather: can a custom_kernel replace TinyGrad's indexed load?\n"}
+,{"stream_name":"stdout","time":1964.152904927,"data":"    Answer: no. Both failure modes are documented in the docstring.\n"}
+,{"stream_name":"stdout","time":1964.15380593,"data":"    \n"}
+,{"stream_name":"stdout","time":1964.154735736,"data":"        \u003cnull\u003e(9): error: expression must have integral or unscoped enum type\n"}
+,{"stream_name":"stdout","time":1964.155651657,"data":"        \u003cnull\u003e(10): error: expression must have integral or unscoped enum type\n"}
+,{"stream_name":"stdout","time":1964.156493248,"data":"        \u003cnull\u003e(11): error: expression must have integral or unscoped enum type\n"}
+,{"stream_name":"stdout","time":1964.157172717,"data":"        6 errors detected in the compilation of \"\u003cnull\u003e\".\n"}
+,{"stream_name":"stdout","time":1964.157881732,"data":"    \n"}
+,{"stream_name":"stdout","time":1964.158724621,"data":"    confirmed broken\n"}
+,{"stream_name":"stdout","time":1964.159509158,"data":"  [ok     ] real_gather            2.1s  the custom_kernel attempt\n"}
+,{"stream_name":"stdout","time":1964.160220959,"data":"\n"}
+,{"stream_name":"stdout","time":1964.160936828,"data":"--- oc_check: make check  (cwd=probes/oc, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1967.55426165,"data":"    clang -O2 -ffp-contract=off -I../../netherite/blaze/core ref_oc.c -o ref_oc -lm\n"}
+,{"stream_name":"stdout","time":1967.555211321,"data":"    ./ref_oc --out ref.bin --seeds 0,3,12345 --poses 6\n"}
+,{"stream_name":"stdout","time":1967.556281381,"data":"    ../../.venv/bin/python run_oc.py --seeds 0,3,12345 --check-steps\n"}
+,{"stream_name":"stdout","time":1967.557300635,"data":"    In file included from ref_oc.c:15:\n"}
+,{"stream_name":"stdout","time":1967.558315156,"data":"    In file included from ../../netherite/blaze/core/region_tensor.h:25:\n"}
+,{"stream_name":"stdout","time":1967.559366502,"data":"    In file included from ../../netherite/blaze/core/chunk_provider.h:52:\n"}
+,{"stream_name":"stdout","time":1967.560335719,"data":"    ../../netherite/blaze/core/genlayer_biomes.h:1:62: warning: '/*' within block comment [-Wcomment]\n"}
+,{"stream_name":"stdout","time":1967.561271551,"data":"    /* genlayer_biomes: exact C port of MC 1.11.2 world/gen/layer/* (the GenLayer biome stack).\n"}
+,{"stream_name":"stdout","time":1967.562260642,"data":"                                                                 ^\n"}
+,{"stream_name":"stdout","time":1967.563301203,"data":"    1 warning generated.\n"}
+,{"stream_name":"stdout","time":1967.564246537,"data":"    [ref] seed=0 region filled in 0.10s\n"}
+,{"stream_name":"stdout","time":1967.565062147,"data":"    [ref] seed=3 region filled in 0.10s\n"}
+,{"stream_name":"stdout","time":1967.565887058,"data":"    [ref] seed=12345 region filled in 0.10s\n"}
+,{"stream_name":"stdout","time":1967.56669355,"data":"    [ref] wrote ref.bin: 3 seeds x 6 poses\n"}
+,{"stream_name":"stdout","time":1967.567575121,"data":"    [ref] wrote cells_0.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.568405783,"data":"    [ref] wrote cells_3.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.569473061,"data":"    [ref] wrote cells_12345.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.570269617,"data":"    [ref] wrote cells_1.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.571201789,"data":"    [ref] wrote cells_2.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.571880136,"data":"    [ref] wrote cells_4.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.572676974,"data":"    [ref] wrote cells_5.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.573453115,"data":"    [ref] wrote cells_6.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.574173873,"data":"    [ref] wrote cells_7.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1967.574866051,"data":"    Error in sitecustomize; set PYTHONVERBOSE for traceback:\n"}
+,{"stream_name":"stdout","time":1967.575635478,"data":"    ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1967.576339642,"data":"    Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":1967.577067493,"data":"      File \"/tmp/mc-cuda-tinygrad/probe/probes/oc/run_oc.py\", line 11, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":1967.577810705,"data":"        import numpy as np\n"}
+,{"stream_name":"stdout","time":1967.578683862,"data":"    ModuleNotFoundError: No module named 'numpy'\n"}
+,{"stream_name":"stdout","time":1967.579595153,"data":"    make: *** [Makefile:19: check] Error 1\n"}
+,{"stream_name":"stdout","time":1967.58040499,"data":"  [rc=2   ] oc_check               3.4s  camera vs the C reference, block-id agreement\n"}
+,{"stream_name":"stdout","time":1967.581234049,"data":"\n"}
+,{"stream_name":"stdout","time":1967.581999834,"data":"--- oc_report: make report  (cwd=probes/oc, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":1968.629485649,"data":"    ../../.venv/bin/python oc_report.py\n"}
+,{"stream_name":"stdout","time":1968.630428447,"data":"    [ref] wrote cells_0.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.631313555,"data":"    [ref] wrote cells_3.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.632277947,"data":"    [ref] wrote cells_12345.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.63318616,"data":"    [ref] wrote cells_1.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.634066825,"data":"    [ref] wrote cells_2.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.63495732,"data":"    [ref] wrote cells_4.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.63589799,"data":"    [ref] wrote cells_5.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.636738042,"data":"    [ref] wrote cells_6.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.637458115,"data":"    [ref] wrote cells_7.bin: 113x104x113 u16 packed states\n"}
+,{"stream_name":"stdout","time":1968.638153772,"data":"    Error in sitecustomize; set PYTHONVERBOSE for traceback:\n"}
+,{"stream_name":"stdout","time":1968.63883202,"data":"    ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1968.639732909,"data":"    Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":1968.640468678,"data":"      File \"/tmp/mc-cuda-tinygrad/probe/probes/oc/oc_report.py\", line 19, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":1968.641137006,"data":"        import numpy as np\n"}
+,{"stream_name":"stdout","time":1968.641799351,"data":"    ModuleNotFoundError: No module named 'numpy'\n"}
+,{"stream_name":"stdout","time":1968.642477515,"data":"    make: *** [Makefile:16: report] Error 1\n"}
+,{"stream_name":"stdout","time":1968.643124625,"data":"  [rc=2   ] oc_report              1.1s  every number in notes/01\n"}
+,{"stream_name":"stdout","time":1968.64377987,"data":"\n"}
+,{"stream_name":"stdout","time":1968.644465332,"data":"--- oc_port_only: /usr/bin/python3 run_oc.py --bench 8  (cwd=probes/oc, timeout=900s) ---\n"}
+,{"stream_name":"stdout","time":2222.65446233,"data":"    device=CUDA  ref entries=18\n"}
+,{"stream_name":"stdout","time":2222.655350938,"data":"    \n"}
+,{"stream_name":"stdout","time":2222.656561294,"data":"    CORRECTNESS  41472 pixels over 18 frames\n"}
+,{"stream_name":"stdout","time":2222.657246631,"data":"      id   mismatched:      0  (0.000%)\n"}
+,{"stream_name":"stdout","time":2222.657961942,"data":"      depth mismatched:      9  (0.022%)\n"}
+,{"stream_name":"stdout","time":2222.658764872,"data":"      edge  mismatched:      3  (0.007%)\n"}
+,{"stream_name":"stdout","time":2222.659496154,"data":"    \n"}
+,{"stream_name":"stdout","time":2222.660194646,"data":"    DDA STEP DEPTH  (unroll=96)\n"}
+,{"stream_name":"stdout","time":2222.660876017,"data":"      mean 19.8  max 84  p99 83  unroll waste 4.8x\n"}
+,{"stream_name":"stdout","time":2222.66161019,"data":"    \n"}
+,{"stream_name":"stdout","time":2222.662377642,"data":"    THROUGHPUT  B=8 envs x 64x36 = 18,432 rays/frame\n"}
+,{"stream_name":"stdout","time":2222.66318663,"data":"      cells buffer: 42 MB int32 (netherite's u16 would be 21 MB)\n"}
+,{"stream_name":"stdout","time":2222.663949829,"data":"      wall, graph rebuilt each call :   2115.17 ms/frame      0.01 M rays/s\n"}
+,{"stream_name":"stdout","time":2222.664701954,"data":"  [ok     ] oc_port_only         254.0s  the TinyGrad camera port, timed, against the same ref\n"}
+,{"stream_name":"stdout","time":2222.718675398,"data":"\n"}
+,{"stream_name":"stdout","time":2222.71961506,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2222.720872936,"data":"generated code\n"}
+,{"stream_name":"stdout","time":2222.721403681,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2261.907747815,"data":"  captured 1 kernels from CUDA\n"}
+,{"stream_name":"stdout","time":2261.908524723,"data":"  1 kernel files moved into codegen/\n"}
+,{"stream_name":"stdout","time":2261.909270926,"data":"\n"}
+,{"stream_name":"stdout","time":2261.90994022,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2261.911230755,"data":"nvidia-smi after\n"}
+,{"stream_name":"stdout","time":2261.912006772,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2261.931573763,"data":"  Tesla T4, 4 %, 0 MiB\n"}
+,{"stream_name":"stdout","time":2261.93159599,"data":"  Tesla T4, 0 %, 0 MiB\n"}
+,{"stream_name":"stdout","time":2261.93409794,"data":"\n"}
+,{"stream_name":"stdout","time":2261.935067816,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2261.936066362,"data":"SUMMARY\n"}
+,{"stream_name":"stdout","time":2261.936914623,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":2261.937872185,"data":"# mc-cuda-tinygrad on Kaggle\n"}
+,{"stream_name":"stdout","time":2261.938773708,"data":"\n"}
+,{"stream_name":"stdout","time":2261.939660942,"data":"- runner kind: **GPU**\n"}
+,{"stream_name":"stdout","time":2261.940544929,"data":"- accelerator: Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":2261.940561144,"data":"Tesla T4, 15360 MiB, 7.5\n"}
+,{"stream_name":"stdout","time":2261.941488894,"data":"- payload sha256: 41fb3e10a6eadb4bbec2c9c0cbd12c6b8b563d117ccc2d67324cc609550d805d\n"}
+,{"stream_name":"stdout","time":2261.942456063,"data":"- versions: fla-core 0.5.2, flash-linear-attention 0.5.2, numpy 2.0.2, tinygrad 0.14.0, torch 2.10.0+cu128, triton 3.6.0\n"}
+,{"stream_name":"stdout","time":2261.943376199,"data":"- camera C reference: enabled\n"}
+,{"stream_name":"stdout","time":2261.944282702,"data":"- C compiler for tinygrad's CPU backend: /usr/bin/gcc\n"}
+,{"stream_name":"stdout","time":2261.945193215,"data":"- battery wall time: 2176s\n"}
+,{"stream_name":"stdout","time":2261.946091869,"data":"\n"}
+,{"stream_name":"stdout","time":2261.947025362,"data":"## results\n"}
+,{"stream_name":"stdout","time":2261.947895769,"data":"\n"}
+,{"stream_name":"stdout","time":2261.948835299,"data":"| item | verdict | seconds | note |\n"}
+,{"stream_name":"stdout","time":2261.949806623,"data":"|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":2261.950744325,"data":"| preflight | ok | 56.8 | is this box able to run the probes |\n"}
+,{"stream_name":"stdout","time":2261.951651167,"data":"| test_ref | ok | 0.4 | float64 reference, 17 tests |\n"}
+,{"stream_name":"stdout","time":2261.952533701,"data":"| test_tiny | ok | 138.8 | TinyGrad port vs the reference |\n"}
+,{"stream_name":"stdout","time":2261.953536444,"data":"| codegen_diff | ok | 2.3 | generated code vs hand-written Triton |\n"}
+,{"stream_name":"stdout","time":2261.95443326,"data":"| kda_vs_fla | TIMEOUT | 900.5 | the N-vs-N comparison |\n"}
+,{"stream_name":"stdout","time":2261.955348761,"data":"| perf_kda | ok | 333.3 | kernel count, GPU/wall split |\n"}
+,{"stream_name":"stdout","time":2261.956239473,"data":"| replay_kda | ok | 361.7 | graph replay: the python tax |\n"}
+,{"stream_name":"stdout","time":2261.957162657,"data":"| cost | ok | 0.1 | analytic FLOP/byte model |\n"}
+,{"stream_name":"stdout","time":2261.958236318,"data":"| fp32_correctness | ok | 2.4 | is float32 correctly rounded |\n"}
+,{"stream_name":"stdout","time":2261.959273007,"data":"| divide_precision | rc=1 | 1.6 | the a*(1/b) rewrite |\n"}
+,{"stream_name":"stdout","time":2261.96022873,"data":"| gather_floor | ok | 19.0 | O(source) floor on a gather |\n"}
+,{"stream_name":"stdout","time":2261.961177139,"data":"| gather_scale | ok | 10.4 | indexed load O(out) or O(src) |\n"}
+,{"stream_name":"stdout","time":2261.96196285,"data":"| real_gather | ok | 2.1 | the custom_kernel attempt |\n"}
+,{"stream_name":"stdout","time":2261.962857854,"data":"| oc_check | rc=2 | 3.4 | camera vs the C reference, block-id agreement |\n"}
+,{"stream_name":"stdout","time":2261.963610087,"data":"| oc_report | rc=2 | 1.1 | every number in notes/01 |\n"}
+,{"stream_name":"stdout","time":2261.964355931,"data":"| oc_port_only | ok | 254.0 | the TinyGrad camera port, timed, against the same ref |\n"}
+,{"stream_name":"stdout","time":2261.965411206,"data":"\n"}
+,{"stream_name":"stdout","time":2261.966044182,"data":"## counts\n"}
+,{"stream_name":"stdout","time":2261.966740219,"data":"\n"}
+,{"stream_name":"stdout","time":2261.967424661,"data":"```\n"}
+,{"stream_name":"stdout","time":2261.968117934,"data":"{\n"}
+,{"stream_name":"stdout","time":2261.9681305,"data":"  \"ok\": 12,\n"}
+,{"stream_name":"stdout","time":2261.968133363,"data":"  \"TIMEOUT\": 1,\n"}
+,{"stream_name":"stdout","time":2261.968135921,"data":"  \"rc\": 3\n"}
+,{"stream_name":"stdout","time":2261.968163156,"data":"}\n"}
+,{"stream_name":"stdout","time":2261.968803105,"data":"```\n"}
+,{"stream_name":"stdout","time":2261.969548777,"data":"\n"}
+,{"stream_name":"stdout","time":2261.970202547,"data":"wrote /kaggle/working/SUMMARY.md and /kaggle/working/results.json\n"}
+,{"stream_name":"stderr","time":2264.50956432,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2264.509629027,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2264.73856256,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2264.738590008,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2265.443130194,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2265.817471728,"data":"[NbConvertApp] Writing 81537 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2268.234216566,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2269.154104828,"data":"[NbConvertApp] Writing 444108 bytes to __results__.html\n"}
+]

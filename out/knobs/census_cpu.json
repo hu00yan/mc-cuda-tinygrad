@@ -1,0 +1,136 @@
+{
+  "device": "CPU",
+  "parallel": "0",
+  "steps": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "batch": 8,
+  "world": 16,
+  "res": 32,
+  "configs": [
+    {
+      "label": "default",
+      "config": {},
+      "error": "OSError: [Errno 22] Invalid argument",
+      "rows": []
+    },
+    {
+      "label": "NOLOCALS=1",
+      "config": {
+        "NOLOCALS": 1
+      },
+      "error": "AssertionError: knob(s) ['NOLOCALS'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "TRANSCENDENTAL=2",
+      "config": {
+        "TRANSCENDENTAL": 2
+      },
+      "error": "AssertionError: knob(s) ['TRANSCENDENTAL'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "USE_TC=0",
+      "config": {
+        "USE_TC": 0
+      },
+      "error": "AssertionError: knob(s) ['USE_TC'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "TC_SELECT=0",
+      "config": {
+        "TC_SELECT": 0
+      },
+      "error": "AssertionError: knob(s) ['TC_SELECT'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "TC_SELECT=2",
+      "config": {
+        "TC_SELECT": 2
+      },
+      "error": "AssertionError: knob(s) ['TC_SELECT'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "TC_OPT=1",
+      "config": {
+        "TC_OPT": 1
+      },
+      "error": "AssertionError: knob(s) ['TC_OPT'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "TC_OPT=2",
+      "config": {
+        "TC_OPT": 2
+      },
+      "error": "AssertionError: knob(s) ['TC_OPT'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "ALLOW_TF32=1",
+      "config": {
+        "ALLOW_TF32": 1
+      },
+      "error": "AssertionError: knob(s) ['ALLOW_TF32'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "IMAGE=1",
+      "config": {
+        "IMAGE": 1
+      },
+      "error": "AssertionError: knob(s) ['IMAGE'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "EMULATED_DTYPES=float64",
+      "config": {
+        "EMULATED_DTYPES": "float64"
+      },
+      "error": "AssertionError: knob(s) ['EMULATED_DTYPES'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "combo:NOLOCALS=1,TRANSCENDENTAL=2",
+      "config": {
+        "NOLOCALS": 1,
+        "TRANSCENDENTAL": 2
+      },
+      "error": "AssertionError: knob(s) ['NOLOCALS', 'TRANSCENDENTAL'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "combo:ALLOW_TF32=1,NOLOCALS=1,TC_OPT=2,USE_TC=0",
+      "config": {
+        "NOLOCALS": 1,
+        "USE_TC": 0,
+        "TC_OPT": 2,
+        "ALLOW_TF32": 1
+      },
+      "error": "AssertionError: knob(s) ['NOLOCALS', 'USE_TC', 'TC_OPT', 'ALLOW_TF32'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    },
+    {
+      "label": "combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC_OPT=2,TRANSCENDENTAL=2,USE_TC=0",
+      "config": {
+        "NOLOCALS": 1,
+        "TRANSCENDENTAL": 2,
+        "USE_TC": 0,
+        "TC_OPT": 2,
+        "ALLOW_TF32": 1,
+        "IMAGE": 1
+      },
+      "error": "AssertionError: knob(s) ['NOLOCALS', 'TRANSCENDENTAL', 'USE_TC', 'TC_OPT', 'ALLOW_TF32', 'IMAGE'] are not in tinygrad's to_program_config (['<tinygrad.helpers.ContextVar object at 0x103a6ee40>', '<tinygrad.helpers.ContextVar object at 0x103a6f0b0>', '<tinygrad.helpers.ContextVar object at 0x103a6f260>', '<tinygrad.helpers.ContextVar object at 0x103a6f290>', '<tinygrad.helpers.ContextVar object at 0x103a6f2c0>', '<tinygrad.helpers.ContextVar object at 0x103a6f2f0>', '<tinygrad.helpers.ContextVar object at 0x103a6f320>', '<tinygrad.helpers.ContextVar object at 0x103a6f4d0>', '<tinygrad.helpers.ContextVar object at 0x103a6f770>', '<tinygrad.helpers.ContextVar object at 0x103a6f7a0>', '<tinygrad.helpers.ContextVar object at 0x103a6fad0>', '<tinygrad.helpers.ContextVar object at 0x103a6fb30>', '<tinygrad.helpers.ContextVar object at 0x103a6fe00>']); the program cache would return the default's compiled kernel and this configuration would measure the default. Refusing to report it.",
+      "rows": []
+    }
+  ]
+}

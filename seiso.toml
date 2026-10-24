@@ -1,0 +1,28 @@
+include = ["**/*.md", "**/*.markdown"]
+preview = false
+
+# `netherite/` is a PARTIAL copy of an upstream repository (canonical:
+# https://github.com/Infatoshi/netherite, `anvil:~/dev/netherite`). Only the
+# four files this study needed were brought over: AGENTS.md, Makefile, README.md,
+# SPEC.md. The `docs/`, `java/`, `blaze/`, `magma/` and `verify/` trees its
+# documents link to are absent here and were never deleted from this copy --
+# they were not brought in.
+#
+# Excluded so that LNK001 does not report working upstream links as dead, and so
+# that nobody "repairs" them by rewriting the paths. Do not add frontmatter to
+# these files either: `netherite/AGENTS.md` states it is the only agent entry.
+exclude = [
+  "netherite/**",
+  # `out/` holds run evidence, not documentation. The SUMMARY.md files in it are
+  # written per run by `kernels/build_notebooks.py:860` into its `OUT` dir, so
+  # they are regenerated artefacts. Giving generated output a hand-written
+  # `kind` would assert a responsibility nobody chose, and editing one to fix a
+  # diagnostic would be silently overwritten by the next run.
+  "out/**",
+]
+
+# Review these path mappings and declare other kinds in document frontmatter.
+
+[[kinds]]
+path = "**/README.md"
+kind = "readme"

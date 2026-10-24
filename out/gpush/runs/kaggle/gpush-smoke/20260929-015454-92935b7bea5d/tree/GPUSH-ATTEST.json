@@ -1,0 +1,20 @@
+{
+  "backend": "kaggle",
+  "command": [
+    "python",
+    "derivation/divide.py",
+    "mechanism_sentence"
+  ],
+  "file_count": 5,
+  "files": {
+    "derivation/_fp32.py": "08208028be8e9cd2f49375d5f4016704db3015e496394e884510fa2f843366ef",
+    "derivation/_util.py": "850fd87051eab1eb76e51e653f8c5ab61ca7ad988e4f7d59768c74ca9548ee6d",
+    "derivation/divide.py": "c05c073e3b9e4a583fdb51d462be856d674246122d800ba7e6a7ce526fc938ec",
+    "derivation/divide_backends.py": "862e99023c52e9f8f2cf50e451e2d79c172be165b422da3bc98f59fbe801898b",
+    "derivation/kda_decay.py": "24c2ea4a9856b6eacc76a8094abd588938b7494ad6f1bbca264080b0d8cf9d03"
+  },
+  "fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+  "gpush_version": "1.0.0",
+  "schema": "gpush/attestation@1",
+  "target": "tenghuzhang/gpush-smoke-payload"
+}

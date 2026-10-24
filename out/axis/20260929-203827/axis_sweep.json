@@ -1,0 +1,674 @@
+{
+  "started": 1790685698.1024935,
+  "argv": [
+    "axis/harness.py",
+    "--iters",
+    "20",
+    "--warmup",
+    "5",
+    "--skip-controls",
+    "--sweep-n",
+    "1024,2048,4096,8192",
+    "--json",
+    "/kaggle/working/axis_sweep.json"
+  ],
+  "env": {
+    "Device.DEFAULT": "CUDA",
+    "tinygrad": "/usr/local/lib/python3.12/dist-packages/tinygrad",
+    "tinygrad_version": "0.14.0",
+    "numpy": "2.0.2",
+    "python": "3.12.13",
+    "nvidia_smi": "Tesla T4, 7.5, 15360 MiB, 580.159.04\nTesla T4, 7.5, 15360 MiB, 580.159.04"
+  },
+  "build": {
+    "cubin_bytes": 88672,
+    "cubin_sha256": "92d93ab4bbe0b0c0d5a545b1e93ae6541f0ae017463c6f30b6e0757f1623e568",
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "regs": {},
+    "smem": {},
+    "param_counts": {
+      "axis_fill": "pi",
+      "axis_copy": "ppi",
+      "axis_ew": "ppppi",
+      "axis_rowdot": "pppii",
+      "axis_gemm_f32": "pppiii",
+      "axis_gemm_f16": "pppiii",
+      "axis_gather": "ppppi",
+      "axis_scan_v1": "ppii",
+      "axis_scan_v2": "ppii",
+      "axis_scan_v4": "ppii",
+      "axis_scan_v8": "ppii",
+      "axis_scan_v16": "ppii",
+      "axis_scan_scalar": "ppii",
+      "axis_trisolve": "ppi"
+    }
+  },
+  "floor": {
+    "fill_ms": 1.1512319445610046,
+    "fill_GBps": 233.172348342333,
+    "copy_ms": 2.2443679571151733,
+    "copy_GBps": 239.20806314222816,
+    "n": 67108864
+  },
+  "device": {
+    "SMs": 40,
+    "l2_bytes": 4194304,
+    "max_smem_per_block": 49152,
+    "clock_khz": 1590000,
+    "compute_cap": "7.5"
+  },
+  "rungs": [
+    {
+      "key": "ew",
+      "title": "elementwise, pure bandwidth",
+      "demands": "nothing: no reduction, no gather, no reuse. The control rung.",
+      "shapes": {
+        "n": 16777216
+      },
+      "distinguishing_evidence": "If the framework reaches the measured copy bandwidth here, the instrument and the memory path are sound and every gap above is about arithmetic/scheduling. If it does NOT, the axis is measuring the framework's memory path and no rung above is interpretable.",
+      "input_sha256": {
+        "a": "17cbe5adc2e29ab5",
+        "b": "d258634dc1e4b464",
+        "z": "4a2c6e872e995f1d"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.151,
+      "bytes": 268435456,
+      "flops": null,
+      "ref": {
+        "median_ms": 1.085215985774994,
+        "min_ms": 1.0813119411468506,
+        "max_ms": 1.1052800416946411
+      },
+      "ref_kernel": "axis_ew",
+      "ref_grid": [
+        1280,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 3.287152916125916e-08,
+      "ref_diag": {
+        "worst_abs": 5.44470822205767e-07,
+        "n_elements": 16777216,
+        "n_bad": 4911549,
+        "frac_bad": 0.2928,
+        "worst_index": [
+          "1717868"
+        ],
+        "ref_at_worst": -16.126361846923828,
+        "want_at_worst": -16.12636239139465
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.18,
+      "tg_shape": [
+        16777216
+      ],
+      "tg_kernels": 1,
+      "tg_relerr_vs_oracle": 3.287152916125916e-08,
+      "ref_vs_tg_relerr": 0.0,
+      "tg": {
+        "median_ms": 2.359984040260315,
+        "min_ms": 2.3326079845428467,
+        "max_ms": 2.770143985748291
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 1.0551360249519348,
+        "min_ms": 1.0512959957122803,
+        "max_ms": 1.1017919778823853
+      },
+      "input_fingerprint_before": {
+        "a": "17cbe5adc2e29ab5",
+        "b": "d258634dc1e4b464",
+        "z": "4a2c6e872e995f1d"
+      },
+      "input_fingerprint_after": {
+        "a": "17cbe5adc2e29ab5",
+        "b": "d258634dc1e4b464",
+        "z": "4a2c6e872e995f1d"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 0.97228205148344
+    },
+    {
+      "key": "red",
+      "title": "wide reduction (row-dot)",
+      "demands": "one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.",
+      "shapes": {
+        "R": 65536,
+        "K": 256
+      },
+      "distinguishing_evidence": "The `red` vs `ew` pair is the designed control: same traffic class, one reduction added. A gap that appears only at `red` is the reduction's; a gap already present at `ew` is the memory path's. The tg_naive control prices the C-18 habit on the same card in the same run, so 'wide contraction' is a measured choice and not an assumption about what a good port looks like.",
+      "input_sha256": {
+        "x": "5cb789e4f0a28c64",
+        "w": "17747541ddfa83ac"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.045,
+      "bytes": 134217728,
+      "flops": null,
+      "ref": {
+        "median_ms": 0.5254879891872406,
+        "min_ms": 0.5242559909820557,
+        "max_ms": 0.5283520221710205
+      },
+      "ref_kernel": "axis_rowdot",
+      "ref_grid": [
+        8192,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 1.0819906725864435e-07,
+      "ref_diag": {
+        "worst_abs": 7.478055252363447e-06,
+        "n_elements": 65536,
+        "n_bad": 49821,
+        "frac_bad": 0.7602,
+        "worst_index": [
+          "33630"
+        ],
+        "ref_at_worst": 36.53189468383789,
+        "want_at_worst": 36.53188720578264
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.14,
+      "tg_shape": [
+        65536
+      ],
+      "tg_kernels": 1,
+      "tg_relerr_vs_oracle": 1.5000718086505375e-07,
+      "ref_vs_tg_relerr": 1.7938176103655944e-07,
+      "tg": {
+        "median_ms": 2.9710559844970703,
+        "min_ms": 2.949887990951538,
+        "max_ms": 3.3505280017852783
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 1.0082560181617737,
+        "min_ms": 0.9999679923057556,
+        "max_ms": 1.0587199926376343
+      },
+      "input_fingerprint_before": {
+        "x": "5cb789e4f0a28c64",
+        "w": "17747541ddfa83ac"
+      },
+      "input_fingerprint_after": {
+        "x": "5cb789e4f0a28c64",
+        "w": "17747541ddfa83ac"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 1.9187042119101876
+    },
+    {
+      "key": "gemm32",
+      "title": "matmul fp32, no tensor core on sm_75",
+      "demands": "reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.",
+      "shapes": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "distinguishing_evidence": "notes/26 \u00a76b and notes/06 C-19 together: fp32 does not reach a tensor core at ANY shape on sm_75, and the shape-gate version of that claim was a sweep artefact. The falsifier for 'does not exist for this architecture' (class iv) is a SASS census of BOTH arms: if the reference emits FFMA and no HMMA and the framework does likewise, class (iv) is settled by the hardware, not by the compiler. ALLOW_TF32 is measured separately and labelled, because it changes the numerics and so is a different rung.",
+      "input_sha256": {
+        "A": "090a3ee82794927d",
+        "B": "c918b56017e5e906"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.014,
+      "bytes": 16777216,
+      "flops": 2147483648,
+      "ref": {
+        "median_ms": 1.5440959930419922,
+        "min_ms": 1.5397119522094727,
+        "max_ms": 1.5675519704818726
+      },
+      "ref_kernel": "axis_gemm_f32",
+      "ref_grid": [
+        8,
+        8,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 1.3977356416318252e-06,
+      "ref_diag": {
+        "worst_abs": 0.00023776766707328534,
+        "n_elements": 1048576,
+        "n_bad": 408482,
+        "frac_bad": 0.3896,
+        "worst_index": [
+          "828",
+          "83"
+        ],
+        "ref_at_worst": 74.3221664428711,
+        "want_at_worst": 74.32240421053817
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.19,
+      "tg_shape": [
+        1024,
+        1024
+      ],
+      "tg_kernels": 1,
+      "tg_relerr_vs_oracle": 1.3977356416318252e-06,
+      "ref_vs_tg_relerr": 0.0,
+      "tg": {
+        "median_ms": 9.648704051971436,
+        "min_ms": 9.602463722229004,
+        "max_ms": 11.637375831604004
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 4.033967971801758,
+        "min_ms": 4.018176078796387,
+        "max_ms": 4.077727794647217
+      },
+      "input_fingerprint_before": {
+        "A": "090a3ee82794927d",
+        "B": "c918b56017e5e906"
+      },
+      "input_fingerprint_after": {
+        "A": "090a3ee82794927d",
+        "B": "c918b56017e5e906"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 2.612511132714307
+    },
+    {
+      "key": "gemm16",
+      "title": "matmul fp16, tensor cores present",
+      "demands": "the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).",
+      "shapes": {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048
+      },
+      "distinguishing_evidence": "This is the rung where the four classes separate cleanly. (iv) is excluded because HMMA provably exists on sm_75 and the reference SASS contains it (axis/sass_census.py, a host-side check costing no GPU time). (i) is excluded by the fact that the framework expresses the contraction at all. That leaves (ii) 'a cost model could find it' versus (iii) 'not implemented', and the experiment that distinguishes THOSE is the knob sweep: if TC_SELECT sweeps close the gap, it is (ii); if the whole knob space is flat, it is (iii). No other rung can answer that question.",
+      "input_sha256": {
+        "A": "d229eeeac564d862",
+        "B": "cb548cec26da095e"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.02,
+      "bytes": 33554432,
+      "flops": 17179869184,
+      "ref": {
+        "median_ms": 1.3816640377044678,
+        "min_ms": 1.3751039505004883,
+        "max_ms": 1.870303988456726
+      },
+      "ref_kernel": "axis_gemm_f16",
+      "ref_grid": [
+        32,
+        32,
+        1
+      ],
+      "ref_block": [
+        128,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 0.0002264194955256064,
+      "ref_diag": {
+        "worst_abs": 0.06329464187729172,
+        "n_elements": 4194304,
+        "n_bad": 2387514,
+        "frac_bad": 0.5692,
+        "worst_index": [
+          "1049",
+          "820"
+        ],
+        "ref_at_worst": 150.5,
+        "want_at_worst": 150.5632946418773
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.45,
+      "tg_shape": [
+        2048,
+        2048
+      ],
+      "tg_kernels": 1,
+      "tg_relerr_vs_oracle": 0.0002264194955256064,
+      "ref_vs_tg_relerr": 0.0,
+      "tg": {
+        "median_ms": 7.010416030883789,
+        "min_ms": 6.889408111572266,
+        "max_ms": 7.645279884338379
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 2.2456319332122803,
+        "min_ms": 2.1278719902038574,
+        "max_ms": 2.4681599140167236
+      },
+      "input_fingerprint_before": {
+        "A": "d229eeeac564d862",
+        "B": "cb548cec26da095e"
+      },
+      "input_fingerprint_after": {
+        "A": "d229eeeac564d862",
+        "B": "cb548cec26da095e"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.05,
+      "status": "OK",
+      "ratio_tg_over_ref": 1.6253096787141041
+    },
+    {
+      "key": "gather",
+      "title": "random access gather, no reuse",
+      "demands": "a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.",
+      "shapes": {
+        "n": 8388608,
+        "table": 4194304
+      },
+      "distinguishing_evidence": "The table is 16 MB against a 4 MB L2, checked by a cuDeviceGetAttribute at run time, so the gather cannot be served from cache -- a cached gather measures a broadcast and this rung would silently become a different operator. This is the rung that tests notes/26 \u00a73c's claim that a gather is a fusion barrier 'about the index, not the gather'.",
+      "input_sha256": {
+        "tab": "226173a59d6ddf2d",
+        "idx": "6a22312031f80edd",
+        "s": "4d5127211bc76ce2"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.069,
+      "bytes": 117440512,
+      "flops": null,
+      "ref": {
+        "median_ms": 3.9390079975128174,
+        "min_ms": 3.9303998947143555,
+        "max_ms": 3.954751968383789
+      },
+      "ref_kernel": "axis_gather",
+      "ref_grid": [
+        640,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 3.446521955204046e-08,
+      "ref_diag": {
+        "worst_abs": 4.758541081173462e-07,
+        "n_elements": 8388608,
+        "n_bad": 1501977,
+        "frac_bad": 0.179,
+        "worst_index": [
+          "8344691"
+        ],
+        "ref_at_worst": 9.13301944732666,
+        "want_at_worst": 9.133018971472552
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.13,
+      "tg_shape": [
+        8388608
+      ],
+      "tg_kernels": 1,
+      "tg_relerr_vs_oracle": 3.446521955204046e-08,
+      "ref_vs_tg_relerr": 0.0,
+      "tg": {
+        "median_ms": 8.21945571899414,
+        "min_ms": 8.063743591308594,
+        "max_ms": 8.805952072143555
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 3.778127908706665,
+        "min_ms": 3.766400098800659,
+        "max_ms": 3.8199360370635986
+      },
+      "input_fingerprint_before": {
+        "tab": "226173a59d6ddf2d",
+        "idx": "6a22312031f80edd",
+        "s": "4d5127211bc76ce2"
+      },
+      "input_fingerprint_after": {
+        "tab": "226173a59d6ddf2d",
+        "idx": "6a22312031f80edd",
+        "s": "4d5127211bc76ce2"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 0.959157206863318
+    },
+    {
+      "key": "scan",
+      "title": "carried dependency chain (prefix sum)",
+      "demands": "a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.",
+      "shapes": {
+        "R": 4096,
+        "N": 4096
+      },
+      "distinguishing_evidence": "notes/26 \u00a75c claims the framework cannot keep a dependent chain in registers, has no loop, and that UNROLL is capped at 32 (notes/06 C-16). A scan is the clean test because the chain IS the operator. The falsifier for class (i)/(iii) is the framework's own `cumsum` op: it exists, so 'the framework cannot express a scan' is false by inspection, and the live question becomes whether its lowering emits N dependent kernels or one. That is countable on the device, and notes/06 C-22 is the correction that says a CENSUS is not a measurement -- so the count is reported as context and the TIME is the evidence.",
+      "input_sha256": {
+        "x": "a6f646b04066cd32"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.023,
+      "bytes": 134217728,
+      "flops": null,
+      "ref": {
+        "median_ms": 0.15225600451231003,
+        "min_ms": 0.15001599490642548,
+        "max_ms": 0.16524800658226013
+      },
+      "ref_kernel": "axis_scan_v1",
+      "ref_grid": [
+        4096,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 1.0,
+      "ref_diag": {
+        "worst_abs": 248.0855500232792,
+        "n_elements": 16777216,
+        "n_bad": 10035866,
+        "frac_bad": 0.5982,
+        "worst_index": [
+          "129",
+          "4043"
+        ],
+        "ref_at_worst": 0.0,
+        "want_at_worst": 248.0855500232792
+      },
+      "ref_error": null,
+      "tg_compile_s": 0.34,
+      "tg_shape": [
+        4096,
+        4096
+      ],
+      "tg_kernels": 3,
+      "tg_relerr_vs_oracle": 3.5461147114224374e-07,
+      "ref_vs_tg_relerr": 1.0,
+      "tg": {
+        "median_ms": 30.93523120880127,
+        "min_ms": 30.087968826293945,
+        "max_ms": 41.86115264892578
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 22.91921615600586,
+        "min_ms": 22.81273651123047,
+        "max_ms": 23.10553550720215
+      },
+      "input_fingerprint_before": {
+        "x": "a6f646b04066cd32"
+      },
+      "input_fingerprint_after": {
+        "x": "a6f646b04066cd32"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "INVALID_reference_disagrees_with_oracle",
+      "ratio_tg_over_ref": null
+    },
+    {
+      "key": "trisolve",
+      "title": "blocked triangular inverse (KDA's UT transform)",
+      "demands": "a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.",
+      "shapes": {
+        "B": 16384,
+        "C": 64,
+        "BC": 16
+      },
+      "distinguishing_evidence": "The reference here is a hand-written BLOCKED inverse at BC=16, not fla's naive.py. notes/06 C-15 is the correction that establishes why: the port that followed naive.py passed 6/6 and was 4 032 dependent scalar reductions against the real kernel's 56. So this rung measures the framework against the kernel's STRATEGY, and the note must say that the Triton original was never compiled here (notes/29: no triton, so no hand-written SASS row exists). The scan-vs-trisolve pair is the designed contrast that separates 'a carried chain' from 'a carried chain with a contraction in it'.",
+      "input_sha256": {
+        "D": "1a9796fba1695bc5"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.077,
+      "bytes": 536870912,
+      "flops": 0,
+      "ref": {
+        "median_ms": 24.773183822631836,
+        "min_ms": 24.74355125427246,
+        "max_ms": 27.39836883544922
+      },
+      "ref_kernel": "axis_trisolve",
+      "ref_grid": [
+        16384,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 2.2570366096936738e-07,
+      "ref_diag": {
+        "worst_abs": 1.577186635459693e-07,
+        "n_elements": 67108864,
+        "n_bad": 8539156,
+        "frac_bad": 0.1272,
+        "worst_index": [
+          "11202",
+          "49",
+          "0"
+        ],
+        "ref_at_worst": 0.24230451881885529,
+        "want_at_worst": 0.24230436110019174
+      },
+      "ref_error": null,
+      "tg_compile_s": 27.8,
+      "tg_shape": [
+        16384,
+        64,
+        64
+      ],
+      "tg_kernels": 585,
+      "tg_relerr_vs_oracle": 3.077461778268372e-07,
+      "ref_vs_tg_relerr": 2.5589217317963424e-07,
+      "tg": {
+        "median_ms": 1952.5234985351562,
+        "min_ms": 1934.0667724609375,
+        "max_ms": 2154.666015625
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 72.35604858398438,
+        "min_ms": 71.33392333984375,
+        "max_ms": 73.00985717773438
+      },
+      "input_fingerprint_before": {
+        "D": "1a9796fba1695bc5"
+      },
+      "input_fingerprint_after": {
+        "D": "1a9796fba1695bc5"
+      },
+      "inputs_mutated_by_tg_replay": {},
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 2.92074079383703
+    }
+  ],
+  "sweep_scan_N": [
+    {
+      "N": 1024,
+      "R": 4096,
+      "status": "OK",
+      "tg_ms": 7.07209587097168,
+      "ref_ms": 0.15041600167751312,
+      "ratio": 47.01691171218616,
+      "kernels": 3,
+      "ns_per_elem_tg": 6906.343623995781,
+      "ns_per_elem_ref": 146.8906266381964
+    },
+    {
+      "N": 2048,
+      "R": 2048,
+      "status": "INVALID_reference_disagrees_with_oracle",
+      "tg_ms": 5.8588478565216064,
+      "ref_ms": 0.08310399949550629,
+      "ratio": null,
+      "kernels": 3,
+      "ns_per_elem_tg": 2860.7655549421906,
+      "ns_per_elem_ref": 40.57812475366518
+    },
+    {
+      "N": 4096,
+      "R": 1024,
+      "status": "INVALID_reference_disagrees_with_oracle",
+      "tg_ms": 5.905376195907593,
+      "ref_ms": 0.04726399853825569,
+      "ratio": null,
+      "kernels": 3,
+      "ns_per_elem_tg": 1441.7422353290021,
+      "ns_per_elem_ref": 11.539062143128831
+    },
+    {
+      "N": 8192,
+      "R": 512,
+      "status": "INVALID_reference_disagrees_with_oracle",
+      "tg_ms": 5.883024215698242,
+      "ref_ms": 0.016527999192476273,
+      "ratio": null,
+      "kernels": 3,
+      "ns_per_elem_tg": 718.1426044553518,
+      "ns_per_elem_ref": 2.0175780264253262
+    }
+  ],
+  "sweep_threshold": 512
+}

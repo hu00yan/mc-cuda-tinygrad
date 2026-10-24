@@ -1,0 +1,100 @@
+  [  1/98] default                                                  ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [  2/98] default                                                  ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [  3/98] default                                                  ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [  4/98] default                                                  ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [  5/98] default                                                  ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [  6/98] default                                                  ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [  7/98] default                                                  ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [  8/98] NOLOCALS=1                                               ms=1    launches=8 distinct=11 captured=6 inl_tot=0.0 fp=5641f24d9a1207d8
+  [  9/98] NOLOCALS=1                                               ms=2    launches=11 distinct=13 captured=7 inl_tot=0.0 fp=3730edcf2c57e39c
+  [ 10/98] NOLOCALS=1                                               ms=4    launches=13 distinct=17 captured=9 inl_tot=17.0 fp=5b1e2891429a6531
+  [ 11/98] NOLOCALS=1                                               ms=8    launches=17 distinct=25 captured=13 inl_tot=58.0 fp=5c03f46089368392
+  [ 12/98] NOLOCALS=1                                               ms=16   launches=25 distinct=35 captured=21 inl_tot=164.0 fp=016fdbee56b350a1
+  [ 13/98] NOLOCALS=1                                               ms=32   launches=41 distinct=55 captured=37 inl_tot=472.0 fp=f282bdee88f65995
+  [ 14/98] NOLOCALS=1                                               ms=64   launches=73 distinct=101 captured=69 inl_tot=1472.0 fp=5bd3eb34016367a0
+  [ 15/98] TRANSCENDENTAL=2                                         ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 16/98] TRANSCENDENTAL=2                                         ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=cf82ded0d7b53b4a
+  [ 17/98] TRANSCENDENTAL=2                                         ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=b09a9f4d89ce53ea
+  [ 18/98] TRANSCENDENTAL=2                                         ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=1a4af9dd571552bb
+  [ 19/98] TRANSCENDENTAL=2                                         ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=d6c1ae811bd93864
+  [ 20/98] TRANSCENDENTAL=2                                         ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=a4d8ded8a38a6349
+  [ 21/98] TRANSCENDENTAL=2                                         ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=8c29c3f9168019d4
+  [ 22/98] USE_TC=0                                                 ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 23/98] USE_TC=0                                                 ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 24/98] USE_TC=0                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 25/98] USE_TC=0                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 26/98] USE_TC=0                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 27/98] USE_TC=0                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 28/98] USE_TC=0                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 29/98] TC_SELECT=0                                              ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 30/98] TC_SELECT=0                                              ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 31/98] TC_SELECT=0                                              ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 32/98] TC_SELECT=0                                              ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 33/98] TC_SELECT=0                                              ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 34/98] TC_SELECT=0                                              ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 35/98] TC_SELECT=0                                              ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 36/98] TC_SELECT=2                                              ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 37/98] TC_SELECT=2                                              ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 38/98] TC_SELECT=2                                              ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 39/98] TC_SELECT=2                                              ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 40/98] TC_SELECT=2                                              ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 41/98] TC_SELECT=2                                              ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 42/98] TC_SELECT=2                                              ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 43/98] TC_OPT=1                                                 ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 44/98] TC_OPT=1                                                 ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 45/98] TC_OPT=1                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 46/98] TC_OPT=1                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 47/98] TC_OPT=1                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 48/98] TC_OPT=1                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 49/98] TC_OPT=1                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 50/98] TC_OPT=2                                                 ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 51/98] TC_OPT=2                                                 ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 52/98] TC_OPT=2                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 53/98] TC_OPT=2                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 54/98] TC_OPT=2                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 55/98] TC_OPT=2                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 56/98] TC_OPT=2                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 57/98] ALLOW_TF32=1                                             ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 58/98] ALLOW_TF32=1                                             ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 59/98] ALLOW_TF32=1                                             ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 60/98] ALLOW_TF32=1                                             ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 61/98] ALLOW_TF32=1                                             ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 62/98] ALLOW_TF32=1                                             ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 63/98] ALLOW_TF32=1                                             ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 64/98] IMAGE=1                                                  ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 65/98] IMAGE=1                                                  ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 66/98] IMAGE=1                                                  ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 67/98] IMAGE=1                                                  ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 68/98] IMAGE=1                                                  ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 69/98] IMAGE=1                                                  ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 70/98] IMAGE=1                                                  ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 71/98] EMULATED_DTYPES=float64                                  ms=1    launches=8 distinct=6 captured=6 inl_tot=0.0 fp=a4fc5fe99c3e114c
+  [ 72/98] EMULATED_DTYPES=float64                                  ms=2    launches=11 distinct=7 captured=7 inl_tot=0.0 fp=b8f4f8428434b5e4
+  [ 73/98] EMULATED_DTYPES=float64                                  ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 74/98] EMULATED_DTYPES=float64                                  ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 75/98] EMULATED_DTYPES=float64                                  ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 76/98] EMULATED_DTYPES=float64                                  ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 77/98] EMULATED_DTYPES=float64                                  ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 78/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=1    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 79/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=2    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 80/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=4    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 81/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=8    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 82/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=16   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 83/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=32   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 84/98] combo:NOLOCALS=1,TRANSCENDENTAL=2 ms=64   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 85/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=1    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 86/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=2    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 87/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=4    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 88/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=8    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 89/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=16   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 90/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=32   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 91/98] combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2 ms=64   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 92/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=1    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 93/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=2    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 94/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=4    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 95/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=8    FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 96/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=16   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 97/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=32   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+  [ 98/98] combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2 ms=64   FAILED: ['known labels: default, NOLOCALS=1, TRANSCENDENTAL=2, USE_TC=0, TC_SELECT=0, TC_SELECT=2, TC_OPT=1, TC_OPT=2, ALLOW_TF32=1, IMAGE=1, EMULATED_DTYPES=float64, combo:NOLOCALS=1,TRANSCENDENTAL=2, combo:ALLOW_TF32=1,NOLOCALS=1,TC=0,TC_OPT=2, combo:ALLOW_TF32=1,IMAGE=1,NOLOCALS=1,TC=0,TC_OPT=2,TRANSCENDENTAL=2']
+
+wrote out/knobs/census_iso_sm75.json  (1788.0s, 98 isolated cells)

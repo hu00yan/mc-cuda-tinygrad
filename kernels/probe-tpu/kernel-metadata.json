@@ -1,0 +1,16 @@
+{
+  "id": "tenghuzhang/mc-cuda-tinygrad-tpu-facts",
+  "title": "mc-cuda-tinygrad TPU Facts",
+  "code_file": "tpu-facts.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": true,
+  "enable_internet": true,
+  "machine_shape": "TpuV3-8",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,185 @@
+{
+  "device": "CPU",
+  "parallel": "0",
+  "capture_note": null,
+  "rows": [
+    {
+      "max_steps": 1,
+      "kernel_launches": 9,
+      "new_distinct_programs": 7,
+      "new_sources_captured": 7,
+      "uops_total_graph": 42065920,
+      "bytes_estimate": 61947988,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 6291456,
+      "launch_keys_ordered": [
+        "E_512_4#09d490",
+        "E_65536_8_4#a2e960",
+        "E_256_512_8_4#09eab0",
+        "r_16384_8_4_8#a2d130",
+        "r_128_4_4_64_4#5fd010",
+        "E_256_256_8_4#be5fd0",
+        "E_262144_8_3#126a50"
+      ],
+      "launch_counts_by_program": {
+        "E_512_4#09d490": 1,
+        "E_65536_8_4#a2e960": 1,
+        "E_256_512_8_4#09eab0": 1,
+        "r_16384_8_4_8#a2d130": 1,
+        "r_128_4_4_64_4#5fd010": 1,
+        "E_256_256_8_4#be5fd0": 1,
+        "E_262144_8_3#126a50": 1
+      },
+      "distinct_programs_launched": 7,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_512_4#09d490",
+      "n_distinct_names": 7,
+      "sources_dir": "out/minecu_tg/census-cpu-b2048/max_steps_0001",
+      "source_bytes": [
+        247,
+        267,
+        1821,
+        2269,
+        4984,
+        1782,
+        695
+      ]
+    },
+    {
+      "max_steps": 4,
+      "kernel_launches": 10,
+      "new_distinct_programs": 1,
+      "new_sources_captured": 1,
+      "uops_total_graph": 232886272,
+      "bytes_estimate": 59933268,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 6291456,
+      "launch_keys_ordered": [
+        "E_512_4#09d490",
+        "E_65536_8_4#a2e960",
+        "E_256_512_8_4#09eab0",
+        "r_16384_8_4_8#a2d130",
+        "r_128_4_4_64_4#5fd010",
+        "E_256_8_8_8_4_4#295df0",
+        "E_262144_8_3#126a50"
+      ],
+      "launch_counts_by_program": {
+        "E_512_4#09d490": 1,
+        "E_65536_8_4#a2e960": 1,
+        "E_256_512_8_4#09eab0": 1,
+        "r_16384_8_4_8#a2d130": 1,
+        "r_128_4_4_64_4#5fd010": 1,
+        "E_256_8_8_8_4_4#295df0": 1,
+        "E_262144_8_3#126a50": 1
+      },
+      "distinct_programs_launched": 7,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_512_4#09d490",
+      "n_distinct_names": 7,
+      "sources_dir": "out/minecu_tg/census-cpu-b2048/max_steps_0004",
+      "source_bytes": [
+        105245
+      ]
+    },
+    {
+      "max_steps": 16,
+      "kernel_launches": 10,
+      "new_distinct_programs": 1,
+      "new_sources_captured": 1,
+      "uops_total_graph": 987860992,
+      "bytes_estimate": 62030420,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 6291456,
+      "launch_keys_ordered": [
+        "E_512_4#09d490",
+        "E_65536_8_4#a2e960",
+        "E_256_512_8_4#09eab0",
+        "r_16384_8_4_8#a2d130",
+        "r_128_4_4_64_4#5fd010",
+        "E_256_8_8_8_4_4#4a73b0",
+        "E_262144_8_3#126a50"
+      ],
+      "launch_counts_by_program": {
+        "E_512_4#09d490": 1,
+        "E_65536_8_4#a2e960": 1,
+        "E_256_512_8_4#09eab0": 1,
+        "r_16384_8_4_8#a2d130": 1,
+        "r_128_4_4_64_4#5fd010": 1,
+        "E_256_8_8_8_4_4#4a73b0": 1,
+        "E_262144_8_3#126a50": 1
+      },
+      "distinct_programs_launched": 7,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_512_4#09d490",
+      "n_distinct_names": 7,
+      "sources_dir": "out/minecu_tg/census-cpu-b2048/max_steps_0016",
+      "source_bytes": [
+        439689
+      ]
+    },
+    {
+      "max_steps": 32,
+      "kernel_launches": 10,
+      "new_distinct_programs": 1,
+      "new_sources_captured": 1,
+      "uops_total_graph": 1994493952,
+      "bytes_estimate": 62030420,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 6291456,
+      "launch_keys_ordered": [
+        "E_512_4#09d490",
+        "E_65536_8_4#a2e960",
+        "E_256_512_8_4#09eab0",
+        "r_16384_8_4_8#a2d130",
+        "r_128_4_4_64_4#5fd010",
+        "E_256_8_8_8_4_4#200740",
+        "E_262144_8_3#126a50"
+      ],
+      "launch_counts_by_program": {
+        "E_512_4#09d490": 1,
+        "E_65536_8_4#a2e960": 1,
+        "E_256_512_8_4#09eab0": 1,
+        "r_16384_8_4_8#a2d130": 1,
+        "r_128_4_4_64_4#5fd010": 1,
+        "E_256_8_8_8_4_4#200740": 1,
+        "E_262144_8_3#126a50": 1
+      },
+      "distinct_programs_launched": 7,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_512_4#09d490",
+      "n_distinct_names": 7,
+      "sources_dir": "out/minecu_tg/census-cpu-b2048/max_steps_0032",
+      "source_bytes": [
+        902201
+      ]
+    }
+  ],
+  "config": {
+    "batch": 2048,
+    "world": 16,
+    "res": 32,
+    "fov": 70.0,
+    "ground": null
+  },
+  "device_note": "CPU"
+}

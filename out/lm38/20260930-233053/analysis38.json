@@ -1,0 +1,66 @@
+{
+ "run": "/Users/huyan00/mycode/mc-cuda-tinygrad/out/lm38/20260930-233053",
+ "measured_ms": {
+  "naive": 8.771712351590395,
+  "int_cursor": 5.930623905733229,
+  "flat_gather": 3.015072016045451,
+  "incremental": 2.723199913278222,
+  "lean": 2.954527951776982
+ },
+ "published_ms": {
+  "naive": 8.88,
+  "int_cursor": 6.034,
+  "flat_gather": 3.02,
+  "incremental": 2.741,
+  "lean": 2.95
+ },
+ "currencies_offline": {
+  "naive": {
+   "stack_frame": 5472,
+   "spill_st": 7460,
+   "spill_ld": 13472,
+   "spill_total": 20932,
+   "registers": 168
+  },
+  "int_cursor": {
+   "stack_frame": 5480,
+   "spill_st": 6136,
+   "spill_ld": 7080,
+   "spill_total": 13216,
+   "registers": 168
+  },
+  "flat_gather": {
+   "stack_frame": 1312,
+   "spill_st": 1772,
+   "spill_ld": 1296,
+   "spill_total": 3068,
+   "registers": 255
+  },
+  "incremental": {
+   "stack_frame": 1384,
+   "spill_st": 1492,
+   "spill_ld": 1492,
+   "spill_total": 2984,
+   "registers": 255
+  },
+  "lean": {
+   "stack_frame": 1792,
+   "spill_st": 1792,
+   "spill_ld": 1780,
+   "spill_total": 3572,
+   "registers": 255
+  }
+ },
+ "fit": {
+  "slope_ms_per_byte": 0.00032647264771921194,
+  "intercept_ms": 1.8209550804917867,
+  "r2": 0.9964491583078292,
+  "predictions": [
+   8.65468054255033,
+   6.135617592748892,
+   2.822573163694329,
+   2.795149461285915,
+   2.9871153781448117
+  ]
+ }
+}

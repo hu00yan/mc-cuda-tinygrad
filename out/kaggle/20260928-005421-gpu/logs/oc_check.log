@@ -1,0 +1,34 @@
+$ make check
+# cwd probes/oc
+
+clang -O2 -ffp-contract=off -I../../netherite/blaze/core ref_oc.c -o ref_oc -lm
+./ref_oc --out ref.bin --seeds 0,3,12345 --poses 6
+../../.venv/bin/python run_oc.py --seeds 0,3,12345 --check-steps
+In file included from ref_oc.c:15:
+In file included from ../../netherite/blaze/core/region_tensor.h:25:
+In file included from ../../netherite/blaze/core/chunk_provider.h:52:
+../../netherite/blaze/core/genlayer_biomes.h:1:62: warning: '/*' within block comment [-Wcomment]
+/* genlayer_biomes: exact C port of MC 1.11.2 world/gen/layer/* (the GenLayer biome stack).
+                                                             ^
+1 warning generated.
+[ref] seed=0 region filled in 0.10s
+[ref] seed=3 region filled in 0.10s
+[ref] seed=12345 region filled in 0.10s
+[ref] wrote ref.bin: 3 seeds x 6 poses
+[ref] wrote cells_0.bin: 113x104x113 u16 packed states
+[ref] wrote cells_3.bin: 113x104x113 u16 packed states
+[ref] wrote cells_12345.bin: 113x104x113 u16 packed states
+[ref] wrote cells_1.bin: 113x104x113 u16 packed states
+[ref] wrote cells_2.bin: 113x104x113 u16 packed states
+[ref] wrote cells_4.bin: 113x104x113 u16 packed states
+[ref] wrote cells_5.bin: 113x104x113 u16 packed states
+[ref] wrote cells_6.bin: 113x104x113 u16 packed states
+[ref] wrote cells_7.bin: 113x104x113 u16 packed states
+Error in sitecustomize; set PYTHONVERBOSE for traceback:
+ModuleNotFoundError: No module named 'wrapt'
+Traceback (most recent call last):
+  File "/tmp/mc-cuda-tinygrad/probe/probes/oc/run_oc.py", line 11, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+make: *** [Makefile:19: check] Error 1
+

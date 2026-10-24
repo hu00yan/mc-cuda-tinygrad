@@ -1,0 +1,15 @@
+.version 8.7
+.target sm_100a
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<32>;
+  .reg .b64 %rd<16>;
+  mov.b32 %r1, 0;
+  tcgen05.ld.sync.aligned.16x256b.x4.b32
+    {%r2, %r3, %r4, %r5, %r6, %r7, %r8, %r9,
+     %r10, %r11, %r12, %r13, %r14, %r15, %r16, %r17}, [%r1];
+  ret;
+}

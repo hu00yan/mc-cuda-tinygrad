@@ -1,0 +1,10 @@
+{
+  "pixels_differing": 0,
+  "pixels": 4194304,
+  "envs_differing": 0,
+  "batch": 4096,
+  "dda_mean": 27.123385667800903,
+  "dda_at_cap_frac": 0.8205013275146484,
+  "ref_obs_sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7",
+  "tg_obs_sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7"
+}

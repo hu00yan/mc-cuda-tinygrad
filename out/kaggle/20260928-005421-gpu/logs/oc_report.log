@@ -1,0 +1,21 @@
+$ make report
+# cwd probes/oc
+
+../../.venv/bin/python oc_report.py
+[ref] wrote cells_0.bin: 113x104x113 u16 packed states
+[ref] wrote cells_3.bin: 113x104x113 u16 packed states
+[ref] wrote cells_12345.bin: 113x104x113 u16 packed states
+[ref] wrote cells_1.bin: 113x104x113 u16 packed states
+[ref] wrote cells_2.bin: 113x104x113 u16 packed states
+[ref] wrote cells_4.bin: 113x104x113 u16 packed states
+[ref] wrote cells_5.bin: 113x104x113 u16 packed states
+[ref] wrote cells_6.bin: 113x104x113 u16 packed states
+[ref] wrote cells_7.bin: 113x104x113 u16 packed states
+Error in sitecustomize; set PYTHONVERBOSE for traceback:
+ModuleNotFoundError: No module named 'wrapt'
+Traceback (most recent call last):
+  File "/tmp/mc-cuda-tinygrad/probe/probes/oc/oc_report.py", line 19, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+make: *** [Makefile:16: report] Error 1
+

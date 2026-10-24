@@ -1,0 +1,40 @@
+=== minecu_ref T4 baseline: build for sm_75 ===
+  staged 14:40:31
+    ## inputs
+      c6ed8f06ee64d40a8a8ab7ebce3b3ceea1e3ac93f9ee50cfc1e63d3f090d878f  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/src/kernels.cu
+      5aca6e2f5995ea9c714d90c4e0970094c8959b04cba1cf933b37d772774a20a9  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/bench/bench.cu
+    
+    ## upstream originals (must match the vendored copy byte for byte)
+      c6ed8f06ee64d40a8a8ab7ebce3b3ceea1e3ac93f9ee50cfc1e63d3f090d878f  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/../netherite/mine.cu/src/kernels.cu
+      53b0d8c75f8da1986518200f8501a9d6069d47beb09fa602021f2a63f6f4b862  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/../netherite/mine.cu/src/bindings.cpp
+    
+    ## outputs
+      6fc924e05fe686b32ad2ede2c26f0538b0e7e0f120077da2ca8ab0ee2cf5c661  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build/kernels_sm_75.o
+      c6fc4bdb48affd26494f676b6a6002cedd5dae542df0e1e4fe79e745d6919b1d  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build/kernels_sm_75.sass
+      7b3b20c28b05e3c55c2747a322b6529987f9471a3ed564d0ca9ec2ce78057671  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build/resources_sm_75.txt
+      6a9153b7224696d126c3ce85b14dd41e4b51680a1466b4c4570650b1c2f602b1  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build/sass_census_sm_75.txt
+      5f8721bfe3e783e75fc26b5d90d112aef1b1f22916d73c30dc1316414d898835  /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build/minecu_bench_sm_75
+  
+  built: sm_75
+  next: run the binary on a GPU, e.g.
+    docker run --rm --gpus all --platform linux/amd64 -v "/Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref":/w -w /w \
+      archlab/compile:12.9 ./build/minecu_bench_sm_75 --selftest-only
+  or push it: minecu_ref/kaggle/run.sh
+  sm_75 SASS census passed
+
+=== assemble the notebook ===
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/kaggle/kernel/minecu_t4.ipynb  (237523 B)
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/kaggle/kernel/kernel-metadata.json
+    kernels.cu sha256 c6ed8f06ee64d40a8a8ab7ebce3b3ceea1e3ac93f9ee50cfc1e63d3f090d878f
+    bench.cu   sha256 5aca6e2f5995ea9c714d90c4e0970094c8959b04cba1cf933b37d772774a20a9
+    12 battery entries, budget 1500s
+    kernel id  tenghuzhang/mc-minecu-t4-baseline
+  notebook valid: 3 cells, 234912 source chars, all code cells compile
+
+=== auth ===
+credentials present
+
+=== push tenghuzhang/mc-minecu-t4-baseline (session cap 25m) ===
+409 Client Error: Conflict for url: https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel
+Your kernel title does not resolve to the specified id. This may result in surprising behavior. We suggest making your title something that resolves to the specified id. See https://en.wikipedia.org/wiki/Clean_URL#Slug for more information on how slugs are determined.
+push failed; nothing was started

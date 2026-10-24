@@ -1,0 +1,34 @@
+{
+ "requested_shape": "NvidiaL4",
+ "pushed_fingerprint": "ce7333615b70791bc080b4b57d7c9dcdc7dd93febaa15c1d15e5eccdbbaa3a1a",
+ "dataset": "tenghuzhang/l4-probe-payload",
+ "kernel": "tenghuzhang/l4-probe",
+ "dataset_version": 5,
+ "command": [
+  "bash",
+  "kda_t4/l4_run.sh"
+ ],
+ "push_rc": 0,
+ "push_stdout": "Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/l4-probe\n",
+ "push_stderr": "",
+ "refusal_markers": [],
+ "started": "20260930-115155",
+ "verify": {
+  "ok": true,
+  "fingerprint": "ce7333615b70791bc080b4b57d7c9dcdc7dd93febaa15c1d15e5eccdbbaa3a1a",
+  "tree_root": "/kaggle/working/tree/payload",
+  "missing": [],
+  "extra": [],
+  "differing": [],
+  "files_in_tree": 12
+ },
+ "provenance": {
+  "matched": true,
+  "stale": false,
+  "pushed": "ce7333615b70791bc080b4b57d7c9dcdc7dd93febaa15c1d15e5eccdbbaa3a1a",
+  "ran": "ce7333615b70791bc080b4b57d7c9dcdc7dd93febaa15c1d15e5eccdbbaa3a1a"
+ },
+ "verdict": "COMPLETE",
+ "finished": "20260930-115434",
+ "machine_shape_after": "NvidiaL4"
+}

@@ -1,0 +1,128 @@
+{
+  "run": "out/minecu_tg_opt/20260929-151936",
+  "batches": {
+    "256": {
+      "ref_render_us": 88.1,
+      "ref_step_us": 129.0,
+      "naive_ms": 13.69838412385434,
+      "lean_ms": 16.000335924327374,
+      "naive_over_ref": 155.48676644556573,
+      "lean_over_ref": 181.61561775626987,
+      "kernels_naive": 41,
+      "kernels_lean": 38,
+      "peak_mib_naive": 133.81440925598145,
+      "peak_mib_lean": 129.0,
+      "allocs_naive": 26,
+      "allocs_lean": 1,
+      "time_removed_fraction": 0.14386896696169238,
+      "speedup_lean_over_naive": 0.8561310330383076
+    },
+    "512": {
+      "ref_render_us": 166.5,
+      "ref_step_us": 208.9,
+      "naive_ms": 13.647743912879378,
+      "lean_ms": 15.958400106057526,
+      "naive_over_ref": 81.96843190918545,
+      "lean_over_ref": 95.84624688322839,
+      "kernels_naive": 41,
+      "kernels_lean": 38,
+      "peak_mib_naive": 143.6259765625,
+      "peak_mib_lean": 130.0,
+      "allocs_naive": 11,
+      "allocs_lean": 1,
+      "time_removed_fraction": 0.1447924715398673,
+      "speedup_lean_over_naive": 0.8552075284601327
+    },
+    "1024": {
+      "ref_render_us": 323.6,
+      "ref_step_us": 369.1,
+      "naive_ms": 8.810816388577223,
+      "lean_ms": 2.923008054494858,
+      "naive_over_ref": 27.227491930090302,
+      "lean_over_ref": 9.032781379773972,
+      "kernels_naive": 10,
+      "kernels_lean": 6,
+      "peak_mib_naive": 39.251953125,
+      "peak_mib_lean": 4.0,
+      "allocs_naive": 11,
+      "allocs_lean": 1,
+      "time_removed_fraction": -2.0142976770208976,
+      "speedup_lean_over_naive": 3.0142976770208976
+    },
+    "2048": {
+      "ref_render_us": 598.6,
+      "ref_step_us": 646.1,
+      "naive_ms": 17.192416249774396,
+      "lean_ms": 5.539776025339961,
+      "naive_over_ref": 28.72104284960641,
+      "lean_over_ref": 9.254554001570265,
+      "kernels_naive": 11,
+      "kernels_lean": 6,
+      "peak_mib_naive": 78.00390625,
+      "peak_mib_lean": 0.0,
+      "allocs_naive": 11,
+      "allocs_lean": 0,
+      "time_removed_fraction": -2.10344970105887,
+      "speedup_lean_over_naive": 3.10344970105887
+    },
+    "4096": {
+      "ref_render_us": 1185.8,
+      "ref_step_us": 1237.5,
+      "naive_ms": null,
+      "lean_ms": null,
+      "naive_over_ref": null,
+      "lean_over_ref": null,
+      "kernels_naive": null,
+      "kernels_lean": null,
+      "peak_mib_naive": 0.0,
+      "peak_mib_lean": 0.0,
+      "allocs_naive": null,
+      "allocs_lean": null
+    }
+  },
+  "identity": {
+    "batch": 4096,
+    "pixels": 4194304,
+    "rows": [
+      {
+        "variant": "naive",
+        "pixels_differing": 0,
+        "identical": true,
+        "sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7"
+      },
+      {
+        "variant": "naive",
+        "pixels_differing": 0,
+        "identical": true,
+        "sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7"
+      },
+      {
+        "variant": "lean",
+        "pixels_differing": 0,
+        "identical": true,
+        "sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7"
+      }
+    ],
+    "ref_sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7",
+    "naive_sha256": "21e13f67fa003c488a7d5c9868944850d93e63f4e19f80e93b53a42432cdbfa7"
+  },
+  "report_config": {
+    "out": "/kaggle/working/tgopt",
+    "world": 16,
+    "res": 32,
+    "ground": 4,
+    "max_steps": 32,
+    "variants": "naive,lean",
+    "time_batches": "256,512,1024,2048",
+    "workload_batch": null,
+    "iters": 8,
+    "budget": 1200.0
+  },
+  "report_env": {
+    "Device.DEFAULT": "CUDA",
+    "numpy": "2.0.2",
+    "tinygrad_path": "/usr/local/lib/python3.12/dist-packages/tinygrad",
+    "PARALLEL": "0",
+    "nvidia_smi": "Tesla T4, 15360 MiB, 580.159.04\nTesla T4, 15360 MiB, 580.159.04"
+  }
+}

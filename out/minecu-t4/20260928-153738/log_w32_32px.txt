@@ -1,0 +1,124 @@
+
+minecu_ref -- hand-written CUDA baseline for the mine.cu reference
+==================================================================
+device            Tesla T4
+cc                sm_75
+SMs               40
+l2 bytes          4194304
+smem per block     49152
+mem clock/bus      5001000 MHz / 256-bit  -> datasheet 320.1 GB/s
+runtime/driver     CUDA runtime 12080, driver 13000
+shape             batch=32768 world=32^3 res=32x32 max_steps=32 ground=8 view=32.0
+iters             per-kernel=60 graph=60 warmup=25
+ground vs physics floor   visible surface top face y=8, physics_kernel plane y=world_y/4=8 -> AGREE, the eye is above its own ground
+memory            need ~3024 MiB, free 14807 MiB of 14912 MiB
+== selftest (on this device, this build) ==
+  [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=802553856 dirt=201326592 log=491520 leaf=32768 brick=655360 cobble=655360 planks=917504
+  [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1
+  [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1
+  [PASS] physics_kernel moved the agent               x 16.0000 -> 16.0000, y 10.0000 -> 9.9500
+  [PASS] physics_kernel applied gravity downward      y1=9.95000 < y0=10.00000 (gravity=-20.0, dt=0.050)
+  [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be >= floor world_y/4=8.00
+  [PASS] physics_kernel clamped x to the world box    x=16.0000 must be in [1,31]
+  [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)
+  [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207
+  [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207
+  [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 529/1024 sky pixels
+  [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 529 sky pixels, want > 0
+  [PASS] prebasis and minimal agree on sky pixels     prebasis sky 529, minimal sky 529, agree 529
+  [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values
+    (dig aim: log (16.5,9.5,18.5) from eye (16.00,11.60,16.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)
+  [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)
+  [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken
+  [PASS] reset_kernel restored the spawn point        spawn (16.0,10.0,16.0) for all 32768 envs
+  [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -> no error
+  [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps
+  ---- geometry: settled in 64 steps; eye y=9.60 in voxel row 9, surface top face y=8 (ground=8, physics floor world_y/4=8) ----
+  ---- DDA gate: mean >= 3.20 steps/pixel (max(2.0, 0.10*max_steps); a
+  ---- buried eye scores exactly 1.000) AND first-voxel hits < 20%.
+  [PASS] DDA step count is above the degeneracy floor mean 26.313 DDA steps/pixel over 33554432 pixels, p50=32 p90=32 max=32, 25906604 (77.21%) at the 32-step cap, floor 3.20
+  [PASS] the eye is not inside solid rock (fraction)  2.002% of pixels hit on their FIRST voxel test (eye in solid rock); the degenerate config is 100%, the fixed config is a few %
+== selftest: PASS (0 failures) ==
+settled for timing: 64 steps (agent at rest on the physics floor)
+
+memory floors, measured on this device, in this run
+===================================================
+  probe    traffic counted     bytes        us      GB/s
+  write    1x (store only)  536870912    2289.3     234.5
+  read     1x (load only)   536870912    1928.3     278.4
+  copy     2x (1:1 RMW)     1073741824     148.3    7242.5
+  memcpy   2x (1:1 D2D)     1073741824    4595.7     233.6
+  read this carefully: write/read count ONE direction, copy/memcpy count
+  TWO. Dividing a one-direction figure by a two-direction figure is the
+  single easiest way to be wrong by exactly 2x here.
+
+DDA workload of the render kernel being timed
+=============================================
+  33554432 pixels = batch 32768 x 32 x 32, cap 32 steps. Counted by replaying the
+  vendored DDA (kernels.cu:664-679) over the device's own voxels and basis.
+
+  DDA tests per pixel                 value
+    mean                             26.535
+    floor (DDA gate)                  3.200
+    p50                                  32
+    p90                                  32
+    max                                  32
+    pixels at the step cap         26098463  (77.8%)
+    first-voxel hits                 333824  (0.99%)  <- the buried-eye tell; gate is < 20%
+
+  Non-degenerate: the mean is 8.3x the floor, so the timed kernels are
+  marching real rays rather than exiting on their first voxel test.
+
+
+per-kernel, each launched on its own through its own extern "C" launcher
+========================================================================
+  60 timed iterations after 25 warmup, cudaEvent pair per launch, median reported
+  kernel                                   med us     min us     max us     std us      GB/s       %wr
+  decode_actions_kernel                       6.1        4.8       18.0        1.8       0.0         -
+  physics_kernel                              6.1        5.0        7.8        0.5       0.0         -
+  raycast_interact_kernel                    12.3       12.1       30.2        2.5       0.0         -
+  reset_kernel                                4.1        2.9       13.2        1.2       0.0         -
+  precompute_camera_basis_kernel             26.4       25.3       32.8        1.3       0.0         -
+  render_kernel (fp32 obs)                 7683.8     7491.8     7729.2       91.1     192.1       82%
+  render_kernel_uint8_minimal              8701.9     8493.1     8763.4       60.3     135.0       58%
+  render_kernel_uint8_fp16                 8931.4     8680.8     8996.9       78.8     131.5       56%
+  render_kernel_uint8_prebasis             8507.0     8305.3     8581.1       71.2     138.1       59%
+  SUM (informative)                       33879.2  <- sum of the five state kernels, not the step
+
+whole step, CUDA graph, as the project's headline counts it
+===========================================================
+  each row replays one captured graph. `kern` is the number of kernels the
+  graph holds. env-steps/sec = batch / median_us.
+  step launcher                        kern     med us     min us     max us    std us   Mstep/s
+  launch_step (fp32 obs, 6 kern)          6     7942.5     7526.2     8132.0     157.2      4.13
+  launch_step_uint8_prebasis (7)          7     8629.7     8356.2     8813.0     113.3      3.80
+  launch_step_..._prebasis_full (9)       9     8591.2     8364.0     8857.6     113.6      3.81
+
+roofline position against the floors measured above
+===================================================
+  write-only floor               234.5 GB/s   (measured)
+  read-modify-write floor       7242.5 GB/s   (measured, 1:1)
+  D2D memcpy floor               233.6 GB/s   (measured, 1:1)
+
+  per step, float32 obs path: write 384.0 MiB + at least 1024.0 MiB of voxel read
+  per step, uint8    obs path: write 96.0 MiB + at least 1024.0 MiB of voxel read
+
+  obs-write-only time, fp32     1717.0 us  ->   19.08 M env-steps/s if the step did nothing but store obs
+  obs-write-only time, uint8      429.2 us  ->   76.34 M env-steps/s if the step did nothing but store obs
+
+  measured whole-step, fp32      7942.5 us   ->     4.13 M env-steps/s
+  measured whole-step, u8 pre    8629.7 us   ->     3.80 M env-steps/s
+  measured whole-step, u8 full   8591.2 us   ->     3.81 M env-steps/s
+
+  fp32 step, obs write alone   :     50.7 GB/s =  21.6% of the write floor
+  fp32 step, obs+voxel counted :    185.9 GB/s =   2.6% of the 1:1 floor
+  u8   step, obs write alone   :     11.7 GB/s =   5.0% of the write floor
+  u8   step, obs+voxel counted :    136.1 GB/s =   1.9% of the 1:1 floor
+
+  The obs-write fraction is the number to compare against a claim like
+  "close to the write-bandwidth floor". It is near 100% only if the
+  render kernel is bandwidth bound; if it is far below 100% while the
+  obs+voxel fraction is also far below, the kernel is bound by neither
+  and is DDA-latency or issue bound, which is a different claim entirely.
+
+DONE

@@ -1,0 +1,188 @@
+== minecu_tg_faithful: faithful port, both modes, on one T4 ==
+  kernel id   tenghuzhang/mc-minecu-faithful-t4   (slug 'mc-minecu-faithful-t4' matches the title)
+  log         /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg_faithful/20260929-163716-run.log
+
+=== 1. verify on this host (CPU, no GPU). No push until this passes. ===
+==============================================================================
+  minecu_tg_faithful verification -- the faithful port, both modes,
+  against the naive port and an independent float64 transcription
+  DEV=CPU  modes=['clean', 'faithful']  edit points=['addr_bits', 'unsigned_bounds']
+  Device.DEFAULT=CPU  (from tinygrad, not os.environ)
+==============================================================================
+
+7. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all 41 checks passed, over 2 configurations:
+    clean/addr32 faithful/addr32
+  Every one produces the naive port's observation bit for bit, that
+  observation equals an independent float64 transcription, and the
+  per-pixel DDA step counts are identical across all of them -- so
+  the crossings did not change the computation.
+  (`--quick`: both modes and both bounds folds at addr_bits=32. The
+  other address width, and the other world sizes, are the full gate.)
+  correctness gate passed.
+
+=== 1b. battery.py smoke (tiny; both modes, no GPU timing claimed) ===
+world 8^3  ground 2  res 8  max_steps 4  iters 1  warmup 0  yaw spread 0.0
+
+==============================================================================
+  1. environment
+==============================================================================
+  Device.DEFAULT   METAL
+  numpy            2.5.3
+  tinygrad         /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/lib/python3.12/site-packages/tinygrad
+  PARALLEL         0
+  nvidia_smi       unavailable: [Errno 2] No such file or directory: 'nvidia-smi'
+
+==============================================================================
+  2. the hand-written baseline, from the unmodified kernels.cu
+==============================================================================
+  no refdrv at ''; the baseline side is absent
+
+==============================================================================
+  3. this port, both modes, render against render
+==============================================================================
+  batch      1 clean        21.940 ms  kernels  10  steps/px  3.859  obs cff96a1869c0  ref       nan us  ratio     nanx
+                   DDA workload: 3.859 mean steps/pixel, 55 of 64 pixels at the 4-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)
+  batch      1 faithful     25.791 ms  kernels  10  steps/px  3.859  obs cff96a1869c0  ref       nan us  ratio     nanx
+                   DDA workload: 3.859 mean steps/pixel, 55 of 64 pixels at the 4-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)
+  batch      2 clean        22.726 ms  kernels  10  steps/px  3.859  obs e7a904d66a88  ref       nan us  ratio     nanx
+                   DDA workload: 3.859 mean steps/pixel, 110 of 128 pixels at the 4-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)
+  batch      2 faithful     23.145 ms  kernels  10  steps/px  3.859  obs e7a904d66a88  ref       nan us  ratio     nanx
+                   DDA workload: 3.859 mean steps/pixel, 110 of 128 pixels at the 4-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)
+
+==============================================================================
+  4. clean vs faithful, and both vs the baseline
+==============================================================================
+  batch      1  clean    21.940 ms  faithful    25.791 ms  faithful/clean  1.175  clean/ref     nan  faithful/ref     nan  same obs True
+  batch      2  clean    22.726 ms  faithful    23.145 ms  faithful/clean  1.018  clean/ref     nan  faithful/ref     nan  same obs True
+
+==============================================================================
+  5. what this does NOT say
+==============================================================================
+  * No whole-step number is a denominator anywhere above. The
+    reference's whole step is printed as CONTEXT only: it is 7
+    launches, five of them state updates.
+  * The ratio against the reference is render-against-render, both
+    producing the same uint8 observation at the same batch on the
+    same card. If the digests differ, the ratio is between two
+    different computations.
+  * The clean-vs-faithful delta is the crossing cost. It is the only
+    number here that no other arm in this study has.
+
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg_faithful/20260929-163716-battery-smoke.json
+  battery.py completed both modes; report at /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg_faithful/20260929-163716-battery-smoke.json
+
+=== 2. assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_faithful/kaggle/kernel/minecu_faithful_t4.ipynb  373761 B  sha256 327e39ca517fc1cc8a01be4acc0d4addd2ef78d24509b9793f4d113ae2447cb8
+  13 payloads, 267252 B raw
+    minecu_tg/__init__.py                  6f376400341dd101
+    minecu_tg/blocks.py                    752ffaea2028475d
+    minecu_tg/world.py                     6c75c0e1e9cfc105
+    minecu_tg/render.py                    fe85581f80ed7fdb
+    minecu_tg/cpu_reference.py             d3d6356552db2be4
+    minecu_tg_faithful/__init__.py         cecf6f98be104031
+    minecu_tg_faithful/render.py           85b5a0b5fb843e97
+    minecu_tg_faithful/crossings.py        c0d94bc0c822ccc4
+    minecu_tg_faithful/verify.py           111b32e7a094d645
+    minecu_tg_faithful/battery.py          39991ff2966a9eb9
+    minecu_ref/bench/dda_model.py          f5ff7fe2e15f7d9b
+    minecu_ref/src/kernels.cu              c6ed8f06ee64d40a
+    minecu_tg/kaggle/refdrv.cu             d3a0931d642d67bd
+  notebook sha256 327e39ca517fc1cc8a01be4acc0d4addd2ef78d24509b9793f4d113ae2447cb8
+  the notebook's payloads are hash-checked on the card, so this is a
+  provenance handle: if the code changes, this changes.
+
+=== 3. push (this spends no accelerator time) ===
+  session cap 75 min = 4500 s passed to -t
+Kernel version 6 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-faithful-t4
+
+=== 4. poll (bounded at 90 min; the queue is a separate clock) ===
+  16:39:36  status=RUNNING
+  16:40:09  status=ERROR
+  ERROR. fetching logs:
+[{"stream_name":"stderr","time":9.288927544,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":9.289030118,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":10.639648186,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.639694243,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.63970133,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.639706187,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.411283656,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.411321502,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.41133348,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.411336949,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":13.204748732,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":13.204779035,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":13.204785412,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":13.204920638,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":13.204936821,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":13.205144305,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":13.205184828,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":13.205202597,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":13.205207185,"data":"Exception encountered at \"In [1]\":\n"}
+,{"stream_name":"stderr","time":13.205211817,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":13.205216189,"data":"NameError                                 Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":13.20521987,"data":"/tmp/ipykernel_23/3818958305.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":13.205223585,"data":"     11 GATE_LIMIT_S = 900\n"}
+,{"stream_name":"stderr","time":13.205227036,"data":"     12 BATTERY_LIMIT_S = 2400\n"}
+,{"stream_name":"stderr","time":13.205230328,"data":"---\u003e 13 say(f\"  session budget: gate \u003c= {GATE_LIMIT_S}s, battery \u003c= {BATTERY_LIMIT_S}s, \"\n"}
+,{"stream_name":"stderr","time":13.205234137,"data":"     14     f\"refdrv \u003c= {REFDRV_LIMIT_S}s; the platform cap is set in run.sh\")\n"}
+,{"stream_name":"stderr","time":13.205237732,"data":"     15 \n"}
+,{"stream_name":"stderr","time":13.205241089,"data":"\n"}
+,{"stream_name":"stderr","time":13.205244397,"data":"NameError: name 'say' is not defined\n"}
+,{"stream_name":"stderr","time":13.20524895,"data":"\n"}
+,{"stream_name":"stderr","time":15.546780276,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":15.546812367,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15.738668918,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15.73870472,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":16.413809052,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":16.712983292,"data":"[NbConvertApp] Writing 378540 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":19.129783216,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":20.020483021,"data":"[NbConvertApp] Writing 702031 bytes to __results__.html\n"}
+]

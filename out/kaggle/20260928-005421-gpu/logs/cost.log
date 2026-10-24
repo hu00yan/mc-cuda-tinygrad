@@ -1,0 +1,76 @@
+$ /usr/bin/python3 cost.py
+# cwd kda
+
+====================================================================================================
+KDA chunked forward cost model   B=4 T=4096 H=32 K=128 V=128 C=64 NT=64  (bf16 working dtype)
+====================================================================================================
+step                                                 GFLOP      MB   FLOP/B  class
+----------------------------------------------------------------------------------------------------
+0  gate act.  -exp(A_log)*softplus(g+dt_bias)         0.00   768.0        0  elementwise
+1  g_cum = cumsum(g) over chunk                       0.00   512.0        0  scan
+2a decay tensor D = exp(gc[i]-gc[j]), masked          0.00 16384.0        0  elementwise [ref-only]
+2b Z = (K . D) K^T                                    8.59   128.0       64  matmul
+3  UT: forward substitution + I, * Diag(beta)         2.11   128.0       16  SEQUENTIAL
+4  w = M (Gamma . K)                                  8.59   256.0       32  matmul
+5  u = M V                                            8.59   256.0       32  matmul
+6a v_new = u - w S                                   17.18     6.0     2731  matmul
+6b Aqk = (Q . D) K^T  causal                          8.59   128.0       64  matmul
+6c o = (Gamma . Q) S                                 17.18   256.0       64  matmul
+6d o += Aqk v_new                                     8.59     0.0      inf  matmul
+6e S = Diag(gam^C) S + (K . D)^T v_new               17.18    16.0     1024  matmul+ew
+----------------------------------------------------------------------------------------------------
+TOTAL (all rows)                                     96.60 18838.0
+TOTAL (kernel rows only)                             96.60  2454.0
+
+  FLOP/B = 9 means the step is pure memory traffic.  A ridge point of
+  ~295 FLOP/B (H100) / ~201 (A100) means anything under that is
+  bandwidth-limited, so the whole game is not touching DRAM.
+  'inf' = the step costs zero extra traffic only IF it is fused into
+  its neighbour; materialised it would be [B,NT,HV,C,V] = 128 MB.
+
+total forward FLOPs               96.60 GFLOP
+traffic, kernel rows             2454.0 MB  (2.40 GiB)
+traffic, ref-only rows          16384.0 MB  (never built by a kernel)
+arithmetic intensity              37.54 FLOP/byte  (kernel rows)
+  H100 SXM bf16 ridge point     295 FLOP/byte  ->  this operator is   7.9x MEMORY BOUND
+  A100 80GB bf16 ridge point     201 FLOP/byte  ->  this operator is   5.4x MEMORY BOUND
+
+    C    NT    GFLOP  traffic MB   FLOP/byte   C^2 share
+   16   256    62.40      2161.5       27.53       17.4%
+   32   128    73.53      2259.0       31.04       29.9%
+   64    64    96.60      2454.0       37.54       46.6%
+  128    32   145.96      2844.0       48.95       64.7%
+  256    16   257.56      3624.0       67.78       80.0%
+
+paper Eq.13 FLOPs/head        520,093,696  -> 66.57 GFLOP
+this count   FLOPs/head      754,712,576  -> 96.60 GFLOP
+ratio                               1.451
+  Counting every matmul at 2 FLOP/MAC, there are FIVE C x C x d_h
+  intra-chunk matmuls (Z, w, u, Aqk, Aqk@v_new), not three.  Eq. 13's
+  3TC*d_h also counts 1 FLOP/MAC while its 6Td_h^2 term counts 2.
+  Sizing hardware off Eq. 13 undershoots by ~1.45x.
+
+UT fwd substitution, naive C-step:       258,048 FLOP/chunk/head
+UT fwd substitution, 16x16 blocked:      162,816  (1.58x cheaper, and the blocked form is parallel)
+
+--- what fusing across the scan boundary is worth ---
+v_new [B,NT,HV,C,V] spilled (write+read)      256.0 MB
+  intensity, fused across the scan (base)       37.5 FLOP/B
+  intensity, v_new spilled to DRAM               34.0 FLOP/B
+  absolute floor: read q,k,v,g + write o        640.0 MB  ->  143.9 FLOP/B
+  so even a PERFECTLY fused KDA is still 2.1x below the H100 ridge point (295).
+  The gate + cumsum alone (steps 0,1) are 1280 MB = 52% of the traffic and 0 of the FLOPs.
+
+--- the traps (what a naive tensorised port would materialise) ---
+h, per-chunk states [B,NT,HV,K,V]      256.0 MB   (0.27 GB)  <- only avoidable by fusing the scan
+full score matrix  [B,H,T,T]           4096.0 MB   (4.29 GB)  <- softmax-attention shape; KDA must NOT do this
+  per head: 32.0 MB, i.e. O(T^2).  A compiler that fuses the
+  chunk loop into one graph never has to build it -- but it also
+  cannot parallelise the loop, which is the actual difficulty.
+
+reference-only decay tensor [B,NT,HV,C,C,K]  8192.0 MB  (ref.py builds this; kernels do not)
+
+bytes for one [B,T,HV,V] bf16 tensor:      128.0 MB
+bytes for one [B,T,HV,K] bf16 tensor:      128.0 MB
+====================================================================================================
+

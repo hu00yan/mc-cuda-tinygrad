@@ -1,0 +1,4 @@
+=== minecu_ref T4 baseline: build for sm_75 ===
+  staged 14:27:45
+  would run: /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_ref/build.sh sm_75
+  the sm_75 SASS census did not pass; refusing to push

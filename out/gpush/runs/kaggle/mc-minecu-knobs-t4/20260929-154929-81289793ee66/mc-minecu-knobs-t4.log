@@ -1,0 +1,43 @@
+[{"stream_name":"stderr","time":8.821191141,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.821289402,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.821297208,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.82130203,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.556220681,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.556268465,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.556274336,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.556278588,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.077718278,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.077759561,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":11.077765827,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.077771568,"data":"archive      /kaggle/input/mc-minecu-knobs-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":11.077776784,"data":"mount        /kaggle/input/mc-minecu-knobs-payload\n"}
+,{"stream_name":"stdout","time":11.077782392,"data":"\n"}
+,{"stream_name":"stdout","time":11.077787971,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":11.585136363,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"3c1f0ccf64c1\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":11.58518234,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":11.585188159,"data":"\n"}
+,{"stream_name":"stdout","time":11.585192426999999,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":11.58519643,"data":"expected 86 files, the tree we will execute has 86\n"}
+,{"stream_name":"stdout","time":11.585200479000001,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":11.585204249,"data":"\n"}
+,{"stream_name":"stdout","time":11.698364405,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.698455242,"data":"$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned\n"}
+,{"stream_name":"stdout","time":11.698463422,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":11.698468722,"data":"  at    2026-09-29 07:50:14 UTC\n"}
+,{"stream_name":"stdout","time":11.698473029,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.727900197,"data":"\n"}
+,{"stream_name":"stdout","time":11.727933669,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.727938954,"data":"exit 2 after 0.1 s\n"}
+,{"stream_name":"stderr","time":11.729247915,"data":"REFUSING: DEV='CPU'. This file produces DEVICE TIMES and a CPU number in a table of GPU numbers is the exact failure mode gpush's design forbids. Use codegen.py for the offline instruction counts.\n"}
+,{"stream_name":"stderr","time":11.729298445,"data":"\n"}
+,{"stream_name":"stderr","time":11.729304944999999,"data":"REFUSING: DEV='CPU'. This file produces DEVICE TIMES and a CPU number in a table of GPU numbers is the exact failure mode gpush's design forbids. Use codegen.py for the offline instruction counts.\n"}
+,{"stream_name":"stdout","time":11.754579507,"data":"collected 86 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":14.724467897,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":14.724520579,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":14.910437417,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":14.910469342,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15.633906218,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":15.989045068,"data":"[NbConvertApp] Writing 25725 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":18.835842907,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":19.821833452,"data":"[NbConvertApp] Writing 340483 bytes to __results__.html\n"}
+]

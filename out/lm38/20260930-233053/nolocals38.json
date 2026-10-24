@@ -1,0 +1,16 @@
+{
+ "flat_gather_stock": {
+  "stack_frame": 1160,
+  "spill_stores": 1152,
+  "spill_loads": 1152,
+  "spill_total": 2304,
+  "registers": 255
+ },
+ "flat_gather_nolocals": {
+  "stack_frame": 1160,
+  "spill_stores": 1152,
+  "spill_loads": 1152,
+  "spill_total": 2304,
+  "registers": 255
+ }
+}

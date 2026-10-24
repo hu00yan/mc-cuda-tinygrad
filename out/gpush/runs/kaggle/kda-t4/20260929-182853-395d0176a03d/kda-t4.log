@@ -1,0 +1,43 @@
+[{"stream_name":"stderr","time":7.786572662,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.786630844,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.78663755,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.786641855,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.40174151,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.401773996,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.40177998,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.401784709,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.765230664,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.765284694,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.765288198,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.765290766,"data":"archive      /kaggle/input/datasets/tenghuzhang/kda-t4-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.76529328,"data":"mount        /kaggle/input/datasets/tenghuzhang/kda-t4-payload\n"}
+,{"stream_name":"stdout","time":9.765295619,"data":"\n"}
+,{"stream_name":"stdout","time":9.765297731,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":10.176077761,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"29fee6c78ab2\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":10.176109124,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.176113921,"data":"\n"}
+,{"stream_name":"stdout","time":10.176117391,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":10.176120776,"data":"expected 42 files, the tree we will execute has 42\n"}
+,{"stream_name":"stdout","time":10.17612456,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":10.176127858,"data":"\n"}
+,{"stream_name":"stdout","time":10.1994063,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.199432122,"data":"$ env KDA_T4_STAGES=install,gate,sass --cmd bash kda_t4/run.sh\n"}
+,{"stream_name":"stdout","time":10.199437219,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.199440823,"data":"  at    2026-09-29 10:29:30 UTC\n"}
+,{"stream_name":"stdout","time":10.199444271,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.199447952,"data":"\n"}
+,{"stream_name":"stdout","time":10.199455704,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.199458958,"data":"exit 127 after 0.0 s\n"}
+,{"stream_name":"stderr","time":10.200374106,"data":"env: ‘--cmd’: No such file or directory\n"}
+,{"stream_name":"stderr","time":10.200395658,"data":"\n"}
+,{"stream_name":"stderr","time":10.200412605,"data":"env: ‘--cmd’: No such file or directory\n"}
+,{"stream_name":"stdout","time":10.215395296,"data":"collected 42 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":12.601833861,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":12.601872687,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":12.760244427,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":12.760275401,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13.361380417,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":13.650380606,"data":"[NbConvertApp] Writing 20351 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":15.932496764,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":16.729257767,"data":"[NbConvertApp] Writing 330234 bytes to __results__.html\n"}
+]

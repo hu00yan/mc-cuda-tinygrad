@@ -1,0 +1,53 @@
+{
+  "artefacts": [],
+  "backend": "kaggle",
+  "bytes": 1126864,
+  "command": [
+    "python3",
+    "-m",
+    "minecu_tg_knobs.battery",
+    "--out",
+    "/kaggle/working/out/minecu_tg_knobs",
+    "--ports",
+    "naive,lean,lean-no-flat,lean-no-unsigned"
+  ],
+  "command_line": "python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned",
+  "compute_capability_reported": "unknown",
+  "device": {},
+  "exit_code": null,
+  "files": 48,
+  "fingerprint": "04f8b0be1b2bf7602d91543e86883f6b31f1ba757dde112ebf3e4061322b5a07",
+  "finished": "",
+  "gates": [],
+  "gpush_version": "1.0.0",
+  "host": {
+    "gpush": "1.0.0",
+    "host": "TenghudeMacBook-Pro-4.local",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "manifest_source": "git",
+  "note": "a backend gate refused the payload; no GPU time spent",
+  "plan": {
+    "added": 48,
+    "base_fingerprint": "",
+    "deleted": 0,
+    "modified": 0,
+    "new_fingerprint": "04f8b0be1b2bf7602d91543e86883f6b31f1ba757dde112ebf3e4061322b5a07",
+    "unchanged": 0
+  },
+  "remote": {
+    "bytes": 341217,
+    "dataset": "tenghuzhang/mc-minecu-knobs-payload",
+    "fingerprint": "d5261d9091d069f5c8c06eddbabe04e63a22c99be5a8bde228773205f395482c",
+    "kernel": "tenghuzhang/mc-minecu-knobs-t4",
+    "sha256": "7e53e8fbfe80fb8b4d54d798e227473abdb37791db36d4b9558f4c8589b326cf",
+    "tarball": "payload.tgz"
+  },
+  "run_id": "20260929-163047-04f8b0be1b2b",
+  "schema": "gpush/provenance@1",
+  "started": "",
+  "status": "REFUSED BY A BACKEND GATE",
+  "target": "tenghuzhang/mc-minecu-knobs-payload",
+  "transport": "REST API only. A tree ships as a versioned dataset, a kernel attaches it via dataset_sources and walks /kaggle/input. No SSH, no tunnel, no inbound route."
+}

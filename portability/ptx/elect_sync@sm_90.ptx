@@ -1,0 +1,17 @@
+.version 8.3
+.target sm_90
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<16>;
+  mov.s32 %r1, 0;
+  {
+    .reg .b32 %rx;
+    .reg .pred %px;
+    elect.sync %rx|%px, %r1;
+    @%px mov.s32 %r1, 1;
+  }
+  ret;
+}

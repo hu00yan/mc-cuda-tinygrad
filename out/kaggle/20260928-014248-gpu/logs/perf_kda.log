@@ -1,0 +1,42 @@
+$ /usr/bin/python3 perf_kda.py
+# cwd kda
+
+==============================================================================
+KDA cost model   device=CUDA
+  B=2 T=512 H=4 HV=4 K=64 V=64  chunk C=64  NT=8
+==============================================================================
+
+intermediates the port builds (bf16 = 2 bytes, as the kernels use):
+  tensor                             elements    bf16 MB
+  g_cum   [B,NT,HV,C,K]               262,144        0.5
+  Dq_all  [B,NT,HV,C,C,K]          16,777,216       33.6
+  Dl      [B,NT,HV,C,C,K]          16,777,216       33.6
+  Z/Btri  [B,NT,HV,C,C]               262,144        0.5
+  M       [B,NT,HV,C,C]               262,144        0.5
+  Aqk     [B,NT,HV,C,C]               262,144        0.5
+  w       [B,NT,HV,C,K]               262,144        0.5
+  u       [B,NT,HV,C,V]               262,144        0.5
+  v_new   [B,NT,HV,C,V]               262,144        0.5
+  o       [B,T,HV,V]                  262,144        0.5
+  S (state, live) [B,HV,K,V]           32,768        0.1
+
+sequential depth (unrolled, no TinyGrad loop primitive):
+  UT transform   C  = 64 steps   (forward substitution)
+  inter-chunk    NT = 8 steps  (carrying [B,HV,K,V] = 32,768 floats)
+  total                    72 steps, each becoming graph ops
+  the camera probe found 1 extra kernel per sequential step, so the
+  prediction is ~72 kernels before the real matmuls.
+
+measured (Metal, B=2 T=512 K=64 C=64):
+  kernels per call : 12082
+  GPU time         : 215,880 us  (215.9 ms)
+    r     7984 kernels     159,658 us   74.0%
+    E     4098 kernels      56,222 us   26.0%
+
+wall time:
+  numpy float64 reference :     517.8 ms
+  tinygrad float32        :   20342.8 ms
+  ratio                   :     39.29x
+  of which GPU             :     215.9 ms (1%)
+  of which python/build   :   20126.9 ms (99%)
+

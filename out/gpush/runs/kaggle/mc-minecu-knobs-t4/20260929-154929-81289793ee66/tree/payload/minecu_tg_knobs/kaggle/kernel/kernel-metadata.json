@@ -1,0 +1,17 @@
+{
+  "id": "tenghuzhang/mc-minecu-knobs-t4",
+  "title": "mc minecu knobs t4",
+  "subtitle": "arm B: the same voxel DDA in plain TinyGrad plus codegen knobs, against arm A and hand-written CUDA on a T4",
+  "code_file": "minecu_knobs_t4.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

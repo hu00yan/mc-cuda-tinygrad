@@ -1,0 +1,82 @@
+=== 1. the host gate: axis/verify.py, CPU, no network, no GPU ===
+==============================================================================
+axis/verify.py -- CPU gate. No GPU. Runs before any Kaggle push.
+==============================================================================
+
+1. the TinyGrad side is pure Tensor (task constraint, checked by AST)
+   [PASS] rungs.py imports only tinygrad + numpy; no custom_kernel,
+          no ctypes, no driver API, no foreign framework.
+
+2. every rung's TinyGrad arm against an independent float64 oracle
+   (a green gate is necessary, not sufficient -- notes/06 5b)
+   small shapes, CPU: {'ew': {'n': 4096}, 'red': {'R': 64, 'K': 32}, 'gemm32': {'M': 32, 'N': 32, 'K': 32}, 'gemm16': {'M': 32, 'N': 32, 'K': 32}, 'gather': {'n': 4096, 'table': 1024}, 'scan': {'R': 16, 'N': 64}, 'trisolve': {'B': 8, 'C': 64, 'BC': 16}}
+   [PASS] ew        worst relerr 3.348e-08  (tol 1e-05)  shape (4096,)
+   [PASS] red       worst relerr 1.425e-07  (tol 1e-05)  shape (64,)
+   [PASS] gemm32    worst relerr 1.482e-07  (tol 1e-05)  shape (32, 32)
+   [PASS] gemm16    worst relerr 3.235e-04  (tol 5e-02)  shape (32, 32)
+   [PASS] gather    worst relerr 4.102e-08  (tol 1e-05)  shape (4096,)
+   [PASS] scan      worst relerr 1.036e-07  (tol 1e-05)  shape (16, 64)
+   [PASS] trisolve  worst relerr 2.589e-07  (tol 1e-04)  shape (8, 64, 64)
+
+3. the naive controls exist and are separate measurements
+   [ok  ] red       naive spelling runs (its TIME is the control)
+   [ok  ] scan      naive spelling runs (its TIME is the control)
+
+==============================================================================
+ALL CHECKS PASS -- 7 rungs
+==============================================================================
+  gate PASS
+
+=== 2. compile-check refkernels.cu for sm_75 (no GPU) ===
+  sm_75 compile OK
+
+=== 3. assemble the notebook ===
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/axis/kaggle/kernel/axis_t4.ipynb (139103 B, 8 cells, all parse)
+  sha256 83120c5768597acdb46fa5a9cf9fe294a703e733de54dbef54c1192e4e59a2ca
+
+=== 4. push tenghuzhang/mc-axis-t4 (session cap 25m) ===
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-axis-t4
+
+=== 5. wait (queue up to 180m, poll 60s) ===
+  [15:53:41] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [15:54:46] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [15:55:48] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [15:56:50] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [15:57:52] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [15:58:56] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [15:59:59] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:01:01] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:02:04] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:03:07] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:04:09] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:05:11] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:06:15] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:07:17] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:08:20] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:09:22] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:10:31] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:11:40] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:12:44] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:13:46] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:14:48] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:15:50] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:16:57] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:18:00] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:19:02] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:20:05] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:21:06] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:22:09] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:23:12] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:24:15] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:25:20] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:26:22] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:27:24] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:28:27] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:29:31] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [16:30:34] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [16:31:36] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [16:32:39] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.RUNNING"
+  [16:33:44] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:34:47] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:35:49] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"
+  [16:36:51] tenghuzhang/mc-axis-t4 has status "KernelWorkerStatus.COMPLETE"

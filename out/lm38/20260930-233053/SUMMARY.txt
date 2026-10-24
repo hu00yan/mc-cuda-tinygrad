@@ -1,0 +1,22 @@
+                                   ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+stock_alloc flat_gather            ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+stock_alloc incremental            ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+stock_alloc int_cursor             ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+stock_alloc lean                   ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+stock_alloc naive                  ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+                                   ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=
+disc        flat_gather    None    ms=3.0151    regs=-     frame=      - spill=      - sass=      - calls=9    gate=0     ok=False src=None
+disc        flat_gather    200     ms=3.0198    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    168     ms=3.0125    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    128     ms=3.0143    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    96      ms=3.0125    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    64      ms=3.0141    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    48      ms=3.0098    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    32      ms=3.0091    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+disc        flat_gather    24      ms=3.0075    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+rung        incremental    None    ms=2.7232    regs=-     frame=      - spill=      - sass=      - calls=7    gate=None  ok=False src=None
+rung        int_cursor     None    ms=5.9306    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+rung        lean           None    ms=2.9545    regs=-     frame=      - spill=      - sass=      - calls=6    gate=None  ok=False src=None
+rung        naive          None    ms=8.7717    regs=-     frame=      - spill=      - sass=      - calls=9    gate=None  ok=False src=None
+nolocals    flat_gather    None    ms=57.2876   regs=-     frame=      - spill=      - sass=      - calls=9    gate=0     ok=False src=None
+                                   ms=-         regs=-     frame=      - spill=      - sass=      - calls=-    gate=-     ok=-     src=

@@ -1,0 +1,63 @@
+{
+  "artefacts": [
+    {
+      "bytes": 132,
+      "path": "GPUSH-VERIFY.json",
+      "sha256": "4de99b15bd16378b1d22588f078959a1ca06a07a162158737e762d3f2a7bb0f9"
+    },
+    {
+      "bytes": 6326,
+      "path": "gpush-smoke.log",
+      "sha256": "3a0a052a4ce7d7ae65c2e14bb604505d7811bfd357c1f643b56ccb9c78f205c9"
+    },
+    {
+      "bytes": 0,
+      "path": "gpush-root.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "backend": "kaggle",
+  "bytes": 0,
+  "command": [
+    "python",
+    "derivation/divide.py",
+    "mechanism_sentence"
+  ],
+  "command_line": "python derivation/divide.py mechanism_sentence",
+  "compute_capability_reported": "unknown",
+  "device": {
+    "count": 0,
+    "gpu": false,
+    "name": "",
+    "reason": "device probe produced no parseable output (the remote may have died before it ran)"
+  },
+  "exit_code": null,
+  "files": 5,
+  "fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+  "finished": "20260929-013452",
+  "gates": [],
+  "gpush_version": "1.0.0",
+  "host": {
+    "gpush": "1.0.0",
+    "host": "TenghudeMacBook-Pro-4.local",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "manifest_source": "git",
+  "note": "run ended ERROR; the traceback is in the fetched `gpush-smoke.log`",
+  "plan": {
+    "added": 0,
+    "base_fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+    "deleted": 0,
+    "modified": 0,
+    "new_fingerprint": "92935b7bea5de8ee09ea85b362c3d98d07f884dfea4c41532416d82c5baa7f12",
+    "unchanged": 5
+  },
+  "remote": {},
+  "run_id": "20260929-013101-92935b7bea5d",
+  "schema": "gpush/provenance@1",
+  "started": "20260929-013122",
+  "status": "ERROR",
+  "target": "",
+  "transport": "REST API only. A tree ships as a versioned dataset, a kernel attaches it via dataset_sources and walks /kaggle/input. No SSH, no tunnel, no inbound route."
+}

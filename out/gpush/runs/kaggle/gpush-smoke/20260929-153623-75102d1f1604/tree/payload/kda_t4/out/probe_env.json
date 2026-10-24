@@ -1,0 +1,266 @@
+{
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "numpy": "2.0.2",
+    "einops": "0.8.2",
+    "tinygrad": "0.14.0",
+    "fla-core": "0.5.2",
+    "flash-linear-attention": "0.5.2"
+  },
+  "module_paths": {
+    "fla": "/usr/local/lib/python3.12/dist-packages/fla/__init__.py",
+    "flash_linear_attention": "",
+    "tinygrad": "/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py",
+    "triton": "/usr/local/lib/python3.12/dist-packages/triton/__init__.py"
+  },
+  "failures": [
+    "import flash_linear_attention: ModuleNotFoundError: No module named 'flash_linear_attention'"
+  ],
+  "fla_core_requires": [
+    "einops",
+    "torch>=2.7.0; extra == \"cuda\"",
+    "triton>=3.3; extra == \"cuda\"",
+    "torch>=2.7.0; extra == \"rocm\"",
+    "torch>=2.7.0; extra == \"xpu\"",
+    "torch==2.7.1; extra == \"npu\"",
+    "torch_npu==2.7.1.post4; extra == \"npu\"",
+    "torchvision==0.22.1; extra == \"npu\"",
+    "triton-ascend==3.2.1; extra == \"npu\"",
+    "torch>=2.7.0; extra == \"cpu\"",
+    "triton>=3.3; extra == \"cpu\""
+  ],
+  "toolchain": {
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "ptxas": "/usr/local/cuda/bin/ptxas",
+    "cuobjdump": "/usr/local/cuda/bin/cuobjdump",
+    "nvdisasm": "/usr/local/cuda/bin/nvdisasm"
+  },
+  "nvcc_version": "Build cuda_12.8.r12.8/compiler.35583870_0",
+  "devices": [
+    {
+      "index": 0,
+      "name": "Tesla T4",
+      "cc": [
+        7,
+        5
+      ],
+      "sm": "sm_75",
+      "total_memory": 15636037632,
+      "multi_processor_count": 40,
+      "shared_memory_per_block": 49152,
+      "shared_memory_per_block_optin": 65536,
+      "shared_memory_per_multiprocessor": 65536,
+      "triton_max_shared_mem": 65536,
+      "triton_props_keys": [
+        "max_num_regs",
+        "max_shared_mem",
+        "mem_bus_width",
+        "mem_clock_rate",
+        "multiprocessor_count",
+        "sm_clock_rate",
+        "warpSize"
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Tesla T4",
+      "cc": [
+        7,
+        5
+      ],
+      "sm": "sm_75",
+      "total_memory": 15636037632,
+      "multi_processor_count": 40,
+      "shared_memory_per_block": 49152,
+      "shared_memory_per_block_optin": 65536,
+      "shared_memory_per_multiprocessor": 65536,
+      "triton_max_shared_mem": 65536,
+      "triton_props_keys": [
+        "max_num_regs",
+        "max_shared_mem",
+        "mem_bus_width",
+        "mem_clock_rate",
+        "multiprocessor_count",
+        "sm_clock_rate",
+        "warpSize"
+      ]
+    }
+  ],
+  "heterogeneous": false,
+  "citations": {
+    "rows": [
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 137,
+        "found": 137,
+        "ok": true,
+        "needle": "IS_TF32_SUPPORTED",
+        "why": "cc major >= 8 => no tf32 below sm_80"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 138,
+        "found": 138,
+        "ok": true,
+        "needle": "IS_GATHER_SUPPORTED",
+        "why": "triton-version switch"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 152,
+        "found": 152,
+        "ok": true,
+        "needle": "TRITON_F32_DEFAULT",
+        "why": "process-global ieee write"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 170,
+        "found": 170,
+        "ok": true,
+        "needle": "get_all_max_shared_mem",
+        "why": "triton max_shared_mem read"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 181,
+        "found": 182,
+        "ok": true,
+        "needle": "ADA",
+        "why": "Backend enum start"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 182,
+        "found": 183,
+        "ok": true,
+        "needle": "166912",
+        "why": "AMPERE threshold"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 183,
+        "found": 184,
+        "ok": true,
+        "needle": "232448",
+        "why": "HOPPER threshold"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 184,
+        "found": 185,
+        "ok": true,
+        "needle": "102400",
+        "why": "DEFAULT threshold"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "cited": 196,
+        "found": 196,
+        "ok": true,
+        "needle": "check_shared_mem",
+        "why": "the gate itself"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "cited": 28,
+        "found": 28,
+        "ok": true,
+        "needle": "GATED_DELTA_RULE_FWD_H_NUM_WARPS",
+        "why": "num_warps list (Blackwell pinned to [2])"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "cited": 43,
+        "found": 43,
+        "ok": true,
+        "needle": "[2, 3, 4]",
+        "why": "num_stages narrowing"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "cited": 44,
+        "found": 44,
+        "ok": true,
+        "needle": "[32, 64]",
+        "why": "BV narrowing"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "cited": 50,
+        "found": 50,
+        "ok": true,
+        "needle": "chunk_gated_delta_rule_fwd_kernel_h_blockdim64",
+        "why": "the KDA fwd state kernel"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "cited": 25,
+        "found": 25,
+        "ok": true,
+        "needle": "BK_LIST",
+        "why": "bwd BK narrowing"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "cited": 26,
+        "found": 26,
+        "ok": true,
+        "needle": "BV_LIST",
+        "why": "bwd BV narrowing"
+      },
+      {
+        "file": "fla/ops/kda/chunk.py",
+        "cited": 176,
+        "found": 176,
+        "ok": true,
+        "needle": "@dispatch('kda')",
+        "why": "the dispatch wrapper"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "cited": 16,
+        "found": 16,
+        "ok": true,
+        "needle": "TritonAscendKDABackend",
+        "why": "registry order 0"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "cited": 17,
+        "found": 17,
+        "ok": true,
+        "needle": "FlashKDABackend",
+        "why": "registry order 1"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "cited": 18,
+        "found": 18,
+        "ok": true,
+        "needle": "KDATileLangBackend",
+        "why": "registry order 2"
+      },
+      {
+        "file": "fla/ops/kda/chunk_intra.py",
+        "cited": 20,
+        "found": 21,
+        "ok": true,
+        "needle": "SOLVE_TRIL_DOT_PRECISION",
+        "why": "the explicit dot precision"
+      },
+      {
+        "file": "fla/ops/kda/backends/flash_kda.py",
+        "cited": 25,
+        "found": 25,
+        "ok": true,
+        "needle": "Copyright",
+        "why": "the CUTLASS backend, if it is ever selected"
+      }
+    ],
+    "n_ok": 21,
+    "n": 21,
+    "failures": []
+  }
+}

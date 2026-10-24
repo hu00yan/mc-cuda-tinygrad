@@ -1,0 +1,389 @@
+{
+  "started": 1790666444.7795665,
+  "argv": [
+    "/kaggle/working/minecu_tg_opt/battery_opt.py",
+    "--out",
+    "/kaggle/working/tgopt",
+    "--world",
+    "16",
+    "--res",
+    "32",
+    "--max-steps",
+    "32",
+    "--variants",
+    "naive,lean",
+    "--time-batches",
+    "256,512,1024,2048",
+    "--iters",
+    "8"
+  ],
+  "config": {
+    "out": "/kaggle/working/tgopt",
+    "world": 16,
+    "res": 32,
+    "ground": 4,
+    "max_steps": 32,
+    "variants": "naive,lean",
+    "time_batches": "256,512,1024,2048",
+    "workload_batch": null,
+    "iters": 8,
+    "budget": 1200.0
+  },
+  "config_gate": {
+    "pass": true,
+    "failures": []
+  },
+  "env": {
+    "Device.DEFAULT": "CUDA",
+    "numpy": "2.0.2",
+    "tinygrad_path": "/usr/local/lib/python3.12/dist-packages/tinygrad",
+    "PARALLEL": "0",
+    "nvidia_smi": "Tesla T4, 15360 MiB, 580.159.04\nTesla T4, 15360 MiB, 580.159.04"
+  },
+  "identity": {
+    "batch": 64,
+    "pixels": 65536,
+    "rows": [
+      {
+        "variant": "naive",
+        "pixels_differing": 0,
+        "identical": true,
+        "sha256": "5a4083930424efb2c29592ab48fcee33958158215a328e00064d79f4006c0ec8",
+        "sha256_naive": "5a4083930424efb2c29592ab48fcee33958158215a328e00064d79f4006c0ec8"
+      },
+      {
+        "variant": "lean",
+        "pixels_differing": 0,
+        "identical": true,
+        "sha256": "5a4083930424efb2c29592ab48fcee33958158215a328e00064d79f4006c0ec8",
+        "sha256_naive": "5a4083930424efb2c29592ab48fcee33958158215a328e00064d79f4006c0ec8"
+      }
+    ],
+    "all_identical": true
+  },
+  "timing": [
+    {
+      "batch": 256,
+      "variant": "naive",
+      "realized": true,
+      "error": null,
+      "label": "naive_b256",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 41,
+        "median_ms": 13.69838412385434,
+        "min_ms": 13.692480027675629,
+        "max_ms": 13.72492793761194,
+        "median_per_kernel_us": 334.1069298501058
+      },
+      "mem": {
+        "peak_live_bytes": 140314578,
+        "total_allocated_bytes": 140314578,
+        "n_allocs": 26,
+        "live_at_end_bytes": 139265704,
+        "oom": null
+      },
+      "obs_bytes": 786432,
+      "obs_shape": [
+        256,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 90.609608767
+    },
+    {
+      "batch": 256,
+      "variant": "lean",
+      "realized": true,
+      "error": null,
+      "label": "lean_b256",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 38,
+        "median_ms": 16.000335924327374,
+        "min_ms": 15.984223881736401,
+        "max_ms": 16.841792130842805,
+        "median_per_kernel_us": 421.0614716928256
+      },
+      "mem": {
+        "peak_live_bytes": 135266304,
+        "total_allocated_bytes": 135266304,
+        "n_allocs": 1,
+        "live_at_end_bytes": 135266006,
+        "oom": null
+      },
+      "obs_bytes": 786432,
+      "obs_shape": [
+        256,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 66.04582746700004
+    },
+    {
+      "batch": 512,
+      "variant": "naive",
+      "realized": true,
+      "error": null,
+      "label": "naive_b512",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 41,
+        "median_ms": 13.647743912879378,
+        "min_ms": 13.631007792428136,
+        "max_ms": 13.672640178352594,
+        "median_per_kernel_us": 332.8718027531556
+      },
+      "mem": {
+        "peak_live_bytes": 150602752,
+        "total_allocated_bytes": 150602752,
+        "n_allocs": 11,
+        "live_at_end_bytes": 148505302,
+        "oom": null
+      },
+      "obs_bytes": 1572864,
+      "obs_shape": [
+        512,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 84.613878226
+    },
+    {
+      "batch": 512,
+      "variant": "lean",
+      "realized": true,
+      "error": null,
+      "label": "lean_b512",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 38,
+        "median_ms": 15.958400106057526,
+        "min_ms": 15.576544100418689,
+        "max_ms": 15.990463808178902,
+        "median_per_kernel_us": 419.95789752782963
+      },
+      "mem": {
+        "peak_live_bytes": 136314880,
+        "total_allocated_bytes": 136314880,
+        "n_allocs": 1,
+        "live_at_end_bytes": 136314582,
+        "oom": null
+      },
+      "obs_bytes": 1572864,
+      "obs_shape": [
+        512,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 63.49583706999999
+    },
+    {
+      "batch": 1024,
+      "variant": "naive",
+      "realized": true,
+      "error": null,
+      "label": "naive_b1024",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 10,
+        "median_ms": 8.810816388577223,
+        "min_ms": 8.730303859338164,
+        "max_ms": 8.820863876491785,
+        "median_per_kernel_us": 881.0816388577223
+      },
+      "mem": {
+        "peak_live_bytes": 41158656,
+        "total_allocated_bytes": 41158656,
+        "n_allocs": 11,
+        "live_at_end_bytes": 36964054,
+        "oom": null
+      },
+      "obs_bytes": 3145728,
+      "obs_shape": [
+        1024,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 189.333404041
+    },
+    {
+      "batch": 1024,
+      "variant": "lean",
+      "realized": true,
+      "error": null,
+      "label": "lean_b1024",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 6,
+        "median_ms": 2.923008054494858,
+        "min_ms": 2.9213760085403924,
+        "max_ms": 2.9247360341250896,
+        "median_per_kernel_us": 487.1680090824763
+      },
+      "mem": {
+        "peak_live_bytes": 4194304,
+        "total_allocated_bytes": 4194304,
+        "n_allocs": 1,
+        "live_at_end_bytes": 4194006,
+        "oom": null
+      },
+      "obs_bytes": 3145728,
+      "obs_shape": [
+        1024,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 79.53749149399994
+    },
+    {
+      "batch": 2048,
+      "variant": "naive",
+      "realized": true,
+      "error": null,
+      "label": "naive_b2048",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 11,
+        "median_ms": 17.192416249774396,
+        "min_ms": 17.163840217515826,
+        "max_ms": 17.206559256650507,
+        "median_per_kernel_us": 1562.9469317976725
+      },
+      "mem": {
+        "peak_live_bytes": 81793024,
+        "total_allocated_bytes": 81793024,
+        "n_allocs": 11,
+        "live_at_end_bytes": 73404118,
+        "oom": null
+      },
+      "obs_bytes": 6291456,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 189.697759968,
+      "dda": {
+        "mean": 16.540390014648438,
+        "min": 3,
+        "max": 32,
+        "p50": 9.0,
+        "at_cap_frac": 0.4188046455383301,
+        "first_voxel_frac": 0.0
+      },
+      "gate": {
+        "pass": true,
+        "failures": []
+      },
+      "obs_sha256": "adca1bedc23df16d439ec795f1088b3125cfe7f271bf46ddce8765715cba1c1f"
+    },
+    {
+      "batch": 2048,
+      "variant": "lean",
+      "realized": true,
+      "error": null,
+      "label": "lean_b2048",
+      "mem_after_inputs": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": 0,
+        "oom": null
+      },
+      "device_time": {
+        "n_kernels": 6,
+        "median_ms": 5.539776025339961,
+        "min_ms": 5.534656088799238,
+        "max_ms": 5.5440321713686,
+        "median_per_kernel_us": 923.2960042233268
+      },
+      "mem": {
+        "peak_live_bytes": 0,
+        "total_allocated_bytes": 0,
+        "n_allocs": 0,
+        "live_at_end_bytes": -298,
+        "oom": null
+      },
+      "obs_bytes": 6291456,
+      "obs_shape": [
+        2048,
+        32,
+        32,
+        3
+      ],
+      "obs_dtype": "dtypes.uchar",
+      "build_seconds": 79.62431968500005,
+      "dda": {
+        "mean": 16.540390014648438,
+        "min": 3,
+        "max": 32,
+        "p50": 9.0,
+        "at_cap_frac": 0.4188046455383301,
+        "first_voxel_frac": 0.0
+      },
+      "gate": {
+        "pass": true,
+        "failures": []
+      },
+      "obs_sha256": "adca1bedc23df16d439ec795f1088b3125cfe7f271bf46ddce8765715cba1c1f"
+    }
+  ],
+  "finished": 1790667719.9355779
+}

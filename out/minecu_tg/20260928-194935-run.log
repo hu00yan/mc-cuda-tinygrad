@@ -1,0 +1,232 @@
+=== minecu_tg: verify the tensor render on this host (CPU, no GPU) ===
+==============================================================================
+  minecu_tg verification -- the tensor render against a float64 transcription
+  DEV=CPU  tinygrad from the venv, CPU backend
+==============================================================================
+
+1. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+6. the worldgen floor and the physics floor
+  [PASS] world 16: ground 4 == world/4 4  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 32: ground 8 == world/4 8  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 48: ground 12 == world/4 12  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 16.861 vs 16.861)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 13.766 vs 13.766)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 32^3 ground 8 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 48^3 ground 12 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  3 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 16 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 9.971 vs 9.971)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. The tensor render is verified against an independent
+  float64 transcription of the same algorithm, and the step counts
+  agree pixel for pixel on the tie-insensitive parts.
+  verification passed
+
+=== assemble the notebook ===
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/minecu_tg_t4.ipynb  (449395 B)
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/kernel-metadata.json
+    15 payloads, 423820 b64 bytes
+    batches [512, 1024, 2048, 4096, 8192, 16384, 32768], dump batch 4096, iters 20
+    kernel id tenghuzhang/mc-minecu-tg-t4  title 'mc minecu tg t4'
+  notebook valid: 3 cells, 444544 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+
+=== pre-flight: the exact nvcc commands the notebook runs, for sm_75 ===
+  pre-flight passed: both binaries build and link for sm_75
+
+=== auth ===
+credentials present
+
+=== push tenghuzhang/mc-minecu-tg-t4 (session cap 35m) ===
+Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-tg-t4
+
+=== wait (queue up to 120m, session cap 35m) ===
+  [19:58:32] RUNNING
+  [19:59:09] ERROR
+
+=== kernel log (this is where the traceback is) ===
+  ,{"stream_name":"stdout","time":15.405212601,"data":"                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+  ,{"stream_name":"stdout","time":15.405215334,"data":"  File \"/usr/lib/python3.12/inspect.py\", line 1769, in getinnerframes\n"}
+  ,{"stream_name":"stdout","time":15.405218043,"data":"    traceback_info = getframeinfo(tb, context)\n"}
+  ,{"stream_name":"stdout","time":15.405252862,"data":"                     ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+  ,{"stream_name":"stdout","time":15.405262486,"data":"  File \"/usr/lib/python3.12/inspect.py\", line 1701, in getframeinfo\n"}
+  ,{"stream_name":"stdout","time":15.405266845,"data":"    lineno = frame.f_lineno\n"}
+  ,{"stream_name":"stdout","time":15.405270636000001,"data":"             ^^^^^^^^^^^^^^\n"}
+  ,{"stream_name":"stdout","time":15.405274401,"data":"AttributeError: 'tuple' object has no attribute 'f_lineno'\n"}
+  ,{"stream_name":"stderr","time":15.849030809,"data":"Traceback (most recent call last):\n"}
+  ,{"stream_name":"stderr","time":15.849063792,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+  ,{"stream_name":"stderr","time":15.849069945,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+  ,{"stream_name":"stderr","time":15.849262613,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+  ,{"stream_name":"stderr","time":15.849327029,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+  ,{"stream_name":"stderr","time":15.849531994,"data":"    raise error\n"}
+  ,{"stream_name":"stderr","time":15.850143488,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+  ,{"stream_name":"stderr","time":15.850156019,"data":"---------------------------------------------------------------------------\n"}
+  ,{"stream_name":"stderr","time":15.85016085,"data":"Exception encountered at \"In [1]\":\n"}
+  ,{"stream_name":"stderr","time":15.850165433,"data":"---------------------------------------------------------------------------\n"}
+  ,{"stream_name":"stderr","time":15.850175418,"data":"ModuleNotFoundError                       Traceback (most recent call last)\n"}
+  ,{"stream_name":"stderr","time":15.850178469,"data":"/tmp/ipykernel_23/2228259375.py in \u003ccell line: 0\u003e()\n"}
+  ,{"stream_name":"stderr","time":15.850181769,"data":"     52     import importlib\n"}
+  ,{"stream_name":"stderr","time":15.850184678,"data":"---\u003e 53     m = importlib.import_module(\"minecu_tg.render\")\n"}
+  ,{"stream_name":"stderr","time":15.850187969,"data":"     54     say(f\"  import minecu_tg.render OK, from {m.__file__}\")\n"}
+  ,{"stream_name":"stderr","time":15.850190898,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850193472,"data":"/usr/lib/python3.12/importlib/__init__.py in import_module(name, package)\n"}
+  ,{"stream_name":"stderr","time":15.850196236,"data":"     89             level += 1\n"}
+  ,{"stream_name":"stderr","time":15.850198981,"data":"---\u003e 90     return _bootstrap._gcd_import(name[level:], package, level)\n"}
+  ,{"stream_name":"stderr","time":15.850201805,"data":"     91 \n"}
+  ,{"stream_name":"stderr","time":15.850204442,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850207104,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _gcd_import(name, package, level)\n"}
+  ,{"stream_name":"stderr","time":15.850209926,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850212457,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _find_and_load(name, import_)\n"}
+  ,{"stream_name":"stderr","time":15.850215332,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850217896,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _find_and_load_unlocked(name, import_)\n"}
+  ,{"stream_name":"stderr","time":15.850251825,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850266069,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _call_with_frames_removed(f, *args, **kwds)\n"}
+  ,{"stream_name":"stderr","time":15.850271142,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850275922,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _gcd_import(name, package, level)\n"}
+  ,{"stream_name":"stderr","time":15.850280614999999,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850285241,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _find_and_load(name, import_)\n"}
+  ,{"stream_name":"stderr","time":15.850290176,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.85029451,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _find_and_load_unlocked(name, import_)\n"}
+  ,{"stream_name":"stderr","time":15.850308663,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.85031312,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _load_unlocked(spec)\n"}
+  ,{"stream_name":"stderr","time":15.850316714,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.85032126,"data":"/usr/lib/python3.12/importlib/_bootstrap_external.py in exec_module(self, module)\n"}
+  ,{"stream_name":"stderr","time":15.850325672,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850330359,"data":"/usr/lib/python3.12/importlib/_bootstrap.py in _call_with_frames_removed(f, *args, **kwds)\n"}
+  ,{"stream_name":"stderr","time":15.850334862,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850339854,"data":"/kaggle/working/minecu_tg/__init__.py in \u003cmodule\u003e\n"}
+  ,{"stream_name":"stderr","time":15.850343843,"data":"     29 \n"}
+  ,{"stream_name":"stderr","time":15.850348473,"data":"---\u003e 30 from .render import camera_basis\n"}
+  ,{"stream_name":"stderr","time":15.850358012000001,"data":"     31 from .render import render as render_obs\n"}
+  ,{"stream_name":"stderr","time":15.850363358,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850367236,"data":"/kaggle/working/minecu_tg/render.py in \u003cmodule\u003e\n"}
+  ,{"stream_name":"stderr","time":15.850372572,"data":"     56 \n"}
+  ,{"stream_name":"stderr","time":15.850377121,"data":"---\u003e 57 from tinygrad import Tensor, dtypes\n"}
+  ,{"stream_name":"stderr","time":15.850382706,"data":"     58 \n"}
+  ,{"stream_name":"stderr","time":15.850388166,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850391881,"data":"ModuleNotFoundError: No module named 'tinygrad'\n"}
+  ,{"stream_name":"stderr","time":15.850396058,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850400109,"data":"During handling of the above exception, another exception occurred:\n"}
+  ,{"stream_name":"stderr","time":15.850404561,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850409501,"data":"SystemExit                                Traceback (most recent call last)\n"}
+  ,{"stream_name":"stderr","time":15.850413898,"data":"    [... skipping hidden 1 frame]\n"}
+  ,{"stream_name":"stderr","time":15.850418474,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850424674,"data":"/tmp/ipykernel_23/2228259375.py in \u003ccell line: 0\u003e()\n"}
+  ,{"stream_name":"stderr","time":15.850428818,"data":"     55 except Exception as e:\n"}
+  ,{"stream_name":"stderr","time":15.850434715,"data":"---\u003e 56     die(11, f\"the minecu_tg package did not import from {OUT}: {e}\")\n"}
+  ,{"stream_name":"stderr","time":15.850439422000001,"data":"     57 \n"}
+  ,{"stream_name":"stderr","time":15.850444452,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850448507,"data":"/tmp/ipykernel_23/2228259375.py in die(code, why)\n"}
+  ,{"stream_name":"stderr","time":15.850452921,"data":"     21     open(f\"{OUT}/SUMMARY.txt\", \"w\").write(\"\\n\".join(lines) + f\"\\nFATAL {why}\\n\")\n"}
+  ,{"stream_name":"stderr","time":15.850459462,"data":"---\u003e 22     sys.exit(code)\n"}
+  ,{"stream_name":"stderr","time":15.850463883,"data":"     23 \n"}
+  ,{"stream_name":"stderr","time":15.850468463,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850473189,"data":"SystemExit: 11\n"}
+  ,{"stream_name":"stderr","time":15.850477949,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850482687,"data":"During handling of the above exception, another exception occurred:\n"}
+  ,{"stream_name":"stderr","time":15.850488479,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850493823,"data":"TypeError                                 Traceback (most recent call last)\n"}
+  ,{"stream_name":"stderr","time":15.850503776,"data":"    [... skipping hidden 1 frame]\n"}
+  ,{"stream_name":"stderr","time":15.850509161,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850512634,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py in showtraceback(self, exc_tuple, filename, tb_offset, exception_only, running_compiled_code)\n"}
+  ,{"stream_name":"stderr","time":15.850517576,"data":"   2090                     stb = ['An exception has occurred, use %tb to see '\n"}
+  ,{"stream_name":"stderr","time":15.850521997,"data":"   2091                            'the full traceback.\\n']\n"}
+  ,{"stream_name":"stderr","time":15.85052656,"data":"-\u003e 2092                     stb.extend(self.InteractiveTB.get_exception_only(etype,\n"}
+  ,{"stream_name":"stderr","time":15.850531798,"data":"   2093                                                                      value))\n"}
+  ,{"stream_name":"stderr","time":15.850536162000001,"data":"   2094                 else:\n"}
+  ,{"stream_name":"stderr","time":15.850540478,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850544578000001,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in get_exception_only(self, etype, value)\n"}
+  ,{"stream_name":"stderr","time":15.850590264000001,"data":"    752         value : exception value\n"}
+  ,{"stream_name":"stderr","time":15.850596185,"data":"    753         \"\"\"\n"}
+  ,{"stream_name":"stderr","time":15.850601421,"data":"--\u003e 754         return ListTB.structured_traceback(self, etype, value)\n"}
+  ,{"stream_name":"stderr","time":15.850606149,"data":"    755 \n"}
+  ,{"stream_name":"stderr","time":15.850610932,"data":"    756     def show_exception_only(self, etype, evalue):\n"}
+  ,{"stream_name":"stderr","time":15.850615741,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850620578000001,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in structured_traceback(self, etype, evalue, etb, tb_offset, context)\n"}
+  ,{"stream_name":"stderr","time":15.850625321,"data":"    627             chained_exceptions_tb_offset = 0\n"}
+  ,{"stream_name":"stderr","time":15.850629708,"data":"    628             out_list = (\n"}
+  ,{"stream_name":"stderr","time":15.850634415,"data":"--\u003e 629                 self.structured_traceback(\n"}
+  ,{"stream_name":"stderr","time":15.850639298,"data":"    630                     etype, evalue, (etb, chained_exc_ids),\n"}
+  ,{"stream_name":"stderr","time":15.850644091,"data":"    631                     chained_exceptions_tb_offset, context)\n"}
+  ,{"stream_name":"stderr","time":15.850648055,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850652155,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in structured_traceback(self, etype, value, tb, tb_offset, number_of_lines_of_context)\n"}
+  ,{"stream_name":"stderr","time":15.85065643,"data":"   1365         else:\n"}
+  ,{"stream_name":"stderr","time":15.850660144999999,"data":"   1366             self.tb = tb\n"}
+  ,{"stream_name":"stderr","time":15.850663947,"data":"-\u003e 1367         return FormattedTB.structured_traceback(\n"}
+  ,{"stream_name":"stderr","time":15.850669483,"data":"   1368             self, etype, value, tb, tb_offset, number_of_lines_of_context)\n"}
+  ,{"stream_name":"stderr","time":15.850675843,"data":"   1369 \n"}
+  ,{"stream_name":"stderr","time":15.850679804,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850685795,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in structured_traceback(self, etype, value, tb, tb_offset, number_of_lines_of_context)\n"}
+  ,{"stream_name":"stderr","time":15.850690124,"data":"   1265         if mode in self.verbose_modes:\n"}
+  ,{"stream_name":"stderr","time":15.850700353,"data":"   1266             # Verbose modes need a full traceback\n"}
+  ,{"stream_name":"stderr","time":15.85070453,"data":"-\u003e 1267             return VerboseTB.structured_traceback(\n"}
+  ,{"stream_name":"stderr","time":15.850708639,"data":"   1268                 self, etype, value, tb, tb_offset, number_of_lines_of_context\n"}
+  ,{"stream_name":"stderr","time":15.850712713,"data":"   1269             )\n"}
+  ,{"stream_name":"stderr","time":15.850716548,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850720396,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in structured_traceback(self, etype, evalue, etb, tb_offset, number_of_lines_of_context)\n"}
+  ,{"stream_name":"stderr","time":15.850724716,"data":"   1122         \"\"\"Return a nice text document describing the traceback.\"\"\"\n"}
+  ,{"stream_name":"stderr","time":15.850728974999999,"data":"   1123 \n"}
+  ,{"stream_name":"stderr","time":15.850732883,"data":"-\u003e 1124         formatted_exception = self.format_exception_as_a_whole(etype, evalue, etb, number_of_lines_of_context,\n"}
+  ,{"stream_name":"stderr","time":15.850737137,"data":"   1125                                                                tb_offset)\n"}
+  ,{"stream_name":"stderr","time":15.850741371,"data":"   1126 \n"}
+  ,{"stream_name":"stderr","time":15.850751401,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850754925,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in format_exception_as_a_whole(self, etype, evalue, etb, number_of_lines_of_context, tb_offset)\n"}
+  ,{"stream_name":"stderr","time":15.850757889,"data":"   1080 \n"}
+  ,{"stream_name":"stderr","time":15.850760496,"data":"   1081 \n"}
+  ,{"stream_name":"stderr","time":15.850763078,"data":"-\u003e 1082         last_unique, recursion_repeat = find_recursion(orig_etype, evalue, records)\n"}
+  ,{"stream_name":"stderr","time":15.850771223,"data":"   1083 \n"}
+  ,{"stream_name":"stderr","time":15.850773828,"data":"   1084         frames = self.format_records(records, last_unique, recursion_repeat)\n"}
+  ,{"stream_name":"stderr","time":15.850776618,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850779683,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/ultratb.py in find_recursion(etype, value, records)\n"}
+  ,{"stream_name":"stderr","time":15.850782511,"data":"    380     # first frame (from in to out) that looks different.\n"}
+  ,{"stream_name":"stderr","time":15.850785244,"data":"    381     if not is_recursion_error(etype, value, records):\n"}
+  ,{"stream_name":"stderr","time":15.850787967,"data":"--\u003e 382         return len(records), 0\n"}
+  ,{"stream_name":"stderr","time":15.850790678,"data":"    383 \n"}
+  ,{"stream_name":"stderr","time":15.850793302,"data":"    384     # Select filename, lineno, func_name to track frames with\n"}
+  ,{"stream_name":"stderr","time":15.850796067,"data":"\n"}
+  ,{"stream_name":"stderr","time":15.850799245,"data":"TypeError: object of type 'NoneType' has no len()\n"}
+  ,{"stream_name":"stderr","time":15.850803304,"data":"\n"}
+  ,{"stream_name":"stderr","time":18.743725165,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+  ,{"stream_name":"stderr","time":18.743765887,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+  ,{"stream_name":"stderr","time":18.972046648,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+  ,{"stream_name":"stderr","time":18.972076885,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+  ,{"stream_name":"stderr","time":19.749958136,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+  ,{"stream_name":"stderr","time":20.125653875,"data":"[NbConvertApp] Writing 471715 bytes to __notebook__.ipynb\n"}
+  ,{"stream_name":"stderr","time":23.138134104,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+  ,{"stream_name":"stderr","time":24.239083315,"data":"[NbConvertApp] Writing 828757 bytes to __results__.html\n"}
+  ]
+run did not complete: ERROR

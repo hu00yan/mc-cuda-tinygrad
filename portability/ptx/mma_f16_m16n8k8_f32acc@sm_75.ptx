@@ -1,0 +1,14 @@
+.version 7.0
+.target sm_75
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<16>;
+  .reg .f32 %f<16>;
+  mov.b32 %r1, 0;
+  mma.sync.aligned.m16n8k8.row.col.f32.f16.f16.f32
+    {%f1, %f2, %f3, %f4}, {%r2, %r3}, {%r4}, {%f1, %f2, %f3, %f4};
+  ret;
+}

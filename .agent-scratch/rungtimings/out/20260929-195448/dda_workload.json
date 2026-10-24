@@ -1,0 +1,52 @@
+{
+ "naive": {
+  "mean": 27.334025382995605,
+  "min": 1,
+  "max": 32,
+  "p50": 32.0,
+  "at_cap_frac": 0.8284730911254883,
+  "first_voxel_frac": 0.05859375,
+  "gate_pass": true,
+  "gate_failures": []
+ },
+ "int_cursor": {
+  "mean": 27.334025382995605,
+  "min": 1,
+  "max": 32,
+  "p50": 32.0,
+  "at_cap_frac": 0.8284730911254883,
+  "first_voxel_frac": 0.05859375,
+  "gate_pass": true,
+  "gate_failures": []
+ },
+ "flat_gather": {
+  "mean": 27.334025382995605,
+  "min": 1,
+  "max": 32,
+  "p50": 32.0,
+  "at_cap_frac": 0.8284730911254883,
+  "first_voxel_frac": 0.05859375,
+  "gate_pass": true,
+  "gate_failures": []
+ },
+ "incremental": {
+  "mean": 27.334025382995605,
+  "min": 1,
+  "max": 32,
+  "p50": 32.0,
+  "at_cap_frac": 0.8284730911254883,
+  "first_voxel_frac": 0.05859375,
+  "gate_pass": true,
+  "gate_failures": []
+ },
+ "lean": {
+  "mean": 27.334025382995605,
+  "min": 1,
+  "max": 32,
+  "p50": 32.0,
+  "at_cap_frac": 0.8284730911254883,
+  "first_voxel_frac": 0.05859375,
+  "gate_pass": true,
+  "gate_failures": []
+ }
+}

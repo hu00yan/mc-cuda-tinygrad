@@ -1,0 +1,22 @@
+$ /usr/bin/python3 probes/gather_floor.py
+# cwd .
+
+Gathering 64 elements out of a source of growing size.
+If cost tracks source size, the gather has an O(source) floor.
+
+      source   src MB        us   GB/s over src  reduces
+      65,536      0.3      53.7             4.9        1
+     262,144      1.0      56.2            18.7        1
+   1,048,576      4.2     111.0            37.8        1
+   1,328,176      5.3      60.3            88.1        1
+   4,194,304     16.8      52.8           317.9        1
+  16,777,216     67.1     338.9           198.0        2
+
+For contrast, many elements from a small source (the case a
+compiler is designed for):
+
+      source        out        us  reduces
+      16,384      4,096      32.9        0
+      16,384     65,536      37.8        0
+      16,384  1,048,576      83.7        0
+

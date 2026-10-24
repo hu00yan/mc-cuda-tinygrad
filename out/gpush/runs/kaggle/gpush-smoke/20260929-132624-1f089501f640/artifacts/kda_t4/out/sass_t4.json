@@ -1,0 +1,26 @@
+{
+  "artifacts": [
+    "sass/real_cache.cubin",
+    "sass/real_cache.ptx",
+    "sass/aot_kernel.py"
+  ],
+  "note": "",
+  "real_call": {
+    "B": 1,
+    "T": 256,
+    "H": 2,
+    "HV": 2,
+    "K": 128,
+    "V": 128,
+    "dtype": "bfloat16"
+  },
+  "failures": [
+    "A: AttributeError: 'dict' object has no attribute 'most_common'"
+  ],
+  "aot_source": {
+    "path": "/usr/local/lib/python3.12/dist-packages/fla/ops/common/chunk_delta_h.py",
+    "sha256": "ff461bcc40e9cd0b2ca24af9ae9c3c6d99b2deae047c3737687c93b3fcd6ea57",
+    "lines": 794
+  },
+  "aot_error": "NameError: name 'fla_cache_autotune' is not defined"
+}

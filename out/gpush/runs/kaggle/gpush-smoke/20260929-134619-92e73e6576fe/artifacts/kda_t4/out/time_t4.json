@@ -1,0 +1,216 @@
+{
+  "rows": [
+    {
+      "shape": {
+        "B": 1,
+        "T": 512,
+        "H": 4,
+        "HV": 4,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T512_H4_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 2.1428160667419434,
+          "min": 2.1162240505218506,
+          "max": 2.2555201053619385,
+          "iters": 10,
+          "warmup": 3
+        }
+      },
+      "errors": {
+        "tiny_kda (naive)": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_opt": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_faithful": "AttributeError: 'DType' object has no attribute 'np'"
+      },
+      "fla_absmax": 0.0791015625,
+      "fla_finite": true
+    },
+    {
+      "shape": {
+        "B": 1,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 4.601856231689453,
+          "min": 4.562431812286377,
+          "max": 5.258495807647705,
+          "iters": 10,
+          "warmup": 3
+        }
+      },
+      "errors": {
+        "tiny_kda (naive)": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_opt": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_faithful": "AttributeError: 'DType' object has no attribute 'np'"
+      },
+      "fla_absmax": 0.0771484375,
+      "fla_finite": true
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 8.927040100097656,
+          "min": 8.874752044677734,
+          "max": 8.959967613220215,
+          "iters": 10,
+          "warmup": 3
+        }
+      },
+      "errors": {
+        "tiny_kda (naive)": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_opt": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_faithful": "AttributeError: 'DType' object has no attribute 'np'"
+      },
+      "fla_absmax": 0.08544921875,
+      "fla_finite": true
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 2048,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T2048_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 19.27881622314453,
+          "min": 18.20732879638672,
+          "max": 19.499040603637695,
+          "iters": 10,
+          "warmup": 3
+        }
+      },
+      "errors": {
+        "tiny_kda (naive)": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_opt": "AttributeError: 'DType' object has no attribute 'np'",
+        "tiny_kda_faithful": "AttributeError: 'DType' object has no attribute 'np'"
+      },
+      "fla_absmax": 0.0751953125,
+      "fla_finite": true
+    }
+  ],
+  "agreement": [],
+  "scope": {
+    "label": "fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best",
+    "short": "fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]",
+    "selected": [
+      {
+        "key": "(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')",
+        "kwargs": {
+          "BV": "32"
+        },
+        "num_warps": 4,
+        "num_stages": 1
+      }
+    ],
+    "distinct": {
+      "BV": [
+        32
+      ],
+      "num_stages": [
+        1,
+        2
+      ],
+      "num_warps": [
+        2,
+        4
+      ]
+    },
+    "model_vs_observed": {
+      "model_BV": [
+        32
+      ],
+      "model_num_stages": [
+        2,
+        1
+      ],
+      "observed_BV": [
+        32
+      ],
+      "observed_num_stages": [
+        1,
+        2
+      ],
+      "observed_num_warps": [
+        2,
+        4
+      ],
+      "agree": true
+    },
+    "fwd_finite": true,
+    "optin": [
+      49152,
+      65536
+    ],
+    "n_configs": 4
+  },
+  "ports_present": [
+    "tiny_kda (naive)",
+    "tiny_kda_opt",
+    "tiny_kda_faithful"
+  ],
+  "ports_missing": [],
+  "iters": 10,
+  "ladder": [
+    [
+      1,
+      512,
+      4,
+      4,
+      128,
+      128,
+      64
+    ],
+    [
+      1,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      2048,
+      8,
+      8,
+      128,
+      128,
+      64
+    ]
+  ]
+}

@@ -1,0 +1,186 @@
+
+============================================================================
+kda_t4 GATE -- the config collapse, observed on this card
+============================================================================
+
+============================================================================
+1. the gate itself, called
+============================================================================
+  fla/utils/_device.py, read live
+    IS_TF32_SUPPORTED          False
+    IS_GATHER_SUPPORTED        True
+    IS_TMA_SUPPORTED           False
+    IS_NVIDIA                  True
+    IS_NVIDIA_HOPPER           False
+    IS_NVIDIA_BLACKWELL        False
+
+  Backend enum, from the installed class
+    ADA         101,376
+    AMPERE      166,912
+    HOPPER      232,448
+    DEFAULT     102,400
+
+  get_shared_memory(tag) -> the threshold each tag actually asks for
+    none       102400
+    hopper     232448
+    ampere     166912
+    ada        101376
+    DEFAULT    102400
+    nonsense   102400
+
+  check_shared_mem(...), CALLED  (not inferred)
+    check_shared_mem('none', 0) = False
+    check_shared_mem('ada', 0) = False
+    check_shared_mem('ampere', 0) = False
+    check_shared_mem('hopper', 0) = False
+
+  NOTE the difference between these two lines, because it is the whole
+  point of this file:
+      a False here is a list-comprehension condition inside an
+      autotune config list (chunk_delta_h.py:40-48). It is not a raise,
+      not an exception, not a skip. fla keeps going over a shorter list.
+
+============================================================================
+2. max_shared_mem, read four ways
+============================================================================
+  fla   get_all_max_shared_mem()        [65536, 65536]
+  triton get_device_properties(0)       65,536   keys=['max_num_regs', 'max_shared_mem', 'mem_bus_width', 'mem_clock_rate', 'multiprocessor_count', 'sm_clock_rate', 'warpSize']
+  triton get_device_properties(1)       65,536   keys=['max_num_regs', 'max_shared_mem', 'mem_bus_width', 'mem_clock_rate', 'multiprocessor_count', 'sm_clock_rate', 'warpSize']
+  torch  shared_memory_per_block[0]      49,152
+  torch  shared_memory_per_block_optin[0] 65,536
+  torch  shared_memory_per_multiprocessor[0] 65,536
+  torch  shared_memory_per_block[1]      49,152
+  torch  shared_memory_per_block_optin[1] 65,536
+  torch  shared_memory_per_multiprocessor[1] 65,536
+  ctypes cudaDeviceGetAttribute(97, 0)   65,536
+  ctypes cudaDeviceGetAttribute(97, 1)   65,536
+
+  distinct optin values seen: [49152, 65536]
+  the gate asks for >= 166,912 (ampere) and >= 101,376 (ada) and >= 102,400 (default)
+
+============================================================================
+3. what the T4's silicon can do with a tl.dot -- asked of the compiler
+============================================================================
+  compute capability: 7.5  ->  sm_75
+  ptxas: /usr/local/cuda/bin/ptxas
+  Build cuda_12.8.r12.8/compiler.35583870_0
+
+  (a hand-written PTX mma.sync probe is deliberately NOT used here;
+   a malformed operand list is refused for a syntax reason that reads
+   like an arch refusal, and the Triton probe in section 6 answers
+   the same question from the same ptxas with none of that risk.)
+
+  the same 32x32x32 tl.dot, AOT-compiled per arch, PTX read for MMA:
+  (this is a COMPILATION result per arch. Only the sm_75 row was
+   executed; the others are what the compiler emits, nothing more.)
+
+    TRITON_F32_DEFAULT = 'ieee'   <- what fla forces on this card
+    cc    mma.sync   mma(any)   wgmma  tcgen05   fma.rn.f32   cvt->tf32
+    75           0          0       0        0          256            0
+    80           0          0       0        0          256            0
+    86           0          0       0        0          256            0
+    89           0          0       0        0          256            0
+    90           0          0       0        0          256            0
+    100          0          0       0        0          256            0
+
+    TRITON_F32_DEFAULT = 'tf32'   <- what an sm_80+ card resolves to
+    cc    mma.sync   mma(any)   wgmma  tcgen05   fma.rn.f32   cvt->tf32
+    75           0          0       0        0          256            0
+    80           8          8       0        0            0            0
+    86           8          8       0        0            0            0
+    89           8          8       0        0            0            0
+    90           8          8       0        0            0            0
+    100          8          8       0        0            0            0
+
+    sm_75 + ieee : 0 mma.sync, 256 fma.rn.f32
+    sm_80 + ieee : 0 mma.sync, 256 fma.rn.f32
+    sm_80 + tf32 : 8 mma.sync, 0 fma.rn.f32
+
+    Reading.  The silicon at sm_80 can take a tf32 MMA path; the
+    silicon at sm_75 cannot, and fla additionally switches the
+    whole PROCESS off it by writing TRITON_F32_DEFAULT='ieee' at
+    import.  On this card the two gates fail independently and in
+    the same direction, which is why every dot becomes fma.rn.f32
+    and no MMA instruction is emitted anywhere -- section 6 shows
+    that in the artifact of a real launch, and section A of
+    sass_t4 shows it in 46 real cubins.
+
+============================================================================
+4. the kernel that actually runs, and the config list it was given
+============================================================================
+  decorator chain, outermost first: Heuristics -> CachedAutotuner
+  autotuner found: True
+  module-level: NUM_WARPS = [2, 4, 8, 16]
+  module-level: GATED_DELTA_RULE_FWD_H_NUM_WARPS = [2, 4]
+  THE CONFIG SPACE, live: 4 configs
+    BV=32   num_warps=2   num_stages=2
+    BV=32   num_warps=2   num_stages=1
+    BV=32   num_warps=4   num_stages=2
+    BV=32   num_warps=4   num_stages=1
+
+  distinct BV        [32]
+  distinct num_stages[1, 2]
+  distinct num_warps [2, 4]
+
+  the model says, from the gate return values:
+    num_stages [2, 1]      (check_shared_mem('ampere') = False)
+    BV         [32]         (check_shared_mem('ada')    = False)
+
+  MODEL vs OBSERVED: AGREE
+
+============================================================================
+5. one real forward, then the config autotune actually picked
+============================================================================
+  calling fla.ops.kda.chunk_kda  B=1 T=128 H=2 HV=2 K=128 V=128 dtype=torch.bfloat16  grad off
+  inputs: the STUDY's own generator (kda/kda_vs_fla.py:296 `rnd`), with
+  q,k L2-normalised. Raw Gaussians make the delta-rule matrix
+  (I - beta k k^T) have eigenvalues near 1 - K*beta and the state
+  diverges; that is a property of the generator, not of fla.
+  dtype: torch.bfloat16 is the only option. The FlashKDA verifier requires bf16
+  (flash_kda.py:64-88) and the study's call shape is bf16
+  (kda/baseline_pin.py:392). fp16 would be a different payload type
+  with a different numerics story, not a free substitute.
+  returned o: shape=(1, 128, 2, 128) dtype=torch.bfloat16 finite=True  absmax=6.1523e-02
+
+  Autotuner.cache has 1 entries after ONE call:
+    key=(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')
+      -> BV=32 num_warps=4 num_stages=1  (from a space of 4)
+
+  the config space was the SHORTENED one, and autotune picked out of
+  exactly that short list. There was no refusal anywhere in this run.
+
+============================================================================
+6. dot precision, read out of a compiled artifact
+============================================================================
+  A 32x32x32 tl.dot with no explicit input_precision, compiled here on
+  this card, and the PTX searched for mma.sync vs fma.rn.f32.
+  This is not a read of a variable; it is a read of the code ptxas was
+  handed.  If fla had left TRITON_F32_DEFAULT alone, this would emit
+  mma.sync with tf32 operands.  If it wrote 'ieee', it emits fma.rn.f32.
+
+  DOT_PROBE {"ptx_mma_sync": 0, "ptx_mma": 0, "ptx_fma_rn_f32": 256, "ptx_cvt_tf32": 0, "ptx_target": [".version 8.7", ".target sm_75"], "ptx_sha256": "812d797c1b9dacb8279cf8c61648e293359d9c51829632cea111c974e2d44e07", "cubin_sha256": "1d90e8ec2d8ed8310b035e7ee31a75b0580fcc35b9bc60b68c4c42298c26fa14", "n_regs": 59, "n_spills": 0, "env_TRITON_F32_DEFAULT": "ieee", "triton_knob_fp32_default": "'ieee'"}
+
+  and the knob itself, after fla was imported by that subprocess:
+    os.environ['TRITON_F32_DEFAULT']          ieee
+    triton.knobs.language.fp32_default         'ieee'
+    fla IS_TF32_SUPPORTED                     False
+    is 'ieee' set by fla, or was it already there when fla loaded?
+    BEFORE fla import: None
+    AFTER  fla import: 'ieee'
+    triton knob        : 'ieee'
+
+  SOLVE_TRIL_DOT_PRECISION, the one dot fla pins explicitly:
+    constexpr[ieee]
+
+============================================================================
+7. THE SCOPE LABEL, assembled from what was observed above
+============================================================================
+
+  fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best
+
+  short form, for a table cell:
+  fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]
+
+  NOT a claim about fla.  The same code on a card with >= 166,912 B
+  optin shared memory and cc major >= 8 gets num_stages=[2,3,4],
+  BV=[32,64] and tf32 dots.  Nothing here measures that.

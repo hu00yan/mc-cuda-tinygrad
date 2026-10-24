@@ -1,0 +1,109 @@
+=== minecu_tg_opt: verify both ports on this host (CPU, no GPU) ===
+  SKIPPED (--no-verify). The notebook runs minecu_tg_opt/verify_opt.py on
+  the card as well, so a real push is still gated; this only skips the
+  ~17 min of local CPU.
+
+=== assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/minecu_tgopt_t4.ipynb  (612667 B)
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/kernel-metadata.json
+  22 payloads, 590156 b64 bytes
+  batches [256, 512, 1024, 2048, 4096], variants naive,lean, iters 8
+  kernel id tenghuzhang/mc-minecu-tgopt-t4  title 'mc minecu tgopt t4'
+  notebook valid: 3 cells, 608501 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+
+=== pre-flight: the exact nvcc commands the notebook runs, for sm_75 ===
+  pre-flight passed: both binaries build and link for sm_75
+
+=== auth ===
+credentials present
+
+=== push tenghuzhang/mc-minecu-tgopt-t4 (session cap 30m) ===
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-tgopt-t4
+
+=== wait (queue up to 120m, session cap 30m) ===
+  [13:26:23] RUNNING
+  [13:26:56] ERROR
+
+=== kernel log (this is where the traceback is) ===
+  [{"stream_name":"stderr","time":6.589383012,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+  ,{"stream_name":"stderr","time":6.58948854,"data":"  validate(nb)\n"}
+  ,{"stream_name":"stderr","time":7.495015641,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+  ,{"stream_name":"stderr","time":7.495050364,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+  ,{"stream_name":"stderr","time":7.495061211,"data":"0.00s - to python to disable frozen modules.\n"}
+  ,{"stream_name":"stderr","time":7.495064443,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+  ,{"stream_name":"stderr","time":8.134978654,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+  ,{"stream_name":"stderr","time":8.135012542,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+  ,{"stream_name":"stderr","time":8.135018079,"data":"0.00s - to python to disable frozen modules.\n"}
+  ,{"stream_name":"stderr","time":8.135024145,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+  ,{"stream_name":"stdout","time":9.555188973,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":9.556292758,"data":"minecu_tg_opt -- a competent TinyGrad port, against the hand-written CUDA\n"}
+  ,{"stream_name":"stdout","time":9.55719122,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":9.558044058,"data":"\n"}
+  ,{"stream_name":"stdout","time":9.559061874,"data":"--- provenance: every payload is hash-checked before anything is built ---\n"}
+  ,{"stream_name":"stdout","time":9.560287888,"data":"  minecu_ref/src/kernels.cu              116131 B  sha256 c6ed8f06ee64d40a  OK\n"}
+  ,{"stream_name":"stdout","time":9.562008508,"data":"  minecu_tg/kaggle/refdrv.cu              16756 B  sha256 d3a0931d642d67bd  OK\n"}
+  ,{"stream_name":"stdout","time":9.563478356,"data":"  minecu_ref/bench/bench.cu               86029 B  sha256 990fdfc069ff8e59  OK\n"}
+  ,{"stream_name":"stdout","time":9.564442867,"data":"  minecu_ref/bench/dda_model.py           19326 B  sha256 f5ff7fe2e15f7d9b  OK\n"}
+  ,{"stream_name":"stdout","time":9.565322386,"data":"  minecu_tg/__init__.py                    1580 B  sha256 6f376400341dd101  OK\n"}
+  ,{"stream_name":"stdout","time":9.5663315,"data":"  minecu_tg/blocks.py                      2109 B  sha256 752ffaea2028475d  OK\n"}
+  ,{"stream_name":"stdout","time":9.567529704,"data":"  minecu_tg/world.py                       6390 B  sha256 6c75c0e1e9cfc105  OK\n"}
+  ,{"stream_name":"stdout","time":9.568476846,"data":"  minecu_tg/render.py                     14184 B  sha256 fe85581f80ed7fdb  OK\n"}
+  ,{"stream_name":"stdout","time":9.569557554,"data":"  minecu_tg/cpu_reference.py               5494 B  sha256 d3d6356552db2be4  OK\n"}
+  ,{"stream_name":"stdout","time":9.570564927,"data":"  minecu_tg/verify.py                     12046 B  sha256 a79e7cdcfbbb10c7  OK\n"}
+  ,{"stream_name":"stdout","time":9.571920443,"data":"  minecu_tg/codegen.py                     9906 B  sha256 f926389a8c3064d1  OK\n"}
+  ,{"stream_name":"stdout","time":9.573462263,"data":"  minecu_tg/bench.py                      10819 B  sha256 7ec6927c711e0eec  OK\n"}
+  ,{"stream_name":"stdout","time":9.574504326,"data":"  minecu_tg/battery.py                    18784 B  sha256 b363a884cfad3735  OK\n"}
+  ,{"stream_name":"stdout","time":9.575314506,"data":"  minecu_tg/sass_matrix.py                 8385 B  sha256 dedf5437ebfbaf0b  OK\n"}
+  ,{"stream_name":"stdout","time":9.576971445,"data":"  tools/archlab/inspect_ptx.py            20018 B  sha256 1db65d800a1f4ac2  OK\n"}
+  ,{"stream_name":"stdout","time":9.577807942,"data":"  minecu_tg_opt/__init__.py                2691 B  sha256 2c8563730347dc15  OK\n"}
+  ,{"stream_name":"stdout","time":9.579135304,"data":"  minecu_tg_opt/render.py                 22362 B  sha256 714bcc5d05c340bc  OK\n"}
+  ,{"stream_name":"stdout","time":9.580305518,"data":"  minecu_tg_opt/verify_opt.py             11237 B  sha256 24029ab0f9e873eb  OK\n"}
+  ,{"stream_name":"stdout","time":9.581586046,"data":"  minecu_tg_opt/capture_opt.py             6946 B  sha256 ceca81a28b4d2ff8  OK\n"}
+  ,{"stream_name":"stdout","time":9.58263288,"data":"  minecu_tg_opt/opcount.py                32968 B  sha256 8ef1624cc880193f  OK\n"}
+  ,{"stream_name":"stdout","time":9.583620479,"data":"  minecu_tg_opt/census_opt.py              5999 B  sha256 9fbbb3ea25c55abf  OK\n"}
+  ,{"stream_name":"stdout","time":9.584748974,"data":"  minecu_tg_opt/battery_opt.py            12433 B  sha256 d5b22c4427b2c87e  OK\n"}
+  ,{"stream_name":"stdout","time":9.585571956999999,"data":"\n"}
+  ,{"stream_name":"stdout","time":9.586335916,"data":"--- tinygrad ---\n"}
+  ,{"stream_name":"stdout","time":17.930484287,"data":"  pip install tinygrad rc=0\n"}
+  ,{"stream_name":"stdout","time":18.016991147,"data":"  tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+  ,{"stream_name":"stdout","time":18.026925985,"data":"  minecu_tg.render      from /kaggle/working/minecu_tg/render.py\n"}
+  ,{"stream_name":"stdout","time":18.027921942,"data":"  minecu_tg_opt.render  from /kaggle/working/minecu_tg_opt/render.py\n"}
+  ,{"stream_name":"stdout","time":18.028828412,"data":"\n"}
+  ,{"stream_name":"stdout","time":18.029596391,"data":"--- the correctness gates, on this card, before anything is timed ---\n"}
+  ,{"stream_name":"stdout","time":20.019274292,"data":"  [naive port   ]   minecu_tg verification -- the tensor render against a float64 transcription\n"}
+  ,{"stream_name":"stdout","time":20.020276303,"data":"  [naive port   ]   DEV=CPU  tinygrad from the venv, CPU backend\n"}
+  ,{"stream_name":"stdout","time":20.021266289,"data":"  [naive port   ] ==============================================================================\n"}
+  ,{"stream_name":"stdout","time":20.022399838,"data":"  [naive port   ] 1. the world, against minecu_ref/bench/dda_model.py\n"}
+  ,{"stream_name":"stdout","time":20.023293138,"data":"\n"}
+  ,{"stream_name":"stdout","time":20.024219256,"data":"FATAL: minecu_tg/verify.py failed rc=1. A timing from an unverified implementation is a measurement of the wrong thing.\n"}
+  ,{"stream_name":"stderr","time":20.028285324,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+  ,{"stream_name":"stderr","time":20.028303867,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+  ,{"stream_name":"stderr","time":20.02831037,"data":"\n"}
+  ,{"stream_name":"stderr","time":20.028316807,"data":"/usr/local/lib/python3.12/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+  ,{"stream_name":"stderr","time":20.028322518,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+  ,{"stream_name":"stderr","time":20.37810417,"data":"Traceback (most recent call last):\n"}
+  ,{"stream_name":"stderr","time":20.378168684,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+  ,{"stream_name":"stderr","time":20.378176469,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+  ,{"stream_name":"stderr","time":20.378257457,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+  ,{"stream_name":"stderr","time":20.378420425,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+  ,{"stream_name":"stderr","time":20.378517919,"data":"    raise error\n"}
+  ,{"stream_name":"stderr","time":20.378568744,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+  ,{"stream_name":"stderr","time":20.378579211,"data":"---------------------------------------------------------------------------\n"}
+  ,{"stream_name":"stderr","time":20.378583569,"data":"Exception encountered at \"In [1]\":\n"}
+  ,{"stream_name":"stderr","time":20.378587305,"data":"An exception has occurred, use %tb to see the full traceback.\n"}
+  ,{"stream_name":"stderr","time":20.378590983,"data":"\n"}
+  ,{"stream_name":"stderr","time":20.378594425,"data":"SystemExit: 4\n"}
+  ,{"stream_name":"stderr","time":20.378597874,"data":"\n"}
+  ,{"stream_name":"stderr","time":20.378601229,"data":"\n"}
+  ,{"stream_name":"stderr","time":22.773631485,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+  ,{"stream_name":"stderr","time":22.773664032,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+  ,{"stream_name":"stderr","time":22.940734731,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+  ,{"stream_name":"stderr","time":22.940774684,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+  ,{"stream_name":"stderr","time":23.59822432,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+  ,{"stream_name":"stderr","time":23.932218101,"data":"[NbConvertApp] Writing 618159 bytes to __notebook__.ipynb\n"}
+  ,{"stream_name":"stderr","time":26.463697036,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+  ,{"stream_name":"stderr","time":27.399932887,"data":"[NbConvertApp] Writing 959927 bytes to __results__.html\n"}
+  ]
+run did not complete: ERROR

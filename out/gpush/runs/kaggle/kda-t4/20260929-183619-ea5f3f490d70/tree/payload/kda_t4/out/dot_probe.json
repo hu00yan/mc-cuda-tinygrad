@@ -1,0 +1,17 @@
+{
+  "ptx_mma_sync": 0,
+  "ptx_mma": 0,
+  "ptx_fma_rn_f32": 256,
+  "ptx_cvt_tf32": 0,
+  "ptx_lines_mma": [],
+  "ptx_target": [
+    ".version 8.7",
+    ".target sm_75"
+  ],
+  "ptx_sha256": "bc0463d7df22100ebffd3f240172bdb210fc579ab1bffb2508e84e6642e18cd8",
+  "cubin_sha256": "2b3bb0fd64747c0076f61193ed41ec610d798912183778af660076151deb708d",
+  "n_regs": 59,
+  "n_spills": 0,
+  "env_TRITON_F32_DEFAULT": "ieee",
+  "triton_knob_fp32_default": "'ieee'"
+}

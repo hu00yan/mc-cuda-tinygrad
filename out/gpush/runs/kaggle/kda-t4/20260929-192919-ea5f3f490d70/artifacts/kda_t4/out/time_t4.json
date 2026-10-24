@@ -1,0 +1,773 @@
+{
+  "rows": [
+    {
+      "shape": {
+        "B": 1,
+        "T": 512,
+        "H": 4,
+        "HV": 4,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T512_H4_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 2.1349759101867676,
+          "min": 2.109503984451294,
+          "max": 2.2118399143218994,
+          "iters": 5,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 7961.6630859375,
+          "min": 7901.2119140625,
+          "max": 8007.875,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 7860.91064453125,
+          "min": 7857.97509765625,
+          "max": 7899.4169921875,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 22296.60124300017,
+          "min": 20441.487725000115,
+          "max": 22296.60124300017,
+          "iters": 2
+        },
+        "tiny_kda_opt": {
+          "median": 217.08181762695312,
+          "min": 212.70127868652344,
+          "max": 222.48013305664062,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 184.80499267578125,
+          "min": 179.656005859375,
+          "max": 188.44265747070312,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 552.4579989998983,
+          "min": 546.7931050000061,
+          "max": 552.4579989998983,
+          "iters": 2
+        },
+        "tiny_kda_faithful": {
+          "median": 1591.7117919921875,
+          "min": 1564.9930419921875,
+          "max": 1644.2969970703125,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 1049.4154052734375,
+          "min": 1038.04931640625,
+          "max": 1060.5970458984375,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 2783.088001999886,
+          "min": 2719.009597999957,
+          "max": 2783.088001999886,
+          "iters": 2
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0791015625,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_launch_o": 6184,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "s_shape": [
+            1,
+            4,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_opt": {
+          "n_launch_o": 60,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "s_shape": [
+            1,
+            4,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_faithful": {
+          "n_launch_o": 699,
+          "o_shape": [
+            1,
+            512,
+            4,
+            128
+          ],
+          "s_shape": [
+            1,
+            4,
+            128,
+            128
+          ]
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 1,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B1_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 4.746880054473877,
+          "min": 4.695231914520264,
+          "max": 5.009791851043701,
+          "iters": 5,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 9197.818359375,
+          "min": 9082.234375,
+          "max": 9280.54296875,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 8956.470703125,
+          "min": 8939.1103515625,
+          "max": 8974.6630859375,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 22730.006910000156,
+          "min": 22672.345613999823,
+          "max": 22730.006910000156,
+          "iters": 2
+        },
+        "tiny_kda_opt": {
+          "median": 304.2686462402344,
+          "min": 300.01971435546875,
+          "max": 328.4814453125,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 244.3555145263672,
+          "min": 242.6666259765625,
+          "max": 245.57273864746094,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 728.0247369999415,
+          "min": 722.0728610000151,
+          "max": 728.0247369999415,
+          "iters": 2
+        },
+        "tiny_kda_faithful": {
+          "median": 1599.9583740234375,
+          "min": 1589.698486328125,
+          "max": 1627.292724609375,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 1079.49560546875,
+          "min": 1076.4510498046875,
+          "max": 1196.5230712890625,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 2855.8543630001623,
+          "min": 2848.6363189999793,
+          "max": 2855.8543630001623,
+          "iters": 2
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0771484375,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_launch_o": 6208,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            1,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_opt": {
+          "n_launch_o": 76,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            1,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_faithful": {
+          "n_launch_o": 715,
+          "o_shape": [
+            1,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            1,
+            8,
+            128,
+            128
+          ]
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 1024,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T1024_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 9.155008316040039,
+          "min": 9.124544143676758,
+          "max": 9.241567611694336,
+          "iters": 5,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 9308.54296875,
+          "min": 9199.3173828125,
+          "max": 9345.4326171875,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 9172.9248046875,
+          "min": 9062.703125,
+          "max": 9273.798828125,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 29158.49458899993,
+          "min": 22434.147935000055,
+          "max": 29158.49458899993,
+          "iters": 2
+        },
+        "tiny_kda_opt": {
+          "median": 332.3120422363281,
+          "min": 330.407958984375,
+          "max": 336.81207275390625,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 248.6886749267578,
+          "min": 242.59373474121094,
+          "max": 251.349853515625,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 742.6296939997883,
+          "min": 735.6359939999493,
+          "max": 742.6296939997883,
+          "iters": 2
+        },
+        "tiny_kda_faithful": {
+          "median": 2186.794677734375,
+          "min": 2169.364501953125,
+          "max": 2225.057861328125,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 1391.440185546875,
+          "min": 1383.7012939453125,
+          "max": 1423.9610595703125,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 3778.6463229999754,
+          "min": 3687.435687999823,
+          "max": 3778.6463229999754,
+          "iters": 2
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.08544921875,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_launch_o": 6208,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_opt": {
+          "n_launch_o": 76,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_faithful": {
+          "n_launch_o": 715,
+          "o_shape": [
+            2,
+            1024,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        }
+      }
+    },
+    {
+      "shape": {
+        "B": 2,
+        "T": 2048,
+        "H": 8,
+        "HV": 8,
+        "K": 128,
+        "V": 128,
+        "C": 64
+      },
+      "label": "B2_T2048_H8_K128_V128_C64",
+      "side": {
+        "fla": {
+          "median": 18.490144729614258,
+          "min": 18.264095306396484,
+          "max": 19.24095916748047,
+          "iters": 5,
+          "warmup": 3
+        },
+        "tiny_kda (naive)": {
+          "median": 9541.013671875,
+          "min": 9455.759765625,
+          "max": 9678.4228515625,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda (naive) [device, S only]": {
+          "median": 9139.849609375,
+          "min": 9131.328125,
+          "max": 9180.4853515625,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda (naive) [host, end-to-end]": {
+          "median": 23136.57741499992,
+          "min": 23024.36772100009,
+          "max": 23136.57741499992,
+          "iters": 2
+        },
+        "tiny_kda_opt": {
+          "median": 520.1167602539062,
+          "min": 516.5568237304688,
+          "max": 546.671630859375,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_opt [device, S only]": {
+          "median": 382.3087158203125,
+          "min": 373.80712890625,
+          "max": 411.9203796386719,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_opt [host, end-to-end]": {
+          "median": 1173.674740000024,
+          "min": 1138.4385030000885,
+          "max": 1173.674740000024,
+          "iters": 2
+        },
+        "tiny_kda_faithful": {
+          "median": 2512.869384765625,
+          "min": 2484.452880859375,
+          "max": 2541.953125,
+          "iters": 5,
+          "warmup": 2
+        },
+        "tiny_kda_faithful [device, S only]": {
+          "median": 1548.0458984375,
+          "min": 1542.409912109375,
+          "max": 1563.7689208984375,
+          "iters": 3,
+          "warmup": 1
+        },
+        "tiny_kda_faithful [host, end-to-end]": {
+          "median": 4293.285486000059,
+          "min": 4237.899653000568,
+          "max": 4293.285486000059,
+          "iters": 2
+        }
+      },
+      "errors": {},
+      "fla_absmax": 0.0751953125,
+      "fla_finite": true,
+      "meta": {
+        "tiny_kda (naive)": {
+          "n_launch_o": 6256,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_opt": {
+          "n_launch_o": 108,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        },
+        "tiny_kda_faithful": {
+          "n_launch_o": 747,
+          "o_shape": [
+            2,
+            2048,
+            8,
+            128
+          ],
+          "s_shape": [
+            2,
+            8,
+            128,
+            128
+          ]
+        }
+      }
+    }
+  ],
+  "agreement": [
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000627078115940094,
+      "median_rel": 0.00436713699070662,
+      "p99_rel": 0.21481601305072848,
+      "cosine": 0.9999891434402091,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000627078115940094,
+      "median_rel": 0.004367224343148214,
+      "p99_rel": 0.21481601305072848,
+      "cosine": 0.9999891434409203,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 262144,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006270632147789001,
+      "median_rel": 0.004366802666077016,
+      "p99_rel": 0.21481396117610502,
+      "cosine": 0.9999891434560108,
+      "shape": "B1_T512_H4_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874447524547577,
+      "median_rel": 0.004425995166485126,
+      "p99_rel": 0.22290049322578714,
+      "cosine": 0.9999889773770457,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874447524547577,
+      "median_rel": 0.004425995166485126,
+      "p99_rel": 0.22289875311643734,
+      "cosine": 0.9999889773763174,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 1048576,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005874484777450562,
+      "median_rel": 0.004426177896437098,
+      "p99_rel": 0.22299940489514675,
+      "cosine": 0.9999889773646874,
+      "shape": "B1_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000577680766582489,
+      "median_rel": 0.004397937662276342,
+      "p99_rel": 0.21281535216155087,
+      "cosine": 0.9999890998618888,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.000577680766582489,
+      "median_rel": 0.004397964477539063,
+      "p99_rel": 0.21281438741230693,
+      "cosine": 0.9999890998625934,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 2097152,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0005776844918727875,
+      "median_rel": 0.004398041357593468,
+      "p99_rel": 0.21282379374440336,
+      "cosine": 0.9999890998473291,
+      "shape": "B2_T1024_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda (naive) vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155557930469513,
+      "median_rel": 0.0044361143060826745,
+      "p99_rel": 0.21778756899621024,
+      "cosine": 0.9999889921651207,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_opt vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155557930469513,
+      "median_rel": 0.004436115530394491,
+      "p99_rel": 0.2177880542977902,
+      "cosine": 0.9999889921647284,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    },
+    {
+      "side": "tiny_kda_faithful vs fla",
+      "n": 4194304,
+      "both_finite": true,
+      "n_nonfinite_a": 0,
+      "n_nonfinite_b": 0,
+      "max_abs": 0.0006155408918857574,
+      "median_rel": 0.004436071283807583,
+      "p99_rel": 0.21779645975550946,
+      "cosine": 0.9999889921578654,
+      "shape": "B2_T2048_H8_K128_V128_C64"
+    }
+  ],
+  "scope": {
+    "label": "fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best",
+    "short": "fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]",
+    "selected": [
+      {
+        "key": "(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')",
+        "kwargs": {
+          "BV": "32"
+        },
+        "num_warps": 4,
+        "num_stages": 1
+      }
+    ],
+    "distinct": {
+      "BV": [
+        32
+      ],
+      "num_stages": [
+        1,
+        2
+      ],
+      "num_warps": [
+        2,
+        4
+      ]
+    },
+    "model_vs_observed": {
+      "model_BV": [
+        32
+      ],
+      "model_num_stages": [
+        2,
+        1
+      ],
+      "observed_BV": [
+        32
+      ],
+      "observed_num_stages": [
+        1,
+        2
+      ],
+      "observed_num_warps": [
+        2,
+        4
+      ],
+      "agree": true
+    },
+    "fwd_finite": true,
+    "optin": [
+      49152,
+      65536
+    ],
+    "n_configs": 4
+  },
+  "ports_present": [
+    "tiny_kda (naive)",
+    "tiny_kda_opt",
+    "tiny_kda_faithful"
+  ],
+  "ports_missing": [],
+  "iters": 5,
+  "ladder": [
+    [
+      1,
+      512,
+      4,
+      4,
+      128,
+      128,
+      64
+    ],
+    [
+      1,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      1024,
+      8,
+      8,
+      128,
+      128,
+      64
+    ],
+    [
+      2,
+      2048,
+      8,
+      8,
+      128,
+      128,
+      64
+    ]
+  ]
+}

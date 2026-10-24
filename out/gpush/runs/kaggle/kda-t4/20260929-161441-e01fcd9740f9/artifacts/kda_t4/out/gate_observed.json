@@ -1,0 +1,327 @@
+{
+  "fla_flags": {
+    "IS_TF32_SUPPORTED": "False",
+    "IS_GATHER_SUPPORTED": "True",
+    "IS_TMA_SUPPORTED": "False",
+    "IS_NVIDIA": "True",
+    "IS_NVIDIA_HOPPER": "False",
+    "IS_NVIDIA_BLACKWELL": "False",
+    "IS_NVIDIA_SM100": "False"
+  },
+  "backend_enum": {
+    "ADA": 101376,
+    "AMPERE": 166912,
+    "HOPPER": 232448,
+    "DEFAULT": 102400
+  },
+  "thresholds": {
+    "none": 102400,
+    "hopper": 232448,
+    "ampere": 166912,
+    "ada": 101376,
+    "DEFAULT": 102400,
+    "nonsense": 102400
+  },
+  "check_shared_mem": {
+    "none@0": false,
+    "ada@0": false,
+    "ampere@0": false,
+    "hopper@0": false
+  },
+  "smem_readers": {
+    "fla.get_all_max_shared_mem": [
+      65536,
+      65536
+    ],
+    "triton[0]": 65536,
+    "triton[1]": 65536,
+    "torch.shared_memory_per_block[0]": 49152,
+    "torch.shared_memory_per_block_optin[0]": 65536,
+    "torch.shared_memory_per_multiprocessor[0]": 65536,
+    "torch.shared_memory_per_block[1]": 49152,
+    "torch.shared_memory_per_block_optin[1]": 65536,
+    "torch.shared_memory_per_multiprocessor[1]": 65536,
+    "ctypes.attr97[0]": 65536,
+    "ctypes.attr97[1]": 65536
+  },
+  "optin_distinct": [
+    49152,
+    65536
+  ],
+  "cc": [
+    7,
+    5
+  ],
+  "ptxas": "/usr/local/cuda/bin/ptxas",
+  "ptxas_version": "Build cuda_12.8.r12.8/compiler.35583870_0",
+  "dot_arch_matrix": {
+    "cc75_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 75,
+      "header": ".version 8.7 .target sm_75",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "1c9f169e6e89a7b192b5235302c7ef7afd3a5a28a8d3cd235a4f267cef4e9d27"
+    },
+    "cc80_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 80,
+      "header": ".version 8.7 .target sm_80",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "2d5f80b76e0b365fc4d2788b537c1a9579a7d94e56a7301b2522f44ea97810b9"
+    },
+    "cc86_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 86,
+      "header": ".version 8.7 .target sm_86",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "1596b26098a5510e6d027db94339a3bf6615ac0beb3e149d227a7d5b18dd7dae"
+    },
+    "cc89_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 89,
+      "header": ".version 8.7 .target sm_89",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "55197173272ca28d6830bc14b96d21b697d83054f68ba273e1e1f5865cd55377"
+    },
+    "cc90_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 90,
+      "header": ".version 8.7 .target sm_90a",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "ed8fc8fb61e4824326e03646148d7c54ad7eda0bb6a728e8734d3adcd8edaac9"
+    },
+    "cc100_ieee": {
+      "f32_default": "ieee",
+      "knob_resolved": "'ieee'",
+      "cc": 100,
+      "header": ".version 8.8 .target sm_100a",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "189f636ce4d6783940385eee9bb6afc74a87ac166cf48785f8df8218bba7633a"
+    },
+    "cc75_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 75,
+      "header": ".version 8.7 .target sm_75",
+      "mma_sync": 0,
+      "mma_any": 0,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 256,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "1c9f169e6e89a7b192b5235302c7ef7afd3a5a28a8d3cd235a4f267cef4e9d27"
+    },
+    "cc80_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 80,
+      "header": ".version 8.7 .target sm_80",
+      "mma_sync": 8,
+      "mma_any": 8,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 0,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "0f613d9949e31c743e488af2900d6362d1b3c7c117bb637ad2153feb9a0256b7"
+    },
+    "cc86_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 86,
+      "header": ".version 8.7 .target sm_86",
+      "mma_sync": 8,
+      "mma_any": 8,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 0,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "42752d2e4496bcc90352470b3aba60fd8dedbc5898574b65d11e143ae88150d2"
+    },
+    "cc89_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 89,
+      "header": ".version 8.7 .target sm_89",
+      "mma_sync": 8,
+      "mma_any": 8,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 0,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "d24e5c880a25f9682eaa9f28cbf92fe2281957c741fad31328028bb3045fe569"
+    },
+    "cc90_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 90,
+      "header": ".version 8.7 .target sm_90a",
+      "mma_sync": 8,
+      "mma_any": 8,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 0,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "c3aac091e983735de5b068a2aaec6c86076510ac5318e998669759ab2392bd35"
+    },
+    "cc100_tf32": {
+      "f32_default": "tf32",
+      "knob_resolved": "'tf32'",
+      "cc": 100,
+      "header": ".version 8.8 .target sm_100a",
+      "mma_sync": 8,
+      "mma_any": 8,
+      "wgmma": 0,
+      "tcgen": 0,
+      "fma_f32": 0,
+      "cvt_tf32": 0,
+      "n_regs": null,
+      "cubin_sha256": "87d4729a04dae5e7030cb083f1a490e37c5a874751c18453a9cb1a59ac37173a"
+    }
+  },
+  "num_warps_module": "[2, 4]",
+  "autotune_configs": [
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 2,
+      "num_stages": 2,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 2,
+      "num_stages": 1,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 2,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 1,
+      "num_ctas": 1
+    }
+  ],
+  "autotune_n_configs": 4,
+  "distinct": {
+    "BV": [
+      32
+    ],
+    "num_stages": [
+      1,
+      2
+    ],
+    "num_warps": [
+      2,
+      4
+    ]
+  },
+  "model_vs_observed": {
+    "model_BV": [
+      32
+    ],
+    "model_num_stages": [
+      2,
+      1
+    ],
+    "observed_BV": [
+      32
+    ],
+    "observed_num_stages": [
+      1,
+      2
+    ],
+    "observed_num_warps": [
+      2,
+      4
+    ],
+    "agree": true
+  },
+  "call_shape": {
+    "B": 1,
+    "T": 128,
+    "H": 2,
+    "HV": 2,
+    "K": 128,
+    "V": 128,
+    "dtype": "bfloat16",
+    "generator": "kda/kda_vs_fla.py:296 rnd(seed=0)"
+  },
+  "fwd_ok": true,
+  "fwd_finite": true,
+  "fwd_absmax": 0.0615234375,
+  "selected_configs": [
+    {
+      "key": "(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')",
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 1
+    }
+  ],
+  "dot_probe_rc": 0,
+  "f32_default_order": "BEFORE fla import: None\nAFTER  fla import: 'ieee'\ntriton knob        : 'ieee'",
+  "f32_default_order_scrubbed": true,
+  "solve_tril_dot_precision": "constexpr[ieee]",
+  "scope_label": "fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best",
+  "scope_label_short": "fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]",
+  "scope_label_ieee": true
+}

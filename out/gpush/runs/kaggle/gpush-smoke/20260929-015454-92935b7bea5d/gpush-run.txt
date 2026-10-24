@@ -1,0 +1,13 @@
+$ python derivation/divide.py mechanism_sentence
+cwd: /kaggle/working/tree/payload
+exit: 0
+wall: 0.3 s
+
+--- stdout ---
+divide:mechanism_sentence
+    TinyGrad's float32 `/` is lowered in the Tensor API — above the scheduler, above backend selection — to `a · fl32(1/b)`, so on every backend that does not itself render a real divide it returns a value bit-identical to a correctly rounded reciprocal followed by one correctly rounded float32 multiply; the result is wrong by exactly 1 ULP in 25.9%-27.0% of general `a/b` cases — a rate that depends on the divisor law, so it travels with the pair `(a,b)` and not with the operation — and no user-facing knob changes any of this.
+
+  this module has no recorded digests yet (first run).
+  To make its numbers pinnable, record them with:
+    python derivation/verify.py --write divide
+

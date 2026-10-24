@@ -1,0 +1,41 @@
+[PASS] world 16^3, ground 4  1062/4096 solid
+[PASS] world 32^3, ground 8  8274/32768 solid
+[PASS] world 48^3, ground 12  27730/110592 solid
+[PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+[PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+[PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+[PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+[PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+[PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+[PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+[PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+[PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+[PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+[PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+[PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+[PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+[PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+[PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+[PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+[PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+[PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+[PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+[PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+[PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+[PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+[PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+[PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference

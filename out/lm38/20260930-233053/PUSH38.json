@@ -1,0 +1,32 @@
+{
+ "slug": "tenghuzhang/mc-lm38-falsify",
+ "status": "COMPLETE",
+ "dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/lm38k2",
+ "wall_s": 1328.1,
+ "files": [
+  "SUMMARY.txt",
+  "facts.json",
+  "log_refdrv.txt",
+  "mc-lm38-falsify.log",
+  "payload/minecu_ref/src/kernels.cu",
+  "payload/minecu_tg/__init__.py",
+  "payload/minecu_tg/__pycache__/__init__.cpython-312.pyc",
+  "payload/minecu_tg/__pycache__/bench.cpython-312.pyc",
+  "payload/minecu_tg/__pycache__/blocks.cpython-312.pyc",
+  "payload/minecu_tg/__pycache__/render.cpython-312.pyc",
+  "payload/minecu_tg/__pycache__/world.cpython-312.pyc",
+  "payload/minecu_tg/bench.py",
+  "payload/minecu_tg/blocks.py",
+  "payload/minecu_tg/kaggle/refdrv.cu",
+  "payload/minecu_tg/render.py",
+  "payload/minecu_tg/world.py",
+  "payload/minecu_tg_opt/__init__.py",
+  "payload/minecu_tg_opt/__pycache__/__init__.cpython-312.pyc",
+  "payload/minecu_tg_opt/__pycache__/lm38_falsify.cpython-312.pyc",
+  "payload/minecu_tg_opt/__pycache__/render.cpython-312.pyc",
+  "payload/minecu_tg_opt/lm38_falsify.py",
+  "payload/minecu_tg_opt/render.py",
+  "refdrv",
+  "rows.jsonl"
+ ]
+}

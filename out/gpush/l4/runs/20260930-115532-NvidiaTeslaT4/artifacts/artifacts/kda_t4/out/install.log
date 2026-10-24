@@ -1,0 +1,58 @@
+==============================================================
+kda_t4 INSTALL  2026-09-30T03:56:26Z
+python  : 3.12.13
+pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)
+==============================================================
+
+--> einops
+    $ python3 -m pip install --disable-pip-version-check einops
+Requirement already satisfied: einops in /usr/local/lib/python3.12/dist-packages (0.8.2)
+    OK einops
+
+--> fla-core
+    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2
+Collecting fla-core==0.5.2
+  Downloading fla_core-0.5.2-py3-none-any.whl.metadata (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.3/45.3 kB 1.8 MB/s eta 0:00:00
+Downloading fla_core-0.5.2-py3-none-any.whl (819 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 819.2/819.2 kB 16.7 MB/s eta 0:00:00
+Installing collected packages: fla-core
+Successfully installed fla-core-0.5.2
+    OK fla-core
+
+--> flash-linear-attention
+    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2
+Collecting flash-linear-attention==0.5.2
+  Downloading flash_linear_attention-0.5.2-py3-none-any.whl.metadata (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 1.8 MB/s eta 0:00:00
+Downloading flash_linear_attention-0.5.2-py3-none-any.whl (399 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 399.6/399.6 kB 10.5 MB/s eta 0:00:00
+Installing collected packages: flash-linear-attention
+Successfully installed flash-linear-attention-0.5.2
+    OK flash-linear-attention
+
+--> tinygrad
+    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0
+Collecting tinygrad==0.14.0
+  Downloading tinygrad-0.14.0-py3-none-any.whl.metadata (12 kB)
+Downloading tinygrad-0.14.0-py3-none-any.whl (2.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 50.8 MB/s eta 0:00:00
+Installing collected packages: tinygrad
+Successfully installed tinygrad-0.14.0
+    OK tinygrad
+
+==============================================================
+installed, as the card sees it
+==============================================================
+  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py
+  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py
+  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py
+  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py
+  flash_linear_attention 0.5.2          <import failed: ModuleNotFoundError: No module named 'flash_linear_attention'>
+  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+
+  torch.cuda.is_available()    True
+  device_count                 2
+
+done.

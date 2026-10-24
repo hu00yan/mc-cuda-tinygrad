@@ -1,0 +1,310 @@
+[{"stream_name":"stderr","time":7.744016093,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.744095104,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.7441010949999995,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.744104689,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.361602442,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.361636518,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.361639942,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.361642532,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.707399539,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.707459237,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.707465731,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.707470922,"data":"archive      /kaggle/input/datasets/tenghuzhang/ut-time-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.707475261999999,"data":"mount        /kaggle/input/datasets/tenghuzhang/ut-time-payload\n"}
+,{"stream_name":"stdout","time":9.707479437,"data":"\n"}
+,{"stream_name":"stdout","time":9.707483582,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":10.1116471,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"0796b60db87c\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":10.111689435,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.11169496,"data":"\n"}
+,{"stream_name":"stdout","time":10.11169884,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":10.111703154,"data":"expected 2 files, the tree we will execute has 2\n"}
+,{"stream_name":"stdout","time":10.111707045,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":10.111710384,"data":"\n"}
+,{"stream_name":"stdout","time":10.283374567,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.283404239,"data":"$ bash -c python3 -m pip install --no-input --disable-pip-version-check tinygrad==0.14.0 \u0026\u0026 python3 -m pip show tinygrad \u0026\u0026 python3 kda/ut_time.py --all --out ut_time_out\n"}
+,{"stream_name":"stdout","time":10.28341661,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.283419507,"data":"  at    2026-09-29 07:15:02 UTC\n"}
+,{"stream_name":"stdout","time":10.283421965,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":1234.953935281,"data":"Collecting tinygrad==0.14.0\n"}
+,{"stream_name":"stdout","time":1234.954011277,"data":"  Downloading tinygrad-0.14.0-py3-none-any.whl.metadata (12 kB)\n"}
+,{"stream_name":"stdout","time":1234.954016157,"data":"Downloading tinygrad-0.14.0-py3-none-any.whl (2.8 MB)\n"}
+,{"stream_name":"stdout","time":1234.954026912,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 30.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":1234.954030441,"data":"Installing collected packages: tinygrad\n"}
+,{"stream_name":"stdout","time":1234.954032767,"data":"Successfully installed tinygrad-0.14.0\n"}
+,{"stream_name":"stdout","time":1234.954035741,"data":"Name: tinygrad\n"}
+,{"stream_name":"stdout","time":1234.954039238,"data":"Version: 0.14.0\n"}
+,{"stream_name":"stdout","time":1234.95405523,"data":"Summary: You like pytorch? You like micrograd? You love tinygrad! \u003c3\n"}
+,{"stream_name":"stdout","time":1234.954059692,"data":"Home-page: \n"}
+,{"stream_name":"stdout","time":1234.954063735,"data":"Author: George Hotz\n"}
+,{"stream_name":"stdout","time":1234.954067654,"data":"Author-email: \n"}
+,{"stream_name":"stdout","time":1234.954071565,"data":"License: \n"}
+,{"stream_name":"stdout","time":1234.954074891,"data":"Location: /usr/local/lib/python3.12/dist-packages\n"}
+,{"stream_name":"stdout","time":1234.954078232,"data":"Requires: \n"}
+,{"stream_name":"stdout","time":1234.954081437,"data":"Required-by: \n"}
+,{"stream_name":"stdout","time":1234.954084743,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954088001,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954091425,"data":"0. the box, the device, and the knobs\n"}
+,{"stream_name":"stdout","time":1234.954094811,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954098237,"data":"  python           3.12.13\n"}
+,{"stream_name":"stdout","time":1234.954101499,"data":"  tinygrad         0.14.0\n"}
+,{"stream_name":"stdout","time":1234.954104761,"data":"  numpy            2.0.2\n"}
+,{"stream_name":"stdout","time":1234.954107931,"data":"  Device.DEFAULT   CUDA\n"}
+,{"stream_name":"stdout","time":1234.954111238,"data":"  device_count     2\n"}
+,{"stream_name":"stdout","time":1234.954114485,"data":"  arch             sm_75\n"}
+,{"stream_name":"stdout","time":1234.954119376,"data":"  nvidia-smi       Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":1234.954125195,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":1234.954127546,"data":"  knobs            ALLOW_TF32=0  USE_TC=1  TC_SELECT=-1  TC_OPT=0  NOOPT=0  IMAGE=0  NOLOCALS=0  BEAM=0  SPLIT_REDUCEOP=1  CACHELEVEL=2  DEBUG=0\n"}
+,{"stream_name":"stdout","time":1234.954129957,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954132094,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954134383,"data":"1. self-test: ut_price's census, re-run here\n"}
+,{"stream_name":"stdout","time":1234.954148249,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954152277,"data":"== self-test 1: the single-column chain of notes/26 section 3b ==\n"}
+,{"stream_name":"stdout","time":1234.954156461,"data":"   C  steps  kernels  REDUCE  expect    lane_ops  verdict\n"}
+,{"stream_name":"stdout","time":1234.954160331,"data":"   4      3        5       2       2          55  OK\n"}
+,{"stream_name":"stdout","time":1234.954166511,"data":"   8      7       11       6       6         259  OK\n"}
+,{"stream_name":"stdout","time":1234.954169992,"data":"  16     15       21      14      14       1,147  OK\n"}
+,{"stream_name":"stdout","time":1234.954173284,"data":"  32     31       43      30      30       4,843  OK\n"}
+,{"stream_name":"stdout","time":1234.95418059,"data":"  64     63       85      62      62      19,915  OK\n"}
+,{"stream_name":"stdout","time":1234.954184168,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954187324,"data":"== self-test 2: the port's 64 outer x (C-1) inner loop, 1 slab ==\n"}
+,{"stream_name":"stdout","time":1234.954190721,"data":"   the whole port must be exactly C x the single chain's REDUCE count\n"}
+,{"stream_name":"stdout","time":1234.954194257,"data":"   C  kernels  REDUCE  expect    lane_ops  verdict\n"}
+,{"stream_name":"stdout","time":1234.954197704,"data":"   8       76      48      48       5,838  OK\n"}
+,{"stream_name":"stdout","time":1234.954202991,"data":"  16      324     224     224      43,724  OK\n"}
+,{"stream_name":"stdout","time":1234.954206317,"data":"  32     1316     960     960     460,302  OK\n"}
+,{"stream_name":"stdout","time":1234.954209597,"data":"  64     5380    3968    3968   3,056,396  OK\n"}
+,{"stream_name":"stdout","time":1234.954213034,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954216159,"data":"== self-test 3: no instrument knob is set ==\n"}
+,{"stream_name":"stdout","time":1234.954219577,"data":"  ALLOW_TF32=0  TC=1   TC_SELECT=-1  TC_OPT=0   NOOPT=0  IMAGE=0  NOLOCALS=0   BEAM=0  SPLIT_REDUCEOP=1\n"}
+,{"stream_name":"stdout","time":1234.954227861,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954231125,"data":"SELFTEST PASS\n"}
+,{"stream_name":"stdout","time":1234.95424526,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954249274,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954253108,"data":"1b. NEGATIVE CONTROL: can the correctness gate see wrong data?\n"}
+,{"stream_name":"stdout","time":1234.954256762,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954260578,"data":"  candidate C, as computed                relerr 3.013e-08  \u003c tol\n"}
+,{"stream_name":"stdout","time":1234.954264745,"data":"  the SAME array transposed               relerr 5.246e-02  \u003e= tol, REJECTED\n"}
+,{"stream_name":"stdout","time":1234.954268808,"data":"  the transposed array's SHAPE matches     True  (so a shape assertion alone could not have caught it)\n"}
+,{"stream_name":"stdout","time":1234.954272292,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954275382,"data":"  gate verdict: a value gate rejects the transpose\n"}
+,{"stream_name":"stdout","time":1234.954278658,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954281745,"data":"SELFTEST PASS\n"}
+,{"stream_name":"stdout","time":1234.954284926,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954288071,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954291474,"data":"2. correctness on the card vs numpy float64 inverse, 2 slab(s), C=64\n"}
+,{"stream_name":"stdout","time":1234.9542948,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954298148,"data":"  A   shape (2, 64, 64)  max rel err 3.108e-08  OK\n"}
+,{"stream_name":"stdout","time":1234.954301459,"data":"  B   shape (2, 64, 64)  max rel err 3.108e-08  OK\n"}
+,{"stream_name":"stdout","time":1234.954304792,"data":"  C   shape (2, 64, 64)  max rel err 3.108e-08  OK\n"}
+,{"stream_name":"stdout","time":1234.954308052,"data":"  D2  shape (2, 64, 64)  max rel err 3.108e-08  OK\n"}
+,{"stream_name":"stdout","time":1234.954311363,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954314432,"data":"VERIFY PASS\n"}
+,{"stream_name":"stdout","time":1234.954318643,"data":"\n"}
+,{"stream_name":"stdout","time":1234.95433083,"data":"  The gate above ran on THIS card. Every timing number below is a timing of\n"}
+,{"stream_name":"stdout","time":1234.95434582,"data":"  four expressions that were just shown to compute the same operator.\n"}
+,{"stream_name":"stdout","time":1234.954350251,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954353882,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954357901,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954362215,"data":"3. the table: 64 slab(s) of [64,64], on the card\n"}
+,{"stream_name":"stdout","time":1234.954365678,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954369274,"data":"  MEASURED on this device. launches = GlobalCounters.kernel_count, the number of\n"}
+,{"stream_name":"stdout","time":1234.954372743,"data":"  kernels the device actually executed. gpu_us = GlobalCounters.time_sum_s under\n"}
+,{"stream_name":"stdout","time":1234.954376129,"data":"  DEBUG=2, which SYNCHRONISES after every launch (ops_cuda.py:26-35), so each\n"}
+,{"stream_name":"stdout","time":1234.954379524,"data":"  per-kernel number inside it contains that kernel's host launch latency and\n"}
+,{"stream_name":"stdout","time":1234.954382948,"data":"  the graph is not pipelined. t_sched and t_realize are HOST wall clock and are\n"}
+,{"stream_name":"stdout","time":1234.954386785,"data":"  reported next to the device numbers, never instead of them.\n"}
+,{"stream_name":"stdout","time":1234.954390265,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954393444,"data":"cand  launches  census_k      gpu_us  us/launch  ops(device)  t_sched_ms  t_realize_ms  t_build_ms  what\n"}
+,{"stream_name":"stdout","time":1234.954397049,"data":"--------------------------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.954400582,"data":"A        5,380     5,380      94,842      17.63  141,465,728     4,321.6           0.1     5,296.8  naive 64x63 unrolled column solve (the port today)\n"}
+,{"stream_name":"stdout","time":1234.954404202,"data":"B           86        86       3,258      37.88   81,767,424        78.5           0.1        89.9  the same 64 solves, batched on the leading axis\n"}
+,{"stream_name":"stdout","time":1234.954407788,"data":"C           44        44       2,231      50.70   22,160,128        55.7           0.1        62.4  BC=16 two-level blocked, as the reference kernel does it\n"}
+,{"stream_name":"stdout","time":1234.954411367,"data":"D2          41        41       2,426      59.16  329,342,720        45.5           0.1        45.1  Neumann on the block-off-diagonal, 6 [64,64] matmuls\n"}
+,{"stream_name":"stdout","time":1234.954414995,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954422554,"data":"cand REDUCE(cens)   DAG   alu_lane(cens)  ops(device)   ops/cens   dev/cens launches  algMACs/slab  chain\n"}
+,{"stream_name":"stdout","time":1234.954425706,"data":"A           3,968    85      192,625,524  141,465,728     0.734x        5,380/5,380        391,168     63\n"}
+,{"stream_name":"stdout","time":1234.954439224,"data":"B              62    85       79,888,114   81,767,424     1.024x           86/86           391,168     63\n"}
+,{"stream_name":"stdout","time":1234.954444133,"data":"C              20    34       22,081,474   22,160,128     1.004x           44/44            66,012     17\n"}
+,{"stream_name":"stdout","time":1234.954449341,"data":"D2             22    34       17,731,413  329,342,720    18.574x           41/41         1,573,340     20\n"}
+,{"stream_name":"stdout","time":1234.95445364,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954461445,"data":"  `ops(device)` is tinygrad's OWN per-program op estimate, summed over the\n"}
+,{"stream_name":"stdout","time":1234.954465374,"data":"  schedule that actually ran (engine/realize.py:63, ast.arg.estimates).\n"}
+,{"stream_name":"stdout","time":1234.954468978,"data":"  `alu_lane(cens)` is this repo's census of the same graph scheduled in\n"}
+,{"stream_name":"stdout","time":1234.954472364,"data":"  isolation. Two different definitions of the same idea, and their ratio\n"}
+,{"stream_name":"stdout","time":1234.954475712,"data":"  to each other is NOT 1 -- that is the non-additivity notes/31 §3.5\n"}
+,{"stream_name":"stdout","time":1234.954479207,"data":"  warned about, now visible in one table instead of argued about.\n"}
+,{"stream_name":"stdout","time":1234.954482532,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954485725,"data":"== does the offline census transfer to THIS device? ==\n"}
+,{"stream_name":"stdout","time":1234.954489092,"data":"  `notes/31` priced these expressions with Context(DEV='CUDA') on a host\n"}
+,{"stream_name":"stdout","time":1234.954492492,"data":"  with no CUDA device. Below: the same census with DEV=the device being\n"}
+,{"stream_name":"stdout","time":1234.954496555,"data":"  timed, next to what the device actually executed.\n"}
+,{"stream_name":"stdout","time":1234.954500099,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954503291,"data":"cand   census DEV=CUDA   census DEV=here   device executed   dev - census(here)   alu_lane CUDA   alu_lane here\n"}
+,{"stream_name":"stdout","time":1234.954506872,"data":"A                5,380             5,380             5,380                    0     192,625,524     192,625,524\n"}
+,{"stream_name":"stdout","time":1234.954510496,"data":"B                   86                86                86                    0      79,888,114      79,888,114\n"}
+,{"stream_name":"stdout","time":1234.954520162,"data":"C                   44                44                44                    0      22,081,474      22,081,474\n"}
+,{"stream_name":"stdout","time":1234.954523277,"data":"D2                  41                41                41                    0      17,731,413      17,731,413\n"}
+,{"stream_name":"stdout","time":1234.954537691,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954541538,"data":"  every candidate's device launch count equals the same-device census: True\n"}
+,{"stream_name":"stdout","time":1234.954545633,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954549565,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954553525,"data":"4. shape sweep: launches should not move with slabs; arithmetic should\n"}
+,{"stream_name":"stdout","time":1234.954558214,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954561612,"data":"  If the schedule is a function of the graph and not of the batch size, then\n"}
+,{"stream_name":"stdout","time":1234.954565043,"data":"  `launches` is flat in slabs and only the per-slab arithmetic grows. Fitting\n"}
+,{"stream_name":"stdout","time":1234.954568448,"data":"  gpu_us(slabs) = fixed + slope*slabs therefore separates the two axes WITHOUT\n"}
+,{"stream_name":"stdout","time":1234.954571913,"data":"  converting an instruction count into time by any constant.\n"}
+,{"stream_name":"stdout","time":1234.95457527,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954578373,"data":"  reps per candidate in this section: {'A': 1, 'B': 3, 'C': 3, 'D2': 3}\n"}
+,{"stream_name":"stdout","time":1234.954581752,"data":"  (A is 5,380 launches and seconds of CPU SCHEDULING per realize; repeating it\n"}
+,{"stream_name":"stdout","time":1234.95458857,"data":"  over five slab counts would spend the session on it. The cheap candidates\n"}
+,{"stream_name":"stdout","time":1234.954592009,"data":"  get repeated measurements because they sit near the instrument's floor.)\n"}
+,{"stream_name":"stdout","time":1234.954595433,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954598541,"data":"cand  slabs  launches  census_k  copies  timed_k      gpu_us   spread  t_sched_ms  t_realize_ms           ops\n"}
+,{"stream_name":"stdout","time":1234.954602094,"data":"-------------------------------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.954605533,"data":"A         1     5,380     5,380      67    5,313      65,605     0.0%     5,359.2           0.1     2,274,642\n"}
+,{"stream_name":"stdout","time":1234.954614155,"data":"A         8     5,380     5,380      67    5,313      77,299     0.0%    35,916.6           0.1    17,754,384\n"}
+,{"stream_name":"stdout","time":1234.954617667,"data":"A        16     5,380     5,380      67    5,313      82,714     0.0%    37,121.7           0.2    35,366,432\n"}
+,{"stream_name":"stdout","time":1234.95463318,"data":"A        32     5,380     5,380      67    5,313      86,983     0.0%    36,979.1           0.1    70,732,864\n"}
+,{"stream_name":"stdout","time":1234.954637385,"data":"A        64     5,380     5,380      67    5,313      98,463     0.0%     5,184.0           0.1   141,465,728\n"}
+,{"stream_name":"stdout","time":1234.954641603,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954645282,"data":"B         1        86        86       2       84       1,466     7.1%        79.7           0.1     1,337,296\n"}
+,{"stream_name":"stdout","time":1234.954649373,"data":"B         8        86        86       2       84       2,006     4.2%        81.8           0.1    10,716,800\n"}
+,{"stream_name":"stdout","time":1234.954652926,"data":"B        16        86        86       2       84       2,818     6.0%        80.9           0.1    21,303,040\n"}
+,{"stream_name":"stdout","time":1234.954656345,"data":"B        32        86        86       2       84       2,899     4.5%        85.7           0.1    42,606,080\n"}
+,{"stream_name":"stdout","time":1234.95465982,"data":"B        64        86        86       2       84       3,355    18.5%        79.7           0.1    81,767,424\n"}
+,{"stream_name":"stdout","time":1234.95466329,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954666401,"data":"C         1        44        44      11       33       1,342     4.6%        55.7           0.1     3,475,200\n"}
+,{"stream_name":"stdout","time":1234.95466984,"data":"C         8        44        44      11       33       1,600     4.6%        56.3           0.1     9,226,368\n"}
+,{"stream_name":"stdout","time":1234.954673297,"data":"C        16        44        44      11       33       1,737    11.6%        56.6           0.1    13,197,568\n"}
+,{"stream_name":"stdout","time":1234.954676783,"data":"C        32        44        44      11       33       1,941     9.5%        56.5           0.1    26,395,136\n"}
+,{"stream_name":"stdout","time":1234.954680244,"data":"C        64        44        44      11       33       2,253     2.5%        60.1           0.1    22,160,128\n"}
+,{"stream_name":"stdout","time":1234.954683731,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954686867,"data":"D2        1        41        41       6       35       1,230     4.7%        45.8           0.1     5,640,960\n"}
+,{"stream_name":"stdout","time":1234.954690306,"data":"D2        8        41        41       6       35       1,268    12.2%        45.2           0.1    44,996,608\n"}
+,{"stream_name":"stdout","time":1234.954693796,"data":"D2       16        41        41       6       35       1,452    11.8%        46.2           0.1    89,993,216\n"}
+,{"stream_name":"stdout","time":1234.954700609,"data":"D2       32        41        41       6       35       1,984     7.7%        46.8           0.1   179,986,432\n"}
+,{"stream_name":"stdout","time":1234.954705928,"data":"D2       64        41        41       6       35       2,427     5.5%        49.2           0.1   329,342,720\n"}
+,{"stream_name":"stdout","time":1234.95471254,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954725949,"data":"== linear fits, gpu_us = fixed + slope * slabs ==\n"}
+,{"stream_name":"stdout","time":1234.954729848,"data":"cand   n    fixed_us  slope_us/slab       R2  fixed/gpu@max    ns/MAC  launch floor vs arithmetic\n"}
+,{"stream_name":"stdout","time":1234.954734506,"data":"-------------------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.954738896,"data":"A      5      71,188          455.6   0.8884          72.3%      1.16  floor 72% / arith 28%\n"}
+,{"stream_name":"stdout","time":1234.954743238,"data":"B      5       1,868           26.5   0.7643          55.7%      0.07  floor 56% / arith 44%\n"}
+,{"stream_name":"stdout","time":1234.954746854,"data":"C      5       1,452           13.3   0.9396          64.5%      0.20  floor 64% / arith 36%\n"}
+,{"stream_name":"stdout","time":1234.954750264,"data":"D2     5       1,181           20.3   0.9666          48.6%      0.01  floor 49% / arith 51%\n"}
+,{"stream_name":"stdout","time":1234.954753766,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954756877,"data":"  `fixed` is the launch-dominated floor and `slope` the marginal per-slab\n"}
+,{"stream_name":"stdout","time":1234.954760318,"data":"  cost. `ns/MAC` is nanoseconds of device time per algorithmic multiply-add.\n"}
+,{"stream_name":"stdout","time":1234.954763704,"data":"  If that number is roughly the same for two candidates, device time tracks\n"}
+,{"stream_name":"stdout","time":1234.954767148,"data":"  the ALGORITHM's arithmetic. If it differs by an order of magnitude between\n"}
+,{"stream_name":"stdout","time":1234.954770595,"data":"  them, device time is tracking the SCHEDULE and the arithmetic column is not\n"}
+,{"stream_name":"stdout","time":1234.954774011,"data":"  what the card is spending its time on.\n"}
+,{"stream_name":"stdout","time":1234.954777308,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954780422,"data":"  `launch_counts` per candidate, across the sweep, are in ut_time.json.\n"}
+,{"stream_name":"stdout","time":1234.954783831,"data":"  If they are not flat in slabs, the fit above does not separate the two\n"}
+,{"stream_name":"stdout","time":1234.954787183,"data":"  axes the way this section claims, and the note must say so.\n"}
+,{"stream_name":"stdout","time":1234.954790779,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954793938,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954797439,"data":"5. launch calibration: what does one launch cost on this card?\n"}
+,{"stream_name":"stdout","time":1234.954805719,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.954808695,"data":"  A chain of n dependent one-op kernels, timed with the SAME instrument as\n"}
+,{"stream_name":"stdout","time":1234.954822493,"data":"  the candidates (DEBUG=2, per-kernel CUDA events). The slope of gpu_us\n"}
+,{"stream_name":"stdout","time":1234.954826559,"data":"  against the number of kernels that ACTUALLY LAUNCHED is microseconds per\n"}
+,{"stream_name":"stdout","time":1234.954830611,"data":"  launch. This is the number that lets\n"}
+,{"stream_name":"stdout","time":1234.954834611,"data":"      arithmetic_us = gpu_us - launches * per_launch_us\n"}
+,{"stream_name":"stdout","time":1234.954857298,"data":"  be a residual in MICROSECONDS rather than an instruction count times a\n"}
+,{"stream_name":"stdout","time":1234.954864302,"data":"  constant -- which is what the brief asks for, since the census is not\n"}
+,{"stream_name":"stdout","time":1234.954867836,"data":"  additive and converting it by a factor would be the error.\n"}
+,{"stream_name":"stdout","time":1234.954871172,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954874364,"data":"     shape      n  launched      gpu_us  us/launch\n"}
+,{"stream_name":"stdout","time":1234.954877696,"data":"--------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.954880987,"data":"  1 thread     16        16         311     19.426\n"}
+,{"stream_name":"stdout","time":1234.95488429,"data":"  1 thread     64        64         826     12.902\n"}
+,{"stream_name":"stdout","time":1234.954887988,"data":"  1 thread    256       256       2,903     11.341\n"}
+,{"stream_name":"stdout","time":1234.954891245,"data":"  1 thread   1024     1,024      11,164     10.902\n"}
+,{"stream_name":"stdout","time":1234.954894462,"data":"  1 thread   4096     4,096      43,948     10.729\n"}
+,{"stream_name":"stdout","time":1234.954897754,"data":"  1 thread    fit                           10.693   intercept 162 us, R2 1.0000\n"}
+,{"stream_name":"stdout","time":1234.954901201,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954904415,"data":"     16 KB     16        16         314     19.650\n"}
+,{"stream_name":"stdout","time":1234.954908338,"data":"     16 KB     64        64         836     13.060\n"}
+,{"stream_name":"stdout","time":1234.954912163,"data":"     16 KB    256       256       2,993     11.690\n"}
+,{"stream_name":"stdout","time":1234.954916319,"data":"     16 KB   1024     1,024      11,796     11.519\n"}
+,{"stream_name":"stdout","time":1234.954920735,"data":"     16 KB   4096     4,096      45,157     11.025\n"}
+,{"stream_name":"stdout","time":1234.954924856,"data":"     16 KB    fit                           10.986   intercept 231 us, R2 0.9999\n"}
+,{"stream_name":"stdout","time":1234.954928266,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954931434,"data":"  MEASURED, DEBUG=2, so these slopes INCLUDE the host launch latency the\n"}
+,{"stream_name":"stdout","time":1234.954934884,"data":"  instrument charges to every kernel -- which is exactly what the candidate\n"}
+,{"stream_name":"stdout","time":1234.954938304,"data":"  measurements are charged too, so the residual below compares like with like.\n"}
+,{"stream_name":"stdout","time":1234.954941742,"data":"  The `16 KB` row is a sensitivity check: it is what a candidate kernel of\n"}
+,{"stream_name":"stdout","time":1234.954945156,"data":"  this operator's size costs if it did NOTHING but copy one buffer. The\n"}
+,{"stream_name":"stdout","time":1234.954948551,"data":"  headline uses the `1 thread` row.\n"}
+,{"stream_name":"stdout","time":1234.954951823,"data":"\n"}
+,{"stream_name":"stdout","time":1234.954954968,"data":"== residual: gpu_us - launches * per_launch_us   (bench shape) ==\n"}
+,{"stream_name":"stdout","time":1234.954958383,"data":"cand  launches      gpu_us   launch_us launch_us@16KB    resid_us   resid %   ns/algMAC  reading\n"}
+,{"stream_name":"stdout","time":1234.95496186,"data":"------------------------------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.954965295,"data":"A        5,380      94,842      57,528         59,107      37,314     39.3%        1.49  launch-dominated\n"}
+,{"stream_name":"stdout","time":1234.954968746,"data":"B           86       3,258         920            945       2,338     71.8%        0.09  arithmetic-dominated\n"}
+,{"stream_name":"stdout","time":1234.954975974,"data":"C           44       2,231         470            483       1,760     78.9%        0.42  arithmetic-dominated\n"}
+,{"stream_name":"stdout","time":1234.954981234,"data":"D2          41       2,426         438            450       1,987     81.9%        0.02  arithmetic-dominated\n"}
+,{"stream_name":"stdout","time":1234.954989665,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955013074,"data":"  ns/algMAC is nanoseconds of NON-LAUNCH device time per algorithmic\n"}
+,{"stream_name":"stdout","time":1234.955017159,"data":"  multiply-add, using the algorithm's own MAC count (ut_price.macs) and not\n"}
+,{"stream_name":"stdout","time":1234.955021252,"data":"  any census figure. Candidates whose entries agree are being priced by the\n"}
+,{"stream_name":"stdout","time":1234.955025039,"data":"  same axis; candidates whose entries differ by an order of magnitude are\n"}
+,{"stream_name":"stdout","time":1234.955028406,"data":"  not, and THAT is the finding, not the winner.\n"}
+,{"stream_name":"stdout","time":1234.955031633,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955035724,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.955039216,"data":"7. is the ordering spelling-invariant?\n"}
+,{"stream_name":"stdout","time":1234.955042431,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.955045855,"data":"  notes/31 §2: the `numpy` spelling of a constant costs a COPY kernel each and\n"}
+,{"stream_name":"stdout","time":1234.955049363,"data":"  the `arange` spelling costs ALU inside every consumer. notes/31 measured the\n"}
+,{"stream_name":"stdout","time":1234.955052744,"data":"  KERNEL ranking to be identical under both. The TIMING ranking is checked here,\n"}
+,{"stream_name":"stdout","time":1234.955056153,"data":"  for the two candidates the open question is actually about.\n"}
+,{"stream_name":"stdout","time":1234.955059442,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955062492,"data":"spelling  cand  launches      gpu_us  t_realize_ms\n"}
+,{"stream_name":"stdout","time":1234.955065799,"data":"--------------------------------------------------\n"}
+,{"stream_name":"stdout","time":1234.955069489,"data":"arange    C           44       2,369           0.1\n"}
+,{"stream_name":"stdout","time":1234.955072826,"data":"arange    D2          41       2,385           0.1\n"}
+,{"stream_name":"stdout","time":1234.955076245,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955084397,"data":"numpy     C           71       3,488           0.1\n"}
+,{"stream_name":"stdout","time":1234.955087758,"data":"numpy     D2          64       3,378           0.1\n"}
+,{"stream_name":"stdout","time":1234.955102749,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955106923,"data":"  spelling arange  gpu_us: C 2,369 vs D2 2,385  -\u003e  C is faster  (1.01x)\n"}
+,{"stream_name":"stdout","time":1234.955111085,"data":"  spelling numpy   gpu_us: C 3,488 vs D2 3,378  -\u003e  D2 is faster  (1.03x)\n"}
+,{"stream_name":"stdout","time":1234.95511532,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955119131,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.955122673,"data":"6. hardware counters\n"}
+,{"stream_name":"stdout","time":1234.955125905,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.95512934,"data":"  ncu on PATH: /usr/local/cuda/bin/ncu\n"}
+,{"stream_name":"stdout","time":1234.955132624,"data":"  NVIDIA (R) Nsight Compute Command Line Profiler\n"}
+,{"stream_name":"stdout","time":1234.955139454,"data":"Copyright (c) 2018-2025 NVIDIA Corporation\n"}
+,{"stream_name":"stdout","time":1234.9551428,"data":"Version 2025.1.1.0 (build 35528883) (public-release)\n"}
+,{"stream_name":"stdout","time":1234.955146133,"data":"  A   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1234.955149471,"data":"  B   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1234.955152755,"data":"  C   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1234.955156026,"data":"  D2  ncu rc=1: ModuleNotFoundError: No module named 'wrapt'\n"}
+,{"stream_name":"stdout","time":1234.955159299,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955162409,"data":"  NOTE: ncu serialises and replays kernels, so its absolute durations are not\n"}
+,{"stream_name":"stdout","time":1234.955165814,"data":"  comparable with the DEBUG=2 numbers above. Only the RATIOS between\n"}
+,{"stream_name":"stdout","time":1234.955169185,"data":"  candidates on the same metric are read, and even then only if the launch\n"}
+,{"stream_name":"stdout","time":1234.955172627,"data":"  counts ncu profiled are a complete census of the schedule, which they are\n"}
+,{"stream_name":"stdout","time":1234.955181194,"data":"  not (`--launch-skip 1 --launch-count 8` profiles a sample).\n"}
+,{"stream_name":"stdout","time":1234.955184528,"data":"\n"}
+,{"stream_name":"stdout","time":1234.955198455,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.955202537,"data":"done\n"}
+,{"stream_name":"stdout","time":1234.955206274,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1234.955210851,"data":"wrote ut_time_out/ut_time.json and ut_time_out/ut_time.txt\n"}
+,{"stream_name":"stdout","time":1234.955214811,"data":"\n"}
+,{"stream_name":"stdout","time":1234.95521804,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":1234.955221516,"data":"exit 0 after 1224.8 s\n"}
+,{"stream_name":"stdout","time":1234.965567373,"data":"collected 4 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":1237.299680095,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1237.299710584,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1237.471762822,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1237.471794905,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1238.090913747,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1238.380857999,"data":"[NbConvertApp] Writing 35995 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1240.612745162,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1241.449871645,"data":"[NbConvertApp] Writing 338409 bytes to __results__.html\n"}
+]

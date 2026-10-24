@@ -1,0 +1,475 @@
+=== minecu_tg: verify the tensor render on this host (CPU, no GPU) ===
+==============================================================================
+  minecu_tg verification -- the tensor render against a float64 transcription
+  DEV=CPU  tinygrad from the venv, CPU backend
+==============================================================================
+
+1. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+6. the worldgen floor and the physics floor
+  [PASS] world 16: ground 4 == world/4 4  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 32: ground 8 == world/4 8  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 48: ground 12 == world/4 12  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 16.861 vs 16.861)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 13.766 vs 13.766)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 32^3 ground 8 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 48^3 ground 12 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  3 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 16 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 9.971 vs 9.971)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. The tensor render is verified against an independent
+  float64 transcription of the same algorithm, and the step counts
+  agree pixel for pixel on the tie-insensitive parts.
+  verification passed
+
+=== assemble the notebook ===
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/minecu_tg_t4.ipynb  (478887 B)
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/kernel-metadata.json
+    16 payloads, 451500 b64 bytes
+    reference + memory batches [512, 1024, 2048, 4096, 8192, 16384, 32768]
+    TinyGrad timing batches [256, 512, 1024, 2048] (the generated graph needs ~4 KiB/pixel at max_steps=32)
+    on-card codegen steps 1,4,16,32; full 1..64 sweep is offline
+    dump batch 4096, iters 8
+    kernel id tenghuzhang/mc-minecu-tg-t4  title 'mc minecu tg t4'
+  notebook valid: 3 cells, 473768 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+
+=== pre-flight: the exact nvcc commands the notebook runs, for sm_75 ===
+  pre-flight passed: both binaries build and link for sm_75
+
+=== auth ===
+credentials present
+
+=== push tenghuzhang/mc-minecu-tg-t4 (session cap 60m) ===
+Kernel version 6 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-tg-t4
+
+=== wait (queue up to 120m, session cap 60m) ===
+  [22:27:57] QUEUED
+  [22:33:24] RUNNING
+  [23:15:55] COMPLETE
+
+=== download ===
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/SUMMARY.txt
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/bench.cu
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/bench_sm_75
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/kernels.cu
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/log_bench_dda.txt
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/log_refdump.txt
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__init__.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/__init__.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/analyse_codegen.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/battery.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/bench.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/blocks.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/capture_cuda.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/codegen.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/cpu_reference.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/render.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/sass_matrix.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/__pycache__/world.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/analyse_codegen.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/battery.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/bench.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/blocks.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/capture_cuda.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/codegen.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/cpu_reference.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/render.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/sass_matrix.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/verify.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/minecu_tg/world.py
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/obs_equivalence.json
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/ref_timing.json
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refdrv.cu
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refdrv_sm_75
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/basis13.bin
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/basis13.meta
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/obs_u8.bin
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/obs_u8.meta
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/voxels.bin
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/refstate/voxels.meta
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/tg/report.json
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/tools/archlab/__pycache__/inspect_ptx.cpython-312.pyc
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/tools/archlab/inspect_ptx.py
+Kernel log downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859/mc-minecu-tg-t4.log 
+
+=== what came back ===
+    bench_sm_75                                                  1.4M
+    bench.cu                                                      88K
+    kernels.cu                                                   116K
+    log_bench_dda.txt                                             12K
+    log_refdump.txt                                              4.0K
+    mc-minecu-tg-t4.log                                           40K
+    minecu_tg/__init__.py                                        4.0K
+    minecu_tg/__pycache__/__init__.cpython-312.pyc               4.0K
+    minecu_tg/__pycache__/analyse_codegen.cpython-312.pyc        8.0K
+    minecu_tg/__pycache__/battery.cpython-312.pyc                 28K
+    minecu_tg/__pycache__/bench.cpython-312.pyc                   16K
+    minecu_tg/__pycache__/blocks.cpython-312.pyc                 4.0K
+    minecu_tg/__pycache__/capture_cuda.cpython-312.pyc           8.0K
+    minecu_tg/__pycache__/codegen.cpython-312.pyc                 12K
+    minecu_tg/__pycache__/cpu_reference.cpython-312.pyc          8.0K
+    minecu_tg/__pycache__/render.cpython-312.pyc                  16K
+    minecu_tg/__pycache__/sass_matrix.cpython-312.pyc             12K
+    minecu_tg/__pycache__/world.cpython-312.pyc                   12K
+    minecu_tg/analyse_codegen.py                                 4.0K
+    minecu_tg/battery.py                                          20K
+    minecu_tg/bench.py                                            12K
+    minecu_tg/blocks.py                                          4.0K
+    minecu_tg/capture_cuda.py                                    8.0K
+    minecu_tg/codegen.py                                          12K
+    minecu_tg/cpu_reference.py                                   8.0K
+    minecu_tg/render.py                                           16K
+    minecu_tg/sass_matrix.py                                      12K
+    minecu_tg/verify.py                                           12K
+    minecu_tg/world.py                                           8.0K
+    obs_equivalence.json                                         4.0K
+    ref_timing.json                                              4.0K
+    refdrv_sm_75                                                 1.3M
+    refdrv.cu                                                     20K
+    SUMMARY.txt                                                   20K
+    tg/report.json                                                24K
+    tools/archlab/__pycache__/inspect_ptx.cpython-312.pyc         24K
+    tools/archlab/inspect_ptx.py                                  20K
+
+--- SUMMARY ---
+  ==============================================================================
+  minecu_tg -- TinyGrad vs the hand-written CUDA, on this T4
+  ==============================================================================
+  
+  --- provenance: every payload is hash-checked before anything is built ---
+    kernels.cu                           116131 B  sha256 c6ed8f06ee64d40a  OK
+    refdrv.cu                             16756 B  sha256 d3a0931d642d67bd  OK
+    bench.cu                              86029 B  sha256 990fdfc069ff8e59  OK
+    minecu_tg/__init__.py                  1580 B  sha256 6f376400341dd101  OK
+    minecu_tg/blocks.py                    2109 B  sha256 752ffaea2028475d  OK
+    minecu_tg/world.py                     6390 B  sha256 6c75c0e1e9cfc105  OK
+    minecu_tg/render.py                   14184 B  sha256 fe85581f80ed7fdb  OK
+    minecu_tg/cpu_reference.py             5494 B  sha256 d3d6356552db2be4  OK
+    minecu_tg/verify.py                   12046 B  sha256 a79e7cdcfbbb10c7  OK
+    minecu_tg/codegen.py                   9906 B  sha256 f926389a8c3064d1  OK
+    minecu_tg/bench.py                    10819 B  sha256 7ec6927c711e0eec  OK
+    minecu_tg/battery.py                  18784 B  sha256 b363a884cfad3735  OK
+    minecu_tg/capture_cuda.py              5939 B  sha256 f1957fb652054f63  OK
+    minecu_tg/analyse_codegen.py           4038 B  sha256 0972d45d060a1f64  OK
+    minecu_tg/sass_matrix.py               8385 B  sha256 dedf5437ebfbaf0b  OK
+    tools/archlab/inspect_ptx.py          20018 B  sha256 1db65d800a1f4ac2  OK
+  
+  --- tinygrad ---
+    pip install tinygrad rc=0
+    tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+    import minecu_tg.render OK, from /kaggle/working/minecu_tg/render.py
+    all 9 minecu_tg submodules import OK
+  
+  --- build the hand-written side for sm_75 ---
+    Cuda compilation tools, release 12.8, V12.8.93
+    Build cuda_12.8.r12.8/compiler.35583870_0
+    nvcc refdrv   rc=0 in 6.3s -> refdrv_sm_75
+    nvcc bench    rc=0 in 7.7s -> bench_sm_75
+    SASS census of the reference binary: HMMA=0  HGMMA=0  LDGSTS=0  REDUX=0  ELECT=0  BAR.RED=0  F2FP=0
+  
+  --- the hand-written side, per batch (cudaEvent, this card, this run) ---
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 512  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 228.0 227.3 235.2 8
+      STEP_US   278.5 268.2 315.4 8
+      ENVSTEPS_M 2.2456
+      STEP_ENVSTEPS_M 1.8384
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch    512  render     228.0 us  step     278.5 us  (0.7s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 1024  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 334.8 333.8 336.7 8
+      STEP_US   381.3 373.1 417.5 8
+      ENVSTEPS_M 3.0581
+      STEP_ENVSTEPS_M 2.6852
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch   1024  render     334.8 us  step     381.3 us  (0.6s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 2048  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 579.4 577.8 580.8 8
+      STEP_US   626.7 616.6 660.2 8
+      ENVSTEPS_M 3.5349
+      STEP_ENVSTEPS_M 3.2680
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch   2048  render     579.4 us  step     626.7 us  (0.6s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 4096  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 1146.0 1144.7 1146.4 8
+      STEP_US   1198.8 1193.8 1269.7 8
+      ENVSTEPS_M 3.5741
+      STEP_ENVSTEPS_M 3.4168
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch   4096  render    1146.0 us  step    1198.8 us  (0.6s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 8192  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 1611.8 1611.6 1667.5 8
+      STEP_US   1668.2 1663.0 1725.2 8
+      ENVSTEPS_M 5.0826
+      STEP_ENVSTEPS_M 4.9106
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch   8192  render    1611.8 us  step    1668.2 us  (0.6s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 16384  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 3246.1 3219.2 3335.7 8
+      STEP_US   3497.2 3475.3 3573.1 8
+      ENVSTEPS_M 5.0473
+      STEP_ENVSTEPS_M 4.6850
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch  16384  render    3246.1 us  step    3497.2 us  (0.7s)
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 32768  world 16  res 32x32  max_steps 32  ground 4
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 6668.8 6662.4 6676.6 8
+      STEP_US   6985.7 6901.5 7082.8 8
+      ENVSTEPS_M 4.9136
+      STEP_ENVSTEPS_M 4.6907
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+    batch  32768  render    6668.8 us  step    6985.7 us  (1.0s)
+  
+  --- the reference's own DDA statistics at batch 4096 ---
+    == selftest (on this device, this build) ==
+      [PASS] raycast_interact_kernel broke the target log and paid reward 4096 of 4096 envs rewarded (mean 1.00, target_block=3), 4096 voxels mutated, 1 trunk log(s) of the column now air (row 5)
+      [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -> no error
+      ---- DDA gate: mean >= 3.20 steps/pixel (max(2.0, 0.10*max_steps); a
+      [PASS] DDA step count is above the degeneracy floor mean 26.862 DDA steps/pixel over 4194304 pixels, p50=32 p90=32 max=32, 3393421 (80.91%) at the 32-step cap, floor 3.20
+      [PASS] the eye is not inside solid rock (fraction)  5.005% of pixels hit on their FIRST voxel test (eye in solid rock); the degenerate config is 100%, the fixed config is a few %
+    == selftest: PASS (0 failures) ==
+    DDA workload of the render kernel being timed
+      vendored DDA (kernels.cu:664-679) over the device's own voxels and basis.
+      DDA tests per pixel                 value
+        mean                             26.447
+        floor (DDA gate)                  3.200
+      Non-degenerate: the mean is 8.3x the floor, so the timed kernels are
+      launch_step_uint8_prebasis (7)          7      911.2      899.5      932.9      10.4      4.49
+      and is DDA-latency or issue bound, which is a different claim entirely.
+    (full log: log_bench_dda.txt, rc=0)
+  
+  --- the hand-written side dumps its settled state at batch 4096 ---
+    == refdrv: hand-written side, driven ==
+      card                 Tesla T4
+      batch 4096  world 16  res 32x32  max_steps 32  ground 4
+      --- dump ---
+      dumped voxels         16777216 x  1 B =      16.0 MiB
+      dumped basis13           53248 x  4 B =       0.2 MiB
+      dumped obs_u8         12582912 x  1 B =      12.0 MiB
+      --- timing (cudaEvent, 8 iters, 5 warmup) ---
+      RENDER_US 717.0 715.5 723.0 8
+      STEP_US   728.3 723.7 782.3 8
+      ENVSTEPS_M 5.7125
+      STEP_ENVSTEPS_M 5.6244
+      (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this
+       line converts once. The baseline for comparison is 7034.4 us render /
+       7198.9 us whole step at batch 32768.)
+  
+  ==============================================================================
+    the TinyGrad side
+  ==============================================================================
+  
+  ==============================================================================
+    0. configuration gate
+  ==============================================================================
+    world=16 res=32 ground=4 max_steps=32
+    PASS
+  
+  ==============================================================================
+    1. environment
+  ==============================================================================
+    Device.DEFAULT         CUDA
+    numpy                  2.0.2
+    tinygrad_path          /usr/local/lib/python3.12/dist-packages/tinygrad
+    PARALLEL               0
+    DEBUG                  0
+    nvidia_smi             Tesla T4, 15360 MiB, 580.159.04
+  Tesla T4, 15360 MiB, 580.159.04
+  
+  ==============================================================================
+    2. kernel census: launches and distinct programs vs max_steps
+  ==============================================================================
+  device=CUDA  PARALLEL=0
+   max_steps  launches distinct  names  top-rep         uops
+           1         8        6      6        1      1227776
+           4        12        9      7        1     85134336
+          16        24       21      7        1    409930752
+          32        40       37      7        1    842992640
+  
+    the same law, isolated: launches - 8 against max_steps
+      ms=  1  launches=  8  launches-8=  0  distinct=  6  names=6
+      ms=  4  launches= 12  launches-8=  4  distinct=  9  names=7
+      ms= 16  launches= 24  launches-8= 16  distinct= 21  names=7
+      ms= 32  launches= 40  launches-8= 32  distinct= 37  names=7
+  
+  ==============================================================================
+    3. allocator peak vs batch, at max_steps=32
+  ==============================================================================
+    batch    512  peak live      139.6 MiB  total alloc      139.6 MiB  allocs 11
+    batch   1024  peak live       31.3 MiB  total alloc       31.3 MiB  allocs 9
+    batch   2048  peak live       62.0 MiB  total alloc       62.0 MiB  allocs 9
+    batch   4096  peak live      125.0 MiB  total alloc      125.0 MiB  allocs 8
+    batch   8192  peak live      250.0 MiB  total alloc      250.0 MiB  allocs 9
+    batch  16384  peak live      500.0 MiB  total alloc      500.0 MiB  allocs 9
+    batch  32768  peak live      996.1 MiB  total alloc      996.1 MiB  allocs 9
+  
+  ==============================================================================
+    4. timing the render graph, max_steps=32
+  ==============================================================================
+    batch    256  device 13.755 ms over 40 kernels  per-kernel 343.9 us
+                  19.06 Mpixel/s    0.0186 M env-steps/s (device only)
+               host: trace 216.981 ms  end-to-end 718.960 ms  peak       0.0 MiB  allocs 6
+               DDA: mean 16.535  min 3  max 32  p50 9  at cap 41.9%  first voxel 0.0%
+               gate: PASS
+               obs sha256 7d60c01b36d225195421db50e3131b51...
+    batch    512  device 13.573 ms over 40 kernels  per-kernel 339.3 us
+                  38.63 Mpixel/s    0.0377 M env-steps/s (device only)
+               host: trace 214.495 ms  end-to-end 705.982 ms  peak       0.0 MiB  allocs 0
+               DDA: mean 16.540  min 3  max 32  p50 9  at cap 41.9%  first voxel 0.0%
+               gate: PASS
+               obs sha256 be57355c437eb111a40064d78dc1777f...
+    batch   1024  device 8.754 ms over 9 kernels  per-kernel 972.7 us
+                 119.78 Mpixel/s    0.1170 M env-steps/s (device only)
+               host: trace 211.918 ms  end-to-end 590.067 ms  peak       0.0 MiB  allocs 0
+               DDA: mean 16.538  min 3  max 32  p50 9  at cap 41.9%  first voxel 0.0%
+               gate: PASS
+               obs sha256 4954a58ed40bd9866e800d5803c2d5ac...
+    batch   2048  device 17.323 ms over 10 kernels  per-kernel 1732.3 us
+                 121.06 Mpixel/s    0.1182 M env-steps/s (device only)
+               host: trace 212.732 ms  end-to-end 610.672 ms  peak       0.0 MiB  allocs 0
+               DDA: mean 16.540  min 3  max 32  p50 9  at cap 41.9%  first voxel 0.0%
+               gate: PASS
+               obs sha256 adca1bedc23df16d439ec795f1088b31...
+  
+  ==============================================================================
+    wrote /kaggle/working/tg/report.json
+  ==============================================================================
+  
+  
+  --- observation equivalence, on the state the reference itself produced ---
+    voxels  (4096, 16, 16, 16)  basis (4096, 13)  obs (4096, 32, 32, 3)
+    rendered on CUDA in 339.1s
+    pixels differing from the reference : 0 / 4194304 (0.0000%)
+    envs with at least one differing pixel: 0 / 4096
+    max channel difference              : 0
+    distinct colours, reference         : 6
+    distinct colours, tinygrad          : 6
+    tinygrad DDA: mean 27.123  min 1  max 32  at cap 82.1%  first voxel 6.0%
+    obs sha256 reference 21e13f67fa003c488a7d5c9868944850
+    obs sha256 tinygrad  21e13f67fa003c488a7d5c9868944850
+  
+  --- the generated CUDA, compiled for sm_75 ---
+  
+    FileNotFoundError: [Errno 2] No such file or directory: 'clang'
+    Traceback (most recent call last):
+      File "/kaggle/working/minecu_tg/capture_cuda.py", line 138, in <module>
+        sys.exit(main())
+                 ^^^^^^
+      File "/kaggle/working/minecu_tg/capture_cuda.py", line 106, in main
+        subprocess.run([sys.executable, "-c", child], check=True)
+      File "/usr/lib/python3.12/subprocess.py", line 571, in run
+        raise CalledProcessError(retcode, process.args,
+    subprocess.CalledProcessError: Command '['/usr/bin/python3', '-c', "import sys; sys.path.insert(0, '/kaggle/working')\nimport os; os.environ['DEV']='CPU'\nimport numpy as np\nfrom minecu_tg import generate_world\nw, g, B = 16, 4, 8\nvox = np.ascontiguousarray(np.stack([generate_world(w, g).numpy()]*B))\ncams = np.array([[w/2.0, float(g), w/2.0, 0.001*(i%13-6), 0.0] for i in range(B)], dtype=np.float32)\nnp.savez('/kaggle/working/tg_codegen/inputs.npz', vox=vox, cams=cams)\n"]' returned non-zero exit status 1.
+  
+  
+  --- nvcc -arch=sm_75 and ptxas -v on the generated kernels at max_steps=32 ---
+  
+  ==============================================================================
+  SUMMARY
+  ==============================================================================
+  
+  THE SCHEDULE (the prediction under test)
+    A Python loop over DDA steps unrolls at trace time. The question is
+    whether tinygrad fuses across the unrolled body or emits one kernel per
+    step. These are the counts, per max_steps, on this card:
+     max_steps  launches  distinct  launches-8
+             1         8         6           0
+             4        12         9           4
+            16        24        21          16
+            32        40        37          32
+  
+  PERFORMANCE, both sides, same card, same run, same world, max_steps=32
+    ref render / ref step are cudaEvent medians in MICROSECONDS. tg is the
+    sum of per-kernel device times for the whole generated graph.
+      batch  ref render us   ref step us  tg device ms   tg/ref  tg peak MiB               tg state
+        256              -             -        13.755        -          0.0          not attempted
+        512          228.0         278.5        13.573    59.53            -          fits, 140 MiB
+       1024          334.8         381.3         8.754    26.15            -           fits, 31 MiB
+       2048          579.4         626.7        17.323     29.9            -           fits, 62 MiB
+       4096         1146.0        1198.8             -        -            -          fits, 125 MiB
+       8192         1611.8        1668.2             -        -            -          fits, 250 MiB
+      16384         3246.1        3497.2             -        -            -          fits, 500 MiB
+      32768         6668.8        6985.7             -        -            -          fits, 996 MiB
+  
+  WHAT TO READ
+    * A framework emits a graph of kernels; the 4.55 M baseline is a
+      whole-step number over 7 launches. Dividing one by the other is a
+      category error. The defensible comparison is render against render at
+      the same batch, and the batch table above is the same-card, same-run
+      version of that.
+    * Every timing is printed next to the DDA step count of its own run.
+      A throughput number without the workload behind it is not a
+      measurement; see minecu_ref/buried_agent_fix.md for what that costs.
+    * No number here is transcribed from any notes file. Every figure is
+      produced by an instrument in this notebook on this card.
+
+done. results in /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg/20260928-221859
+  notebook as it ran: https://www.kaggle.com/code/tenghuzhang/mc-minecu-tg-t4

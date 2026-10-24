@@ -1,0 +1,130 @@
+{
+  "kind": "GPU",
+  "results": [
+    {
+      "key": "preflight",
+      "verdict": "ok",
+      "seconds": 53.9,
+      "rc": 0,
+      "note": "is this box able to run the probes"
+    },
+    {
+      "key": "test_ref",
+      "verdict": "ok",
+      "seconds": 0.4,
+      "rc": 0,
+      "note": "float64 reference, 17 tests"
+    },
+    {
+      "key": "test_tiny",
+      "verdict": "ok",
+      "seconds": 131.8,
+      "rc": 0,
+      "note": "TinyGrad port vs the reference"
+    },
+    {
+      "key": "codegen_diff",
+      "verdict": "ok",
+      "seconds": 2.1,
+      "rc": 0,
+      "note": "generated code vs hand-written Triton"
+    },
+    {
+      "key": "kda_vs_fla",
+      "verdict": "TIMEOUT",
+      "seconds": 1800.7,
+      "rc": null,
+      "note": "the N-vs-N comparison"
+    },
+    {
+      "key": "perf_kda",
+      "verdict": "ok",
+      "seconds": 317.6,
+      "rc": 0,
+      "note": "kernel count, GPU/wall split"
+    },
+    {
+      "key": "replay_kda",
+      "verdict": "ok",
+      "seconds": 349.5,
+      "rc": 0,
+      "note": "graph replay: the python tax"
+    },
+    {
+      "key": "cost",
+      "verdict": "ok",
+      "seconds": 0.1,
+      "rc": 0,
+      "note": "analytic FLOP/byte model"
+    },
+    {
+      "key": "fp32_correctness",
+      "verdict": "ok",
+      "seconds": 2.3,
+      "rc": 0,
+      "note": "is float32 correctly rounded"
+    },
+    {
+      "key": "divide_precision",
+      "verdict": "ok",
+      "seconds": 48.9,
+      "rc": 0,
+      "note": "the a*(1/b) rewrite"
+    },
+    {
+      "key": "gather_floor",
+      "verdict": "ok",
+      "seconds": 18.5,
+      "rc": 0,
+      "note": "O(source) floor on a gather"
+    },
+    {
+      "key": "gather_scale",
+      "verdict": "ok",
+      "seconds": 10.2,
+      "rc": 0,
+      "note": "indexed load O(out) or O(src)"
+    },
+    {
+      "key": "real_gather",
+      "verdict": "ok",
+      "seconds": 2.0,
+      "rc": 0,
+      "note": "the custom_kernel attempt"
+    },
+    {
+      "key": "oc_check",
+      "verdict": "ok",
+      "seconds": 184.3,
+      "rc": 0,
+      "note": "camera vs the C reference, block-id agreement"
+    },
+    {
+      "key": "oc_report",
+      "verdict": "rc=2",
+      "seconds": 168.4,
+      "rc": 2,
+      "note": "every number in notes/01"
+    },
+    {
+      "key": "oc_port_only",
+      "verdict": "skip",
+      "seconds": 0.0,
+      "rc": null,
+      "note": "out of the battery time budget"
+    }
+  ],
+  "counts": {
+    "ok": 13,
+    "TIMEOUT": 1,
+    "rc": 1,
+    "skip": 1
+  },
+  "facts": {
+    "kind": "GPU",
+    "payload_sha": "53ab4a39448a8bcbcc29e6fe16214c681f48b7010b1bb50ee3734e3d9a8f8c58",
+    "versions": "fla-core 0.5.2, flash-linear-attention 0.5.2, numpy 2.0.2, tinygrad 0.14.0, torch 2.10.0+cu128, triton 3.6.0",
+    "gpu": "Tesla T4, 15360 MiB, 7.5\nTesla T4, 15360 MiB, 7.5",
+    "cc": "/usr/bin/clang"
+  }
+}

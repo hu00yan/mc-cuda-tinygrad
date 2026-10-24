@@ -1,0 +1,74 @@
+==============================================================================
+  minecu_tg_knobs -- the lean port, against a float64 transcription
+  DEV=CPU  tinygrad from the venv
+==============================================================================
+
+1. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid, identical to dda_model: True
+  [PASS] world 16^3, ground 4  1062/4096 solid, identical to dda_model: True
+  [PASS] world 32^3, ground 8  8274/32768 solid, identical to dda_model: True
+  [PASS] world 48^3, ground 12  27730/110592 solid, identical to dda_model: True
+  [PASS] world 16^3, ground 4  1062/4096 solid, identical to dda_model: True
+
+2-5. render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  float64 reference: mean steps 16.119, distinct colours 4
+  [PASS] naive port equals the float64 image  0/1024 pixels differ
+  [PASS] naive port step counts equal float64  1024/1024 agree, mean 16.119
+  [PASS] variant lean: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -unsigned: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -flat: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -cursor: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant naive-equivalent: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+
+2-5. render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  float64 reference: mean steps 16.085, distinct colours 4
+  [PASS] naive port equals the float64 image  0/1024 pixels differ
+  [PASS] naive port step counts equal float64  1024/1024 agree, mean 16.085
+  [PASS] variant lean: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -unsigned: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -flat: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -cursor: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant naive-equivalent: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+
+2-5. render, world 32^3 ground 8 res 32 max_steps 32 pitch +0.0 fov 70.0
+  float64 reference: mean steps 15.613, distinct colours 4
+  [PASS] naive port equals the float64 image  0/1024 pixels differ
+  [PASS] naive port step counts equal float64  1024/1024 agree, mean 15.613
+  [PASS] variant lean: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -unsigned: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -flat: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -cursor: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant naive-equivalent: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+
+2-5. render, world 48^3 ground 12 res 32 max_steps 32 pitch +0.0 fov 70.0
+  float64 reference: mean steps 15.606, distinct colours 4
+  [PASS] naive port equals the float64 image  0/1024 pixels differ
+  [PASS] naive port step counts equal float64  1024/1024 agree, mean 15.606
+  [PASS] variant lean: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -unsigned: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -flat: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -cursor: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant naive-equivalent: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+
+2-5. render, world 16^3 ground 4 res 32 max_steps 16 pitch +0.0 fov 70.0
+  float64 reference: mean steps 9.661, distinct colours 4
+  [PASS] naive port equals the float64 image  0/1024 pixels differ
+  [PASS] naive port step counts equal float64  1024/1024 agree, mean 9.661
+  [PASS] variant lean: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -unsigned: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -flat: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant -cursor: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+  [PASS] variant naive-equivalent: image and step counts vs float64  0/1024 pixels differ, 1024/1024 steps agree, max channel delta 0
+
+6. instrumentation is inert
+  [PASS] variant lean: count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] variant -unsigned: count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] variant -flat: count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] variant -cursor: count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] variant naive-equivalent: count_steps=True does not change the observation  the timed path and the verified path are the same program
+
+==============================================================================
+  all checks passed. This is a CORRECTNESS gate and not performance
+  evidence: nothing above has been timed and nothing above is a SASS
+  count. The measurements are census.py (codegen) and battery.py (T4).
+EXIT=0

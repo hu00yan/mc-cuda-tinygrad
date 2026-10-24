@@ -1,0 +1,17 @@
+{
+  "id": "tenghuzhang/mc-lm38-falsify",
+  "title": "mc lm38 falsify",
+  "subtitle": "is the frame the channel, or a symptom of graph size",
+  "code_file": "card38_run.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

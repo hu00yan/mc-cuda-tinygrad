@@ -1,0 +1,199 @@
+{
+  "device": "NULL",
+  "parallel": "0",
+  "capture_note": null,
+  "rows": [
+    {
+      "max_steps": 1,
+      "kernel_launches": 8,
+      "new_distinct_programs": 6,
+      "new_sources_captured": 6,
+      "uops_total_graph": 153472,
+      "bytes_estimate": 195604,
+      "obs_shape": [
+        8,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 24576,
+      "launch_keys_ordered": [
+        "E_2_4#49c1a0",
+        "E_64_32_4#ff4800",
+        "E_4_8_16_4#ede660",
+        "r_8_16_16#3e2b40",
+        "E_16_8_16_4#3e2360",
+        "E_256_32_3#412ae0"
+      ],
+      "launch_counts_by_program": {
+        "E_2_4#49c1a0": 1,
+        "E_64_32_4#ff4800": 1,
+        "E_4_8_16_4#ede660": 1,
+        "r_8_16_16#3e2b40": 1,
+        "E_16_8_16_4#3e2360": 1,
+        "E_256_32_3#412ae0": 1
+      },
+      "distinct_programs_launched": 6,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_2_4#49c1a0",
+      "n_distinct_names": 6,
+      "sources_dir": "out/knobs/_cuda_probe/max_steps_0001",
+      "source_bytes": [
+        476,
+        467,
+        1876,
+        1727,
+        1725,
+        907
+      ]
+    },
+    {
+      "max_steps": 2,
+      "kernel_launches": 10,
+      "new_distinct_programs": 2,
+      "new_sources_captured": 2,
+      "uops_total_graph": 13451648,
+      "bytes_estimate": 4391092,
+      "obs_shape": [
+        8,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 24576,
+      "launch_keys_ordered": [
+        "E_2_4#49c1a0",
+        "E_64_32_4#ff4800",
+        "E_4_8_16_4#ede660",
+        "E_8_32_4_4_8_16_4#bc2db0",
+        "r_8_16_16#3e2b40",
+        "r_4_2_8_8_4_4_64_4#31aae0",
+        "E_256_32_3#412ae0"
+      ],
+      "launch_counts_by_program": {
+        "E_2_4#49c1a0": 1,
+        "E_64_32_4#ff4800": 1,
+        "E_4_8_16_4#ede660": 1,
+        "E_8_32_4_4_8_16_4#bc2db0": 1,
+        "r_8_16_16#3e2b40": 1,
+        "r_4_2_8_8_4_4_64_4#31aae0": 1,
+        "E_256_32_3#412ae0": 1
+      },
+      "distinct_programs_launched": 7,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_2_4#49c1a0",
+      "n_distinct_names": 7,
+      "sources_dir": "out/knobs/_cuda_probe/max_steps_0002",
+      "source_bytes": [
+        4172,
+        40268
+      ]
+    },
+    {
+      "max_steps": 4,
+      "kernel_launches": 12,
+      "new_distinct_programs": 3,
+      "new_sources_captured": 3,
+      "uops_total_graph": 39739776,
+      "bytes_estimate": 12846580,
+      "obs_shape": [
+        8,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 24576,
+      "launch_keys_ordered": [
+        "E_2_4#49c1a0",
+        "E_64_32_4#ff4800",
+        "E_4_8_16_4#ede660",
+        "E_8_32_4_4_8_16_4#bc2db0",
+        "E_8_32_4_4_8_16_4#1c7800",
+        "E_8_32_4_4_8_16_4#1c6c30",
+        "r_8_16_16#3e2b40",
+        "r_4_2_8_8_4_4_256_256_64_4#1c70b0",
+        "E_256_32_3#412ae0"
+      ],
+      "launch_counts_by_program": {
+        "E_2_4#49c1a0": 1,
+        "E_64_32_4#ff4800": 1,
+        "E_4_8_16_4#ede660": 1,
+        "E_8_32_4_4_8_16_4#bc2db0": 1,
+        "E_8_32_4_4_8_16_4#1c7800": 1,
+        "E_8_32_4_4_8_16_4#1c6c30": 1,
+        "r_8_16_16#3e2b40": 1,
+        "r_4_2_8_8_4_4_256_256_64_4#1c70b0": 1,
+        "E_256_32_3#412ae0": 1
+      },
+      "distinct_programs_launched": 9,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_2_4#49c1a0",
+      "n_distinct_names": 7,
+      "sources_dir": "out/knobs/_cuda_probe/max_steps_0004",
+      "source_bytes": [
+        5052,
+        5716,
+        91370
+      ]
+    },
+    {
+      "max_steps": 8,
+      "kernel_launches": 16,
+      "new_distinct_programs": 5,
+      "new_sources_captured": 5,
+      "uops_total_graph": 92070272,
+      "bytes_estimate": 29757556,
+      "obs_shape": [
+        8,
+        32,
+        32,
+        3
+      ],
+      "obs_bytes": 24576,
+      "launch_keys_ordered": [
+        "E_2_4#49c1a0",
+        "E_64_32_4#ff4800",
+        "E_4_8_16_4#ede660",
+        "E_8_32_4_4_8_16_4#bc2db0",
+        "E_8_32_4_4_8_16_4#1c7800",
+        "E_8_32_4_4_8_16_4#1c6c30",
+        "E_8_32_4_4_8_16_4#7e5970",
+        "E_8_32_4_4_8_16_4#7e5cd0",
+        "E_8_32_4_4_8_16_4#7e75c0",
+        "E_8_32_4_4_8_16_4#7e7890",
+        "r_8_16_16#3e2b40",
+        "r_4_2_8_8_4_4_256_256_256_256_256_256_64_4#7e5100",
+        "E_256_32_3#412ae0"
+      ],
+      "launch_counts_by_program": {
+        "E_2_4#49c1a0": 1,
+        "E_64_32_4#ff4800": 1,
+        "E_4_8_16_4#ede660": 1,
+        "E_8_32_4_4_8_16_4#bc2db0": 1,
+        "E_8_32_4_4_8_16_4#1c7800": 1,
+        "E_8_32_4_4_8_16_4#1c6c30": 1,
+        "E_8_32_4_4_8_16_4#7e5970": 1,
+        "E_8_32_4_4_8_16_4#7e5cd0": 1,
+        "E_8_32_4_4_8_16_4#7e75c0": 1,
+        "E_8_32_4_4_8_16_4#7e7890": 1,
+        "r_8_16_16#3e2b40": 1,
+        "r_4_2_8_8_4_4_256_256_256_256_256_256_64_4#7e5100": 1,
+        "E_256_32_3#412ae0": 1
+      },
+      "distinct_programs_launched": 13,
+      "n_repeated_program": 1,
+      "n_repeated_program_key": "E_2_4#49c1a0",
+      "n_distinct_names": 7,
+      "sources_dir": "out/knobs/_cuda_probe/max_steps_0008",
+      "source_bytes": [
+        6359,
+        6990,
+        7623,
+        8260,
+        182913
+      ]
+    }
+  ],
+  "arch": "sm_75",
+  "device_note": "NULL device, CUDA renderer attached, no hardware"
+}

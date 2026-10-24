@@ -1,0 +1,49 @@
+[{"stream_name":"stderr","time":6.447363763,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.447426609,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.365489941,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.3655284850000005,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.365538254,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.365541968,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.969576614,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.969606984,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.969612623,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.969623655,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.300326617,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.300397857,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.300404657,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.300409819,"data":"archive      /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.300414723,"data":"mount        /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload\n"}
+,{"stream_name":"stdout","time":9.300419445,"data":"\n"}
+,{"stream_name":"stdout","time":9.300423887000001,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":9.680641407,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"792f4964b4e2\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":9.680679533,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":9.680683886,"data":"\n"}
+,{"stream_name":"stdout","time":9.680687913,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":9.680704354,"data":"expected 5 files, the tree we will execute has 5\n"}
+,{"stream_name":"stdout","time":9.680709667,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":9.680714706,"data":"\n"}
+,{"stream_name":"stdout","time":9.876072044,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.876101068,"data":"$ python derivation/divide.py mechanism_sentence\n"}
+,{"stream_name":"stdout","time":9.876107452,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":9.876112875,"data":"  at    2026-09-28 17:41:51 UTC\n"}
+,{"stream_name":"stdout","time":9.876118084,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.893832174,"data":"divide:mechanism_sentence\n"}
+,{"stream_name":"stdout","time":9.893915695,"data":"    TinyGrad's float32 `/` is lowered in the Tensor API — above the scheduler, above backend selection — to `a · fl32(1/b)`, so on every backend that does not itself render a real divide it returns a value bit-identical to a correctly rounded reciprocal followed by one correctly rounded float32 multiply; the result is wrong by exactly 1 ULP in 25.9%-27.0% of general `a/b` cases — a rate that depends on the divisor law, so it travels with the pair `(a,b)` and not with the operation — and no user-facing knob changes any of this.\n"}
+,{"stream_name":"stdout","time":9.893955835,"data":"\n"}
+,{"stream_name":"stdout","time":9.893960676,"data":"  this module has no recorded digests yet (first run).\n"}
+,{"stream_name":"stdout","time":9.893964787,"data":"  To make its numbers pinnable, record them with:\n"}
+,{"stream_name":"stdout","time":9.893968627,"data":"    python derivation/verify.py --write divide\n"}
+,{"stream_name":"stdout","time":9.893972207000001,"data":"\n"}
+,{"stream_name":"stdout","time":9.893975713,"data":"\n"}
+,{"stream_name":"stdout","time":9.893979143,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.893982933,"data":"exit 0 after 0.2 s\n"}
+,{"stream_name":"stdout","time":9.907710944,"data":"collected 5 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":12.34638958,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":12.346423369,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":12.501291322,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":12.501317775,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13.125497907,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":13.425158955,"data":"[NbConvertApp] Writing 17400 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":15.71142012,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":16.524611457,"data":"[NbConvertApp] Writing 322981 bytes to __results__.html\n"}
+]

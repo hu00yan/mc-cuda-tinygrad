@@ -1,0 +1,155 @@
+== minecu_tg_faithful: faithful port, both modes, on one T4 ==
+  kernel id   tenghuzhang/mc-minecu-faithful-t4   (slug 'mc-minecu-faithful-t4' matches the title)
+  log         /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg_faithful/20260929-142409-run.log
+
+=== 1. verify on this host (CPU, no GPU). No push until this passes. ===
+==============================================================================
+  minecu_tg_faithful verification -- the faithful port, both modes,
+  against the naive port and an independent float64 transcription
+  DEV=CPU  modes=['clean', 'faithful']  edit points=['addr_bits', 'unsigned_bounds']
+==============================================================================
+
+7. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. Both modes and both edit-point settings
+  produce the naive port's observation bit for bit, that observation
+  equals an independent float64 transcription, and the per-pixel DDA
+  step counts are identical across every setting -- so the crossings
+  did not change the computation.
+  correctness gate passed.
+
+=== 2. assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_faithful/kaggle/kernel/minecu_faithful_t4.ipynb  355276 B  sha256 bb2d2f242a175fe5f3ae5d494361cef8507d1c467c90ee19b99af9925415494c
+  13 payloads, 256345 B raw
+    minecu_tg/__init__.py                  6f376400341dd101
+    minecu_tg/blocks.py                    752ffaea2028475d
+    minecu_tg/world.py                     6c75c0e1e9cfc105
+    minecu_tg/render.py                    fe85581f80ed7fdb
+    minecu_tg/cpu_reference.py             d3d6356552db2be4
+    minecu_tg_faithful/__init__.py         cecf6f98be104031
+    minecu_tg_faithful/render.py           5b04f20c4646c5f0
+    minecu_tg_faithful/crossings.py        6fd0ee3cb22ad1f7
+    minecu_tg_faithful/verify.py           b124d7272fd1756e
+    minecu_tg_faithful/battery.py          deaeafb65a03a26f
+    minecu_ref/bench/dda_model.py          f5ff7fe2e15f7d9b
+    minecu_ref/src/kernels.cu              c6ed8f06ee64d40a
+    minecu_tg/kaggle/refdrv.cu             d3a0931d642d67bd
+  notebook sha256 bb2d2f242a175fe5f3ae5d494361cef8507d1c467c90ee19b99af9925415494c
+  the notebook's payloads are hash-checked on the card, so this is a
+  provenance handle: if the code changes, this changes.
+
+=== 3. push (this spends no accelerator time) ===
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-faithful-t4
+
+=== 4. poll (bounded at 90 min; the queue is a separate clock) ===
+  14:28:39  status=unknown
+  14:29:11  status=unknown
+  14:29:46  status=unknown
+  14:30:19  status=unknown
+  14:30:53  status=unknown
+  14:31:27  status=unknown
+  14:32:00  status=unknown
+  14:32:33  status=unknown
+  14:33:07  status=unknown
+  14:33:40  status=unknown
+  14:34:13  status=unknown
+  14:34:46  status=unknown
+  14:35:18  status=unknown
+  14:35:51  status=unknown
+  14:36:23  status=unknown
+  14:37:01  status=unknown
+  14:37:36  status=unknown
+  14:38:13  status=unknown
+  14:38:45  status=unknown
+  14:39:17  status=unknown
+  14:39:49  status=unknown
+  14:40:22  status=unknown
+  14:40:55  status=unknown
+  14:41:27  status=unknown
+  14:42:00  status=unknown
+  14:42:33  status=unknown
+  14:43:05  status=unknown
+  14:43:37  status=unknown
+  14:44:09  status=unknown
+  14:44:41  status=unknown
+  14:45:15  status=unknown
+  14:45:47  status=unknown
+  14:46:19  status=unknown
+  14:46:52  status=unknown
+  14:47:24  status=unknown
+  14:47:56  status=unknown
+  14:48:28  status=unknown
+  14:49:03  status=unknown
+  14:49:36  status=unknown
+  14:50:16  status=unknown
+  14:50:50  status=unknown
+  14:51:25  status=unknown
+  14:51:58  status=unknown
+  14:52:30  status=unknown
+  14:53:02  status=unknown
+  14:53:34  status=unknown
+  14:54:07  status=unknown
+  14:54:39  status=unknown
+  14:55:11  status=unknown
+  14:56:19  status=unknown
+  14:56:52  status=unknown
+  14:57:24  status=unknown
+  14:57:57  status=unknown
+  14:58:32  status=unknown
+  14:59:06  status=unknown
+  14:59:42  status=unknown
+  15:00:14  status=unknown
+  15:00:46  status=unknown
+  15:01:18  status=unknown
+  15:01:51  status=unknown
+  15:02:23  status=unknown
+  15:02:56  status=unknown
+  15:03:28  status=unknown
+  15:04:01  status=unknown
+  15:04:33  status=unknown
+  15:05:06  status=unknown
+  15:05:40  status=unknown
+  15:06:17  status=unknown
+  15:06:53  status=unknown
+  15:07:25  status=unknown
+  15:07:57  status=unknown
+  15:08:29  status=unknown
+  15:09:01  status=unknown
+  15:09:33  status=unknown
+  15:10:06  status=unknown
+  15:10:38  status=unknown
+  15:11:11  status=unknown
+  15:11:43  status=unknown
+  15:12:15  status=unknown
+  15:12:49  status=unknown
+  15:13:25  status=unknown

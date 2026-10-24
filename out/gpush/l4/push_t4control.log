@@ -1,0 +1,44 @@
+==============================================================================
+l4_push -- asking Kaggle for machine_shape: NvidiaTeslaT4
+==============================================================================
+  payload      12 files, 188.0 KB, fingerprint e5151454a7fe62d747e1e32db883ecad1178b73e848b53d1015baaa0bbea0351
+  dataset      tenghuzhang/l4-probe-payload
+  kernel       tenghuzhang/l4-probe
+  shape        NvidiaTeslaT4
+  command      bash kda_t4/l4_run.sh
+  change       +0 ~2 -0 =10  (59.0 KB)
+  uncovered    8901 working-tree files not in the payload
+  gate  title round-trip       ok   'l4 probe' slugs to 'l4-probe' (derived from the slug, never hand-edited)
+  gate  pack                   ok   12 files, 60.4 KB, sha256 2c2dad26561cce81
+  gate  dataset version        ok   new version published
+  gate  dataset READY          ok   dataset reports ready
+  gate  published file set     ok   Kaggle lists exactly ['SHA256SUMS', 'payload.tgz']
+  gate  published bytes        ok   published archive re-hashed: 12 members match the manifest exactly
+  dataset version published: 4 (pinned in dataset_sources)
+  notebook     4 cells, validates
+  metadata     machine_shape='NvidiaTeslaT4' dataset_sources=['tenghuzhang/l4-probe-payload/4']
+  kernel dir   /Users/huyan00/mycode/mc-cuda-tinygrad/out/gpush/l4/kernel/l4-probe
+
+  THE NEXT LINE SPENDS GPU QUOTA
+
+  ------------------------------------------------------------------------
+  push exit status        0
+  refusal markers in out  []
+  refusal markers in err  []
+    | Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/l4-probe
+  ------------------------------------------------------------------------
+  20260930-114518  status: RUNNING
+  20260930-114720  status: COMPLETE
+  log 11931 bytes -> /Users/huyan00/mycode/mc-cuda-tinygrad/out/gpush/l4/l4-probe.log
+
+  PROVENANCE
+    runner self-check   MATCHED
+    identity            MATCHED
+      this run pushed   e5151454a7fe62d747e1e32db883ecad1178b73e848b53d1015baaa0bbea0351
+      the runner read   e5151454a7fe62d747e1e32db883ecad1178b73e848b53d1015baaa0bbea0351
+    quotable            True
+
+  WHAT THE SERVER RECORDED
+    machine_shape now    'NvidiaTeslaT4'
+    requested            'NvidiaTeslaT4'
+    -> the server granted the shape that was asked for.

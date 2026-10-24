@@ -1,0 +1,5341 @@
+{
+ "device": "NULL:CUDA:sm_75",
+ "note": "codegen census on the NULL device: the CUDA renderer and the sm_75 target are real, nothing executes. No performance number in this file.",
+ "batch": 1024,
+ "res": 32,
+ "max_steps": 32,
+ "world": 32,
+ "ground": 8,
+ "cache_key": [
+  "NOOPT",
+  "EMULATED_DTYPES",
+  "NOLOCALS",
+  "TC",
+  "IMAGE",
+  "DISABLE_FAST_IDIV",
+  "TRANSCENDENTAL",
+  "ALLOW_TF32",
+  "DEFAULT_FLOAT",
+  "DEFAULT_INT",
+  "NUM_CPU_THREADS",
+  "TC_SELECT",
+  "TC_OPT"
+ ],
+ "reachable_knobs": [
+  "NOLOCALS",
+  "TRANSCENDENTAL"
+ ],
+ "records": [
+  {
+   "label": "ALLOW_TF32=1",
+   "port_label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean-no-flat"
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "port_label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean-no-unsigned"
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "port_label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/lean"
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "port_label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/ALLOW_TF32-1/naive"
+  },
+  {
+   "label": "IMAGE=1",
+   "port_label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean-no-flat"
+  },
+  {
+   "label": "IMAGE=1",
+   "port_label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean-no-unsigned"
+  },
+  {
+   "label": "IMAGE=1",
+   "port_label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/lean"
+  },
+  {
+   "label": "IMAGE=1",
+   "port_label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/IMAGE-1/naive"
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "port_label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "2516a74beaab8d3af919ae1eb4fcf8b2c3c8588932fef591b3dd9d0f295b7926",
+     "bytes": 758793,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15753
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "2516a74beaab8d3af919ae1eb4fcf8b2c3c8588932fef591b3dd9d0f295b7926",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15753
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean-no-flat"
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "port_label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "ed5f340781135a08382c15c06de4d7024b30fdbf5aaa8c33005b4410ed38573d",
+     "bytes": 619732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12806
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "ed5f340781135a08382c15c06de4d7024b30fdbf5aaa8c33005b4410ed38573d",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12806
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean-no-unsigned"
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "port_label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "a3b2c9e0aedafa27b04c021a92161599cc2eb22049ea901ddfb5d4a997e26474",
+     "bytes": 614866,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12761
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "a3b2c9e0aedafa27b04c021a92161599cc2eb22049ea901ddfb5d4a997e26474",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12761
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/lean"
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "port_label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "5ce4b1adf29142d084966d726ba42078d9362ffc4d1124a813dedf3ff968bab2",
+     "bytes": 74405,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 1258
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "6ee94e5140185afd5f416dc8b4297854095a6c0c9ee5131bc53fde48fe034b2d",
+     "bytes": 840481,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 16307
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "6ee94e5140185afd5f416dc8b4297854095a6c0c9ee5131bc53fde48fe034b2d",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 16307
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-0+TRANSCENDENTAL-2/naive"
+  },
+  {
+   "label": "NOLOCALS=1",
+   "port_label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "b5ccf3c60216690dc8a77a2ad25658ea55cba7551b1ea0fda53e43be517e9933",
+     "bytes": 724407,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15303
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "b5ccf3c60216690dc8a77a2ad25658ea55cba7551b1ea0fda53e43be517e9933",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "1",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15303
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean-no-flat"
+  },
+  {
+   "label": "NOLOCALS=1",
+   "port_label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "8cb684adacf55d879677dd4172bce8c6f1fb517a3f58bf5292dc7d01b5966bd3",
+     "bytes": 585357,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12356
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "8cb684adacf55d879677dd4172bce8c6f1fb517a3f58bf5292dc7d01b5966bd3",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "1",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12356
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean-no-unsigned"
+  },
+  {
+   "label": "NOLOCALS=1",
+   "port_label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "6a6591bf5c2eb732f5c39c5f81cf59bbc5db230b4fab523083654b9e00502d85",
+     "bytes": 1737,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 33
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "8ec017f5710e186120b130920a676154f34ad872d0d244e0a1f4c2cce18daeff",
+     "bytes": 1901,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 20,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "ee7d5a776790322ac2f6b9b064db479ca395f0009cfe5147664c84373676efde",
+     "bytes": 580690,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12311
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "ee7d5a776790322ac2f6b9b064db479ca395f0009cfe5147664c84373676efde",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "1",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12311
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/lean"
+  },
+  {
+   "label": "NOLOCALS=1",
+   "port_label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "5727bf67bedff3f089644345851029a1da77c74d49b14a600b8fe8089ee2c9c6",
+     "bytes": 517,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 11
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "024407fe433c46c1310d54c765fe91d6bf5c433bdaf3fbd92563877a7993e7a6",
+     "bytes": 451,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 7
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "56e7ed2590d7fbbaf4b0e108b373649fce6673a4ab027dd54fb5b66c235d954d",
+     "bytes": 4009,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 94
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6449b2f7964fbf03b0b85b5a1617faf8d54dfd1406d0da9edee529ca6d28943a",
+     "bytes": 1912,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 37
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "1086857946aa8389d088cd2290d7e867e8a815fd62f99b07873fbc03adebf715",
+     "bytes": 4271,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 76
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "82dc7c45a7c4060068438b90e3e177fd158145283263aaeacb6e2ef49eef894a",
+     "bytes": 4780,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float2"
+      ],
+      "global_dim": null,
+      "g_reads": 24,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 100
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "15efa1cdfdae0d3e1a3bb6c043ddf69e8540784e171c076c8fdee4a848699211",
+     "bytes": 804610,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15857
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "e6524cdd0363f8197ba0d3742c64538c6666a93dd7c48e156455c8ed93a47b87",
+     "bytes": 885,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "1",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 16
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "15efa1cdfdae0d3e1a3bb6c043ddf69e8540784e171c076c8fdee4a848699211",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "1",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15857
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/NOLOCALS-1/naive"
+  },
+  {
+   "label": "TC_OPT=1",
+   "port_label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean-no-flat"
+  },
+  {
+   "label": "TC_OPT=1",
+   "port_label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean-no-unsigned"
+  },
+  {
+   "label": "TC_OPT=1",
+   "port_label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/lean"
+  },
+  {
+   "label": "TC_OPT=1",
+   "port_label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-1/naive"
+  },
+  {
+   "label": "TC_OPT=2",
+   "port_label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean-no-flat"
+  },
+  {
+   "label": "TC_OPT=2",
+   "port_label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean-no-unsigned"
+  },
+  {
+   "label": "TC_OPT=2",
+   "port_label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/lean"
+  },
+  {
+   "label": "TC_OPT=2",
+   "port_label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_OPT-2/naive"
+  },
+  {
+   "label": "TC_SELECT=0",
+   "port_label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean-no-flat"
+  },
+  {
+   "label": "TC_SELECT=0",
+   "port_label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean-no-unsigned"
+  },
+  {
+   "label": "TC_SELECT=0",
+   "port_label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/lean"
+  },
+  {
+   "label": "TC_SELECT=0",
+   "port_label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-0/naive"
+  },
+  {
+   "label": "TC_SELECT=2",
+   "port_label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean-no-flat"
+  },
+  {
+   "label": "TC_SELECT=2",
+   "port_label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean-no-unsigned"
+  },
+  {
+   "label": "TC_SELECT=2",
+   "port_label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/lean"
+  },
+  {
+   "label": "TC_SELECT=2",
+   "port_label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TC_SELECT-2/naive"
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "port_label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "2516a74beaab8d3af919ae1eb4fcf8b2c3c8588932fef591b3dd9d0f295b7926",
+     "bytes": 758793,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15753
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "2516a74beaab8d3af919ae1eb4fcf8b2c3c8588932fef591b3dd9d0f295b7926",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15753
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean-no-flat"
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "port_label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "ed5f340781135a08382c15c06de4d7024b30fdbf5aaa8c33005b4410ed38573d",
+     "bytes": 619732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12806
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "ed5f340781135a08382c15c06de4d7024b30fdbf5aaa8c33005b4410ed38573d",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12806
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean-no-unsigned"
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "port_label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "a3b2c9e0aedafa27b04c021a92161599cc2eb22049ea901ddfb5d4a997e26474",
+     "bytes": 614866,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12761
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "a3b2c9e0aedafa27b04c021a92161599cc2eb22049ea901ddfb5d4a997e26474",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12761
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/lean"
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "port_label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "5ce4b1adf29142d084966d726ba42078d9362ffc4d1124a813dedf3ff968bab2",
+     "bytes": 74405,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 1258
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "6ee94e5140185afd5f416dc8b4297854095a6c0c9ee5131bc53fde48fe034b2d",
+     "bytes": 840481,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 16307
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "6ee94e5140185afd5f416dc8b4297854095a6c0c9ee5131bc53fde48fe034b2d",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 16307
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/TRANSCENDENTAL-2/naive"
+  },
+  {
+   "label": "USE_TC=0",
+   "port_label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean-no-flat"
+  },
+  {
+   "label": "USE_TC=0",
+   "port_label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean-no-unsigned"
+  },
+  {
+   "label": "USE_TC=0",
+   "port_label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/lean"
+  },
+  {
+   "label": "USE_TC=0",
+   "port_label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/USE_TC-0/naive"
+  },
+  {
+   "label": "default",
+   "port_label": "default",
+   "config": {},
+   "arch": "sm_75",
+   "port": "lean-no-flat",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+     "bytes": 724449,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15305
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "fe2026cce3305fc5fd3edf987afb6eb5e12bc4b5fdfdb7132cdb16b116bed32e",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15305
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean-no-flat/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean-no-flat"
+  },
+  {
+   "label": "default",
+   "port_label": "default",
+   "config": {},
+   "arch": "sm_75",
+   "port": "lean-no-unsigned",
+   "kernel_count": 1,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+     "bytes": 585400,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12358
+     }
+    }
+   ],
+   "hot_index": 0,
+   "hot_sha256": "12996d93d3624706cd3d8ff197c85fcdc7ba9ae8e2618ebbe0c487fb94d38742",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12358
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean-no-unsigned/kernel000.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean-no-unsigned"
+  },
+  {
+   "label": "default",
+   "port_label": "default",
+   "config": {},
+   "arch": "sm_75",
+   "port": "lean",
+   "kernel_count": 3,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "c5b9e1932c907d1f8590e68000d8b3f1417972c258c7c9c4ef0f47ce2ef05296",
+     "bytes": 1830,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 35
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "bd446d15c5ca4e23413b4b62bc3444fe06dfaed83d3d73eb89dd7cd721454302",
+     "bytes": 996,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 2,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 25
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+     "bytes": 580732,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12313
+     }
+    }
+   ],
+   "hot_index": 2,
+   "hot_sha256": "0980f9b159a5afb2650f4473e3b310f39cf828e84bd04eb040bf294f367f73cb",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 12313
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean/kernel002.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/lean"
+  },
+  {
+   "label": "default",
+   "port_label": "default",
+   "config": {},
+   "arch": "sm_75",
+   "port": "naive",
+   "kernel_count": 8,
+   "kernels": [
+    {
+     "index": 0,
+     "sha256": "47e281a2ccc36134c00d586e0251c5fc97f9aab2808a5a2fe31a38e3453fb944",
+     "bytes": 543,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 4,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 12
+     }
+    },
+    {
+     "index": 1,
+     "sha256": "19ba9e0191d64932079ee7d89815809a7355b546e964e1d534bae715d3eb3227",
+     "bytes": 477,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 0,
+      "g_pred_reads": 0,
+      "g_writes": 0,
+      "g_buffers_read": [],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 8
+     }
+    },
+    {
+     "index": 2,
+     "sha256": "2cea3f3e3ee9d50bb8a9f552c07512cc3909bdf1230c384b1cefe433fa554938",
+     "bytes": 4039,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4"
+      ],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 95
+     }
+    },
+    {
+     "index": 3,
+     "sha256": "6648fc159e7bed2eae8cb92716525e1fd33291505b8c19d03f836d34dd773f6a",
+     "bytes": 2005,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 11,
+      "g_pred_reads": 4,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 39
+     }
+    },
+    {
+     "index": 4,
+     "sha256": "ad51fcffcd7e82d0bd08f6d38196c01ea454ad3850b6fff3b15ee9e81ecd181c",
+     "bytes": 4314,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 68,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 77
+     }
+    },
+    {
+     "index": 5,
+     "sha256": "e3ab73353330caac7ba3695a758234e2e6edb3cfe5fdde355fb6972621a34e4e",
+     "bytes": 1751,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 5,
+      "g_pred_reads": 0,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "16",
+      "shared": 1,
+      "syncthreads": 1,
+      "lines": 42
+     }
+    },
+    {
+     "index": 6,
+     "sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+     "bytes": 804656,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [
+       "float4",
+       "int4"
+      ],
+      "global_dim": null,
+      "g_reads": 511,
+      "g_pred_reads": 496,
+      "g_writes": 0,
+      "g_buffers_read": [
+       1,
+       4,
+       5,
+       6
+      ],
+      "launch_bounds": "128",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 15859
+     }
+    },
+    {
+     "index": 7,
+     "sha256": "7087fb406096a6c6a9676b4a264e2913de6835c905241a06dfdfbe0e0745061e",
+     "bytes": 925,
+     "fingerprint": {
+      "local_elems": 0,
+      "local_name": null,
+      "unroll": [],
+      "vec_types": [],
+      "global_dim": null,
+      "g_reads": 7,
+      "g_pred_reads": 3,
+      "g_writes": 1,
+      "g_buffers_read": [
+       0,
+       1,
+       2
+      ],
+      "launch_bounds": "32",
+      "shared": 0,
+      "syncthreads": 0,
+      "lines": 17
+     }
+    }
+   ],
+   "hot_index": 6,
+   "hot_sha256": "a80212cbaf107d73938c51efcd3d7f652588255375fa9f62c64299d76dfd1b68",
+   "hot_fingerprint": {
+    "local_elems": 0,
+    "local_name": null,
+    "unroll": [],
+    "vec_types": [
+     "float4",
+     "int4"
+    ],
+    "global_dim": null,
+    "g_reads": 511,
+    "g_pred_reads": 496,
+    "g_writes": 0,
+    "g_buffers_read": [
+     1,
+     4,
+     5,
+     6
+    ],
+    "launch_bounds": "128",
+    "shared": 0,
+    "syncthreads": 0,
+    "lines": 15859
+   },
+   "hot_criterion": "reads an int8 buffer (the voxel grid) and is the longest such kernel; the 32 step bodies are inlined into it",
+   "hot_source": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/naive/kernel006.cu",
+   "source_dir": "/Users/huyan00/mycode/mc-cuda-tinygrad/.agent-scratch/knobs/codegen/default/naive"
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+[{"stream_name":"stderr","time":7.978563233,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.97863227,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.97863744,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.978640587,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.624539769,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.624584185,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.624590049,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.624594715,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.979702748,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.979758605,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.979762554,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.979765262,"data":"archive      /kaggle/input/mc-minecu-knobs-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.979767888,"data":"mount        /kaggle/input/mc-minecu-knobs-payload\n"}
+,{"stream_name":"stdout","time":9.979770625,"data":"\n"}
+,{"stream_name":"stdout","time":9.979772969,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":10.442560039,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"f17cbdc3328e\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":10.442594686,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.442599304,"data":"\n"}
+,{"stream_name":"stdout","time":10.442602781,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":10.44260606,"data":"expected 87 files, the tree we will execute has 87\n"}
+,{"stream_name":"stdout","time":10.442610001,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":10.442613293,"data":"\n"}
+,{"stream_name":"stdout","time":10.555213101,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.555246889,"data":"$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned\n"}
+,{"stream_name":"stdout","time":10.555252166,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.555256226000001,"data":"  at    2026-09-29 07:56:04 UTC\n"}
+,{"stream_name":"stdout","time":10.555260331,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.560240314,"data":"\n"}
+,{"stream_name":"stdout","time":10.563930537,"data":"======================================================================\n"}
+,{"stream_name":"stderr","time":10.561515457,"data":"REFUSING: no working CUDA device here (tinygrad import failed: ModuleNotFoundError: No module named 'tinygrad'). This file produces DEVICE TIMES, and a CPU number in a table of GPU numbers is the exact failure mode gpush's design forbids. Use codegen.py for the offline instruction counts.\n"}
+,{"stream_name":"stderr","time":10.563966534,"data":"\n"}
+,{"stream_name":"stderr","time":10.563973563,"data":"REFUSING: no working CUDA device here (tinygrad import failed: ModuleNotFoundError: No module named 'tinygrad'). This file produces DEVICE TIMES, and a CPU number in a table of GPU numbers is the exact failure mode gpush's design forbids. Use codegen.py for the offline instruction counts.\n"}
+,{"stream_name":"stdout","time":10.563945615,"data":"exit 2 after 0.1 s\n"}
+,{"stream_name":"stdout","time":10.58488705,"data":"collected 87 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":12.998785277,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":12.998819755,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":13.16505828,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":13.165149226,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13.794881057,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":14.095939069,"data":"[NbConvertApp] Writing 25921 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":16.404500567,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":17.233396724,"data":"[NbConvertApp] Writing 340790 bytes to __results__.html\n"}
+]

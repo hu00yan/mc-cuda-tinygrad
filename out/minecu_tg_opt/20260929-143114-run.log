@@ -1,0 +1,173 @@
+=== minecu_tg_opt: verify both ports on this host (CPU, no GPU) ===
+  SKIPPED (--no-verify). The notebook runs minecu_tg_opt/verify_opt.py on
+  the card as well, so a real push is still gated; this only skips the
+  ~17 min of local CPU.
+
+=== assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/minecu_tgopt_t4.ipynb  (623958 B)
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_opt/kaggle/kernel-metadata.json
+  22 payloads, 593140 b64 bytes
+  5 code cells: prelude, provenance+build+reference, tgopt timing,
+  gate+identity, summary. The 1800 s nbclient cap is PER CELL.
+  batches [256, 512, 1024, 2048, 4096] (timed to 2048), identity at 4096
+  variants naive,lean, iters 8
+  kernel id tenghuzhang/mc-minecu-tgopt-t4  title 'mc minecu tgopt t4'
+  notebook valid: 7 cells, 617972 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+
+=== pre-flight: the exact nvcc commands the notebook runs, for sm_75 ===
+  pre-flight passed: both binaries build and link for sm_75
+
+=== auth ===
+credentials present
+
+=== push tenghuzhang/mc-minecu-tgopt-t4 (session cap 30m) ===
+Kernel version 4 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-minecu-tgopt-t4
+
+=== wait (queue up to 120m, session cap 30m) ===
+  [14:32:21] QUEUED
+  [14:32:53] RUNNING
+  [15:00:26] ERROR
+
+=== kernel log (this is where the traceback is) ===
+  [{"stream_name":"stderr","time":7.65866929,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+  ,{"stream_name":"stderr","time":7.65963112,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+  ,{"stream_name":"stderr","time":7.65963644,"data":"0.00s - to python to disable frozen modules.\n"}
+  ,{"stream_name":"stderr","time":7.659639344,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+  ,{"stream_name":"stderr","time":8.276057941,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+  ,{"stream_name":"stderr","time":8.276089179,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+  ,{"stream_name":"stderr","time":8.276093889,"data":"0.00s - to python to disable frozen modules.\n"}
+  ,{"stream_name":"stderr","time":8.276097573,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+  ,{"stream_name":"stdout","time":9.662653853,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":9.663723431,"data":"minecu_tg_opt -- a competent TinyGrad port, against the hand-written CUDA\n"}
+  ,{"stream_name":"stdout","time":9.664516231,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":9.665287313,"data":"\n"}
+  ,{"stream_name":"stdout","time":9.665943653,"data":"--- provenance: every payload is hash-checked before anything is built ---\n"}
+  ,{"stream_name":"stdout","time":9.667531351000001,"data":"  minecu_ref/src/kernels.cu              116131 B  sha256 c6ed8f06ee64d40a  OK\n"}
+  ,{"stream_name":"stdout","time":9.668375366,"data":"  minecu_tg/kaggle/refdrv.cu              16756 B  sha256 d3a0931d642d67bd  OK\n"}
+  ,{"stream_name":"stdout","time":9.670029469,"data":"  minecu_ref/bench/bench.cu               86029 B  sha256 990fdfc069ff8e59  OK\n"}
+  ,{"stream_name":"stdout","time":9.670890890999999,"data":"  minecu_ref/bench/dda_model.py           19326 B  sha256 f5ff7fe2e15f7d9b  OK\n"}
+  ,{"stream_name":"stdout","time":9.671770414000001,"data":"  minecu_tg/__init__.py                    1580 B  sha256 6f376400341dd101  OK\n"}
+  ,{"stream_name":"stdout","time":9.672907547,"data":"  minecu_tg/blocks.py                      2109 B  sha256 752ffaea2028475d  OK\n"}
+  ,{"stream_name":"stdout","time":9.673824506,"data":"  minecu_tg/world.py                       6390 B  sha256 6c75c0e1e9cfc105  OK\n"}
+  ,{"stream_name":"stdout","time":9.674548888,"data":"  minecu_tg/render.py                     14184 B  sha256 fe85581f80ed7fdb  OK\n"}
+  ,{"stream_name":"stdout","time":9.675667343,"data":"  minecu_tg/cpu_reference.py               5494 B  sha256 d3d6356552db2be4  OK\n"}
+  ,{"stream_name":"stdout","time":9.676567866,"data":"  minecu_tg/verify.py                     12046 B  sha256 a79e7cdcfbbb10c7  OK\n"}
+  ,{"stream_name":"stdout","time":9.677472527,"data":"  minecu_tg/codegen.py                     9906 B  sha256 f926389a8c3064d1  OK\n"}
+  ,{"stream_name":"stdout","time":9.678239163,"data":"  minecu_tg/bench.py                      10819 B  sha256 7ec6927c711e0eec  OK\n"}
+  ,{"stream_name":"stdout","time":9.679599248,"data":"  minecu_tg/battery.py                    18784 B  sha256 b363a884cfad3735  OK\n"}
+  ,{"stream_name":"stdout","time":9.681038365,"data":"  minecu_tg/sass_matrix.py                 8385 B  sha256 dedf5437ebfbaf0b  OK\n"}
+  ,{"stream_name":"stdout","time":9.682273975,"data":"  tools/archlab/inspect_ptx.py            20018 B  sha256 1db65d800a1f4ac2  OK\n"}
+  ,{"stream_name":"stdout","time":9.684125974,"data":"  minecu_tg_opt/__init__.py                2691 B  sha256 2c8563730347dc15  OK\n"}
+  ,{"stream_name":"stdout","time":9.684373559,"data":"  minecu_tg_opt/render.py                 22362 B  sha256 714bcc5d05c340bc  OK\n"}
+  ,{"stream_name":"stdout","time":9.685281699,"data":"  minecu_tg_opt/verify_opt.py             11986 B  sha256 ea4bdea13bc33da9  OK\n"}
+  ,{"stream_name":"stdout","time":9.686659018,"data":"  minecu_tg_opt/capture_opt.py             6946 B  sha256 ceca81a28b4d2ff8  OK\n"}
+  ,{"stream_name":"stdout","time":9.687432171,"data":"  minecu_tg_opt/opcount.py                34458 B  sha256 4f53f1fd944e0dc1  OK\n"}
+  ,{"stream_name":"stdout","time":9.688339067,"data":"  minecu_tg_opt/census_opt.py              5999 B  sha256 9fbbb3ea25c55abf  OK\n"}
+  ,{"stream_name":"stdout","time":9.689409415,"data":"  minecu_tg_opt/battery_opt.py            12433 B  sha256 d5b22c4427b2c87e  OK\n"}
+  ,{"stream_name":"stdout","time":9.690227273,"data":"\n"}
+  ,{"stream_name":"stdout","time":9.690912579999999,"data":"--- tinygrad ---\n"}
+  ,{"stream_name":"stdout","time":17.71043786,"data":"  pip install tinygrad rc=0\n"}
+  ,{"stream_name":"stdout","time":17.790754973,"data":"  tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+  ,{"stream_name":"stdout","time":17.79972373,"data":"  minecu_tg.render      from /kaggle/working/minecu_tg/render.py\n"}
+  ,{"stream_name":"stdout","time":17.800647486,"data":"  minecu_tg_opt.render  from /kaggle/working/minecu_tg_opt/render.py\n"}
+  ,{"stream_name":"stdout","time":17.801549252,"data":"\n"}
+  ,{"stream_name":"stdout","time":17.802435522,"data":"--- the CPU correctness gate ---\n"}
+  ,{"stream_name":"stdout","time":17.803444403,"data":"  NOT RUN ON THIS CARD, and not skipped for time: this image has no C\n"}
+  ,{"stream_name":"stdout","time":17.804497262,"data":"  compiler that can target bare-metal x86-64, so tinygrad's CPU backend\n"}
+  ,{"stream_name":"stdout","time":17.805431568,"data":"  cannot execute here (compiler_cpu.py:21 passes\n"}
+  ,{"stream_name":"stdout","time":17.806201156,"data":"  --target=x86_64-none-unknown-elf; CC=gcc fails the same way). The full\n"}
+  ,{"stream_name":"stdout","time":17.807188482,"data":"  gate ran on the host in run.sh before this push and is in the push log.\n"}
+  ,{"stream_name":"stdout","time":17.808125132,"data":"  The gate that matters for this notebook is cell 3: both ports render the\n"}
+  ,{"stream_name":"stdout","time":17.809042981,"data":"  hand-written side's OWN state on THIS card and are compared to its OWN\n"}
+  ,{"stream_name":"stdout","time":17.809824148,"data":"  bytes.\n"}
+  ,{"stream_name":"stdout","time":17.810619361,"data":"\n"}
+  ,{"stream_name":"stdout","time":17.811561788,"data":"--- build the hand-written side for sm_75 ---\n"}
+  ,{"stream_name":"stdout","time":17.812316671,"data":"  staged kernels.cu     116131 B\n"}
+  ,{"stream_name":"stdout","time":17.813088261,"data":"  staged refdrv.cu       16756 B\n"}
+  ,{"stream_name":"stdout","time":17.814014365,"data":"  staged bench.cu        86029 B\n"}
+  ,{"stream_name":"stdout","time":17.833086697,"data":"  Cuda compilation tools, release 12.8, V12.8.93\n"}
+  ,{"stream_name":"stdout","time":17.833113007,"data":"  Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+  ,{"stream_name":"stdout","time":24.48004817,"data":"  nvcc refdrv   rc=0 in 6.6s -\u003e refdrv_sm_75\n"}
+  ,{"stream_name":"stdout","time":32.24272953,"data":"  nvcc bench    rc=0 in 7.8s -\u003e bench_sm_75\n"}
+  ,{"stream_name":"stdout","time":33.043951891,"data":"  SASS census of the reference binary: HMMA=0  HGMMA=0  LDGSTS=0  REDUX=0  ELECT=0  BAR.RED=0  F2FP=0\n"}
+  ,{"stream_name":"stdout","time":33.04524327,"data":"\n"}
+  ,{"stream_name":"stdout","time":33.046100615,"data":"--- the hand-written side, per batch (cudaEvent, this card, this run) ---\n"}
+  ,{"stream_name":"stdout","time":33.730459181,"data":"  batch    256  render      88.1 us  step     125.7 us  rc=0  (0.7s)\n"}
+  ,{"stream_name":"stdout","time":34.283301626,"data":"  batch    512  render     169.8 us  step     211.9 us  rc=0  (0.6s)\n"}
+  ,{"stream_name":"stdout","time":34.826826433,"data":"  batch   1024  render     286.7 us  step     329.7 us  rc=0  (0.5s)\n"}
+  ,{"stream_name":"stdout","time":35.3806073,"data":"  batch   2048  render     536.6 us  step     580.0 us  rc=0  (0.6s)\n"}
+  ,{"stream_name":"stdout","time":35.973867241,"data":"  batch   4096  render    1060.9 us  step    1114.9 us  rc=0  (0.6s)\n"}
+  ,{"stream_name":"stdout","time":35.974848655,"data":"\n"}
+  ,{"stream_name":"stdout","time":35.975875689,"data":"cell 1 done: the hand-written side's timings are in ref_timing.json\n"}
+  ,{"stream_name":"stdout","time":36.005663843,"data":"\n"}
+  ,{"stream_name":"stdout","time":36.006552051,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":36.007274496,"data":"  the two TinyGrad ports, same card, same run, same world, max_steps 32\n"}
+  ,{"stream_name":"stdout","time":36.007929997,"data":"==============================================================================\n"}
+  ,{"stream_name":"stdout","time":36.008649757,"data":"  timing batches [256, 512, 1024, 2048]; the identity stage uses batch 4096\n"}
+  ,{"stream_name":"stderr","time":1636.724880216,"data":"Traceback (most recent call last):\n"}
+  ,{"stream_name":"stderr","time":1636.724938533,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+  ,{"stream_name":"stderr","time":1636.724946029,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+  ,{"stream_name":"stderr","time":1636.725129187,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+  ,{"stream_name":"stderr","time":1636.725153173,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+  ,{"stream_name":"stderr","time":1636.7253655,"data":"    raise error\n"}
+  ,{"stream_name":"stderr","time":1636.725738919,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+  ,{"stream_name":"stderr","time":1636.725750806,"data":"---------------------------------------------------------------------------\n"}
+  ,{"stream_name":"stderr","time":1636.725757216,"data":"Exception encountered at \"In [3]\":\n"}
+  ,{"stream_name":"stderr","time":1636.725763299,"data":"---------------------------------------------------------------------------\n"}
+  ,{"stream_name":"stderr","time":1636.725769749,"data":"TimeoutExpired                            Traceback (most recent call last)\n"}
+  ,{"stream_name":"stderr","time":1636.725775913,"data":"/tmp/ipykernel_23/2160952131.py in \u003ccell line: 0\u003e()\n"}
+  ,{"stream_name":"stderr","time":1636.725782443,"data":"     19 say(f\"  timing batches {TIMING_BATCHES}; the identity stage uses batch {DUMP_BATCH}\")\n"}
+  ,{"stream_name":"stderr","time":1636.725788022,"data":"     20 t0 = time.time()\n"}
+  ,{"stream_name":"stderr","time":1636.725793044,"data":"---\u003e 21 rc, o, e = sh([sys.executable, f\"{OUT}/minecu_tg_opt/battery_opt.py\",\n"}
+  ,{"stream_name":"stderr","time":1636.725815893,"data":"     22                \"--out\", f\"{OUT}/tgopt\", \"--world\", \"16\", \"--res\", \"32\",\n"}
+  ,{"stream_name":"stderr","time":1636.725819906,"data":"     23                \"--max-steps\", \"32\", \"--variants\", VARIANTS,\n"}
+  ,{"stream_name":"stderr","time":1636.725823571,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725835893,"data":"/tmp/ipykernel_23/3299240730.py in sh(cmd, **kw)\n"}
+  ,{"stream_name":"stderr","time":1636.725850934,"data":"     29 \n"}
+  ,{"stream_name":"stderr","time":1636.725853255,"data":"     30 def sh(cmd, **kw):\n"}
+  ,{"stream_name":"stderr","time":1636.725855699,"data":"---\u003e 31     p = subprocess.run(cmd, shell=isinstance(cmd, str), capture_output=True, text=True, **kw)\n"}
+  ,{"stream_name":"stderr","time":1636.725858218,"data":"     32     return p.returncode, p.stdout, p.stderr\n"}
+  ,{"stream_name":"stderr","time":1636.725860589,"data":"     33 \n"}
+  ,{"stream_name":"stderr","time":1636.725862867,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725865191,"data":"/usr/lib/python3.12/subprocess.py in run(input, capture_output, timeout, check, *popenargs, **kwargs)\n"}
+  ,{"stream_name":"stderr","time":1636.725867651,"data":"    548     with Popen(*popenargs, **kwargs) as process:\n"}
+  ,{"stream_name":"stderr","time":1636.725870042,"data":"    549         try:\n"}
+  ,{"stream_name":"stderr","time":1636.725872355,"data":"--\u003e 550             stdout, stderr = process.communicate(input, timeout=timeout)\n"}
+  ,{"stream_name":"stderr","time":1636.7258749,"data":"    551         except TimeoutExpired as exc:\n"}
+  ,{"stream_name":"stderr","time":1636.725877676,"data":"    552             process.kill()\n"}
+  ,{"stream_name":"stderr","time":1636.725880018,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725882243,"data":"/usr/lib/python3.12/subprocess.py in communicate(self, input, timeout)\n"}
+  ,{"stream_name":"stderr","time":1636.72588473,"data":"   1207 \n"}
+  ,{"stream_name":"stderr","time":1636.725887004,"data":"   1208             try:\n"}
+  ,{"stream_name":"stderr","time":1636.725889328,"data":"-\u003e 1209                 stdout, stderr = self._communicate(input, endtime, timeout)\n"}
+  ,{"stream_name":"stderr","time":1636.72589181,"data":"   1210             except KeyboardInterrupt:\n"}
+  ,{"stream_name":"stderr","time":1636.72589424,"data":"   1211                 # https://bugs.python.org/issue25942\n"}
+  ,{"stream_name":"stderr","time":1636.725896627,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725898856,"data":"/usr/lib/python3.12/subprocess.py in _communicate(self, input, endtime, orig_timeout)\n"}
+  ,{"stream_name":"stderr","time":1636.725901305,"data":"   2114 \n"}
+  ,{"stream_name":"stderr","time":1636.72590357,"data":"   2115                     ready = selector.select(timeout)\n"}
+  ,{"stream_name":"stderr","time":1636.725905925,"data":"-\u003e 2116                     self._check_timeout(endtime, orig_timeout, stdout, stderr)\n"}
+  ,{"stream_name":"stderr","time":1636.725908438,"data":"   2117 \n"}
+  ,{"stream_name":"stderr","time":1636.725910676,"data":"   2118                     # XXX Rewrite these to use non-blocking I/O on the file\n"}
+  ,{"stream_name":"stderr","time":1636.725913121,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725915717,"data":"/usr/lib/python3.12/subprocess.py in _check_timeout(self, endtime, orig_timeout, stdout_seq, stderr_seq, skip_check_and_raise)\n"}
+  ,{"stream_name":"stderr","time":1636.725918265,"data":"   1251             return\n"}
+  ,{"stream_name":"stderr","time":1636.725920606,"data":"   1252         if skip_check_and_raise or _time() \u003e endtime:\n"}
+  ,{"stream_name":"stderr","time":1636.725923074,"data":"-\u003e 1253             raise TimeoutExpired(\n"}
+  ,{"stream_name":"stderr","time":1636.725925547,"data":"   1254                     self.args, orig_timeout,\n"}
+  ,{"stream_name":"stderr","time":1636.72592795,"data":"   1255                     output=b''.join(stdout_seq) if stdout_seq else None,\n"}
+  ,{"stream_name":"stderr","time":1636.725930387,"data":"\n"}
+  ,{"stream_name":"stderr","time":1636.725936408,"data":"TimeoutExpired: Command '['/usr/bin/python3', '/kaggle/working/minecu_tg_opt/battery_opt.py', '--out', '/kaggle/working/tgopt', '--world', '16', '--res', '32', '--max-steps', '32', '--variants', 'naive,lean', '--time-batches', '256,512,1024,2048', '--iters', '8']' timed out after 1600 seconds\n"}
+  ,{"stream_name":"stderr","time":1636.725940566,"data":"\n"}
+  ,{"stream_name":"stderr","time":1638.928983425,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+  ,{"stream_name":"stderr","time":1638.929025446,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+  ,{"stream_name":"stderr","time":1639.099187372,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+  ,{"stream_name":"stderr","time":1639.099217253,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+  ,{"stream_name":"stderr","time":1639.731959384,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+  ,{"stream_name":"stderr","time":1640.052811245,"data":"[NbConvertApp] Writing 640895 bytes to __notebook__.ipynb\n"}
+  ,{"stream_name":"stderr","time":1642.470031312,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+  ,{"stream_name":"stderr","time":1643.365916079,"data":"[NbConvertApp] Writing 993482 bytes to __results__.html\n"}
+  ]
+run did not complete: ERROR

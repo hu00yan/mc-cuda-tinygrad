@@ -1,0 +1,47 @@
+[{"stream_name":"stderr","time":8.80436444,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.804439436,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.804444267000001,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.804447855,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.549054912999999,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.549092411,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.549098457,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.549103112,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.044348397,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.044469014,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":11.044481632,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.04448476,"data":"archive      /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":11.044487631,"data":"mount        /kaggle/input/datasets/tenghuzhang/gpush-smoke-payload\n"}
+,{"stream_name":"stdout","time":11.044490653,"data":"\n"}
+,{"stream_name":"stdout","time":11.044493249,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":11.464737076,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"816ae18f3b8f\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":11.464810064,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":11.464815712,"data":"\n"}
+,{"stream_name":"stdout","time":11.464820262,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":11.464825436,"data":"expected 5 files, the tree we will execute has 5\n"}
+,{"stream_name":"stdout","time":11.464830304,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":11.464856072,"data":"\n"}
+,{"stream_name":"stdout","time":11.654344181999999,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.654377334,"data":"$ python derivation/divide.py mechanism_sentence\n"}
+,{"stream_name":"stdout","time":11.654382502,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":11.654386673,"data":"  at    2026-09-28 17:55:14 UTC\n"}
+,{"stream_name":"stdout","time":11.654390716,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.7517729,"data":"divide:mechanism_sentence\n"}
+,{"stream_name":"stdout","time":11.751809553,"data":"    TinyGrad's float32 `/` is lowered in the Tensor API — above the scheduler, above backend selection — to `a · fl32(1/b)`, so on every backend that does not itself render a real divide it returns a value bit-identical to a correctly rounded reciprocal followed by one correctly rounded float32 multiply; the result is wrong by exactly 1 ULP in 25.9%-27.0% of general `a/b` cases — a rate that depends on the divisor law, so it travels with the pair `(a,b)` and not with the operation — and no user-facing knob changes any of this.\n"}
+,{"stream_name":"stdout","time":11.751839782,"data":"\n"}
+,{"stream_name":"stdout","time":11.751846151,"data":"  this module has no recorded digests yet (first run).\n"}
+,{"stream_name":"stdout","time":11.751873941,"data":"  To make its numbers pinnable, record them with:\n"}
+,{"stream_name":"stdout","time":11.751878751,"data":"    python derivation/verify.py --write divide\n"}
+,{"stream_name":"stdout","time":11.751883693,"data":"\n"}
+,{"stream_name":"stdout","time":11.751888846,"data":"\n"}
+,{"stream_name":"stdout","time":11.751892724,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":11.751897682,"data":"exit 0 after 0.3 s\n"}
+,{"stream_name":"stdout","time":11.768751558,"data":"collected 5 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":14.83456228,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":14.834629198,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15.022801946,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15.022849373,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15.755630579,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":16.11713594,"data":"[NbConvertApp] Writing 17431 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":19.029952599,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":20.0334867,"data":"[NbConvertApp] Writing 323026 bytes to __results__.html\n"}
+]

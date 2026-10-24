@@ -1,0 +1,257 @@
+[{"stream_name":"stderr","time":7.494038808,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.494105624,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.494112663,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.4941174,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.099990822,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.100024661,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.100030688,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.100034943,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.404287899,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.404320514,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.404324124,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.40432676,"data":"archive      /kaggle/input/mc-minecu-knobs-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.404329355,"data":"mount        /kaggle/input/mc-minecu-knobs-payload\n"}
+,{"stream_name":"stdout","time":9.404331792,"data":"\n"}
+,{"stream_name":"stdout","time":9.404334047,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":9.838380811,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"e207635ca2d2\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":9.83841436,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":9.838419403,"data":"\n"}
+,{"stream_name":"stdout","time":9.838423409,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":9.838427821,"data":"expected 48 files, the tree we will execute has 48\n"}
+,{"stream_name":"stdout","time":9.838431521,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":9.83843506,"data":"\n"}
+,{"stream_name":"stdout","time":9.974962585,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.974991783,"data":"$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned\n"}
+,{"stream_name":"stdout","time":9.974997752,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":9.975002024,"data":"  at    2026-09-29 08:37:22 UTC\n"}
+,{"stream_name":"stdout","time":9.97500573,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":21.894485727,"data":"  installed tinygrad ? (/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py)\n"}
+,{"stream_name":"stdout","time":21.894519635,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.89452508,"data":"  minecu_tg_knobs -- the on-card battery, one run, same card\n"}
+,{"stream_name":"stdout","time":21.894540593,"data":"  device  {\"gpu\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"nvcc\": \"12.8\", \"hostname\": \"e207635ca2d2\"}\n"}
+,{"stream_name":"stdout","time":21.894545897,"data":"  shape   batch 1024, res 32, max_steps 32, world 32^3\n"}
+,{"stream_name":"stdout","time":21.894549452,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":21.894553057,"data":"\n"}
+,{"stream_name":"stdout","time":21.894556546,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":21.894560457,"data":"exit 1 after 12.0 s\n"}
+,{"stream_name":"stderr","time":21.896118823,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":21.896140574,"data":"  File \"\u003cstring\u003e\", line 7, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":21.89614551,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 767, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.896149459,"data":"    ret = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896152812,"data":"          ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896156229,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 532, in numpy\n"}
+,{"stream_name":"stderr","time":21.896160147,"data":"    return self._buffer().numpy().reshape(self.shape)\n"}
+,{"stream_name":"stderr","time":21.896163579,"data":"           ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896166991,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 764, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.896170649,"data":"    if TRACEMETA \u003c 1 or _METADATA.get() is not None: return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896177265,"data":"                                                            ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896179659,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 473, in _buffer\n"}
+,{"stream_name":"stderr","time":21.896182315,"data":"    return cast(Buffer, x.realize().uop.buffer).ensure_allocated()\n"}
+,{"stream_name":"stderr","time":21.896184671,"data":"                        ^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896186992,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 764, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.8961895,"data":"    if TRACEMETA \u003c 1 or _METADATA.get() is not None: return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896191977,"data":"                                                            ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896194483,"data":"  File \"/usr/lib/python3.12/contextlib.py\", line 81, in inner\n"}
+,{"stream_name":"stderr","time":21.896196985,"data":"    return func(*args, **kwds)\n"}
+,{"stream_name":"stderr","time":21.896199301,"data":"           ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896201627,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 424, in realize\n"}
+,{"stream_name":"stderr","time":21.896204087,"data":"    run_linear(*Tensor.linear_with_vars(*to_realize), update_stats=do_update_stats)\n"}
+,{"stream_name":"stderr","time":21.896206637,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 317, in run_linear\n"}
+,{"stream_name":"stderr","time":21.89620921,"data":"    if not jit: linear = link_linear(compile_linear(linear, validate=VALIDATE_WITH_CPU, input_uops=inputs))\n"}
+,{"stream_name":"stderr","time":21.896218126,"data":"                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896220785,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 308, in compile_linear\n"}
+,{"stream_name":"stderr","time":21.896223336,"data":"    linear = lower_and_compile(linear)\n"}
+,{"stream_name":"stderr","time":21.896225688,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896227959,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 265, in lower_and_compile\n"}
+,{"stream_name":"stderr","time":21.896231209,"data":"    if not len(ar:={c: a for c in linear.toposort() if c.op is Ops.CALL and (a:=_get_call_to_compile(c)) is not None}): return linear\n"}
+,{"stream_name":"stderr","time":21.896233869,"data":"                                                                                ^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896236285,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 260, in _get_call_to_compile\n"}
+,{"stream_name":"stderr","time":21.896238859,"data":"    return ast, Device[c.device if isinstance(c.device, str) else c.device[0]].renderer\n"}
+,{"stream_name":"stderr","time":21.896241358,"data":"                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.89624382,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 26, in __getitem__\n"}
+,{"stream_name":"stderr","time":21.896246358,"data":"    return self.__get_canonicalized_item(ix)\n"}
+,{"stream_name":"stderr","time":21.896248683,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896250985000002,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 34, in __get_canonicalized_item\n"}
+,{"stream_name":"stderr","time":21.896253568,"data":"    ret = self.get_class(ix)(ix)\n"}
+,{"stream_name":"stderr","time":21.896255952,"data":"          ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.89625825,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cpu.py\", line 211, in __init__\n"}
+,{"stream_name":"stderr","time":21.896260762,"data":"    self.prgs:dict[Callable, CPUProgram] = {f: CPUProgram(self, do_to_program(f().sink(arg=KernelInfo(f.__name__), tag=1), clang).to_elf())\n"}
+,{"stream_name":"stderr","time":21.896263271,"data":"                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896265736,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1544, in __wrapper\n"}
+,{"stream_name":"stderr","time":21.89626815,"data":"    ret = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896270454,"data":"          ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896272817,"data":"  File \"/usr/lib/python3.12/contextlib.py\", line 81, in inner\n"}
+,{"stream_name":"stderr","time":21.896275201999998,"data":"    return func(*args, **kwds)\n"}
+,{"stream_name":"stderr","time":21.896277488,"data":"           ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896279755,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 488, in do_to_program\n"}
+,{"stream_name":"stderr","time":21.896282273,"data":"    prg = graph_rewrite(prg, pm_to_program, ctx=renderer, name=\"linearize/render\")\n"}
+,{"stream_name":"stderr","time":21.896284841,"data":"          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896289195,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1525, in __wrapper\n"}
+,{"stream_name":"stderr","time":21.896291748,"data":"    if TRACK_MATCH_STATS \u003c 2 and not new_ctx: return func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896294199,"data":"                                                     ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896296767,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1746, in graph_rewrite\n"}
+,{"stream_name":"stderr","time":21.896299254,"data":"    return rewrite_ctx.walk_rewrite(sink) if walk else rewrite_ctx.unified_rewrite(sink)\n"}
+,{"stream_name":"stderr","time":21.896301749,"data":"                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896304196,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1722, in unified_rewrite\n"}
+,{"stream_name":"stderr","time":21.896306662,"data":"    if self.pm is None or (new_src_n:=self.pm_rewrite(new_n)) is None:\n"}
+,{"stream_name":"stderr","time":21.896309105,"data":"                                      ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896311529,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1642, in pm_rewrite\n"}
+,{"stream_name":"stderr","time":21.896314201,"data":"    def pm_rewrite(self, x:UOp) -\u003e UOp|None: return unwrap(self.pm).rewrite(x, self.ctx)\n"}
+,{"stream_name":"stderr","time":21.896316654,"data":"                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896319062,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1478, in rewrite\n"}
+,{"stream_name":"stderr","time":21.89632147,"data":"    if (ret:=match(uop, ctx)) is not None and ret is not uop: return ret\n"}
+,{"stream_name":"stderr","time":21.896323829,"data":"             ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896326142,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1452, in lazy_compile\n"}
+,{"stream_name":"stderr","time":21.89632859,"data":"    return entry[1](uop, ctx)\n"}
+,{"stream_name":"stderr","time":21.896330911,"data":"           ^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.89633321,"data":"  File \"\u003cstring\u003e\", line 3, in compiled_match\n"}
+,{"stream_name":"stderr","time":21.896335617,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 451, in do_compile\n"}
+,{"stream_name":"stderr","time":21.896338074,"data":"    lib = ctx.compiler.compile_cached(source.arg)\n"}
+,{"stream_name":"stderr","time":21.896340484,"data":"          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896342847,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 310, in compile_cached\n"}
+,{"stream_name":"stderr","time":21.896345295,"data":"    lib = self.compile(src)\n"}
+,{"stream_name":"stderr","time":21.896347588,"data":"          ^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.89634986,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/support/compiler_cpu.py\", line 21, in compile\n"}
+,{"stream_name":"stderr","time":21.896352397,"data":"    return subprocess.check_output([getenv(\"CC\", 'clang'), '-c', '-x', 'c', '-O2', '-fPIC', '-ffreestanding', '-fno-math-errno', '-nostdlib',\n"}
+,{"stream_name":"stderr","time":21.896357034,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896359623,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 466, in check_output\n"}
+,{"stream_name":"stderr","time":21.896362101,"data":"    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n"}
+,{"stream_name":"stderr","time":21.89636475,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896367123,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 548, in run\n"}
+,{"stream_name":"stderr","time":21.896369519,"data":"    with Popen(*popenargs, **kwargs) as process:\n"}
+,{"stream_name":"stderr","time":21.896371931,"data":"         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896374269,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 1026, in __init__\n"}
+,{"stream_name":"stderr","time":21.8963767,"data":"    self._execute_child(args, executable, preexec_fn, close_fds,\n"}
+,{"stream_name":"stderr","time":21.896379068,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 1955, in _execute_child\n"}
+,{"stream_name":"stderr","time":21.896381489,"data":"    raise child_exception_type(errno_num, err_msg, err_filename)\n"}
+,{"stream_name":"stderr","time":21.896383837,"data":"FileNotFoundError: [Errno 2] No such file or directory: 'clang'\n"}
+,{"stream_name":"stderr","time":21.89638618,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":21.896388478,"data":"  File \"\u003cfrozen runpy\u003e\", line 198, in _run_module_as_main\n"}
+,{"stream_name":"stderr","time":21.896390969,"data":"  File \"\u003cfrozen runpy\u003e\", line 88, in _run_code\n"}
+,{"stream_name":"stderr","time":21.896393404,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/battery.py\", line 473, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":21.896395932,"data":"    sys.exit(main())\n"}
+,{"stream_name":"stderr","time":21.896398205,"data":"             ^^^^^^\n"}
+,{"stream_name":"stderr","time":21.89640047,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/battery.py\", line 370, in main\n"}
+,{"stream_name":"stderr","time":21.896402898,"data":"    vox, cams = build_inputs(a.world, a.ground, a.batch, a.res, cache)\n"}
+,{"stream_name":"stderr","time":21.896405301,"data":"                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896407758,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/codegen.py\", line 192, in build_inputs\n"}
+,{"stream_name":"stderr","time":21.896410294,"data":"    subprocess.run([sys.executable, \"-c\", child], check=True, cwd=str(REPO))\n"}
+,{"stream_name":"stderr","time":21.896412954,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 571, in run\n"}
+,{"stream_name":"stderr","time":21.896416982,"data":"    raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":21.896420078,"data":"subprocess.CalledProcessError: Command '['/usr/bin/python3', '-c', \"import sys, os; sys.path.insert(0, '/kaggle/working/tree/payload'); os.environ['DEV']='CPU'\\nimport numpy as np\\nfrom minecu_tg.world import generate_world\\nw, g, B, R = 32, 8, 1024, 32\\n# one world, replicated: generate_world_kernel ignores its seed\\n# argument, so every env gets the same volume (minecu_tg/world.py)\\none = np.ascontiguousarray(generate_world(w, g).numpy())\\nvox = np.ascontiguousarray(np.stack([one]*B))\\n# cameras spread in yaw, so the batch is not 1024 identical rays and\\n# adjacent threads do not all march the same path\\nyaw = np.linspace(-1.1, 1.1, B, dtype=np.float32)\\npit = np.linspace(0.45, -0.25, B, dtype=np.float32)\\ncams = np.stack([\\n  np.full(B, w/2.0 + 0.5, np.float32),\\n  np.full(B, g + 0.6, np.float32),\\n  np.full(B, w/2.0 + 0.5, np.float32), yaw, pit], axis=1)\\nnp.savez('/kaggle/working/out/minecu_tg_knobs/inputs.npz', vox=vox, cams=cams)\\n\"]' returned non-zero exit status 1.\n"}
+,{"stream_name":"stderr","time":21.896428205,"data":"\n"}
+,{"stream_name":"stderr","time":21.896430677,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":21.896433029,"data":"  File \"\u003cstring\u003e\", line 7, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":21.896435729,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 767, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.896438183,"data":"    ret = fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896440507,"data":"          ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896442851,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 532, in numpy\n"}
+,{"stream_name":"stderr","time":21.89644531,"data":"    return self._buffer().numpy().reshape(self.shape)\n"}
+,{"stream_name":"stderr","time":21.896447672,"data":"           ^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896449975,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 764, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.89645241,"data":"    if TRACEMETA \u003c 1 or _METADATA.get() is not None: return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896454934,"data":"                                                            ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896457417,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 473, in _buffer\n"}
+,{"stream_name":"stderr","time":21.896459925,"data":"    return cast(Buffer, x.realize().uop.buffer).ensure_allocated()\n"}
+,{"stream_name":"stderr","time":21.896462377,"data":"                        ^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896464655,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 764, in _wrapper\n"}
+,{"stream_name":"stderr","time":21.8964672,"data":"    if TRACEMETA \u003c 1 or _METADATA.get() is not None: return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896469585,"data":"                                                            ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896472069,"data":"  File \"/usr/lib/python3.12/contextlib.py\", line 81, in inner\n"}
+,{"stream_name":"stderr","time":21.896474519,"data":"    return func(*args, **kwds)\n"}
+,{"stream_name":"stderr","time":21.896476799,"data":"           ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896479092,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/tensor.py\", line 424, in realize\n"}
+,{"stream_name":"stderr","time":21.896481488,"data":"    run_linear(*Tensor.linear_with_vars(*to_realize), update_stats=do_update_stats)\n"}
+,{"stream_name":"stderr","time":21.896483874,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 317, in run_linear\n"}
+,{"stream_name":"stderr","time":21.896486369,"data":"    if not jit: linear = link_linear(compile_linear(linear, validate=VALIDATE_WITH_CPU, input_uops=inputs))\n"}
+,{"stream_name":"stderr","time":21.896488794,"data":"                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896491217,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 308, in compile_linear\n"}
+,{"stream_name":"stderr","time":21.8964966,"data":"    linear = lower_and_compile(linear)\n"}
+,{"stream_name":"stderr","time":21.896499011,"data":"             ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896519043,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 265, in lower_and_compile\n"}
+,{"stream_name":"stderr","time":21.896522247,"data":"    if not len(ar:={c: a for c in linear.toposort() if c.op is Ops.CALL and (a:=_get_call_to_compile(c)) is not None}): return linear\n"}
+,{"stream_name":"stderr","time":21.896525086,"data":"                                                                                ^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896527788,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/engine/realize.py\", line 260, in _get_call_to_compile\n"}
+,{"stream_name":"stderr","time":21.896530416,"data":"    return ast, Device[c.device if isinstance(c.device, str) else c.device[0]].renderer\n"}
+,{"stream_name":"stderr","time":21.896533089,"data":"                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896535728,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 26, in __getitem__\n"}
+,{"stream_name":"stderr","time":21.896538311,"data":"    return self.__get_canonicalized_item(ix)\n"}
+,{"stream_name":"stderr","time":21.896540793,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896543232,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 34, in __get_canonicalized_item\n"}
+,{"stream_name":"stderr","time":21.896545857,"data":"    ret = self.get_class(ix)(ix)\n"}
+,{"stream_name":"stderr","time":21.896548307,"data":"          ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896550754,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cpu.py\", line 211, in __init__\n"}
+,{"stream_name":"stderr","time":21.896553401,"data":"    self.prgs:dict[Callable, CPUProgram] = {f: CPUProgram(self, do_to_program(f().sink(arg=KernelInfo(f.__name__), tag=1), clang).to_elf())\n"}
+,{"stream_name":"stderr","time":21.896556049,"data":"                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896558663,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1544, in __wrapper\n"}
+,{"stream_name":"stderr","time":21.896561268,"data":"    ret = func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896563694,"data":"          ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896566125,"data":"  File \"/usr/lib/python3.12/contextlib.py\", line 81, in inner\n"}
+,{"stream_name":"stderr","time":21.89656864,"data":"    return func(*args, **kwds)\n"}
+,{"stream_name":"stderr","time":21.896571064,"data":"           ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896573514,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 488, in do_to_program\n"}
+,{"stream_name":"stderr","time":21.896576181,"data":"    prg = graph_rewrite(prg, pm_to_program, ctx=renderer, name=\"linearize/render\")\n"}
+,{"stream_name":"stderr","time":21.896578888,"data":"          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896581663,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1525, in __wrapper\n"}
+,{"stream_name":"stderr","time":21.896584297,"data":"    if TRACK_MATCH_STATS \u003c 2 and not new_ctx: return func(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":21.896590017,"data":"                                                     ^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896592669,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1746, in graph_rewrite\n"}
+,{"stream_name":"stderr","time":21.896595322,"data":"    return rewrite_ctx.walk_rewrite(sink) if walk else rewrite_ctx.unified_rewrite(sink)\n"}
+,{"stream_name":"stderr","time":21.896597859,"data":"                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896600399,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1722, in unified_rewrite\n"}
+,{"stream_name":"stderr","time":21.896603,"data":"    if self.pm is None or (new_src_n:=self.pm_rewrite(new_n)) is None:\n"}
+,{"stream_name":"stderr","time":21.896605585,"data":"                                      ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896608083,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1642, in pm_rewrite\n"}
+,{"stream_name":"stderr","time":21.896610657,"data":"    def pm_rewrite(self, x:UOp) -\u003e UOp|None: return unwrap(self.pm).rewrite(x, self.ctx)\n"}
+,{"stream_name":"stderr","time":21.896613303,"data":"                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896615934,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1478, in rewrite\n"}
+,{"stream_name":"stderr","time":21.896618515,"data":"    if (ret:=match(uop, ctx)) is not None and ret is not uop: return ret\n"}
+,{"stream_name":"stderr","time":21.896621018,"data":"             ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896623454,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/uop/ops.py\", line 1452, in lazy_compile\n"}
+,{"stream_name":"stderr","time":21.896626377,"data":"    return entry[1](uop, ctx)\n"}
+,{"stream_name":"stderr","time":21.89662882,"data":"           ^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896631262,"data":"  File \"\u003cstring\u003e\", line 3, in compiled_match\n"}
+,{"stream_name":"stderr","time":21.896633809,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/codegen/__init__.py\", line 451, in do_compile\n"}
+,{"stream_name":"stderr","time":21.89663641,"data":"    lib = ctx.compiler.compile_cached(source.arg)\n"}
+,{"stream_name":"stderr","time":21.896638867,"data":"          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896641409,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 310, in compile_cached\n"}
+,{"stream_name":"stderr","time":21.896644001,"data":"    lib = self.compile(src)\n"}
+,{"stream_name":"stderr","time":21.896646449,"data":"          ^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896648878,"data":"  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/support/compiler_cpu.py\", line 21, in compile\n"}
+,{"stream_name":"stderr","time":21.896651505,"data":"    return subprocess.check_output([getenv(\"CC\", 'clang'), '-c', '-x', 'c', '-O2', '-fPIC', '-ffreestanding', '-fno-math-errno', '-nostdlib',\n"}
+,{"stream_name":"stderr","time":21.896654473,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896657163,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 466, in check_output\n"}
+,{"stream_name":"stderr","time":21.896659698,"data":"    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n"}
+,{"stream_name":"stderr","time":21.896664241,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896666882,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 548, in run\n"}
+,{"stream_name":"stderr","time":21.896669453,"data":"    with Popen(*popenargs, **kwargs) as process:\n"}
+,{"stream_name":"stderr","time":21.896671919,"data":"         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896674345,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 1026, in __init__\n"}
+,{"stream_name":"stderr","time":21.896676884,"data":"    self._execute_child(args, executable, preexec_fn, close_fds,\n"}
+,{"stream_name":"stderr","time":21.896679443,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 1955, in _execute_child\n"}
+,{"stream_name":"stderr","time":21.896681983,"data":"    raise child_exception_type(errno_num, err_msg, err_filename)\n"}
+,{"stream_name":"stderr","time":21.896684462,"data":"FileNotFoundError: [Errno 2] No such file or directory: 'clang'\n"}
+,{"stream_name":"stderr","time":21.896686963,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":21.896689436,"data":"  File \"\u003cfrozen runpy\u003e\", line 198, in _run_module_as_main\n"}
+,{"stream_name":"stderr","time":21.896692005,"data":"  File \"\u003cfrozen runpy\u003e\", line 88, in _run_code\n"}
+,{"stream_name":"stderr","time":21.896694529,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/battery.py\", line 473, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":21.896697152,"data":"    sys.exit(main())\n"}
+,{"stream_name":"stderr","time":21.896699581,"data":"             ^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896701991,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/battery.py\", line 370, in main\n"}
+,{"stream_name":"stderr","time":21.896704532,"data":"    vox, cams = build_inputs(a.world, a.ground, a.batch, a.res, cache)\n"}
+,{"stream_name":"stderr","time":21.896707113,"data":"                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":21.896709669,"data":"  File \"/kaggle/working/tree/payload/minecu_tg_knobs/codegen.py\", line 192, in build_inputs\n"}
+,{"stream_name":"stderr","time":21.896717049,"data":"    subprocess.run([sys.executable, \"-c\", child], check=True, cwd=str(REPO))\n"}
+,{"stream_name":"stderr","time":21.896719739,"data":"  File \"/usr/lib/python3.12/subprocess.py\", line 571, in run\n"}
+,{"stream_name":"stderr","time":21.896722263,"data":"    raise CalledProcessError(retcode, process.args,\n"}
+,{"stream_name":"stderr","time":21.896725097,"data":"subprocess.CalledProcessError: Command '['/usr/bin/python3', '-c', \"import sys, os; sys.path.insert(0, '/kaggle/working/tree/payload'); os.environ['DEV']='CPU'\\nimport numpy as np\\nfrom minecu_tg.world import generate_world\\nw, g, B, R = 32, 8, 1024, 32\\n# one world, replicated: generate_world_kernel ignores its seed\\n# argument, so every env gets the same volume (minecu_tg/world.py)\\none = np.ascontiguousarray(generate_world(w, g).numpy())\\nvox = np.ascontiguousarray(np.stack([one]*B))\\n# cameras spread in yaw, so the batch is not 1024 identical rays and\\n# adjacent threads do not all march the same path\\nyaw = np.linspace(-1.1, 1.1, B, dtype=np.float32)\\npit = np.linspace(0.45, -0.25, B, dtype=np.float32)\\ncams = np.stack([\\n  np.full(B, w/2.0 + 0.5, np.float32),\\n  np.full(B, g + 0.6, np.float32),\\n  np.full(B, w/2.0 + 0.5, np.float32), yaw, pit], axis=1)\\nnp.savez('/kaggle/working/out/minecu_tg_knobs/inputs.npz', vox=vox, cams=cams)\\n\"]' returned non-zero exit status 1.\n"}
+,{"stream_name":"stdout","time":21.91347268,"data":"collected 48 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":24.356955178,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":24.356984652,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":24.515575482,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":24.515612656,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":25.13639593,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":25.431090503,"data":"[NbConvertApp] Writing 31665 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":27.75579595,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":28.581272478,"data":"[NbConvertApp] Writing 341503 bytes to __results__.html\n"}
+]

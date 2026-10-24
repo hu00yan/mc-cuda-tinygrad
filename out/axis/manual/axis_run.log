@@ -1,0 +1,15 @@
+
+==============================================================================
+  1. environment
+==============================================================================
+Traceback (most recent call last):
+  File "/kaggle/working/axisrepo/axis/harness.py", line 676, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/kaggle/working/axisrepo/axis/harness.py", line 549, in main
+    env = environment()
+          ^^^^^^^^^^^^^
+  File "/kaggle/working/axisrepo/axis/harness.py", line 475, in environment
+    from tinygrad import Tensor, __version__ as tgver  # noqa: F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name '__version__' from 'tinygrad' (/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py)

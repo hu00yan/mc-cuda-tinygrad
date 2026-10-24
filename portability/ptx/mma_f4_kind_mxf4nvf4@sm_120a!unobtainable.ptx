@@ -1,0 +1,17 @@
+.version 8.7
+.target sm_120a
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<16>;
+  .reg .b16 %h<8>;
+  .reg .f32 %f<16>;
+  mov.b32 %r1, 0;
+  mma.sync.aligned.m16n8k64.row.col.kind::mxf4nvf4.block_scale.scale_vec::4X
+    .f32.e2m1.e2m1.f32.ue8m0
+    {%f1, %f2, %f3, %f4}, {%r1, %r2, %r3, %r4}, {%r5, %r6}, {%f1, %f2, %f3, %f4},
+    {%r7}, {%h1, %h2}, {%r8}, {%r9, %r10};
+  ret;
+}

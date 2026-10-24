@@ -1,0 +1,17 @@
+{
+  "id": "tenghuzhang/mc-minecu-faithful-t4",
+  "title": "mc minecu faithful t4",
+  "subtitle": "the voxel DDA's own strategy in TinyGrad, clean vs faithful crossings, against the hand-written CUDA render on a T4",
+  "code_file": "minecu_faithful_t4.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

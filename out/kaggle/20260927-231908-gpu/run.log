@@ -1,0 +1,62 @@
+=== kaggle run 20260927-231908  variant=gpu ===
+kernel    tenghuzhang/mc-cuda-tinygrad-probe-battery
+dir       /Users/huyan00/mycode/mc-cuda-tinygrad/kernels/probe
+out       /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260927-231908-gpu
+session   45m cap (kaggle -t), wait up to 90m for a slot
+poll      every 30s
+
+=== auth ===
+credentials present
+Configuration values from /Users/huyan00/.kaggle
+- username: tenghuzhang
+- auth_method: ACCESS_TOKEN
+- path: None
+- proxy: None
+- competition: None
+
+=== quota (free tier: ~30 GPU-h and ~20 TPU-h per week) ===
+  resource  used   remaining  total   refreshAt            
+  --------  -----  ---------  ------  -------------------  
+  GPU       0.00h  30.00h     30.00h  2026-10-03T00:00:00  
+  TPU       0.00h  20.00h     20.00h  2026-10-03T00:00:00  
+
+=== payload ===
+  payload.tgz  72.1 KB  25 files
+  sha256       d2be28ef198927a526d03114c7d8b2640a66322cd08ab7f5aaa0e3845296aa08
+  dataset      tenghuzhang/mc-cuda-tinygrad-payload
+  dataset     tenghuzhang/mc-cuda-tinygrad-payload
+  dataset version published
+  Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/tenghuzhang/mc-cuda-tinygrad-payload
+
+=== validate ===
+--- kernels/probe
+  ok    metadata parses, keys ['code_file', 'competition_sources', 'dataset_sources', 'enable_gpu', 'enable_internet', 'enable_tpu', 'id', 'is_private', 'kernel_sources', 'kernel_type', 'language', 'machine_shape', 'model_sources', 'title']
+  ok    title resolves to slug 'mc-cuda-tinygrad-probe-battery'
+  ok    accelerator: GPU shape=NvidiaTeslaT4  internet=True
+  ok    probe.ipynb parses, nbformat 4.5
+  ok    cell 1: compiles (81 lines)
+  ok    cell 2: compiles (142 lines)
+  ok    cell 3: compiles (46 lines)
+  ok    cell 4: compiles (145 lines)
+  ok    cell 5: compiles (93 lines)
+  ok    probe.ipynb: 6 cells, 5 code
+
+all 1 kernel director(ies) valid
+  metadata, notebook JSON and every code cell are valid Python
+
+=== create ===
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/tenghuzhang/mc-cuda-tinygrad-probe-battery
+  pushed. the kernel is tenghuzhang/mc-cuda-tinygrad-probe-battery
+
+=== wait for tenghuzhang/mc-cuda-tinygrad-probe-battery (up to 90m for a slot, 45m session cap) ===
+  [23:19:33] RUNNING   (30s between polls, 5400s left)
+  [23:21:12] COMPLETE   (30s between polls, 5302s left)
+  COMPLETE
+
+=== output ===
+HTTPSConnectionPool(host='www.kaggleusercontent.com', port=443): Max retries exceeded with url: /kf/353335611/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..rnGkCn9U39N1yzWtvkys9Q.toSvz6CwifBFOe2NzzM75hBzYXigAXoffL1TXNForVQHa_mrxC2LEyUYIb1rpzwGyYKSMpJnajs_7zNQUerz9hzxKIroUpVpTwwfDRu_v8HBHWch9G1OhTC8vtbU5IcfG7TrZ4PPDQ_FlUyNDHIE2DSRc6ctYfNVB3HmEgtATAYQtEajpf-kQ8GMceogKkdwcTroZZmjYRentOwecBY1wnISkHSvSQVHK9sptqgtBP4W8X3I72w3-_LH9rnFPeLNvw0_3NBVbgVq9_e8jHtB-SuNKDq7T8MWE6q-dyo7LemrIJtU5yyiL6DxIJmQKPnt0OubvXUQoGmvtc0Gab9iNGFHStTX-CGv3gF4SKxi3gaXhbtTw_09CYmm5hwuZiGA7szquQmY-1u_v7mPfrn-HnQQLDR7wYb8F9x2Z1ai4wUZ8Y-ZSQ-sE66fFb6R-GcSNU-NJcsILM6TkH5AHkY5jl3BKCp8FMG5McoAJqdrmfppFUMUnJyOxTVJOZJIZSEOEtEr8mW-zmQuZi5_VzfsRqfxj2_Jq8IuAg3N34TMLR31OS7W7ObBnAOrXxTaeMIAKc3wk4lkFqD704nBc6iZFCfhKBvqzRgLLkr-jhHUEF84dSeF3v6mD4wm1mMkW1fHRJ7kpr8o08RmI9faGuIKbA.uyP6sKrIkOrsOPBEXGuZ3w/logs/oc_check.log (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:2417)')))
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260927-231908-gpu/.partial/SUMMARY.md
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260927-231908-gpu/.partial/logs/00-environment.txt
+Output file downloaded to /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260927-231908-gpu/.partial/logs/01-pip-freeze.txt
+could not download the output; the run may still be finalising.
+retry in a minute: /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels output tenghuzhang/mc-cuda-tinygrad-probe-battery -p /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260927-231908-gpu/.partial --force

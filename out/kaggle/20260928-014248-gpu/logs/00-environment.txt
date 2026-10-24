@@ -1,0 +1,23 @@
+# Linux-6.12.90+-x86_64-with-glibc2.35 python 3.12.13
+# nvidia-smi: Tesla T4, 15360 MiB, 7.5
+Tesla T4, 15360 MiB, 7.5
+# tpu: unavailable
+CUDA_HOME=/usr/local/cuda
+CUDA_VERSION=12.8.1
+KAGGLE_API_V1_TOKEN=/etc/secrets/kaggle/api-v1-token
+KAGGLE_CONTAINER_NAME=kaggle_Zw9qLSI96QGASoQUuOiXy9JXrUZaPLcw2Arpud98-353371070-webtier
+KAGGLE_DATA_PROXY_PROJECT=kaggle-161607
+KAGGLE_DATA_PROXY_TOKEN=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.GcF_O5RDhjCUR5FJnDH7qe4DvZrQGolL0rXw19EQHpVk93_NVKsn-g.4r0OTz7_hc6TXFgyos-iKQ.4_Ema2dq7deWm6PBT3SyOoQ3S3m4pdwGlPzdCGOa-j0ccqpDjOQK_snIxh7n73ONL3WNcnNlRdPfEWSKuLeDEFWkkhy3ztkQxhzO1iLfgsK47CBKvLO4WDZHhsRYD8n42eoxZHFMmhrIuzcTP8BQA6-XQMyCql4Y6IQYAb61u8jdLg4os7kyMRcGZxum2k2YNfLdpSQXLfZPBwnDf240We6D2Dv6xTYo0ETJ3aWw5mb9XI6b-fbB3elQ-ddnkDyjcyXyaMkhxfvgJgVRrkZcLxwdlMUi-Oj_5m31OgmvAWMZaEEuOdmDSP_Pd0qTB1hd.ViS-EgP0LyhCJKqVBJYrlA
+KAGGLE_DATA_PROXY_URL=https://dp.kaggle.net
+KAGGLE_DOCKER_IMAGE=gcr.io/kaggle-gpu-images/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461
+KAGGLE_GCP_ZONE=us-central1-f
+KAGGLE_GRPC_DATA_PROXY_URL=dp.kaggle.net:443
+KAGGLE_KERNEL_INTEGRATIONS=
+KAGGLE_KERNEL_RUN_TYPE=Batch
+KAGGLE_URL_BASE=https://api.kaggle.com
+KAGGLE_USER_SECRETS_TOKEN=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..XEM0QwRy-IJxufBi-t5yJQ.7--u2lk_WUVEufXtPcUoNLm2bikmvc1PDBkCIvNEwVwIHcMvRWjPGWKafRoYqXlDc2RJ6SYIIlIdeYVVQmvH8NH5jrBlLTX9lCMQ4Xj5mCks6R4smBqGn9pY372sjd5ATzioTGDLpz33aPM1XxP-6w.QpockCi1ASelj1SHjmBblw
+LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib64
+NVIDIA_DRIVER_CAPABILITIES=compute,utility
+NVIDIA_PRODUCT_NAME=CUDA
+NVIDIA_REQUIRE_CUDA=cuda>=12.8 brand=unknown,driver>=470,driver<471 brand=grid,driver>=470,driver<471 brand=tesla,driver>=470,driver<471 brand=nvidia,driver>=470,driver<471 brand=quadro,driver>=470,driver<471 brand=quadrortx,driver>=470,driver<471 brand=nvidiartx,driver>=470,driver<471 brand=vapps,driver>=470,driver<471 brand=vpc,driver>=470,driver<471 brand=vcs,driver>=470,driver<471 brand=vws,driver>=470,driver<471 brand=cloudgaming,driver>=470,driver<471 brand=unknown,driver>=535,driver<536 brand=grid,driver>=535,driver<536 brand=tesla,driver>=535,driver<536 brand=nvidia,driver>=535,driver<536 brand=quadro,driver>=535,driver<536 brand=quadrortx,driver>=535,driver<536 brand=nvidiartx,driver>=535,driver<536 brand=vapps,driver>=535,driver<536 brand=vpc,driver>=535,driver<536 brand=vcs,driver>=535,driver<536 brand=vws,driver>=535,driver<536 brand=cloudgaming,driver>=535,driver<536 brand=unknown,driver>=550,driver<551 brand=grid,driver>=550,driver<551 brand=tesla,driver>=550,driver<551 brand=nvidia,driver>=550,driver<551 brand=quadro,driver>=550,driver<551 brand=quadrortx,driver>=550,driver<551 brand=nvidiartx,driver>=550,driver<551 brand=vapps,driver>=550,driver<551 brand=vpc,driver>=550,driver<551 brand=vcs,driver>=550,driver<551 brand=vws,driver>=550,driver<551 brand=cloudgaming,driver>=550,driver<551 brand=unknown,driver>=560,driver<561 brand=grid,driver>=560,driver<561 brand=tesla,driver>=560,driver<561 brand=nvidia,driver>=560,driver<561 brand=quadro,driver>=560,driver<561 brand=quadrortx,driver>=560,driver<561 brand=nvidiartx,driver>=560,driver<561 brand=vapps,driver>=560,driver<561 brand=vpc,driver>=560,driver<561 brand=vcs,driver>=560,driver<561 brand=vws,driver>=560,driver<561 brand=cloudgaming,driver>=560,driver<561 brand=unknown,driver>=565,driver<566 brand=grid,driver>=565,driver<566 brand=tesla,driver>=565,driver<566 brand=nvidia,driver>=565,driver<566 brand=quadro,driver>=565,driver<566 brand=quadrortx,driver>=565,driver<566 brand=nvidiartx,driver>=565,driver<566 brand=vapps,driver>=565,driver<566 brand=vpc,driver>=565,driver<566 brand=vcs,driver>=565,driver<566 brand=vws,driver>=565,driver<566 brand=cloudgaming,driver>=565,driver<566
+NVIDIA_VISIBLE_DEVICES=all

@@ -1,0 +1,351 @@
+{
+  "versions": {
+    "torch": "2.10.0+cu128",
+    "triton": "3.6.0",
+    "numpy": "2.0.2",
+    "einops": "0.8.2",
+    "tinygrad": "0.14.0",
+    "fla-core": "0.5.2",
+    "flash-linear-attention": "0.5.2"
+  },
+  "module_paths": {
+    "fla": "/usr/local/lib/python3.12/dist-packages/fla/__init__.py",
+    "flash_linear_attention": "",
+    "tinygrad": "/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py",
+    "triton": "/usr/local/lib/python3.12/dist-packages/triton/__init__.py"
+  },
+  "failures": [
+    "import flash_linear_attention: ModuleNotFoundError: No module named 'flash_linear_attention'"
+  ],
+  "fla_core_requires": [
+    "einops",
+    "torch>=2.7.0; extra == \"cuda\"",
+    "triton>=3.3; extra == \"cuda\"",
+    "torch>=2.7.0; extra == \"rocm\"",
+    "torch>=2.7.0; extra == \"xpu\"",
+    "torch==2.7.1; extra == \"npu\"",
+    "torch_npu==2.7.1.post4; extra == \"npu\"",
+    "torchvision==0.22.1; extra == \"npu\"",
+    "triton-ascend==3.2.1; extra == \"npu\"",
+    "torch>=2.7.0; extra == \"cpu\"",
+    "triton>=3.3; extra == \"cpu\""
+  ],
+  "toolchain": {
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "ptxas": "/usr/local/cuda/bin/ptxas",
+    "cuobjdump": "/usr/local/cuda/bin/cuobjdump",
+    "nvdisasm": "/usr/local/cuda/bin/nvdisasm"
+  },
+  "nvcc_version": "Build cuda_12.8.r12.8/compiler.35583870_0",
+  "devices": [
+    {
+      "index": 0,
+      "name": "Tesla T4",
+      "cc": [
+        7,
+        5
+      ],
+      "sm": "sm_75",
+      "total_memory": 15636037632,
+      "multi_processor_count": 40,
+      "shared_memory_per_block": 49152,
+      "shared_memory_per_block_optin": 65536,
+      "shared_memory_per_multiprocessor": 65536,
+      "triton_max_shared_mem": 65536,
+      "triton_props_keys": [
+        "max_num_regs",
+        "max_shared_mem",
+        "mem_bus_width",
+        "mem_clock_rate",
+        "multiprocessor_count",
+        "sm_clock_rate",
+        "warpSize"
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Tesla T4",
+      "cc": [
+        7,
+        5
+      ],
+      "sm": "sm_75",
+      "total_memory": 15636037632,
+      "multi_processor_count": 40,
+      "shared_memory_per_block": 49152,
+      "shared_memory_per_block_optin": 65536,
+      "shared_memory_per_multiprocessor": 65536,
+      "triton_max_shared_mem": 65536,
+      "triton_props_keys": [
+        "max_num_regs",
+        "max_shared_mem",
+        "mem_bus_width",
+        "mem_clock_rate",
+        "multiprocessor_count",
+        "sm_clock_rate",
+        "warpSize"
+      ]
+    }
+  ],
+  "heterogeneous": false,
+  "citations": {
+    "rows": [
+      {
+        "file": "fla/utils/_device.py",
+        "line": 137,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 138,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 152,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 170,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 181,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 182,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 183,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 184,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 196,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 28,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 43,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 44,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 50,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "line": 25,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "line": 26,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk.py",
+        "line": 176,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 16,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 17,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 18,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_intra.py",
+        "line": 20,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/flash_kda.py",
+        "line": 25,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      }
+    ],
+    "n_ok": 0,
+    "n": 21,
+    "failures": [
+      {
+        "file": "fla/utils/_device.py",
+        "line": 137,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 138,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 152,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 170,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 181,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 182,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 183,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 184,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/utils/_device.py",
+        "line": 196,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 28,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 43,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 44,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/common/chunk_delta_h.py",
+        "line": 50,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "line": 25,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_bwd.py",
+        "line": 26,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk.py",
+        "line": 176,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 16,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 17,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/__init__.py",
+        "line": 18,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/chunk_intra.py",
+        "line": 20,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      },
+      {
+        "file": "fla/ops/kda/backends/flash_kda.py",
+        "line": 25,
+        "ok": false,
+        "detail": "unreadable: FileNotFoundError"
+      }
+    ]
+  }
+}

@@ -1,0 +1,541 @@
+$ bash kda_t4/run.sh
+cwd: /kaggle/working/tree/payload
+exit: 0
+wall: 419.4 s
+
+--- stdout ---
+kda_t4 run.sh   2026-09-29T05:27:03Z
+stages: install probe pin gate sass time
+
+################################################################
+# stage: install
+################################################################
+==============================================================
+kda_t4 INSTALL  2026-09-29T05:27:03Z
+python  : 3.12.13
+pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)
+==============================================================
+
+--> einops
+    $ python3 -m pip install --disable-pip-version-check einops
+    OK einops
+
+--> fla-core
+    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2
+    OK fla-core
+
+--> flash-linear-attention
+    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2
+    OK flash-linear-attention
+
+--> tinygrad
+    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0
+    OK tinygrad
+
+==============================================================
+installed, as the card sees it
+==============================================================
+  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py
+  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py
+  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py
+  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py
+  flash_linear_attention 0.5.2          <import failed: ModuleNotFoundError: No module named 'flash_linear_attention'>
+  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+
+  torch.cuda.is_available()    True
+  device_count                 2
+
+done.
+
+>>> stage install exit=0  (50 s)
+
+################################################################
+# stage: probe
+################################################################
+
+============================================================================
+kda_t4 PROBE  (no measurement here; this is the box and the source)
+============================================================================
+
+============================================================================
+1. the box
+============================================================================
+  torch                       2.10.0+cu128
+  triton                      3.6.0
+  numpy                       2.0.2
+  einops                      0.8.2
+  tinygrad                    0.14.0
+  fla-core                    0.5.2
+  flash-linear-attention      0.5.2
+
+  fla                         /usr/local/lib/python3.12/dist-packages/fla/__init__.py
+  import flash_linear_attention      FAILED ModuleNotFoundError: No module named 'flash_linear_attention'
+  flash_linear_attention      
+  tinygrad                    /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+  triton                      /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+
+  fla-core 0.5.2 requires_dist, verbatim from the installed metadata:
+    einops
+    torch>=2.7.0; extra == "cuda"
+    triton>=3.3; extra == "cuda"
+    torch>=2.7.0; extra == "rocm"
+    torch>=2.7.0; extra == "xpu"
+    torch==2.7.1; extra == "npu"
+    torch_npu==2.7.1.post4; extra == "npu"
+    torchvision==0.22.1; extra == "npu"
+    triton-ascend==3.2.1; extra == "npu"
+    torch>=2.7.0; extra == "cpu"
+    triton>=3.3; extra == "cpu"
+
+  disassembly toolchain (SASS counting needs these):
+    nvcc        /usr/local/cuda/bin/nvcc
+    ptxas       /usr/local/cuda/bin/ptxas
+    cuobjdump   /usr/local/cuda/bin/cuobjdump
+    nvdisasm    /usr/local/cuda/bin/nvdisasm
+    (dir /usr/local/cuda/bin: ['cuobjdump', 'nvcc', 'nvdisasm', 'ptxas'])
+    (dir /usr/local/cuda-12.8/bin: ['cuobjdump', 'nvcc', 'nvdisasm', 'ptxas'])
+
+  nvcc version line              Build cuda_12.8.r12.8/compiler.35583870_0
+
+============================================================================
+2. devices (fla sizes its config space from DEVICE 0, always)
+============================================================================
+  torch.cuda.device_count() = 2
+
+  device 0: Tesla T4  sm_75  14.56 GiB  40 SM
+    shared_memory_per_block            49152
+    shared_memory_per_block_optin      65536
+    shared_memory_per_multiprocessor   65536
+    triton max_shared_mem              65536
+
+  device 1: Tesla T4  sm_75  14.56 GiB  40 SM
+    shared_memory_per_block            49152
+    shared_memory_per_block_optin      65536
+    shared_memory_per_multiprocessor   65536
+    triton max_shared_mem              65536
+
+  heterogeneous box: False
+  NOTE fla reads device 0 for every architecture predicate, so the
+       config space is device 0's even for a kernel on device 1.
+
+============================================================================
+3. the citations, re-read in the installed wheel
+============================================================================
+  fla package root: /usr/local/lib/python3.12/dist-packages/fla
+  FAIL  fla/utils/_device.py:137  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:138  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:152  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:170  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:181  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:182  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:183  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:184  unreadable (FileNotFoundError)
+  FAIL  fla/utils/_device.py:196  unreadable (FileNotFoundError)
+  FAIL  fla/ops/common/chunk_delta_h.py:28  unreadable (FileNotFoundError)
+  FAIL  fla/ops/common/chunk_delta_h.py:43  unreadable (FileNotFoundError)
+  FAIL  fla/ops/common/chunk_delta_h.py:44  unreadable (FileNotFoundError)
+  FAIL  fla/ops/common/chunk_delta_h.py:50  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/chunk_bwd.py:25  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/chunk_bwd.py:26  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/chunk.py:176  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/backends/__init__.py:16  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/backends/__init__.py:17  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/backends/__init__.py:18  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/chunk_intra.py:20  unreadable (FileNotFoundError)
+  FAIL  fla/ops/kda/backends/flash_kda.py:25  unreadable (FileNotFoundError)
+
+  0/21 citations hold on the installed wheel
+
+wrote /kaggle/working/tree/payload/kda_t4/out/probe_env.json and /kaggle/working/tree/payload/kda_t4/out/probe_env.txt
+
+>>> stage probe exit=0  (13 s)
+
+################################################################
+# stage: pin
+################################################################
+
+============================================================================
+kda_t4 PIN -- kda/baseline_pin.py, run on this card as a subprocess
+============================================================================
+  pin file     /kaggle/working/tree/payload/kda/baseline_pin.py
+  pin sha256   5ef26f8aaaa3c30cdaa9a4f83cf14dd20c4529f876e33dff2cae1f96f461ba35
+
+============================================================================
+1. baseline_pin.py --json
+============================================================================
+  $ python kda/baseline_pin.py --json
+  exit 0
+  NOT VALID JSON: JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+  --- raw stdout (first 3000 chars) ---
+
+==============================================================================
+BASELINE PIN -- what will actually run
+==============================================================================
+  fla-core mirror      : 0.5.2 (flash-linear-attention 0.5.2 -> fla-core==0.5.2)
+  device               : index 0
+  VERDICT              : INVALID
+    FAIL   shared-memory gate INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}
+    FAIL   device 1 (Tesla T4) is INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}
+
+==============================================================================
+1. installed dependencies (absence is reported, never assumed)
+==============================================================================
+  torch                 yes  
+  triton                yes  
+  fla                   yes  
+  flash_linear_attentionNO   ModuleNotFoundError: No module named 'flash_linear_attention'
+  flash_kda             NO   ModuleNotFoundError: No module named 'flash_kda'
+  tilelang              NO   ModuleNotFoundError: No module named 'tilelang'
+  find_spec('flash_kda')      False  
+  find_spec('tilelang')      False  
+  nvcc on PATH            /usr/local/cuda/bin/nvcc
+
+==============================================================================
+2. backend registry, in the order the dispatcher walks it
+==============================================================================
+  fla/ops/backends/__init__.py:182-211 -- first survivor wins;
+  if none survive, the undecorated mainline runs (:214).
+  prio 0  triton_ascend  class=TritonAscendKDABackend
+             package_name=None  env_var=None  default_enable=True
+             is_available=False  is_enabled=True  implements chunk_kda=False  has chunk_kda_verifier=False
+  prio 3  flash_kda      class=FlashKDABackend
+             package_name=flash_kda  env_var=FLA_FLASH_KDA  default_enable=True
+             is_available=False  is_enabled=True  implements chunk_kda=True  has chunk_kda_verifier=True
+  prio 5  tilelang       class=KDATileLangBackend
+             package_name=tilelang  env_var=FLA_TILELANG  default_enable=True
+             is_available=False  is_enabled=True  implements chunk_kda=False  has chunk_kda_verifier=False
+  mirror matches the installed registry (no drift)
+
+==============================================================================
+3. which backend would each call actually select?
+==============================================================================
+  study harness  (kda/kda_vs_fla.py:600,673)
+    dtype=bfloat16 K=128 V=128 H=16 HV=16 grad_enabled=False
+    flags: gate=False l2norm=False beta_sigmoid=False state_v_first=False safe_gate=False
+    -> triton_ascend(mainline-fallback)
+       triton_ascend  skipped   by is_available() and is_enabled()
+                     available=False enabled=True env=None
+       flash_kda      skipped   by is_available() and is_enabled()
+                     av
+
+============================================================================
+2. baseline_pin.py --strict
+============================================================================
+  $ python kda/baseline_pin.py --strict
+  exit 1   (at least one INVALID)
+
+============================================================================
+3. baseline_pin.py  (full report, verbatim)
+============================================================================
+  $ python kda/baseline_pin.py 
+
+
+============================================================================
+4. independent re-derivation of the two facts the scope label rests on
+============================================================================
+  4a. which backend would the study's call shape select?
+      study harness    -> 'triton_ascend(mainline-fallback)'   err=''
+         triton_ascend              skipped   is_available() and is_enabled()
+           available=False enabled=True env=None
+         flash_kda                  skipped   is_available() and is_enabled()
+           available=False enabled=True env=FLA_FLASH_KDA
+         tilelang                   skipped   is_available() and is_enabled()
+           available=False enabled=True env=FLA_TILELANG
+         (mainline)                 SELECTED  no backend survived -> undecorated function (fla/ops/backends/__init__.py:214)
+           this is the mainline Triton path
+      fla layer shape  -> 'triton_ascend(mainline-fallback)'   err=''
+         triton_ascend              skipped   is_available() and is_enabled()
+           available=False enabled=True env=None
+         flash_kda                  skipped   is_available() and is_enabled()
+           available=False enabled=True env=FLA_FLASH_KDA
+         tilelang                   skipped   is_available() and is_enabled()
+           available=False enabled=True env=FLA_TILELANG
+         (mainline)                 SELECTED  no backend survived -> undecorated function (fla/ops/backends/__init__.py:214)
+           this is the mainline Triton path
+
+  4b. shared memory, read four independent ways
+      device                 Tesla T4
+      cc                     (7, 5)  sm_75
+      torch .shared_memory_per_block_optin   65536  (torch .shared_memory_per_block_optin)
+      triton max_shared_mem                  65536
+      fla get_all_max_shared_mem             65536
+      all agree                              True
+      verdict                                INVALID
+      why                                    65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}
+
+============================================================================
+5. fleet, and the device-0 rule
+============================================================================
+  CUDA devices visible: 2   heterogeneous: False
+    0: Tesla T4                 sm_75    smem=65536  INVALID
+    1: Tesla T4                 sm_75    smem=65536  INVALID
+
+============================================================================
+6. the same pin, as a real object (built here, not by --json)
+============================================================================
+  VERDICT  INVALID
+  problems (2):
+    FAIL   shared-memory gate INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}
+    FAIL   device 1 (Tesla T4) is INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}
+  unknowns (0):
+
+  and the two selection questions, answered:
+    study call  -> triton_ascend(mainline-fallback)
+    layer call  -> triton_ascend(mainline-fallback)
+    registry    -> 3 live backends, 0 drift
+  wrote /kaggle/working/tree/payload/kda_t4/out/pin_t4.build_pin.json
+
+============================================================================
+exit codes: --json 0   --strict 1   report 2
+wrote kda_t4/out/pin_t4.{txt,json}, pin_t4.baseline_pin.{json,strict.txt,report.txt}
+
+>>> stage pin exit=0  (38 s)
+
+################################################################
+# stage: gate
+################################################################
+
+============================================================================
+kda_t4 GATE -- the config collapse, observed on this card
+============================================================================
+
+============================================================================
+1. the gate itself, called
+============================================================================
+  fla/utils/_device.py, read live
+    IS_TF32_SUPPORTED          False
+    IS_GATHER_SUPPORTED        True
+    IS_TMA_SUPPORTED           False
+    IS_NVIDIA                  True
+    IS_NVIDIA_HOPPER           False
+    IS_NVIDIA_BLACKWELL        False
+
+  Backend enum, from the installed class
+    ADA         101,376
+    AMPERE      166,912
+    HOPPER      232,448
+    DEFAULT     102,400
+
+  get_shared_memory(tag) -> the threshold each tag actually asks for
+    none       102400
+    hopper     232448
+    ampere     166912
+    ada        101376
+    DEFAULT    102400
+    nonsense   102400
+
+  check_shared_mem(...), CALLED  (not inferred)
+    check_shared_mem('none', 0) = False
+    check_shared_mem('ada', 0) = False
+    check_shared_mem('ampere', 0) = False
+    check_shared_mem('hopper', 0) = False
+
+  NOTE the difference between these two lines, because it is the whole
+  point of this file:
+      a False here is a list-comprehension condition inside an
+      autotune config list (chunk_delta_h.py:40-48). It is not a raise,
+      not an exception, not a skip. fla keeps going over a shorter list.
+
+============================================================================
+2. max_shared_mem, read four ways
+============================================================================
+  fla   get_all_max_shared_mem()        [65536, 65536]
+  triton get_device_properties(0)       65,536   keys=['max_num_regs', 'max_shared_mem', 'mem_bus_width', 'mem_clock_rate', 'multiprocessor_count', 'sm_clock_rate', 'warpSize']
+  triton get_device_properties(1)       65,536   keys=['max_num_regs', 'max_shared_mem', 'mem_bus_width', 'mem_clock_rate', 'multiprocessor_count', 'sm_clock_rate', 'warpSize']
+  torch  shared_memory_per_block[0]      49,152
+  torch  shared_memory_per_block_optin[0] 65,536
+  torch  shared_memory_per_multiprocessor[0] 65,536
+  torch  shared_memory_per_block[1]      49,152
+  torch  shared_memory_per_block_optin[1] 65,536
+  torch  shared_memory_per_multiprocessor[1] 65,536
+  ctypes cudaDeviceGetAttribute(97, 0)   65,536
+  ctypes cudaDeviceGetAttribute(97, 1)   65,536
+
+  distinct optin values seen: [49152, 65536]
+  the gate asks for >= 166,912 (ampere) and >= 101,376 (ada) and >= 102,400 (default)
+
+============================================================================
+3. what the T4's silicon can actually emit (asked of ptxas, not quoted)
+============================================================================
+  compute capability: 7.5  ->  sm_75
+  ptxas: /usr/local/cuda/bin/ptxas
+  Build cuda_12.8.r12.8/compiler.35583870_0
+
+  can ptxas assemble these at this arch?  (a refusal names the minimum arch)
+  !! what_can_smx75_do raised TypeError: %d format: a real number is required, not str
+Traceback (most recent call last):
+  File "/kaggle/working/tree/payload/kda_t4/gate_observed.py", line 611, in main
+    fn()
+  File "/kaggle/working/tree/payload/kda_t4/gate_observed.py", line 317, in what_can_smx75_do
+    r = try_ptx(mma_ptx(inst, f"{cap[0]}{cap[1]}"), f"sm{cap[0]}{cap[1]}::{inst}")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/tree/payload/kda_t4/gate_observed.py", line 288, in mma_ptx
+    return (
+           ^
+TypeError: %d format: a real number is required, not str
+
+============================================================================
+4. the kernel that actually runs, and the config list it was given
+============================================================================
+  object: Heuristics   <triton.runtime.autotuner.Heuristics object at 0x7fecfb460440>
+  module-level: NUM_WARPS = [2, 4, 8, 16]
+  module-level: GATED_DELTA_RULE_FWD_H_NUM_WARPS = [2, 4]
+  no .configs on the object -- it is not an Autotuner?
+  attrs: ['arg_names', 'fn', 'run', 'values', 'warmup']
+
+============================================================================
+5. one real forward, then the config autotune actually picked
+============================================================================
+  calling fla.ops.kda.chunk_kda  B=1 T=128 H=2 HV=2 K=128 V=128 dtype=torch.bfloat16  grad off
+  (bf16 is the only dtype that reaches the study's call shape: the
+   FlashKDA verifier requires bf16 (flash_kda.py:64-88) and fla builds
+   its gates and masks in fp32 around a bf16 payload, so fp16 is not a
+   free alternative -- it is a different kernel path with a different
+   numerics story and is NOT what the study's call shape uses.)
+  returned o: shape=(1, 128, 2, 128) dtype=torch.bfloat16 finite=False  absmax=nan
+  *** non-finite output. That is a result, not something to retry away.
+
+  Autotuner.cache is empty -- the kernel may not have been reached, or autotune stores elsewhere
+
+============================================================================
+6. dot precision, read out of a compiled artifact
+============================================================================
+  A 32x32x32 tl.dot with no explicit input_precision, compiled here on
+  this card, and the PTX searched for mma.sync vs fma.rn.f32.
+  This is not a read of a variable; it is a read of the code ptxas was
+  handed.  If fla had left TRITON_F32_DEFAULT alone, this would emit
+  mma.sync with tf32 operands.  If it wrote 'ieee', it emits fma.rn.f32.
+
+  probe FAILED rc=1
+  --- stderr ---
+Traceback (most recent call last):
+  File "/tmp/dotprobe_lp6qtjdq.py", line 19, in <module>
+    c = torch.empty(M, N, device="cuda", device_type="cuda")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: empty() received an invalid combination of arguments - got (int, int, device_type=str, device=str), but expected one of:
+ * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+ * (tuple of ints size, *, torch.memory_format memory_format = None, Tensor out = None, torch.dtype dtype = None, torch.layout layout = None, torch.device device = None, bool pin_memory = False, bool requires_grad = False)
+
+
+
+  and the knob itself, after fla was imported by that subprocess:
+    os.environ['TRITON_F32_DEFAULT']          ieee
+    triton.knobs.language.fp32_default         'ieee'
+    fla IS_TF32_SUPPORTED                     False
+    is 'ieee' set by fla, or was it already there when fla loaded?
+    BEFORE 'ieee'
+    AFTER  'ieee'
+
+  SOLVE_TRIL_DOT_PRECISION, the one dot fla pins explicitly:
+    constexpr[ieee]
+
+============================================================================
+7. THE SCOPE LABEL, assembled from what was observed above
+============================================================================
+
+  fla on T4, degraded configuration - num_stages=None, process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee' set by fla at import) - this is what the reference does in its worst configuration, not what it does at its best
+
+  short form, for a table cell:
+  fla/T4 degraded [ stages, BV, ieee-fp32 dots]
+
+  NOT a claim about fla.  The same code on a card with >= 166,912 B
+  optin shared memory and cc major >= 8 gets num_stages=[2,3,4],
+  BV=[32,64] and tf32 dots.  Nothing here measures that.
+
+wrote kda_t4/out/gate_observed.{txt,json} and dot_probe.json
+
+>>> stage gate exit=0  (304 s)
+
+################################################################
+# stage: sass
+################################################################
+
+============================================================================
+kda_t4 SASS -- instruction mix of the reference, counted from cubins
+============================================================================
+
+============================================================================
+A. THE REAL ARTIFACT -- cubins fla compiled on THIS card
+============================================================================
+  fusing nothing, mocking nothing: call the op, then take the objects
+  triton actually produced.
+  ran chunk_kda B=1 T=256 H=2 K=128 V=128 bf16; finite=False
+
+  walking triton's on-card kernel cache for the cubins just written:
+  45 cubins newer than this run started
+  !! (A) failed: AttributeError: 'dict' object has no attribute 'most_common'
+Traceback (most recent call last):
+  File "/kaggle/working/tree/payload/kda_t4/sass_t4.py", line 531, in main
+    real_artifacts()
+  File "/kaggle/working/tree/payload/kda_t4/sass_t4.py", line 285, in real_artifacts
+    row = count(tgt, f"real_{stem}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/tree/payload/kda_t4/sass_t4.py", line 171, in count
+    top=[(k, v) for k, v in hist.most_common(24)])
+                            ^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'most_common'
+
+============================================================================
+B. THE AOT SWEEP -- same source, same triton, five architectures
+============================================================================
+  A Triton compiler does not need the hardware it targets, so the
+  other cards in this study's card table can be COMPILED here, on a T4,
+  by passing an explicit GPUTarget.  What comes out is a statement about
+  a compilation at that arch.  It is not a timing, and nothing in this
+  section may be read as one.
+  triton 3.6.0
+  source: /usr/local/lib/python3.12/dist-packages/fla/ops/common/chunk_delta_h.py
+  sha256 ff461bcc40e9cd0b...  794 lines
+  stripped copy written to out/sass/aot_kernel.py (decorators removed, body untouched)
+  could not import the stripped kernel: NameError: name 'fla_cache_autotune' is not defined
+
+============================================================================
+C. per-arch summary, from the gated config space (B only)
+============================================================================
+  no rows
+
+wrote kda_t4/out/sass_t4.{txt,json} and 3 artifacts under kda_t4/out/sass/
+
+>>> stage sass exit=0  (14 s)
+
+################################################################
+# stage: time
+################################################################
+
+>>> stage time exit=2  (0 s)
+
+################################################################
+# summary
+################################################################
+  install    exit=0
+  probe      exit=0
+  pin        exit=0
+  gate       exit=0
+  sass       exit=0
+  time       exit=2
+
+artifacts:
+  total 132
+  drwxr-xr-x 3 root root  4096 Sep 29 05:34 .
+  drwxr-xr-x 3 root root  4096 Sep 29 05:27 ..
+  -rw-r--r-- 1 root root  2072 Sep 29 05:33 gate_observed.json
+  -rw-r--r-- 1 root root  7064 Sep 29 05:33 gate_observed.txt
+  -rw-r--r-- 1 root root  3297 Sep 29 05:27 install.log
+  -rw-r--r-- 1 root root 23863 Sep 29 05:28 pin_t4.baseline_pin.json
+  -rw-r--r-- 1 root root     0 Sep 29 05:28 pin_t4.baseline_pin.report.txt
+  -rw-r--r-- 1 root root 17295 Sep 29 05:28 pin_t4.baseline_pin.strict.txt
+  -rw-r--r-- 1 root root  8294 Sep 29 05:28 pin_t4.build_pin.json
+  -rw-r--r-- 1 root root  4436 Sep 29 05:28 pin_t4.json
+  -rw-r--r-- 1 root root  7421 Sep 29 05:28 pin_t4.txt
+  -rw-r--r-- 1 root root  9072 Sep 29 05:28 probe_env.json
+  -rw-r--r-- 1 root root  4586 Sep 29 05:28 probe_env.txt
+  -rw-r--r-- 1 root root  2429 Sep 29 05:34 run.sh.log
+  drwxr-xr-x 3 root root  4096 Sep 29 05:34 sass
+  -rw-r--r-- 1 root root   614 Sep 29 05:34 sass_t4.json
+  -rw-r--r-- 1 root root  1854 Sep 29 05:34 sass_t4.txt
+
+wrote /kaggle/working/tree/payload/kda_t4/out/run.sh.log
+
+--- stderr ---
+python3: can't open file '/kaggle/working/tree/payload/kda_t4/time_t4.py': [Errno 2] No such file or directory

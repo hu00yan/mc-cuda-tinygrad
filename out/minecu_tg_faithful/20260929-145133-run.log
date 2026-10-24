@@ -1,0 +1,76 @@
+== minecu_tg_faithful: faithful port, both modes, on one T4 ==
+  kernel id   tenghuzhang/mc-minecu-faithful-t4   (slug 'mc-minecu-faithful-t4' matches the title)
+  log         /Users/huyan00/mycode/mc-cuda-tinygrad/out/minecu_tg_faithful/20260929-145133-run.log
+
+=== 1. verify on this host (CPU, no GPU). No push until this passes. ===
+==============================================================================
+  minecu_tg_faithful verification -- the faithful port, both modes,
+  against the naive port and an independent float64 transcription
+  DEV=CPU  modes=['clean', 'faithful']  edit points=['addr_bits', 'unsigned_bounds']
+==============================================================================
+
+7. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. Both modes and both edit-point settings
+  produce the naive port's observation bit for bit, that observation
+  equals an independent float64 transcription, and the per-pixel DDA
+  step counts are identical across every setting -- so the crossings
+  did not change the computation.
+  correctness gate passed.
+
+=== 2. assemble the notebook ===
+wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg_faithful/kaggle/kernel/minecu_faithful_t4.ipynb  364903 B  sha256 ba4448dd2186e84646f0c440b4391b1ad98b1bbb8a4add9efa0fa648d6b089b0
+  13 payloads, 262614 B raw
+    minecu_tg/__init__.py                  6f376400341dd101
+    minecu_tg/blocks.py                    752ffaea2028475d
+    minecu_tg/world.py                     6c75c0e1e9cfc105
+    minecu_tg/render.py                    fe85581f80ed7fdb
+    minecu_tg/cpu_reference.py             d3d6356552db2be4
+    minecu_tg_faithful/__init__.py         cecf6f98be104031
+    minecu_tg_faithful/render.py           85b5a0b5fb843e97
+    minecu_tg_faithful/crossings.py        c0d94bc0c822ccc4
+    minecu_tg_faithful/verify.py           453f968b67ad6037
+    minecu_tg_faithful/battery.py          2d5e3e1974915e9e
+    minecu_ref/bench/dda_model.py          f5ff7fe2e15f7d9b
+    minecu_ref/src/kernels.cu              c6ed8f06ee64d40a
+    minecu_tg/kaggle/refdrv.cu             d3a0931d642d67bd
+  notebook sha256 ba4448dd2186e84646f0c440b4391b1ad98b1bbb8a4add9efa0fa648d6b089b0
+  the notebook's payloads are hash-checked on the card, so this is a
+  provenance handle: if the code changes, this changes.
+
+=== 3. push (this spends no accelerator time) ===
+Kernel push error: Maximum batch GPU session count of 2 reached.
+
+  REFUSED: the account's concurrent-GPU-session limit is reached.
+  This is a quota fact, not a payload fact -- nothing was uploaded and
+  no accelerator time was spent. Re-run when a slot frees.

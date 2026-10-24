@@ -1,0 +1,82 @@
+==============================================================================
+rung timings -- all five rungs of minecu_tg_opt's ablation ladder, one T4,
+one run, render against render
+==============================================================================
+
+--- provenance: every payload is hash-checked before anything is built ---
+  minecu_ref/src/kernels.cu            116131 B  sha256 c6ed8f06ee64d40a8a8ab7ebce3b3ceea1e3ac93f9ee50cfc1e63d3f090d878f
+  minecu_tg/kaggle/refdrv.cu            16756 B  sha256 d3a0931d642d67bd5e6fbe22e77a732da72edc3502ca8296f87f615a224965e8
+  minecu_tg/__init__.py                  1580 B  sha256 6f376400341dd1015acd5f32e687e2fed7a85b4a26d4269b71680ec1f0c0d7d5
+  minecu_tg/blocks.py                    2109 B  sha256 752ffaea2028475df25e81eaa186ce8ae089e36eed53d96eeecd531663dabed9
+  minecu_tg/world.py                     6390 B  sha256 6c75c0e1e9cfc105e152f06c63c7695eff08781b9b8aa3e49ba098fe299ffbc3
+  minecu_tg/render.py                   14184 B  sha256 fe85581f80ed7fdba57398a6c04fe744a7fd59917d99b132ea0eb2dcfa457952
+  minecu_tg/bench.py                    10819 B  sha256 7ec6927c711e0eec2b4de27d8eb03bb6c2f7e0d660edd8dfa969dba61434c539
+  minecu_tg_opt/__init__.py              2691 B  sha256 2c8563730347dc1518be69a9691b861241c0d6d2ac0d5d72215a476ffd82d3d2
+  minecu_tg_opt/render.py               22309 B  sha256 8f6af7329eabc37b17bace544a7383a9e9a5bdbb0d6b92b3bdf2af53c141d10c
+  minecu_tg_opt/battery_opt.py          16888 B  sha256 5359bd9d97ea3ecf1630facc4499225a4f2b0a1fa734d81b0f7695fa24435ffa
+
+--- tinygrad ---
+  pip install tinygrad rc=0
+  tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+  minecu_tg.render           from /kaggle/working/minecu_tg/render.py
+  minecu_tg.bench            from /kaggle/working/minecu_tg/bench.py
+  minecu_tg_opt.render       from /kaggle/working/minecu_tg_opt/render.py
+  minecu_tg_opt.battery_opt  from /kaggle/working/minecu_tg_opt/battery_opt.py
+  Device.DEFAULT = CUDA
+  nvidia-smi: Tesla T4, 15360 MiB, 580.159.04
+Tesla T4, 15360 MiB, 580.159.04
+
+--- build the hand-written side for sm_75 ---
+  staged kernels.cu     116131 B
+  staged refdrv.cu       16756 B
+  Cuda compilation tools, release 12.8, V12.8.93
+  Build cuda_12.8.r12.8/compiler.35583870_0
+  nvcc refdrv rc=0 in 6.4s
+  SASS census of the reference binary: HMMA=0  HGMMA=0  LDGSTS=0  REDUX=0  ELECT=0  BAR.RED=0  F2FP=0
+
+--- the hand-written side, per batch (cudaEvent, this card, this run) ---
+  THIS is the denominator for every ratio in this notebook. It is measured
+  here, on this card, in this session, and is not quoted from any note.
+  batch    256  render median      77.8 us  rc=0  (0.4s)
+  batch    512  render median     146.8 us  rc=0  (0.3s)
+  batch   1024  render median     243.0 us  rc=0  (0.3s)
+  batch   2048  render median     462.8 us  rc=0  (0.4s)
+
+cell 1 done: the hand-written side's timings are in ref_timing.json
+
+==============================================================================
+  THE GATE: all 5 rungs vs the hand-written side's own bytes
+==============================================================================
+  voxels (1024, 16, 16, 16)  basis (1024, 13)  reference obs (1024, 32, 32, 3)
+  1,048,576 pixels to compare, every one of them
+  reference obs sha256 d37ef5e3839e200f87c677655834922b74ec2360f59371276a0681df0702ca5b
+  naive         pixels differing         0 /   1048576   sha256 d37ef5e3839e200f87c67765   BYTE-IDENTICAL   (397s)
+                DDA mean 27.3340  p50   32.0  at the 32 cap  82.8%  first voxel   5.9%  gate PASS
+  int_cursor    pixels differing         0 /   1048576   sha256 d37ef5e3839e200f87c67765   BYTE-IDENTICAL   (318s)
+                DDA mean 27.3340  p50   32.0  at the 32 cap  82.8%  first voxel   5.9%  gate PASS
+  flat_gather   pixels differing         0 /   1048576   sha256 d37ef5e3839e200f87c67765   BYTE-IDENTICAL   (147s)
+                DDA mean 27.3340  p50   32.0  at the 32 cap  82.8%  first voxel   5.9%  gate PASS
+  incremental   pixels differing         0 /   1048576   sha256 d37ef5e3839e200f87c67765   BYTE-IDENTICAL   (140s)
+                DDA mean 27.3340  p50   32.0  at the 32 cap  82.8%  first voxel   5.9%  gate PASS
+  lean          pixels differing         0 /   1048576   sha256 d37ef5e3839e200f87c67765   BYTE-IDENTICAL   (141s)
+                DDA mean 27.3340  p50   32.0  at the 32 cap  82.8%  first voxel   5.9%  gate PASS
+  DDA mean spread across the five rungs: 0.000000 steps (0.000000% of the smallest mean)
+
+cell 2 done: the gate passed. Every rung is byte-identical to the
+hand-written side's own bytes, on this card, on the state the hand-written
+side produced, and every rung traces the same rays.
+
+--- the timing instrument, and its guards ---
+
+==============================================================================
+  TIMING, batch 1024 -- all five rungs, one fresh graph each
+==============================================================================
+
+------------------------------------------------------------------------------
+  batch 1024   1,048,576 pixels   world 16   max_steps 32
+------------------------------------------------------------------------------
+  3 independent fresh graphs per rung; ruler =
+  minecu_tg.bench.linear_device_time_ms (imported), iters=5
+  naive         repeat 0:     8.881 ms   10 CALLs  peak     24.0 MiB   24 allocs  e2e    0.0s  guard OK  (16s)
+  naive         repeat 1:     8.891 ms    9 CALLs  peak      0.0 MiB    0 allocs  e2e    0.0s  guard OK  (16s)
+  naive         repeat 2:     8.925 ms    9 CALLs  peak      0.0 MiB    0 allocs  e2e    0.0s  guard OK  (3s)

@@ -1,0 +1,292 @@
+[{"stream_name":"stderr","time":7.135261167,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.1360227290000005,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.069988078,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.070020612,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.070024709,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.070029114,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.73824856,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.738281955,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.738286189,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.738289383,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.06703624,"data":"  session budget: gate \u003c= 900s, battery \u003c= 2400s, refdrv \u003c= 300s. The platform cap is set in run.sh and these must fit inside it.\n"}
+,{"stream_name":"stdout","time":10.067880402,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":10.068838398,"data":"minecu_tg_faithful -- the reference's strategy in TinyGrad, both modes,\n"}
+,{"stream_name":"stdout","time":10.069698975,"data":"against the hand-written CUDA render, on this T4\n"}
+,{"stream_name":"stdout","time":10.070592042,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":10.071502417,"data":"\n"}
+,{"stream_name":"stdout","time":10.072274113,"data":"--- 1. provenance: every payload hash-checked before anything is built ---\n"}
+,{"stream_name":"stdout","time":10.073201893,"data":"  minecu_tg/__init__.py                      1580 B  sha256 6f376400341dd101  OK\n"}
+,{"stream_name":"stdout","time":10.074431452,"data":"  minecu_tg/blocks.py                        2109 B  sha256 752ffaea2028475d  OK\n"}
+,{"stream_name":"stdout","time":10.075515647,"data":"  minecu_tg/world.py                         6390 B  sha256 6c75c0e1e9cfc105  OK\n"}
+,{"stream_name":"stdout","time":10.076861339,"data":"  minecu_tg/render.py                       14184 B  sha256 fe85581f80ed7fdb  OK\n"}
+,{"stream_name":"stdout","time":10.078445348,"data":"  minecu_tg/cpu_reference.py                 5494 B  sha256 d3d6356552db2be4  OK\n"}
+,{"stream_name":"stdout","time":10.079271773,"data":"  minecu_tg_faithful/__init__.py             1599 B  sha256 cecf6f98be104031  OK\n"}
+,{"stream_name":"stdout","time":10.080701931,"data":"  minecu_tg_faithful/render.py              20370 B  sha256 85b5a0b5fb843e97  OK\n"}
+,{"stream_name":"stdout","time":10.081994421,"data":"  minecu_tg_faithful/crossings.py           26844 B  sha256 c0d94bc0c822ccc4  OK\n"}
+,{"stream_name":"stdout","time":10.083194163,"data":"  minecu_tg_faithful/verify.py              17590 B  sha256 111b32e7a094d645  OK\n"}
+,{"stream_name":"stdout","time":10.08458637,"data":"  minecu_tg_faithful/battery.py             18879 B  sha256 39991ff2966a9eb9  OK\n"}
+,{"stream_name":"stdout","time":10.085829387,"data":"  minecu_ref/bench/dda_model.py             19326 B  sha256 f5ff7fe2e15f7d9b  OK\n"}
+,{"stream_name":"stdout","time":10.087958207,"data":"  minecu_ref/src/kernels.cu                116131 B  sha256 c6ed8f06ee64d40a  OK\n"}
+,{"stream_name":"stdout","time":10.08919916,"data":"  minecu_tg/kaggle/refdrv.cu                16756 B  sha256 d3a0931d642d67bd  OK\n"}
+,{"stream_name":"stdout","time":10.090256868,"data":"\n"}
+,{"stream_name":"stdout","time":10.091270316,"data":"--- 2. tinygrad ---\n"}
+,{"stream_name":"stdout","time":18.555326291,"data":"  pip install tinygrad rc=0\n"}
+,{"stream_name":"stdout","time":18.638781964,"data":"  tinygrad at /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+,{"stream_name":"stdout","time":18.639939054,"data":"  helpers.VERSION (the program-cache schema) = 22\n"}
+,{"stream_name":"stdout","time":18.644565108,"data":"  import minecu_tg.render                   OK\n"}
+,{"stream_name":"stdout","time":18.647142206,"data":"  import minecu_tg.cpu_reference            OK\n"}
+,{"stream_name":"stdout","time":18.650927296,"data":"  import minecu_tg_faithful.render          OK\n"}
+,{"stream_name":"stdout","time":18.653704699,"data":"  import minecu_tg_faithful.crossings       OK\n"}
+,{"stream_name":"stdout","time":18.654688629,"data":"\n"}
+,{"stream_name":"stdout","time":18.655772011,"data":"--- 3. correctness gate ON THE CARD ---\n"}
+,{"stream_name":"stdout","time":18.656821894,"data":"  [gate] starting, bounded at 900s\n"}
+,{"stream_name":"stdout","time":26.40178404,"data":"  [gate    7.7s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":26.403249956,"data":"  [gate    7.7s]   minecu_tg_faithful verification -- the faithful port, both modes,\n"}
+,{"stream_name":"stdout","time":26.404363091,"data":"  [gate    7.7s]   against the naive port and an independent float64 transcription\n"}
+,{"stream_name":"stdout","time":26.405432136,"data":"  [gate    7.7s]   DEV=CUDA  modes=['clean', 'faithful']  edit points=['addr_bits', 'unsigned_bounds']\n"}
+,{"stream_name":"stdout","time":26.406586106,"data":"  [gate    7.7s]   Device.DEFAULT=CUDA  (from tinygrad, not os.environ)\n"}
+,{"stream_name":"stdout","time":26.40767659,"data":"  [gate    7.7s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":26.408643312,"data":"  [gate    7.8s] \n"}
+,{"stream_name":"stdout","time":26.409645915,"data":"  [gate    7.8s] 7. the world, against minecu_ref/bench/dda_model.py\n"}
+,{"stream_name":"stdout","time":26.410681604,"data":"  [gate    7.8s]   [PASS] world 16^3, ground 4  1062/4096 solid\n"}
+,{"stream_name":"stdout","time":31.913870947,"data":"  [gate   13.3s]   [PASS] world 32^3, ground 8  8274/32768 solid\n"}
+,{"stream_name":"stdout","time":36.749004811,"data":"  [gate   18.1s]   [PASS] world 48^3, ground 12  27730/110592 solid\n"}
+,{"stream_name":"stdout","time":156.811810886,"data":"  [gate  138.1s] \n"}
+,{"stream_name":"stdout","time":156.812757116,"data":"  [gate  138.1s] 1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0\n"}
+,{"stream_name":"stdout","time":156.813526823,"data":"  [gate  138.1s]   [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":156.814260122,"data":"  [gate  138.1s]   [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":156.814962399,"data":"  [gate  138.1s]   [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)\n"}
+,{"stream_name":"stdout","time":156.815733388,"data":"  [gate  138.1s]   [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":198.016142265,"data":"  [gate  179.4s]   [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":198.016975471,"data":"  [gate  179.4s]   [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":198.017779672,"data":"  [gate  179.4s]   [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)\n"}
+,{"stream_name":"stdout","time":198.018563377,"data":"  [gate  179.4s]   [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":198.437989388,"data":"  [gate  179.8s]   [PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":198.439350141,"data":"  [gate  179.8s]   [PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":198.440390827,"data":"  [gate  179.8s]   [PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)\n"}
+,{"stream_name":"stdout","time":198.44112125,"data":"  [gate  179.8s]   [PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":198.873387621,"data":"  [gate  180.2s]   [PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":198.874623906,"data":"  [gate  180.2s]   [PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":198.875703936,"data":"  [gate  180.2s]   [PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)\n"}
+,{"stream_name":"stdout","time":198.876553767,"data":"  [gate  180.2s]   [PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 16.861 vs 16.861; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":220.591535155,"data":"  [gate  201.9s]   [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program\n"}
+,{"stream_name":"stdout","time":404.402741602,"data":"  [gate  385.7s]   [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot\n"}
+,{"stream_name":"stdout","time":404.403588251,"data":"  [gate  385.7s]   [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference\n"}
+,{"stream_name":"stdout","time":405.540336477,"data":"  [gate  386.9s] \n"}
+,{"stream_name":"stdout","time":405.541571704,"data":"  [gate  386.9s] 1-6. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0\n"}
+,{"stream_name":"stdout","time":405.5422574,"data":"  [gate  386.9s]   [PASS] clean/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":405.543287618,"data":"  [gate  386.9s]   [PASS] clean/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":405.54407446,"data":"  [gate  386.9s]   [PASS] clean/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)\n"}
+,{"stream_name":"stdout","time":405.544805832,"data":"  [gate  386.9s]   [PASS] clean/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":405.955329709,"data":"  [gate  387.3s]   [PASS] clean/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":405.956080749,"data":"  [gate  387.3s]   [PASS] clean/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":405.957802849,"data":"  [gate  387.3s]   [PASS] clean/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)\n"}
+,{"stream_name":"stdout","time":405.958972973,"data":"  [gate  387.3s]   [PASS] clean/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":406.367339431,"data":"  [gate  387.7s]   [PASS] faithful/addr32/uint1: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":406.368614375,"data":"  [gate  387.7s]   [PASS] faithful/addr32/uint1: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":406.369508911,"data":"  [gate  387.7s]   [PASS] faithful/addr32/uint1: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)\n"}
+,{"stream_name":"stdout","time":406.370215794,"data":"  [gate  387.7s]   [PASS] faithful/addr32/uint1: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":406.775219753,"data":"  [gate  388.1s]   [PASS] faithful/addr32/uint0: observation identical to minecu_tg/render.py  bit-for-bit\n"}
+,{"stream_name":"stdout","time":406.777568718,"data":"  [gate  388.1s]   [PASS] faithful/addr32/uint0: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0\n"}
+,{"stream_name":"stdout","time":406.778421143,"data":"  [gate  388.1s]   [PASS] faithful/addr32/uint0: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)\n"}
+,{"stream_name":"stdout","time":406.77912407,"data":"  [gate  388.1s]   [PASS] faithful/addr32/uint0: step counts identical to minecu_tg/render.py  mean 13.766 vs 13.766; a difference here means the crossings changed the traversal\n"}
+,{"stream_name":"stdout","time":407.058671993,"data":"  [gate  388.4s]   [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program\n"}
+,{"stream_name":"stdout","time":408.503477933,"data":"  [gate  389.8s]   [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot\n"}
+,{"stream_name":"stdout","time":408.504247946,"data":"  [gate  389.8s]   [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference\n"}
+,{"stream_name":"stdout","time":408.512218086,"data":"  [gate  389.9s] \n"}
+,{"stream_name":"stdout","time":408.513420595,"data":"  [gate  389.9s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":408.514303994,"data":"  [gate  389.9s]   all 41 checks passed, over 2 configurations:\n"}
+,{"stream_name":"stdout","time":408.515230247,"data":"  [gate  389.9s]     clean/addr32 faithful/addr32\n"}
+,{"stream_name":"stdout","time":408.516026096,"data":"  [gate  389.9s]   Every one produces the naive port's observation bit for bit, that\n"}
+,{"stream_name":"stdout","time":408.517051118,"data":"  [gate  389.9s]   observation equals an independent float64 transcription, and the\n"}
+,{"stream_name":"stdout","time":408.518264973,"data":"  [gate  389.9s]   per-pixel DDA step counts are identical across all of them -- so\n"}
+,{"stream_name":"stdout","time":408.518900531,"data":"  [gate  389.9s]   the crossings did not change the computation.\n"}
+,{"stream_name":"stdout","time":408.519806192,"data":"  [gate  389.9s]   (`--quick`: both modes and both bounds folds at addr_bits=32. The\n"}
+,{"stream_name":"stdout","time":408.520544603,"data":"  [gate  389.9s]   other address width, and the other world sizes, are the full gate.)\n"}
+,{"stream_name":"stdout","time":410.360525125,"data":"  [gate] exit 0 after 391.7s\n"}
+,{"stream_name":"stdout","time":410.361588486,"data":"  PASS on the card itself. The observation is bit-identical to the naive\n"}
+,{"stream_name":"stdout","time":410.362555212,"data":"  port and to an independent float64 transcription, and both modes agree\n"}
+,{"stream_name":"stdout","time":410.363489031,"data":"  on the per-pixel DDA step count.\n"}
+,{"stream_name":"stdout","time":410.36444951,"data":"\n"}
+,{"stream_name":"stdout","time":410.365315616,"data":"--- 4. device ---\n"}
+,{"stream_name":"stdout","time":410.401780843,"data":"  Tesla T4, 15360 MiB, 7.5, 580.159.04\n"}
+,{"stream_name":"stdout","time":410.401844861,"data":"Tesla T4, 15360 MiB, 7.5, 580.159.04\n"}
+,{"stream_name":"stdout","time":411.440833951,"data":"  DEV=CUDA\n"}
+,{"stream_name":"stdout","time":411.441809032,"data":"\n"}
+,{"stream_name":"stdout","time":411.442621832,"data":"--- 5. build the hand-written side for sm_75 ---\n"}
+,{"stream_name":"stdout","time":411.470985369,"data":"  Cuda compilation tools, release 12.8, V12.8.93\n"}
+,{"stream_name":"stdout","time":411.471015077,"data":"  Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+,{"stream_name":"stdout","time":411.472381751,"data":"  /usr/local/cuda/bin/nvcc -O3 --use_fast_math -std=c++17 -arch=sm_75 -diag-suppress 177 -DMINECU_KERNELS=\"/kaggle/working/minecu_ref/src/kernels.cu\" /kaggle/working/minecu_tg/kaggle/refdrv.cu -o /kaggle/working/ref/refdrv\n"}
+,{"stream_name":"stdout","time":411.473069212,"data":"  [nvcc] starting, bounded at 300s\n"}
+,{"stream_name":"stdout","time":418.221757416,"data":"  [nvcc] exit 0 after 6.7s\n"}
+,{"stream_name":"stdout","time":418.223097962,"data":"  OK  1349824 bytes\n"}
+,{"stream_name":"stdout","time":418.224223197,"data":"\n"}
+,{"stream_name":"stdout","time":418.225135371,"data":"--- 6. the hand-written baseline, per batch (cudaEvent, its own clock) ---\n"}
+,{"stream_name":"stdout","time":418.226509536,"data":"  [refdrv b512] starting, bounded at 300s\n"}
+,{"stream_name":"stdout","time":418.509260548,"data":"  [refdrv b512    0.3s] == refdrv: hand-written side, driven ==\n"}
+,{"stream_name":"stdout","time":418.511451046,"data":"  [refdrv b512    0.3s]   card                 Tesla T4\n"}
+,{"stream_name":"stdout","time":418.511499487,"data":"  [refdrv b512    0.3s]   batch 512  world 16  res 32x32  max_steps 32  ground 4\n"}
+,{"stream_name":"stdout","time":418.512065146,"data":"  [refdrv b512    0.3s]   --- dump ---\n"}
+,{"stream_name":"stdout","time":418.513118522,"data":"  [refdrv b512    0.3s]   dumped voxels          2097152 x  1 B =       2.0 MiB\n"}
+,{"stream_name":"stdout","time":418.514166894,"data":"  [refdrv b512    0.3s]   dumped basis13            6656 x  4 B =       0.0 MiB\n"}
+,{"stream_name":"stdout","time":418.515086377,"data":"  [refdrv b512    0.3s]   dumped obs_u8          1572864 x  1 B =       1.5 MiB\n"}
+,{"stream_name":"stdout","time":418.516124072,"data":"  [refdrv b512    0.3s]   --- timing (cudaEvent, 10 iters, 3 warmup) ---\n"}
+,{"stream_name":"stdout","time":418.517039032,"data":"  [refdrv b512    0.3s]   RENDER_US 159.0 157.7 161.8 10\n"}
+,{"stream_name":"stdout","time":418.518000272,"data":"  [refdrv b512    0.3s]   STEP_US   198.9 188.7 245.8 10\n"}
+,{"stream_name":"stdout","time":418.519066857,"data":"  [refdrv b512    0.3s]   ENVSTEPS_M 3.2200\n"}
+,{"stream_name":"stdout","time":418.519997006,"data":"  [refdrv b512    0.3s]   STEP_ENVSTEPS_M 2.5740\n"}
+,{"stream_name":"stdout","time":418.521079223,"data":"  [refdrv b512    0.3s]   (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this\n"}
+,{"stream_name":"stdout","time":418.522121486,"data":"  [refdrv b512    0.3s]    line converts once. The baseline for comparison is 7034.4 us render /\n"}
+,{"stream_name":"stdout","time":418.522984053,"data":"  [refdrv b512    0.3s]    7198.9 us whole step at batch 32768.)\n"}
+,{"stream_name":"stdout","time":418.620695643,"data":"  [refdrv b512] exit 0 after 0.4s\n"}
+,{"stream_name":"stdout","time":418.621742739,"data":"  batch    512  RENDER_US median      159.0  min      157.7  max      161.8  iters 10\n"}
+,{"stream_name":"stdout","time":418.622653429,"data":"  batch    512  STEP_US        198.9   \u003c- CONTEXT ONLY. A whole step is 7 launches, five of them\n"}
+,{"stream_name":"stdout","time":418.623584135,"data":"                          state updates. It is never a denominator here.\n"}
+,{"stream_name":"stdout","time":418.624405306,"data":"  [refdrv b1024] starting, bounded at 300s\n"}
+,{"stream_name":"stdout","time":418.913846101,"data":"  [refdrv b1024    0.3s] == refdrv: hand-written side, driven ==\n"}
+,{"stream_name":"stdout","time":418.915080406,"data":"  [refdrv b1024    0.3s]   card                 Tesla T4\n"}
+,{"stream_name":"stdout","time":418.916198364,"data":"  [refdrv b1024    0.3s]   batch 1024  world 16  res 32x32  max_steps 32  ground 4\n"}
+,{"stream_name":"stdout","time":418.917313381,"data":"  [refdrv b1024    0.3s]   --- dump ---\n"}
+,{"stream_name":"stdout","time":418.918247835,"data":"  [refdrv b1024    0.3s]   dumped voxels          4194304 x  1 B =       4.0 MiB\n"}
+,{"stream_name":"stdout","time":418.919462569,"data":"  [refdrv b1024    0.3s]   dumped basis13           13312 x  4 B =       0.1 MiB\n"}
+,{"stream_name":"stdout","time":418.920487996,"data":"  [refdrv b1024    0.3s]   dumped obs_u8          3145728 x  1 B =       3.0 MiB\n"}
+,{"stream_name":"stdout","time":418.921688214,"data":"  [refdrv b1024    0.3s]   --- timing (cudaEvent, 10 iters, 3 warmup) ---\n"}
+,{"stream_name":"stdout","time":418.922788066,"data":"  [refdrv b1024    0.3s]   RENDER_US 297.0 296.9 298.5 10\n"}
+,{"stream_name":"stdout","time":418.923928995,"data":"  [refdrv b1024    0.3s]   STEP_US   339.5 330.6 383.0 10\n"}
+,{"stream_name":"stdout","time":418.925019503,"data":"  [refdrv b1024    0.3s]   ENVSTEPS_M 3.4479\n"}
+,{"stream_name":"stdout","time":418.925970773,"data":"  [refdrv b1024    0.3s]   STEP_ENVSTEPS_M 3.0163\n"}
+,{"stream_name":"stdout","time":418.927174847,"data":"  [refdrv b1024    0.3s]   (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this\n"}
+,{"stream_name":"stdout","time":418.928009521,"data":"  [refdrv b1024    0.3s]    line converts once. The baseline for comparison is 7034.4 us render /\n"}
+,{"stream_name":"stdout","time":418.928800752,"data":"  [refdrv b1024    0.3s]    7198.9 us whole step at batch 32768.)\n"}
+,{"stream_name":"stdout","time":419.022777935,"data":"  [refdrv b1024] exit 0 after 0.4s\n"}
+,{"stream_name":"stdout","time":419.023618942,"data":"  batch   1024  RENDER_US median      297.0  min      296.9  max      298.5  iters 10\n"}
+,{"stream_name":"stdout","time":419.024477663,"data":"  batch   1024  STEP_US        339.5   \u003c- CONTEXT ONLY. A whole step is 7 launches, five of them\n"}
+,{"stream_name":"stdout","time":419.025333475,"data":"                          state updates. It is never a denominator here.\n"}
+,{"stream_name":"stdout","time":419.026024502,"data":"  [refdrv b2048] starting, bounded at 300s\n"}
+,{"stream_name":"stdout","time":419.346325718,"data":"  [refdrv b2048    0.3s] == refdrv: hand-written side, driven ==\n"}
+,{"stream_name":"stdout","time":419.346775285,"data":"  [refdrv b2048    0.3s]   card                 Tesla T4\n"}
+,{"stream_name":"stdout","time":419.347743831,"data":"  [refdrv b2048    0.3s]   batch 2048  world 16  res 32x32  max_steps 32  ground 4\n"}
+,{"stream_name":"stdout","time":419.348706745,"data":"  [refdrv b2048    0.3s]   --- dump ---\n"}
+,{"stream_name":"stdout","time":419.349580135,"data":"  [refdrv b2048    0.3s]   dumped voxels          8388608 x  1 B =       8.0 MiB\n"}
+,{"stream_name":"stdout","time":419.350545007,"data":"  [refdrv b2048    0.3s]   dumped basis13           26624 x  4 B =       0.1 MiB\n"}
+,{"stream_name":"stdout","time":419.351479497,"data":"  [refdrv b2048    0.3s]   dumped obs_u8          6291456 x  1 B =       6.0 MiB\n"}
+,{"stream_name":"stdout","time":419.352652968,"data":"  [refdrv b2048    0.3s]   --- timing (cudaEvent, 10 iters, 3 warmup) ---\n"}
+,{"stream_name":"stdout","time":419.353508262,"data":"  [refdrv b2048    0.3s]   RENDER_US 571.4 570.3 573.3 10\n"}
+,{"stream_name":"stdout","time":419.354453198,"data":"  [refdrv b2048    0.3s]   STEP_US   616.6 609.9 667.3 10\n"}
+,{"stream_name":"stdout","time":419.355413014,"data":"  [refdrv b2048    0.3s]   ENVSTEPS_M 3.5842\n"}
+,{"stream_name":"stdout","time":419.356544659,"data":"  [refdrv b2048    0.3s]   STEP_ENVSTEPS_M 3.3212\n"}
+,{"stream_name":"stdout","time":419.357428821,"data":"  [refdrv b2048    0.3s]   (RENDER_US and STEP_US are MICROSECONDS; cudaEvent reports ms and this\n"}
+,{"stream_name":"stdout","time":419.358329295,"data":"  [refdrv b2048    0.3s]    line converts once. The baseline for comparison is 7034.4 us render /\n"}
+,{"stream_name":"stdout","time":419.358986788,"data":"  [refdrv b2048    0.3s]    7198.9 us whole step at batch 32768.)\n"}
+,{"stream_name":"stdout","time":419.455962546,"data":"  [refdrv b2048] exit 0 after 0.4s\n"}
+,{"stream_name":"stdout","time":419.457081588,"data":"  batch   2048  RENDER_US median      571.4  min      570.3  max      573.3  iters 10\n"}
+,{"stream_name":"stdout","time":419.458025803,"data":"  batch   2048  STEP_US        616.6   \u003c- CONTEXT ONLY. A whole step is 7 launches, five of them\n"}
+,{"stream_name":"stdout","time":419.458945487,"data":"                          state updates. It is never a denominator here.\n"}
+,{"stream_name":"stdout","time":419.45989722,"data":"\n"}
+,{"stream_name":"stdout","time":419.460776455,"data":"--- 7. this port, both modes, same batches, same run, same process ---\n"}
+,{"stream_name":"stdout","time":419.461734282,"data":"  [battery] starting, bounded at 2400s\n"}
+,{"stream_name":"stdout","time":419.559566881,"data":"  [battery    0.1s] world 16^3  ground 4  res 32  max_steps 32  iters 10  warmup 3  yaw spread 0.0\n"}
+,{"stream_name":"stdout","time":419.560946313,"data":"  [battery    0.1s] \n"}
+,{"stream_name":"stdout","time":419.561689959,"data":"  [battery    0.1s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":419.56261629,"data":"  [battery    0.1s]   1. environment\n"}
+,{"stream_name":"stdout","time":419.563373395,"data":"  [battery    0.1s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":419.775231801,"data":"  [battery    0.3s]   Device.DEFAULT   CUDA\n"}
+,{"stream_name":"stdout","time":419.776262426,"data":"  [battery    0.3s]   numpy            2.0.2\n"}
+,{"stream_name":"stdout","time":419.777208313,"data":"  [battery    0.3s]   tinygrad         /usr/local/lib/python3.12/dist-packages/tinygrad\n"}
+,{"stream_name":"stdout","time":419.778164549,"data":"  [battery    0.3s]   PARALLEL         0\n"}
+,{"stream_name":"stdout","time":419.779050757,"data":"  [battery    0.3s]   nvidia_smi       Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":419.77998035,"data":"  [battery    0.3s] Tesla T4, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":419.780902281,"data":"  [battery    0.3s] \n"}
+,{"stream_name":"stdout","time":419.781959318,"data":"  [battery    0.3s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":419.782763242,"data":"  [battery    0.3s]   2. the hand-written baseline, from the unmodified kernels.cu\n"}
+,{"stream_name":"stdout","time":419.783507478,"data":"  [battery    0.3s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":420.15466029,"data":"  [battery    0.7s]   batch    512  render      152.1 us  whole step      187.9 us  (CONTEXT, not a denominator)\n"}
+,{"stream_name":"stdout","time":420.530275325,"data":"  [battery    1.1s]   batch   1024  render      262.1 us  whole step      294.8 us  (CONTEXT, not a denominator)\n"}
+,{"stream_name":"stdout","time":420.953142355,"data":"  [battery    1.5s]   batch   2048  render      507.3 us  whole step      548.2 us  (CONTEXT, not a denominator)\n"}
+,{"stream_name":"stdout","time":420.959010485,"data":"  [battery    1.5s] \n"}
+,{"stream_name":"stdout","time":420.960601435,"data":"  [battery    1.5s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":420.961997747,"data":"  [battery    1.5s]   3. this port, both modes, render against render\n"}
+,{"stream_name":"stdout","time":420.963309051,"data":"  [battery    1.5s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":514.983910493,"data":"  [battery   95.5s]   batch    512 clean         0.012 ms  kernels  42  steps/px 16.608  obs 18ee45af2656  ref     152.1 us  ratio    0.08x\n"}
+,{"stream_name":"stdout","time":514.984808795,"data":"  [battery   95.5s]                    DDA workload: 16.608 mean steps/pixel, 221487 of 524288 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":560.358327628,"data":"  [battery  140.9s]   batch    512 faithful      0.011 ms  kernels  42  steps/px 16.608  obs 18ee45af2656  ref     152.1 us  ratio    0.07x\n"}
+,{"stream_name":"stdout","time":560.359267487,"data":"  [battery  140.9s]                    DDA workload: 16.608 mean steps/pixel, 221487 of 524288 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":711.40569133,"data":"  [battery  291.9s]   batch   1024 clean         0.011 ms  kernels  10  steps/px 16.608  obs 0b098f846629  ref     262.1 us  ratio    0.04x\n"}
+,{"stream_name":"stdout","time":711.406546861,"data":"  [battery  291.9s]                    DDA workload: 16.608 mean steps/pixel, 442974 of 1048576 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":891.245153356,"data":"  [battery  471.8s]   batch   1024 faithful      0.011 ms  kernels  10  steps/px 16.608  obs 0b098f846629  ref     262.1 us  ratio    0.04x\n"}
+,{"stream_name":"stdout","time":891.24646321,"data":"  [battery  471.8s]                    DDA workload: 16.608 mean steps/pixel, 442974 of 1048576 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":1043.532856018,"data":"  [battery  624.1s]   batch   2048 clean         0.011 ms  kernels  10  steps/px 16.608  obs 01f74e9e412b  ref     507.3 us  ratio    0.02x\n"}
+,{"stream_name":"stdout","time":1043.533752486,"data":"  [battery  624.1s]                    DDA workload: 16.608 mean steps/pixel, 885969 of 2097152 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":1223.247614771,"data":"  [battery  803.8s]   batch   2048 faithful      0.011 ms  kernels  10  steps/px 16.608  obs 01f74e9e412b  ref     507.3 us  ratio    0.02x\n"}
+,{"stream_name":"stdout","time":1223.248644648,"data":"  [battery  803.8s]                    DDA workload: 16.608 mean steps/pixel, 885969 of 2097152 pixels at the 32-step cap; the reference's own device-side count is NOT available (refdrv links no dda probe)\n"}
+,{"stream_name":"stdout","time":1223.249453857,"data":"  [battery  803.8s] \n"}
+,{"stream_name":"stdout","time":1223.250164158,"data":"  [battery  803.8s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":1223.250868755,"data":"  [battery  803.8s]   4. clean vs faithful, and both vs the baseline\n"}
+,{"stream_name":"stdout","time":1223.25161105,"data":"  [battery  803.8s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":1223.252366816,"data":"  [battery  803.8s]   batch    512  clean     0.012 ms  faithful     0.011 ms  faithful/clean  0.908  clean/ref    0.08  faithful/ref    0.07  same obs True\n"}
+,{"stream_name":"stdout","time":1223.253079958,"data":"  [battery  803.8s]   batch   1024  clean     0.011 ms  faithful     0.011 ms  faithful/clean  0.977  clean/ref    0.04  faithful/ref    0.04  same obs True\n"}
+,{"stream_name":"stdout","time":1223.2537966,"data":"  [battery  803.8s]   batch   2048  clean     0.011 ms  faithful     0.011 ms  faithful/clean  0.961  clean/ref    0.02  faithful/ref    0.02  same obs True\n"}
+,{"stream_name":"stdout","time":1223.254509905,"data":"  [battery  803.8s] \n"}
+,{"stream_name":"stdout","time":1223.255226912,"data":"  [battery  803.8s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":1223.255958621,"data":"  [battery  803.8s]   5. what this does NOT say\n"}
+,{"stream_name":"stdout","time":1223.256734934,"data":"  [battery  803.8s] ==============================================================================\n"}
+,{"stream_name":"stdout","time":1223.257458468,"data":"  [battery  803.8s]   * No whole-step number is a denominator anywhere above. The\n"}
+,{"stream_name":"stdout","time":1223.258224838,"data":"  [battery  803.8s]     reference's whole step is printed as CONTEXT only: it is 7\n"}
+,{"stream_name":"stdout","time":1223.258935038,"data":"  [battery  803.8s]     launches, five of them state updates.\n"}
+,{"stream_name":"stdout","time":1223.25964165,"data":"  [battery  803.8s]   * The ratio against the reference is render-against-render, both\n"}
+,{"stream_name":"stdout","time":1223.260340516,"data":"  [battery  803.8s]     producing the same uint8 observation at the same batch on the\n"}
+,{"stream_name":"stdout","time":1223.261004135,"data":"  [battery  803.8s]     same card. If the digests differ, the ratio is between two\n"}
+,{"stream_name":"stdout","time":1223.261670193,"data":"  [battery  803.8s]     different computations.\n"}
+,{"stream_name":"stdout","time":1223.262400649,"data":"  [battery  803.8s]   * The clean-vs-faithful delta is the crossing cost. It is the only\n"}
+,{"stream_name":"stdout","time":1223.263108232,"data":"  [battery  803.8s]     number here that no other arm in this study has.\n"}
+,{"stream_name":"stdout","time":1223.263812457,"data":"  [battery  803.8s] \n"}
+,{"stream_name":"stdout","time":1223.264515047,"data":"  [battery  803.8s] wrote /kaggle/working/faithful_battery.json\n"}
+,{"stream_name":"stdout","time":1225.430500106,"data":"  [battery] exit 0 after 806.0s\n"}
+,{"stream_name":"stdout","time":1225.431742803,"data":"\n"}
+,{"stream_name":"stdout","time":1225.43240265,"data":"--- 8. the three-way table, and the clean-vs-faithful delta ---\n"}
+,{"stream_name":"stdout","time":1225.433927431,"data":"   batch      ref us    clean ms    faith ms   f/clean  clean/ref  faith/ref   kernels c/f  same obs\n"}
+,{"stream_name":"stdout","time":1225.4355054,"data":"     512       159.0       0.012       0.011     0.908       0.08       0.07         42/42  True\n"}
+,{"stream_name":"stdout","time":1225.436378862,"data":"    1024       297.0       0.011       0.011     0.977       0.04       0.04         10/10  True\n"}
+,{"stream_name":"stdout","time":1225.437320422,"data":"    2048       571.4       0.011       0.011     0.961       0.02       0.02         10/10  True\n"}
+,{"stream_name":"stdout","time":1225.438349942,"data":"\n"}
+,{"stream_name":"stdout","time":1225.439625288,"data":"--- what these numbers are, and are not ---\n"}
+,{"stream_name":"stdout","time":1225.440649584,"data":"  * The three columns are RENDERS. Same world, same cameras, same\n"}
+,{"stream_name":"stdout","time":1225.441720123,"data":"    max_steps, same uint8 observation, same card, same run, equal batch.\n"}
+,{"stream_name":"stdout","time":1225.442811083,"data":"    `f/clean` is the crossing cost and is the number this arm adds; the\n"}
+,{"stream_name":"stdout","time":1225.443637148,"data":"    two `*/ref` columns are render-against-render and are the same\n"}
+,{"stream_name":"stdout","time":1225.444664563,"data":"    comparison `notes/19` §5.2 makes.\n"}
+,{"stream_name":"stdout","time":1225.445571416,"data":"  * The reference's whole-step figure is printed for context and is NOT a\n"}
+,{"stream_name":"stdout","time":1225.446437415,"data":"    denominator anywhere. `4.55 M env-steps/s` covers 7 launches.\n"}
+,{"stream_name":"stdout","time":1225.447359242,"data":"  * `same obs` compares the two modes' observations by sha256. Both are\n"}
+,{"stream_name":"stdout","time":1225.448074504,"data":"    verified against the same float64 transcription and the same naive\n"}
+,{"stream_name":"stdout","time":1225.449461684,"data":"    port, so a False here would mean the crossings changed the\n"}
+,{"stream_name":"stdout","time":1225.450376977,"data":"    computation, and the ratios above it would be between two different\n"}
+,{"stream_name":"stdout","time":1225.451601419,"data":"    computations.\n"}
+,{"stream_name":"stdout","time":1225.452396804,"data":"  * The ratio to the reference is NOT attributed to the compiler unless\n"}
+,{"stream_name":"stdout","time":1225.453331631,"data":"    both sides did the same work. Each mode's mean steps/pixel is in the\n"}
+,{"stream_name":"stdout","time":1225.454467385,"data":"    battery output. The reference's own DEVICE-side step count is NOT\n"}
+,{"stream_name":"stdout","time":1225.455543416,"data":"    available here: it needs the dda_probe_kernel from\n"}
+,{"stream_name":"stdout","time":1225.456646055,"data":"    minecu_ref/bench/bench.cu, which refdrv.cu does not link, and putting\n"}
+,{"stream_name":"stdout","time":1225.457716093,"data":"    the CPU model's number under the same label would be a claim about a\n"}
+,{"stream_name":"stdout","time":1225.458804276,"data":"    device that was not measured. The workload check is one-sided and\n"}
+,{"stream_name":"stdout","time":1225.459865449,"data":"    the note says so rather than rounding it up.\n"}
+,{"stream_name":"stdout","time":1225.460977531,"data":"  * The obs_sha256 in the battery is this port's. verify.py proved it\n"}
+,{"stream_name":"stdout","time":1225.462102991,"data":"    equals the naive port's and a float64 transcription's ON THIS CARD in\n"}
+,{"stream_name":"stdout","time":1225.463239232,"data":"    this run. It is NOT compared against the reference's dumped bytes\n"}
+,{"stream_name":"stdout","time":1225.464377081,"data":"    here; that is notes/19's comparison on the reference's own state, and\n"}
+,{"stream_name":"stdout","time":1225.465815747,"data":"    this arm did not re-derive it.\n"}
+,{"stream_name":"stdout","time":1225.466878088,"data":"  * No SASS number is reported here. The instruction and register counts\n"}
+,{"stream_name":"stdout","time":1225.467831308,"data":"    come from the offline archlab route on the host, where ptxas and\n"}
+,{"stream_name":"stdout","time":1225.468865819,"data":"    cuobjdump exist and nvcc's version is pinned; the T4 image's CUDA\n"}
+,{"stream_name":"stdout","time":1225.470276962,"data":"    version is recorded but not used for a count.\n"}
+,{"stream_name":"stdout","time":1225.47109654,"data":"\n"}
+,{"stream_name":"stdout","time":1225.472287737,"data":"wrote /kaggle/working/SUMMARY.txt\n"}
+,{"stream_name":"stderr","time":1228.746134,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1228.746169365,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1228.925760903,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1228.925788851,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1229.588462902,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1229.944641679,"data":"[NbConvertApp] Writing 404174 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1232.484311671,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1233.378040104,"data":"[NbConvertApp] Writing 726811 bytes to __results__.html\n"}
+]

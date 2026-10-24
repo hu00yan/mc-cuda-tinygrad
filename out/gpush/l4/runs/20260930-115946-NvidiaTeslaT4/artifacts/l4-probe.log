@@ -1,0 +1,175 @@
+[{"stream_name":"stderr","time":7.527540661,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.52761867,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.527626024,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.52762971,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.140626489,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.140657248,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.14066237,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.140666517,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.465279068,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.465327545,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.465358004,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.465364995,"data":"archive      /kaggle/input/datasets/tenghuzhang/l4-probe-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.465369008,"data":"mount        /kaggle/input/datasets/tenghuzhang/l4-probe-payload\n"}
+,{"stream_name":"stdout","time":9.465373181,"data":"\n"}
+,{"stream_name":"stdout","time":9.465376879,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":9.850634227,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"33ae7eb7faf9\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":9.850670865,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":9.850674621,"data":"\n"}
+,{"stream_name":"stdout","time":9.850677415,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":9.850679975,"data":"expected 12 files, the tree we will execute has 12\n"}
+,{"stream_name":"stdout","time":9.850682392,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":9.850684635,"data":"\n"}
+,{"stream_name":"stdout","time":10.039000775,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.039028327,"data":"$ bash kda_t4/l4_run.sh\n"}
+,{"stream_name":"stdout","time":10.039032987,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.039037982,"data":"  at    2026-09-30 04:00:42 UTC\n"}
+,{"stream_name":"stdout","time":10.039045337,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":74.564887443,"data":"l4_run.sh   2026-09-30T04:00:42Z\n"}
+,{"stream_name":"stdout","time":74.564919272,"data":"python: 3.12.13\n"}
+,{"stream_name":"stdout","time":74.564925609,"data":"\n"}
+,{"stream_name":"stdout","time":74.564930039,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.564934876,"data":"# stage: install\n"}
+,{"stream_name":"stdout","time":74.564946355,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.564949976,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":74.564953339,"data":"kda_t4 INSTALL  2026-09-30T04:00:42Z\n"}
+,{"stream_name":"stdout","time":74.564956604,"data":"python  : 3.12.13\n"}
+,{"stream_name":"stdout","time":74.564959823,"data":"pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)\n"}
+,{"stream_name":"stdout","time":74.56496324,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":74.564966564,"data":"\n"}
+,{"stream_name":"stdout","time":74.564969834,"data":"--\u003e einops\n"}
+,{"stream_name":"stdout","time":74.564978348,"data":"    $ python3 -m pip install --disable-pip-version-check einops\n"}
+,{"stream_name":"stdout","time":74.564980994,"data":"    OK einops\n"}
+,{"stream_name":"stdout","time":74.564983142,"data":"\n"}
+,{"stream_name":"stdout","time":74.564985279,"data":"--\u003e fla-core\n"}
+,{"stream_name":"stdout","time":74.564987464,"data":"    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2\n"}
+,{"stream_name":"stdout","time":74.564989862,"data":"    OK fla-core\n"}
+,{"stream_name":"stdout","time":74.564993195,"data":"\n"}
+,{"stream_name":"stdout","time":74.565007803,"data":"--\u003e flash-linear-attention\n"}
+,{"stream_name":"stdout","time":74.565012059,"data":"    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2\n"}
+,{"stream_name":"stdout","time":74.565015999,"data":"    OK flash-linear-attention\n"}
+,{"stream_name":"stdout","time":74.565019487,"data":"\n"}
+,{"stream_name":"stdout","time":74.565023208,"data":"--\u003e tinygrad\n"}
+,{"stream_name":"stdout","time":74.565026839,"data":"    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0\n"}
+,{"stream_name":"stdout","time":74.565030299,"data":"    OK tinygrad\n"}
+,{"stream_name":"stdout","time":74.565033537,"data":"\n"}
+,{"stream_name":"stdout","time":74.56503662,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":74.565040018,"data":"installed, as the card sees it\n"}
+,{"stream_name":"stdout","time":74.565043297,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":74.565046595,"data":"  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py\n"}
+,{"stream_name":"stdout","time":74.565050035,"data":"  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py\n"}
+,{"stream_name":"stdout","time":74.565053488,"data":"  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py\n"}
+,{"stream_name":"stdout","time":74.565056919,"data":"  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py\n"}
+,{"stream_name":"stdout","time":74.565060311,"data":"  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py\n"}
+,{"stream_name":"stdout","time":74.56506385,"data":"  flash_linear_attention 0.5.2          \u003cimport failed: ModuleNotFoundError: No module named 'flash_linear_attention'\u003e\n"}
+,{"stream_name":"stdout","time":74.565067463,"data":"  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py\n"}
+,{"stream_name":"stdout","time":74.565070939,"data":"\n"}
+,{"stream_name":"stdout","time":74.565074,"data":"  torch.cuda.is_available()    True\n"}
+,{"stream_name":"stdout","time":74.565106521,"data":"  device_count                 2\n"}
+,{"stream_name":"stdout","time":74.565111179,"data":"\n"}
+,{"stream_name":"stdout","time":74.565114893,"data":"done.\n"}
+,{"stream_name":"stdout","time":74.565118793,"data":"\n"}
+,{"stream_name":"stdout","time":74.565122759,"data":"\u003e\u003e\u003e install exit=0 (53 s)\n"}
+,{"stream_name":"stdout","time":74.56512623,"data":"\n"}
+,{"stream_name":"stdout","time":74.565129306,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.565132559,"data":"# stage: probe\n"}
+,{"stream_name":"stdout","time":74.565135715,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.565140316,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565143807,"data":"l4_probe   started 2026-09-30T04:01:35Z   python 3.12.13\n"}
+,{"stream_name":"stdout","time":74.565147153,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565150594,"data":"durable record: /kaggle/working/l4_probe.jsonl\n"}
+,{"stream_name":"stdout","time":74.565153862,"data":"\n"}
+,{"stream_name":"stdout","time":74.565156974,"data":"  BEFORE any import: TRITON_F32_DEFAULT=None\n"}
+,{"stream_name":"stdout","time":74.5651602,"data":"\n"}
+,{"stream_name":"stdout","time":74.565163245,"data":"### 0 identity  (t+   0.0s)\n"}
+,{"stream_name":"stdout","time":74.565166469,"data":"\n"}
+,{"stream_name":"stdout","time":74.565169586,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565172905,"data":"0. IDENTITY -- read this before believing anything below\n"}
+,{"stream_name":"stdout","time":74.565176275,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565183335,"data":"\n"}
+,{"stream_name":"stdout","time":74.565186217,"data":"  nvidia-smi name        Tesla T4\n"}
+,{"stream_name":"stdout","time":74.565202036,"data":"  nvidia-smi reason      -\n"}
+,{"stream_name":"stdout","time":74.565205982,"data":"  torch device name      Tesla T4\n"}
+,{"stream_name":"stdout","time":74.565209941,"data":"  torch build            2.10.0+cu128  cuda=12.8\n"}
+,{"stream_name":"stdout","time":74.565213872,"data":"  triton props name      None\n"}
+,{"stream_name":"stdout","time":74.565217887,"data":"  device_count           2\n"}
+,{"stream_name":"stdout","time":74.565221669,"data":"  compute capability     7.5   (want 8.9 for an L4)\n"}
+,{"stream_name":"stdout","time":74.565225003,"data":"  driver / cuda          580.159.04 / None\n"}
+,{"stream_name":"stdout","time":74.565228224,"data":"  names all sources saw  ['Tesla T4']\n"}
+,{"stream_name":"stdout","time":74.565231422,"data":"  nvidia-smi driver      580.159.04\n"}
+,{"stream_name":"stdout","time":74.56523459,"data":"  GPU PRESENT            True   (nvidia-smi present: True)\n"}
+,{"stream_name":"stdout","time":74.56524065,"data":"{\"cc\": [7, 5], \"cc_str\": \"7.5\", \"cuda_runtime\": {\"cuda_runtime_version_raw\": 12080, \"driver_version\": \"580.159.04\", \"l2_cache_size\": 0, \"libcudart\": \"libcudart.so\", \"max_threads_per_mp\": 0, \"multiprocessor_count\": 7, \"shared_optin\": 65536, \"shared_per_block\": 40, \"shared_per_mp\": 65536}, \"gpu_present\": true, \"is_ada_89\": false, \"names_seen\": [\"Tesla T4\"], \"ok\": true, \"section\": \"identity\", \"smi\": {\"compute_cap\": \"7.5\", \"driver_version_query\": \"580.159.04\", \"exe\": \"/opt/bin/nvidia-smi\", \"memory_total\": \"15360 MiB\", \"n_rows\": 2, \"name\": \"Tesla T4\", \"raw\": \"Tesla T4, 7.5, 15360 MiB\\nTesla T4, 7.5, 15360 MiB\"}, \"smi_present\": true, \"smi_reason\": null, \"torch_info\": {\"capability\": [7, 5], \"cuda_compiled\": \"12.8\", \"device_count\": 2, \"float32_matmul_precision\": \"highest\", \"is_available\": true, \"multi_processor_count\": 40, \"name\": \"Tesla T4\", \"tf32_cudnn\": true, \"tf32_matmul\": false, \"torch_version\": \"2.10.0+cu128\", \"total_memory\": 15636037632}, \"triton_props\": {\"cc\": null, \"keys\": [\"max_num_regs\", \"max_shared_mem\", \"mem_bus_width\", \"mem_clock_rate\", \"multiprocessor_count\", \"sm_clock_rate\", \"warpSize\"], \"max_shared_mem\": 65536, \"multiprocessor_count\": 40, \"warpSize\": 32}}\n"}
+,{"stream_name":"stdout","time":74.565258174,"data":"\n"}
+,{"stream_name":"stdout","time":74.56526135,"data":"  VERDICT: cc 7.5, NOT 8.9.\n"}
+,{"stream_name":"stdout","time":74.565264624,"data":"  This run is a CONTROL for the request, not an L4 measurement, and\n"}
+,{"stream_name":"stdout","time":74.565267987,"data":"  every number below is labelled control. Nothing in it may be\n"}
+,{"stream_name":"stdout","time":74.565271245,"data":"  quoted as an L4 property.\n"}
+,{"stream_name":"stdout","time":74.565274532,"data":"\n"}
+,{"stream_name":"stdout","time":74.565285453,"data":"### 1 shared memory (imports fla)  (t+   2.1s)\n"}
+,{"stream_name":"stdout","time":74.565297076,"data":"  AFTER  import fla: TRITON_F32_DEFAULT='ieee'\n"}
+,{"stream_name":"stdout","time":74.565301111,"data":"{\"after\": {\"TRITON_F32_DEFAULT\": \"ieee\", \"TRITON_F32_DEFAULT_PRECISION\": null}, \"before\": {\"TRITON_F32_DEFAULT\": null, \"TRITON_F32_DEFAULT_PRECISION\": null}, \"changed_by_import\": true, \"fla_import_error\": null, \"ok\": true, \"section\": \"f32_default\"}\n"}
+,{"stream_name":"stdout","time":74.565307019,"data":"\n"}
+,{"stream_name":"stdout","time":74.565310594,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565314322,"data":"1. SHARED MEMORY -- five readers, and the gate's own verdict\n"}
+,{"stream_name":"stdout","time":74.565317646,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565320989,"data":"\n"}
+,{"stream_name":"stdout","time":74.565324064,"data":"  reader                                        value\n"}
+,{"stream_name":"stdout","time":74.565327403,"data":"  fla.get_all_max_shared_mem                   [65536, 65536]\n"}
+,{"stream_name":"stdout","time":74.565330785,"data":"  triton                                       max_shared_mem=65536, n_devices=2\n"}
+,{"stream_name":"stdout","time":74.565334686,"data":"  torch                                        shared_memory_per_block=49152, shared_memory_per_block_optin=65536, shared_memory_per_multiprocessor=65536\n"}
+,{"stream_name":"stdout","time":74.565361961,"data":"  attr97                                       attr97[0]=65536\n"}
+,{"stream_name":"stdout","time":74.565365811,"data":"\n"}
+,{"stream_name":"stdout","time":74.565368921,"data":"  fla's gate, from the installed fla source, not from a note:\n"}
+,{"stream_name":"stdout","time":74.565372296,"data":"    threshold ADA          101,376\n"}
+,{"stream_name":"stdout","time":74.565375548,"data":"    threshold AMPERE       166,912\n"}
+,{"stream_name":"stdout","time":74.565378804,"data":"    threshold DEFAULT      102,400\n"}
+,{"stream_name":"stdout","time":74.565382108,"data":"    threshold HOPPER       232,448\n"}
+,{"stream_name":"stdout","time":74.56538536,"data":"    check_shared_mem('ampere') = False\n"}
+,{"stream_name":"stdout","time":74.565392543,"data":"    check_shared_mem('ada') = False\n"}
+,{"stream_name":"stdout","time":74.565395888,"data":"    check_shared_mem('default') = False\n"}
+,{"stream_name":"stdout","time":74.565399128,"data":"    check_shared_mem('hopper') = False\n"}
+,{"stream_name":"stdout","time":74.565405205,"data":"{\"gate\": {\"ada\": false, \"ampere\": false, \"default\": false, \"hopper\": false}, \"ok\": true, \"readers\": {\"attr97\": {\"attr97[0]\": 65536}, \"fla\": {\"check_shared_mem\": \"\", \"file\": \"/usr/local/lib/python3.12/dist-packages/fla/utils/_device.py\", \"gate\": {\"ada\": false, \"ampere\": false, \"default\": false, \"hopper\": false}, \"gate_source\": [\"170: def get_all_max_shared_mem():\", \"173:             triton.runtime.driver.active.utils.get_device_properties(i)['max_shared_mem']\", \"188:     def get_shared_memory(cls, arch: str) -\u003e int:\", \"196: def check_shared_mem(arch: str = \\\"none\\\", tensor_idx: int = 0) -\u003e bool:\", \"198:         device_shared_mem_list = get_all_max_shared_mem()\", \"199:         max_shared_memory = device_shared_mem_list[tensor_idx]\", \"200:         return max_shared_memory \u003e= Backend.get_shared_memory(arch)\"], \"get_all_max_shared_mem\": [65536, 65536], \"thresholds\": {\"ADA\": 101376, \"AMPERE\": 166912, \"DEFAULT\": 102400, \"HOPPER\": 232448}}, \"torch\": {\"shared_memory_per_block\": 49152, \"shared_memory_per_block_optin\": 65536, \"shared_memory_per_multiprocessor\": 65536}, \"triton\": {\"all_keys\": [\"max_num_regs\", \"max_shared_mem\", \"mem_bus_width\", \"mem_clock_rate\", \"multiprocessor_count\", \"sm_clock_rate\", \"warpSize\"], \"max_shared_mem\": 65536, \"n_devices\": 2}}, \"section\": \"shared_memory\", \"thresholds\": {\"ADA\": 101376, \"AMPERE\": 166912, \"DEFAULT\": 102400, \"HOPPER\": 232448}}\n"}
+,{"stream_name":"stdout","time":74.565418705,"data":"{\"cc\": \"7.5\", \"gpu_present\": true, \"ok\": true, \"optin_smem\": 65536, \"passed\": false, \"reason\": \"control run on cc 7.5; sections 2-4 skipped by design (the card is already measured)\", \"section\": \"verdict\"}\n"}
+,{"stream_name":"stdout","time":74.565432279,"data":"\n"}
+,{"stream_name":"stdout","time":74.565436021,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.565440122,"data":"VERDICT: CONTROL on cc 7.5. Sections 2-4 skipped by design.\n"}
+,{"stream_name":"stdout","time":74.565444,"data":"============================================================================\n"}
+,{"stream_name":"stdout","time":74.56544806,"data":"  A GPU was attached, which is what this run was dispatched to\n"}
+,{"stream_name":"stdout","time":74.565451891,"data":"  establish. Its shared memory was read above. The dot/SASS census\n"}
+,{"stream_name":"stdout","time":74.56545531,"data":"  and the fla forward are NOT run on a card the study has already\n"}
+,{"stream_name":"stdout","time":74.56545858,"data":"  measured, and their absence here is deliberate, not a failure.\n"}
+,{"stream_name":"stdout","time":74.565461888,"data":"\n"}
+,{"stream_name":"stdout","time":74.565465041,"data":"  total 10.1 s\n"}
+,{"stream_name":"stdout","time":74.565468217,"data":"  wrote /kaggle/working/tree/payload/kda_t4/out/l4_probe.json\n"}
+,{"stream_name":"stdout","time":74.56547166,"data":"\n"}
+,{"stream_name":"stdout","time":74.565474675,"data":"\u003e\u003e\u003e probe exit=0 (12 s)\n"}
+,{"stream_name":"stdout","time":74.565478075,"data":"\n"}
+,{"stream_name":"stdout","time":74.565481098,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.565484399,"data":"# summary\n"}
+,{"stream_name":"stdout","time":74.565487513,"data":"################################################################\n"}
+,{"stream_name":"stdout","time":74.565493989,"data":"  install exit=0\n"}
+,{"stream_name":"stdout","time":74.565497225,"data":"  probe   exit=0\n"}
+,{"stream_name":"stdout","time":74.565500401,"data":"  total      65 s\n"}
+,{"stream_name":"stdout","time":74.565503695,"data":"\n"}
+,{"stream_name":"stdout","time":74.565510538,"data":"artifacts:\n"}
+,{"stream_name":"stdout","time":74.565513036,"data":"total 20\n"}
+,{"stream_name":"stdout","time":74.565515525,"data":"drwxr-xr-x 2 root root 4096 Sep 30 04:01 .\n"}
+,{"stream_name":"stdout","time":74.565528664,"data":"drwxr-xr-x 3 root root 4096 Sep 30 04:00 ..\n"}
+,{"stream_name":"stdout","time":74.565533276,"data":"-rw-r--r-- 1 root root 3297 Sep 30 04:01 install.log\n"}
+,{"stream_name":"stdout","time":74.565537025,"data":"-rw-r--r-- 1 root root  117 Sep 30 04:01 l4_probe.json\n"}
+,{"stream_name":"stdout","time":74.565541173,"data":"-rw-r--r-- 1 root root  868 Sep 30 04:01 l4_run.log\n"}
+,{"stream_name":"stdout","time":74.565545054,"data":"\n"}
+,{"stream_name":"stdout","time":74.565548114,"data":"wrote /kaggle/working/tree/payload/kda_t4/out/l4_run.log\n"}
+,{"stream_name":"stdout","time":74.565551392,"data":"\n"}
+,{"stream_name":"stdout","time":74.565554519,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":74.565557863,"data":"exit 0 after 64.7 s\n"}
+,{"stream_name":"stdout","time":74.577169389,"data":"collected 15 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":76.820400729,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":76.820422742,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":76.972977819,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":76.973013889,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":77.56764017,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":77.858592633,"data":"[NbConvertApp] Writing 27353 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":80.131900438,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":80.938058399,"data":"[NbConvertApp] Writing 333269 bytes to __results__.html\n"}
+]

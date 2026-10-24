@@ -1,0 +1,31 @@
+l4_run.sh   2026-09-30T03:52:15Z
+python: 3.12.13
+
+################################################################
+# stage: install
+################################################################
+
+>>> install exit=0 (51 s)
+
+################################################################
+# stage: probe
+################################################################
+
+>>> probe exit=0 (2 s)
+
+################################################################
+# summary
+################################################################
+  install exit=0
+  probe   exit=0
+  total      53 s
+
+artifacts:
+  total 20
+  drwxr-xr-x 2 root root 4096 Sep 30 03:53 .
+  drwxr-xr-x 3 root root 4096 Sep 30 03:52 ..
+  -rw-r--r-- 1 root root 3308 Sep 30 03:53 install.log
+  -rw-r--r-- 1 root root  116 Sep 30 03:53 l4_probe.json
+  -rw-r--r-- 1 root root  599 Sep 30 03:53 l4_run.log
+
+wrote /kaggle/working/tree/payload/kda_t4/out/l4_run.log

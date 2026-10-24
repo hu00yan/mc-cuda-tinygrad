@@ -1,0 +1,66 @@
+Compiling entry function 'update_cameras_kernel' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 18 registers, used 0 barriers, 388 bytes cmem[0]
+Compiling entry function '_Z24place_tree_kernel_maskedPaPKbiiiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 16 registers, used 0 barriers, 396 bytes cmem[0]
+Compiling entry function '_Z28generate_world_kernel_maskedPaPKbiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 16 registers, used 0 barriers, 388 bytes cmem[0]
+Compiling entry function '_Z21episode_update_kernelPiPKbi' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 10 registers, used 0 barriers, 372 bytes cmem[0]
+Compiling entry function '_Z20episode_check_kernelPKiPbii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 10 registers, used 0 barriers, 376 bytes cmem[0]
+Compiling entry function '_Z18place_house_kernelPaiiiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 57 registers, used 0 barriers, 388 bytes cmem[0]
+Compiling entry function '_Z17place_tree_kernelPaiiiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 16 registers, used 0 barriers, 388 bytes cmem[0]
+Compiling entry function '_Z21generate_world_kernelPaiiiiij' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 16 registers, used 0 barriers, 384 bytes cmem[0]
+Compiling entry function '_Z12reset_kernelPfS_S_S_PbPKbifff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 18 registers, used 0 barriers, 416 bytes cmem[0]
+Compiling entry function '_Z20raycast_break_kernelPaPKfS1_S1_PKbPfiiiiaf' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 24 registers, used 0 barriers, 424 bytes cmem[0]
+Compiling entry function '_Z23raycast_interact_kernelPaPKfS1_S1_PKbS3_Pfiiiiaf' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 29 registers, used 0 barriers, 432 bytes cmem[0]
+Compiling entry function '_Z14physics_kernelPfS_S_S_PbPKfS2_S2_S2_PKbS2_iiiiffff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 26 registers, used 0 barriers, 472 bytes cmem[0]
+Compiling entry function '_Z21decode_actions_kernelPKaPKfPfS3_S3_S3_PbS4_S4_S3_if' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 30 registers, used 0 barriers, 440 bytes cmem[0]
+Compiling entry function '_Z24render_kernel_uint8_fastPKaPKfPhiiiiiffi' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 32 registers, used 0 barriers, 408 bytes cmem[0]
+Compiling entry function '_Z24render_kernel_uint8_fp16PKaPKfPhiiiiiff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 26 registers, used 0 barriers, 404 bytes cmem[0], 8 bytes cmem[2]
+Compiling entry function '_Z27render_kernel_uint8_minimalPKaPKfPhiiiiiff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 25 registers, used 0 barriers, 404 bytes cmem[0], 8 bytes cmem[2]
+Compiling entry function '_Z24render_kernel_uint8_smemPKaPKfPhiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 38 registers, used 1 barriers, 396 bytes cmem[0], 8 bytes cmem[2]
+Compiling entry function '_Z29render_kernel_uint8_coalescedPKaPKfPhiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 28 registers, used 0 barriers, 396 bytes cmem[0], 8 bytes cmem[2]
+Compiling entry function '_Z28render_kernel_uint8_prebasisPKaPKfPhiiiiiii' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 28 registers, used 1 barriers, 64 bytes smem, 404 bytes cmem[0], 8 bytes cmem[2]
+Compiling entry function '_Z30precompute_camera_basis_kernelPKfPfiiif' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 32 registers, used 0 barriers, 384 bytes cmem[0]
+Compiling entry function '_Z19render_kernel_uint8PKaPKfPhiiiiiff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 33 registers, used 0 barriers, 404 bytes cmem[0]
+Compiling entry function '_Z13render_kernelPKaPKfPfiiiiiff' for 'sm_75'
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+Used 33 registers, used 0 barriers, 404 bytes cmem[0]

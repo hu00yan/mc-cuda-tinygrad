@@ -1,0 +1,1952 @@
+{
+ "device": {
+  "gpu": "Tesla T4",
+  "memory_mb": 15360,
+  "compute_cap": "7.5",
+  "driver": "580.159.04",
+  "nvcc": "12.8",
+  "hostname": "9d14af47f215"
+ },
+ "shape": {
+  "batch": 1024,
+  "res": 32,
+  "max_steps": 32,
+  "world": 32,
+  "ground": 8
+ },
+ "control_ms": {
+  "naive": [
+   616.2175264999519,
+   612.4875719999636,
+   615.9145489999673,
+   643.5148369998842,
+   621.5285709999989,
+   615.3938160000507,
+   614.4103770000129,
+   615.2381590000005,
+   619.0159609998318,
+   618.1980159999512,
+   611.7088409998814,
+   606.3439980000567,
+   632.0804800000133,
+   606.3102479999998,
+   619.5269579998239
+  ],
+  "lean": [
+   391.41612250000435,
+   386.16002700007357,
+   386.90091700004814,
+   392.8847320000841,
+   392.412621999938,
+   375.39778199993634,
+   388.6795369999163,
+   387.5715419999324,
+   376.3709469999412,
+   388.9048470000489,
+   385.08552100006455,
+   383.2336269999814,
+   384.26787100002,
+   382.01721499990526,
+   389.9512049999885
+  ],
+  "lean-no-flat": [
+   585.5563179999876,
+   579.3571859999247,
+   578.2318999999916,
+   579.2826379999951,
+   574.8516029998427,
+   578.0406310000217,
+   594.045283000014,
+   569.9100820002059,
+   576.0865770000692,
+   573.9073719998942,
+   570.5812150001748,
+   572.8967279999324,
+   575.7424849998642,
+   568.7842070001352,
+   578.3431259999361
+  ],
+  "lean-no-unsigned": [
+   416.9981834999703,
+   433.49534399999357,
+   412.00632199991105,
+   411.4018349998787,
+   415.58875100008663,
+   403.8302730000396,
+   417.65230600003633,
+   413.9852079999855,
+   411.2064079999982,
+   409.43993500013676,
+   411.23726000000715,
+   412.7842079999482,
+   414.76278599998295,
+   409.03181799990307,
+   407.1502199999486
+  ]
+ },
+ "control_spread": {
+  "naive": 0.06136229615548977,
+  "lean": 0.04658245423557334,
+  "lean-no-flat": 0.04441240753344758,
+  "lean-no-unsigned": 0.07345925499733662
+ },
+ "reference": "see notes/19 \u00a75.2 for the reference column; this file times the TinyGrad side only",
+ "records": [
+  {
+   "label": "default",
+   "config": {},
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 616.2175264999519,
+   "device_ms_min": 606.6478579999739,
+   "samples_ms": [
+    630.8578519999628,
+    617.6209899999776,
+    606.6478579999739,
+    614.8140629999261,
+    633.3102830000144,
+    613.3587719999696,
+    885.0864469999351,
+    613.8037990000385
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 721.7887080000196,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0
+  },
+  {
+   "label": "default",
+   "config": {},
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 391.41612250000435,
+   "device_ms_min": 384.4692600000599,
+   "samples_ms": [
+    386.73027799995907,
+    389.1935660000172,
+    384.4692600000599,
+    412.92545199996766,
+    391.32398499998544,
+    391.50826000002326,
+    401.1740700000246,
+    423.6816689999614
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 425.4213479999862,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0
+  },
+  {
+   "label": "default",
+   "config": {},
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 585.5563179999876,
+   "device_ms_min": 573.0984619999617,
+   "samples_ms": [
+    633.3425610000631,
+    588.3991709999918,
+    581.9065780000301,
+    582.7134649999834,
+    593.886221000048,
+    604.7839369999792,
+    577.8539960000444,
+    573.0984619999617
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 1078.3518939999794,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0
+  },
+  {
+   "label": "default",
+   "config": {},
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 416.9981834999703,
+   "device_ms_min": 406.337414999939,
+   "samples_ms": [
+    406.337414999939,
+    431.50062300003356,
+    447.60251000002427,
+    414.0971519999539,
+    411.6085129999192,
+    417.50791300000856,
+    416.48845399993206,
+    419.35903099999905
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 930.8510900000329,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0
+  },
+  {
+   "label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 621.4139989999126,
+   "device_ms_min": 615.2753659999917,
+   "samples_ms": [
+    615.2753659999917,
+    621.1994639999148,
+    1152.3927109999477,
+    625.3793459999315,
+    617.9672680000294,
+    621.6285339999104,
+    615.8306659999653,
+    623.4519930000033
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 616.8114459999288,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0145740540837447
+  },
+  {
+   "label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 388.91731100000015,
+   "device_ms_min": 379.7964039999897,
+   "samples_ms": [
+    382.9935269999396,
+    395.5362189999505,
+    390.0857869999754,
+    383.31532199993035,
+    392.7376340000137,
+    390.6914259999894,
+    379.7964039999897,
+    387.7488350000249
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 383.10163199992076,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0071402626039438
+  },
+  {
+   "label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 570.0452615000131,
+   "device_ms_min": 563.8890120000042,
+   "samples_ms": [
+    588.1328189999522,
+    630.6328499999836,
+    581.4077530000077,
+    571.0602469999913,
+    566.2104179999687,
+    563.8890120000042,
+    566.395985999975,
+    569.030276000035
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 1108.9201379999167,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.983927144212702
+  },
+  {
+   "label": "USE_TC=0",
+   "config": {
+    "TC": 0
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 413.57863150000185,
+   "device_ms_min": 407.29107000004205,
+   "samples_ms": [
+    433.18096500001957,
+    412.62159600000814,
+    409.4805310000993,
+    411.2932230000297,
+    407.29107000004205,
+    415.1471259999653,
+    414.53566699999556,
+    448.5174569999799
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 406.12319499996374,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9540555330624451
+  },
+  {
+   "label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 616.5776315000926,
+   "device_ms_min": 608.6672249998628,
+   "samples_ms": [
+    619.7475500000564,
+    622.9275069999858,
+    610.3189929999644,
+    1133.0383910000137,
+    612.4213089999557,
+    614.3324480000274,
+    608.6672249998628,
+    618.8228150001578
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 626.0002699999632,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.001076581972616
+  },
+  {
+   "label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 383.5654860000659,
+   "device_ms_min": 380.77640699998483,
+   "samples_ms": [
+    384.4857280000724,
+    381.9646310000735,
+    381.75675200000114,
+    382.6452440000594,
+    380.77640699998483,
+    388.00122800012105,
+    392.11250099992867,
+    388.9328069999465
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 386.8306140000186,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9913791080521481
+  },
+  {
+   "label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 573.0893129999686,
+   "device_ms_min": 567.5600299998678,
+   "samples_ms": [
+    571.7054579999967,
+    573.4606720000102,
+    569.3985640000392,
+    572.717953999927,
+    620.6398639999406,
+    575.6406949999473,
+    573.871464999911,
+    567.5600299998678
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 570.6026210000346,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9911063588846912
+  },
+  {
+   "label": "TC_SELECT=0",
+   "config": {
+    "TC_SELECT": 0
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 417.0672039999772,
+   "device_ms_min": 411.5284370000154,
+   "samples_ms": [
+    419.7027909999633,
+    413.2654019999791,
+    411.5284370000154,
+    953.6237289999008,
+    417.6930450000782,
+    413.1527399999868,
+    417.02285899987146,
+    417.11154900008296
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 410.19702300013705,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0122835056886996
+  },
+  {
+   "label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 618.8233425000362,
+   "device_ms_min": 610.8016900000166,
+   "samples_ms": [
+    624.2927959999633,
+    623.1005009999535,
+    619.6799690001171,
+    617.3579069998141,
+    610.8016900000166,
+    614.6370999999817,
+    617.9667159999553,
+    622.1317759998328
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 632.2166019999713,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9616302638569117
+  },
+  {
+   "label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 385.7819309999968,
+   "device_ms_min": 377.33597300007204,
+   "samples_ms": [
+    393.4077819999402,
+    384.25383599997076,
+    387.31002600002284,
+    391.04265500009205,
+    438.04542100019717,
+    377.33597300007204,
+    381.3571910000064,
+    383.5390770000231
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 386.21085900012986,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9819214125121926
+  },
+  {
+   "label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 585.6620920000069,
+   "device_ms_min": 581.0136380000586,
+   "samples_ms": [
+    581.0136380000586,
+    584.5921999998609,
+    1089.6915330001775,
+    582.1882939999341,
+    585.0035299999945,
+    586.3206540000192,
+    612.9237979998834,
+    593.0671270000403
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 582.1383629997854,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0110126794444196
+  },
+  {
+   "label": "TC_SELECT=2",
+   "config": {
+    "TC_SELECT": 2
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 416.740071500044,
+   "device_ms_min": 406.47791700007474,
+   "samples_ms": [
+    425.7727649999197,
+    417.89493900000707,
+    406.47791700007474,
+    415.5852040000809,
+    418.5562420000224,
+    414.378331999842,
+    422.2628339998664,
+    414.52820099993914
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 418.06999300001735,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0129757236016383
+  },
+  {
+   "label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 623.6637360000259,
+   "device_ms_min": 617.4234919999435,
+   "samples_ms": [
+    635.844385999917,
+    619.4255999998859,
+    654.0514359999179,
+    623.9766520000103,
+    617.4234919999435,
+    631.2927399999353,
+    619.8657110001022,
+    623.3508200000415
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 622.1089890000258,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.003435344889442
+  },
+  {
+   "label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 393.2831479999095,
+   "device_ms_min": 387.2425829999884,
+   "samples_ms": [
+    901.5340019998348,
+    393.1785699999182,
+    393.3877259999008,
+    391.96970300008616,
+    393.63393200005703,
+    394.05666700008624,
+    387.2425829999884,
+    389.9665910000749
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 395.27289700004076,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0022183944938745
+  },
+  {
+   "label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 574.2034210001066,
+   "device_ms_min": 558.0120310000893,
+   "samples_ms": [
+    577.129044000003,
+    574.3854780000675,
+    573.0772859999433,
+    582.6611410000169,
+    574.0213640001457,
+    565.3299180000886,
+    1055.4360839998935,
+    558.0120310000893
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 568.4238000001187,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9988724359532901
+  },
+  {
+   "label": "TC_OPT=1",
+   "config": {
+    "TC_OPT": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 408.751733499912,
+   "device_ms_min": 403.8166369998635,
+   "samples_ms": [
+    410.35956699988674,
+    403.8166369998635,
+    415.4959019999751,
+    412.62331600000834,
+    410.58805199986637,
+    405.0279750001664,
+    406.9904589998714,
+    407.1438999999373
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 411.11294799998177,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9835485982627735
+  },
+  {
+   "label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 615.4484565000757,
+   "device_ms_min": 609.282998000026,
+   "samples_ms": [
+    616.9918370001142,
+    612.6019690000248,
+    618.8716740000473,
+    611.809459999904,
+    620.9851349999553,
+    662.1344369998496,
+    609.282998000026,
+    613.9050760000373
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 625.5434659999537,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.000088789485049
+  },
+  {
+   "label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 383.8333880000846,
+   "device_ms_min": 379.3239490000815,
+   "samples_ms": [
+    385.35238300005403,
+    381.46429399989756,
+    403.5878760000742,
+    388.07893900002455,
+    381.20267199997215,
+    379.3239490000815,
+    902.154198000062,
+    382.31439300011516
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 388.25695800005633,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0224711130556166
+  },
+  {
+   "label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 564.9581090000311,
+   "device_ms_min": 558.8964549999673,
+   "samples_ms": [
+    558.8964549999673,
+    565.6887009999991,
+    562.6220819999617,
+    564.227517000063,
+    571.9525539998358,
+    566.8101210001169,
+    565.785261000201,
+    561.4304749999519
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 574.3751119998706,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9773674698656432
+  },
+  {
+   "label": "TC_OPT=2",
+   "config": {
+    "TC_OPT": 2
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 415.2972205000651,
+   "device_ms_min": 412.68367599991507,
+   "samples_ms": [
+    422.2643610000887,
+    412.68367599991507,
+    415.30068800011577,
+    422.2932339998806,
+    442.63245399997686,
+    413.9947319999919,
+    415.2937530000145,
+    413.3133299999372
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 406.1727799999062,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0283954628137164
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 622.994872500044,
+   "device_ms_min": 613.301538000087,
+   "samples_ms": [
+    620.4133710000406,
+    617.9838689999997,
+    613.301538000087,
+    1147.8421060000983,
+    621.9849740000427,
+    638.0140520000168,
+    633.7906060000478,
+    624.0047710000454
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 626.4180820001002,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.013971924663686
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 383.5150134999594,
+   "device_ms_min": 372.193629000094,
+   "samples_ms": [
+    384.4563739999103,
+    378.6558069998591,
+    388.62018100007845,
+    390.91504799989707,
+    382.57365300000856,
+    384.70173699988663,
+    381.3637739999649,
+    372.193629000094
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 430.7036990001052,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9867126436863127
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 577.551222000011,
+   "device_ms_min": 569.042662999891,
+   "samples_ms": [
+    569.042662999891,
+    589.5277920001263,
+    605.6869550000101,
+    578.3759319999717,
+    576.7265120000502,
+    573.2494769999903,
+    573.369601999957,
+    588.8870549999865
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 576.9076789999872,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9722343372264389
+  },
+  {
+   "label": "ALLOW_TF32=1",
+   "config": {
+    "ALLOW_TF32": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 415.494147499885,
+   "device_ms_min": 406.2209849998908,
+   "samples_ms": [
+    413.9691939999466,
+    422.53844400011076,
+    947.390291000147,
+    409.1283160000785,
+    417.0191009998234,
+    406.2209849998908,
+    413.07716899996194,
+    420.3624739998304
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 416.74743599992325,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9948326431599993
+  },
+  {
+   "label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 626.1669145000042,
+   "device_ms_min": 610.3586900001119,
+   "samples_ms": [
+    612.2467739999138,
+    610.4090830001496,
+    653.069675000097,
+    635.0485630000549,
+    622.7980090000074,
+    629.535820000001,
+    610.3586900001119,
+    1139.6137100000487
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 616.9849440000235,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0177634552410844
+  },
+  {
+   "label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 384.54780400002164,
+   "device_ms_min": 380.5206489998909,
+   "samples_ms": [
+    410.15238899990436,
+    384.20700699998633,
+    384.932144000004,
+    392.48514700011583,
+    384.2987069999708,
+    384.79690100007247,
+    381.26930299995365,
+    380.5206489998909
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 387.35293200011256,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9921982455566584
+  },
+  {
+   "label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 571.1967965000895,
+   "device_ms_min": 563.0166019998342,
+   "samples_ms": [
+    569.8872550001397,
+    572.5063380000392,
+    1120.3435959998842,
+    574.6179540001322,
+    566.5871129999687,
+    600.2318860000742,
+    563.0166019998342,
+    568.1295880001471
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 567.9660210000748,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0022577500214904
+  },
+  {
+   "label": "NOLOCALS=1",
+   "config": {
+    "NOLOCALS": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 403.1493714999215,
+   "device_ms_min": 399.850995999941,
+   "samples_ms": [
+    406.2525240001378,
+    402.63817899995047,
+    408.9919689999988,
+    400.7796440000675,
+    410.9054099999412,
+    399.850995999941,
+    403.6605639998925,
+    402.40809000010813
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 409.4497630001115,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9738255466845945
+  },
+  {
+   "label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 613.6852479999106,
+   "device_ms_min": 604.865952999944,
+   "samples_ms": [
+    651.434368000082,
+    615.4061350000575,
+    612.9918819999602,
+    607.2221310000714,
+    619.8805510000511,
+    609.1655779998746,
+    614.378613999861,
+    604.865952999944
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 618.8843199997791,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9913884078347334
+  },
+  {
+   "label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 385.9378120000656,
+   "device_ms_min": 378.23348399979295,
+   "samples_ms": [
+    379.24228699989726,
+    378.23348399979295,
+    896.7650700001286,
+    384.98164499992527,
+    386.89397900020595,
+    395.42468299987377,
+    416.5342539999983,
+    381.04267999983676
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 378.48016100019777,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0254187127789274
+  },
+  {
+   "label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 569.7393564998947,
+   "device_ms_min": 565.0508979999813,
+   "samples_ms": [
+    570.7105669998782,
+    571.5225029998692,
+    568.7681459999112,
+    571.1460449999777,
+    565.0508979999813,
+    567.2966509998787,
+    568.4578929999589,
+    1077.1415059998617
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 566.9856940000955,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9889821760242581
+  },
+  {
+   "label": "IMAGE=1",
+   "config": {
+    "IMAGE": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 415.3982249998762,
+   "device_ms_min": 406.68305899998813,
+   "samples_ms": [
+    423.95243900000423,
+    406.68305899998813,
+    420.0877790001414,
+    415.507044999913,
+    415.28940499983946,
+    415.73307700014084,
+    408.1292440000652,
+    411.3712329999544
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 429.0005249999922,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0101939486309708
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 615.7688190000954,
+   "device_ms_min": 607.8091970000514,
+   "samples_ms": [
+    613.9553190000697,
+    1150.059256999839,
+    608.0865330000051,
+    617.5823190001211,
+    630.9426380000787,
+    618.1086910000886,
+    613.5592620000807,
+    607.8091970000514
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 618.925001999969,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9960705195795129
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 382.3258475000557,
+   "device_ms_min": 375.89698299984775,
+   "samples_ms": [
+    385.4297189998306,
+    381.93193100005374,
+    380.88686299988694,
+    379.1918249999071,
+    375.89698299984775,
+    382.7197640000577,
+    384.55525300014415,
+    389.3799269999363
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 376.63097399990875,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.983083266894865
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 575.2239199999849,
+   "device_ms_min": 567.3158579998017,
+   "samples_ms": [
+    577.5149109999802,
+    568.5794290000104,
+    571.4917689999766,
+    576.006844999938,
+    567.3158579998017,
+    574.4409950000318,
+    583.2682220000152,
+    582.1577130000151
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 1113.8268350000544,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.002294007821337
+  },
+  {
+   "label": "TRANSCENDENTAL=2",
+   "config": {
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 419.52926950000347,
+   "device_ms_min": 406.9587459998729,
+   "samples_ms": [
+    406.9587459998729,
+    461.0389550000491,
+    418.9223910000237,
+    416.3499360001879,
+    420.1361479999832,
+    416.5212650000285,
+    425.68517899985636,
+    420.6971680000606
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 413.12394600004154,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.024641793917497
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 623.2299955000826,
+   "device_ms_min": 618.4753080001428,
+   "samples_ms": [
+    618.4753080001428,
+    623.8010370000211,
+    626.4153810000153,
+    621.455221999895,
+    619.321323000122,
+    622.6589540001441,
+    1162.9615310000645,
+    662.6692419999927
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 623.1317889998991,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0188343763045324
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 387.1015174999002,
+   "device_ms_min": 382.0052379999197,
+   "samples_ms": [
+    389.2084739998154,
+    384.91317000011804,
+    387.3471019999215,
+    390.37775099995997,
+    386.85593299987886,
+    388.3960640000623,
+    382.0052379999197,
+    385.00055400004385
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 386.04384200016284,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0052351916389899
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 576.3285635000557,
+   "device_ms_min": 560.7914109998546,
+   "samples_ms": [
+    1154.720652999913,
+    575.2935250000064,
+    577.363602000105,
+    566.0571820001223,
+    560.7914109998546,
+    578.1875579998541,
+    588.1362210000134,
+    572.4135329999172
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 573.0391600000075,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.010072796560397
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 410.66543350007123,
+   "device_ms_min": 403.4980510000423,
+   "samples_ms": [
+    419.1377360000388,
+    409.1275210000731,
+    403.4980510000423,
+    412.20334600006936,
+    412.41753600002085,
+    407.84707399984654,
+    404.7737349999352,
+    985.7776239998657
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 424.5749739998246,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9986094973496907
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 620.5852604999791,
+   "device_ms_min": 612.4162009998599,
+   "samples_ms": [
+    630.2984540000125,
+    617.2698880000098,
+    651.292685000044,
+    618.2107729998734,
+    622.3004060000221,
+    620.5826079999497,
+    612.4162009998599,
+    620.5879130000085
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 638.1179190000239,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0234871006341206
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 381.26358649992653,
+   "device_ms_min": 377.4026699998103,
+   "samples_ms": [
+    893.1377779999821,
+    384.33822499996495,
+    380.0054559999353,
+    379.3947340000159,
+    377.4026699998103,
+    382.52171699991777,
+    383.7646929998755,
+    378.42600199996923
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 383.23903899981815,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9948594268319387
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 569.7602679999818,
+   "device_ms_min": 564.7112110000307,
+   "samples_ms": [
+    564.7112110000307,
+    582.4953399999231,
+    569.8003640000024,
+    568.9464480001334,
+    579.0487489998668,
+    1122.6015270001426,
+    569.7201719999612,
+    569.5953340000415
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 584.1109689999939,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9945252611043871
+  },
+  {
+   "label": "NOLOCALS=0+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 0,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 411.75508250000803,
+   "device_ms_min": 403.73754400002326,
+   "samples_ms": [
+    416.6302910000468,
+    408.34420999999566,
+    403.73754400002326,
+    418.3185599999888,
+    410.28777299993635,
+    410.96637200007535,
+    415.24916499997744,
+    412.5437929999407
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 410.69735700011734,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.997506868043895
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 607.8949474999717,
+   "device_ms_min": 598.071402999949,
+   "samples_ms": [
+    598.071402999949,
+    1144.6121280000625,
+    608.5978859998704,
+    614.8329760001161,
+    607.1920090000731,
+    614.5450369999708,
+    605.8653539998886,
+    605.0273240000479
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 613.9329180000459,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9617366248993466
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 386.74296200008484,
+   "device_ms_min": 380.98619599986705,
+   "samples_ms": [
+    386.9324930001312,
+    393.4157009998671,
+    389.32202199998756,
+    381.6267780000544,
+    386.5534310000385,
+    421.3006580000638,
+    381.85019900015504,
+    380.98619599986705
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 378.94348000008904,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.006441056322569
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 575.8048075000488,
+   "device_ms_min": 566.6913959998965,
+   "samples_ms": [
+    572.5166929998977,
+    566.6913959998965,
+    579.9271650000719,
+    574.3870960000095,
+    569.9111809999522,
+    583.4507010001744,
+    577.6038479998533,
+    577.2225190000881
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 1113.6576720000448,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.000108247179613
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=1",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 1
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 409.4276060000084,
+   "device_ms_min": 403.6138019998816,
+   "samples_ms": [
+    408.6653079998541,
+    410.18990400016264,
+    406.47210699989955,
+    403.6138019998816,
+    418.63851700009036,
+    407.3639309999635,
+    414.36566000015773,
+    419.2149339999105
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 437.93671500020537,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 0.9871367919686633
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "naive",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 632.9352910000807,
+   "device_ms_min": 615.806627999973,
+   "samples_ms": [
+    633.1902450001508,
+    631.7081990000588,
+    639.7044530001494,
+    655.8545980001327,
+    615.806627999973,
+    632.6803370000107,
+    624.2175790000601,
+    1168.8719760002186
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 623.9199270000881,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0439132326855887
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 386.7900024999926,
+   "device_ms_min": 383.4498060000442,
+   "samples_ms": [
+    385.10847599991394,
+    388.1640160000188,
+    387.37659299999905,
+    387.8833249998479,
+    386.2034119999862,
+    390.8944780000638,
+    383.50924799988206,
+    383.4498060000442
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 393.4097710000515,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0124936450837394
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-flat",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 579.8097699998834,
+   "device_ms_min": 565.0448999999753,
+   "samples_ms": [
+    586.8091139998342,
+    589.8791160000201,
+    1143.156394000016,
+    566.7857619998813,
+    565.0448999999753,
+    599.6559889999844,
+    568.4901549998358,
+    572.8104259999327
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 618.3579690000442,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0193844394131457
+  },
+  {
+   "label": "NOLOCALS=1+TRANSCENDENTAL=2",
+   "config": {
+    "NOLOCALS": 1,
+    "TRANSCENDENTAL": 2
+   },
+   "port": "lean-no-unsigned",
+   "batch": 1024,
+   "res": 32,
+   "max_steps": 32,
+   "kernels": 14,
+   "device_ms_median": 409.98141549994216,
+   "device_ms_min": 404.09270500003913,
+   "samples_ms": [
+    437.8235609999592,
+    404.6842939999351,
+    404.09270500003913,
+    415.0683330001357,
+    405.97945700005766,
+    411.9655619999776,
+    407.99726899990674,
+    412.36969299984594
+   ],
+   "workload": {
+    "mean_steps": 19.04530143737793,
+    "at_cap_fraction": 0.46137523651123047,
+    "p_first_voxel_fraction": 0.0,
+    "gate_floor": 3.2
+   },
+   "gate_pass": true,
+   "compile_warmup_ms": 408.09353600002396,
+   "instrument": "perf_counter around realize + _sync() (same shape as minecu_tg/bench.py:time_call, the instrument notes/19 \u00a75.2 used)",
+   "ratio_to_control": 1.0023215736728808
+  }
+ ]
+}

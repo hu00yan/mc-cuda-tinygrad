@@ -1,0 +1,73 @@
+kda_t4 run.sh   2026-09-29T08:15:36Z
+stages: install probe pin gate sass time
+
+################################################################
+# stage: install
+################################################################
+
+>>> stage install exit=0  (77 s)
+
+################################################################
+# stage: probe
+################################################################
+
+>>> stage probe exit=0  (12 s)
+
+################################################################
+# stage: pin
+################################################################
+
+>>> stage pin exit=0  (36 s)
+
+################################################################
+# stage: gate
+################################################################
+
+>>> stage gate exit=0  (289 s)
+
+################################################################
+# stage: sass
+################################################################
+
+>>> stage sass exit=0  (260 s)
+
+################################################################
+# stage: time
+################################################################
+
+>>> stage time exit=0  (2838 s)
+
+################################################################
+# summary
+################################################################
+  install    exit=0
+  probe      exit=0
+  pin        exit=0
+  gate       exit=0
+  sass       exit=0
+  time       exit=0
+
+artifacts:
+  total 424
+  drwxr-xr-x 3 root root   4096 Sep 29 09:13 .
+  drwxr-xr-x 4 root root   4096 Sep 29 08:17 ..
+  -rw-r--r-- 1 root root    450 Sep 29 08:22 dot_probe.json
+  -rw-r--r-- 1 root root   8048 Sep 29 08:22 gate_observed.json
+  -rw-r--r-- 1 root root   9618 Sep 29 08:22 gate_observed.txt
+  -rw-r--r-- 1 root root   3296 Sep 29 08:16 install.log
+  -rw-r--r-- 1 root root  23863 Sep 29 08:17 pin_t4.baseline_pin.json
+  -rw-r--r-- 1 root root      0 Sep 29 08:17 pin_t4.baseline_pin.report.txt
+  -rw-r--r-- 1 root root  17295 Sep 29 08:17 pin_t4.baseline_pin.strict.txt
+  -rw-r--r-- 1 root root   8294 Sep 29 08:17 pin_t4.build_pin.json
+  -rw-r--r-- 1 root root   4436 Sep 29 08:17 pin_t4.json
+  -rw-r--r-- 1 root root   7421 Sep 29 08:17 pin_t4.txt
+  -rw-r--r-- 1 root root   6866 Sep 29 08:17 probe_env.json
+  -rw-r--r-- 1 root root   5140 Sep 29 08:17 probe_env.txt
+  -rw-r--r-- 1 root root   1417 Sep 29 09:14 run.sh.log
+  drwxr-xr-x 3 root root  16384 Sep 29 08:26 sass
+  -rw-r--r-- 1 root root 221016 Sep 29 08:26 sass_t4.json
+  -rw-r--r-- 1 root root  25660 Sep 29 08:26 sass_t4.txt
+  -rw-r--r-- 1 root root  18317 Sep 29 09:13 time_t4.json
+  -rw-r--r-- 1 root root  15369 Sep 29 09:13 time_t4.txt
+
+wrote /kaggle/working/tree/payload/kda_t4/out/run.sh.log

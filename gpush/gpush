@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""gpush -- run gpush without installing anything.
+
+    ./gpush/gpush <backend> <subcommand> [options]
+
+Equivalent to `python3 -m gpush` from the repo root. Shebang is `/usr/bin/env
+python3` rather than the repo's venv on purpose: gpush is standard library
+only, and the tools it shells out to (kaggle, ssh, git) are found on PATH or
+named explicitly with --kaggle-cli.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from gpush.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())

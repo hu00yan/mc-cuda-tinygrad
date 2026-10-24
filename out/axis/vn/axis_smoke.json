@@ -1,0 +1,58 @@
+{
+  "rungs_done": {
+    "key": "ew",
+    "title": "elementwise, pure bandwidth",
+    "demands": "nothing: no reduction, no gather, no reuse. The control rung.",
+    "shapes": {
+      "n": 4096
+    },
+    "distinguishing_evidence": "If the framework reaches the measured copy bandwidth here, the instrument and the memory path are sound and every gap above is about arithmetic/scheduling. If it does NOT, the axis is measuring the framework's memory path and no rung above is interpretable.",
+    "input_sha256": {
+      "a": "73d268aca5896da3",
+      "b": "f802de8919a28ca1",
+      "z": "0f456f34685d1626"
+    },
+    "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+    "upload_s": 0.008,
+    "ref": {},
+    "ref_kernel": "axis_ew",
+    "ref_grid": null,
+    "ref_block": null,
+    "ref_smem": null,
+    "ref_regs": null,
+    "ref_relerr_vs_oracle": null,
+    "ref_diag": null,
+    "ref_error": "NameError: name 'ctx' is not defined",
+    "tg_compile_s": 0.1,
+    "tg_shape": [
+      4096
+    ],
+    "tg_kernels": 1,
+    "tg_relerr_vs_oracle": 3.348219332031211e-08,
+    "tg": {
+      "median_ms": 1.4235039949417114,
+      "min_ms": 1.3720320463180542,
+      "max_ms": 1.4749759435653687
+    },
+    "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+    "tg_device": {
+      "median_ms": 0.043088000267744064,
+      "min_ms": 0.03923200070858002,
+      "max_ms": 0.04694399982690811
+    },
+    "input_fingerprint_before": {
+      "a": "73d268aca5896da3",
+      "b": "f802de8919a28ca1",
+      "z": "0f456f34685d1626"
+    },
+    "input_fingerprint_after": {
+      "a": "73d268aca5896da3",
+      "b": "f802de8919a28ca1",
+      "z": "0f456f34685d1626"
+    },
+    "inputs_mutated_by_tg_replay": {},
+    "tolerance": 0.0001,
+    "status": "REF_UNAVAILABLE",
+    "ratio_tg_over_ref": null
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "env": {
+    "FLA_DISABLE_BACKEND_DISPATCH": null,
+    "FLA_FLASH_KDA": null,
+    "FLA_TILELANG": null,
+    "FLA_USE_FAST_OPS": null,
+    "FLA_USE_TMA": null,
+    "FLA_TRIL_PRECISION": null,
+    "FLA_CACHE_MODE": null,
+    "FLA_CONFIG_DIR": null,
+    "FLA_GPU_NAME": null,
+    "FLA_CACHE_RESULTS": null,
+    "FLA_CI_ENV": null,
+    "FLA_DISABLE_TENSOR_CACHE": null,
+    "FLA_TENSOR_CACHE_SIZE": null,
+    "FLA_INTRACARD_MAX_SPLITS": null,
+    "FLA_USE_COMPILE": null,
+    "FLA_CONV_BACKEND": null,
+    "CUDA_HOME / CUDA_PATH": null,
+    "TRITON_F32_DEFAULT": "ieee",
+    "TRITON_OVERRIDE_ARCH": null,
+    "TRITON_DEFAULT_FP_FUSION": null,
+    "TRITON_FORCE_DISABLE_FP_FUSION": null,
+    "TRITON_INTERPRET": null,
+    "TRITON_CACHE_DIR": null,
+    "FLASH_KDA_CUDA_ARCHS": null
+  },
+  "deps": {
+    "torch": [
+      true,
+      null
+    ],
+    "triton": [
+      true,
+      null
+    ],
+    "fla": [
+      true,
+      null
+    ],
+    "flash_linear_attention": [
+      false,
+      "ModuleNotFoundError: No module named 'flash_linear_attention'"
+    ],
+    "flash_kda": [
+      false,
+      "ModuleNotFoundError: No module named 'flash_kda'"
+    ],
+    "tilelang": [
+      false,
+      "ModuleNotFoundError: No module named 'tilelang'"
+    ]
+  },
+  "device": {
+    "index": 0,
+    "name": "Tesla T4",
+    "cc": [
+      7,
+      5
+    ],
+    "smem_optin": 65536,
+    "smem_src": "torch .shared_memory_per_block_optin",
+    "smem_triton": 65536,
+    "smem_fla": 65536,
+    "note": [],
+    "smem_verdict": "INVALID",
+    "smem_why": "65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}",
+    "arch": "sm_75",
+    "generation": "compute capability 7.5",
+    "smem_reads": {
+      "torch": 65536,
+      "triton": 65536,
+      "fla": 65536
+    },
+    "smem_agree": true
+  },
+  "fleet": {
+    "count": 2,
+    "devices": [
+      {
+        "index": 0,
+        "name": "Tesla T4",
+        "cc": [
+          7,
+          5
+        ],
+        "smem_optin": 65536,
+        "smem_src": "torch .shared_memory_per_block_optin",
+        "smem_triton": 65536,
+        "smem_fla": 65536,
+        "note": [],
+        "smem_verdict": "INVALID",
+        "smem_why": "65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}",
+        "arch": "sm_75",
+        "generation": "compute capability 7.5",
+        "smem_reads": {
+          "torch": 65536,
+          "triton": 65536,
+          "fla": 65536
+        },
+        "smem_agree": true
+      },
+      {
+        "index": 1,
+        "name": "Tesla T4",
+        "cc": [
+          7,
+          5
+        ],
+        "smem_optin": 65536,
+        "smem_src": "torch .shared_memory_per_block_optin",
+        "smem_triton": 65536,
+        "smem_fla": 65536,
+        "note": [],
+        "smem_verdict": "INVALID",
+        "smem_why": "65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}",
+        "arch": "sm_75",
+        "generation": "compute capability 7.5",
+        "smem_reads": {
+          "torch": 65536,
+          "triton": 65536,
+          "fla": 65536
+        },
+        "smem_agree": true
+      }
+    ],
+    "heterogeneous": false,
+    "notes": []
+  },
+  "registry_live": [
+    {
+      "backend_type": "triton_ascend",
+      "cls": "TritonAscendKDABackend",
+      "priority": 0,
+      "package_name": null,
+      "env_var": null,
+      "default_enable": true,
+      "implements_chunk_kda": false,
+      "has_chunk_kda_verifier": false,
+      "is_available": false,
+      "is_enabled": true
+    },
+    {
+      "backend_type": "flash_kda",
+      "cls": "FlashKDABackend",
+      "priority": 3,
+      "package_name": "flash_kda",
+      "env_var": "FLA_FLASH_KDA",
+      "default_enable": true,
+      "implements_chunk_kda": true,
+      "has_chunk_kda_verifier": true,
+      "is_available": false,
+      "is_enabled": true
+    },
+    {
+      "backend_type": "tilelang",
+      "cls": "KDATileLangBackend",
+      "priority": 5,
+      "package_name": "tilelang",
+      "env_var": "FLA_TILELANG",
+      "default_enable": true,
+      "implements_chunk_kda": false,
+      "has_chunk_kda_verifier": false,
+      "is_available": false,
+      "is_enabled": true
+    }
+  ],
+  "registry_error": "",
+  "drift": [],
+  "study_call": {
+    "src": "kda/kda_vs_fla.py:600,673",
+    "dtype": "bfloat16",
+    "K": 128,
+    "V": 128,
+    "H": 16,
+    "HV": 16,
+    "use_qk_l2norm_in_kernel": false,
+    "use_gate_in_kernel": false,
+    "use_beta_sigmoid_in_kernel": false,
+    "state_v_first": false,
+    "safe_gate": false,
+    "grad_enabled": false,
+    "sim_selected": "triton_ascend(mainline-fallback)",
+    "sim_error": "",
+    "sim_decisions": [
+      {
+        "backend": "triton_ascend",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=None"
+      },
+      {
+        "backend": "flash_kda",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=FLA_FLASH_KDA"
+      },
+      {
+        "backend": "tilelang",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=FLA_TILELANG"
+      },
+      {
+        "backend": "(mainline)",
+        "outcome": "SELECTED",
+        "predicate": "no backend survived -> undecorated function (fla/ops/backends/__init__.py:214)",
+        "reason": "this is the mainline Triton path"
+      }
+    ]
+  },
+  "layer_call": {
+    "src": "fla/layers/kda.py:260-278 (KimiDeltaAttention, chunked branch)",
+    "dtype": "bfloat16",
+    "K": 128,
+    "V": 128,
+    "H": 16,
+    "HV": 16,
+    "use_qk_l2norm_in_kernel": true,
+    "use_gate_in_kernel": true,
+    "use_beta_sigmoid_in_kernel": true,
+    "state_v_first": true,
+    "safe_gate": true,
+    "grad_enabled": false,
+    "sim_selected": "triton_ascend(mainline-fallback)",
+    "sim_error": "",
+    "sim_decisions": [
+      {
+        "backend": "triton_ascend",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=None"
+      },
+      {
+        "backend": "flash_kda",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=FLA_FLASH_KDA"
+      },
+      {
+        "backend": "tilelang",
+        "outcome": "skipped",
+        "predicate": "is_available() and is_enabled()",
+        "reason": "available=False enabled=True env=FLA_TILELANG"
+      },
+      {
+        "backend": "(mainline)",
+        "outcome": "SELECTED",
+        "predicate": "no backend survived -> undecorated function (fla/ops/backends/__init__.py:214)",
+        "reason": "this is the mainline Triton path"
+      }
+    ]
+  },
+  "fla_flags": {
+    "IS_NVIDIA": true,
+    "IS_AMD": false,
+    "IS_NPU": false,
+    "IS_INTEL": false,
+    "IS_TF32_SUPPORTED": false,
+    "IS_TMA_SUPPORTED": false,
+    "IS_GATHER_SUPPORTED": true,
+    "IS_NVIDIA_HOPPER": false,
+    "IS_NVIDIA_SM100": false,
+    "IS_NVIDIA_BLACKWELL": false,
+    "device_platform": "cuda",
+    "device": "cuda",
+    "SOLVE_TRIL_DOT_PRECISION": "constexpr[ieee]",
+    "BK_LIST": [
+      16,
+      32
+    ],
+    "BV_LIST": [
+      16,
+      32
+    ]
+  },
+  "fla_flags_error": "",
+  "gather": {
+    "active": true,
+    "triton_version": "3.6.0",
+    "fla_value": true,
+    "source": "hasattr(triton.language, 'gather') -- fla/utils/_device.py:138",
+    "detail": "tl.gather present=True (triton 3.6.0); fla says True"
+  },
+  "tf32": {
+    "TRITON_F32_DEFAULT": "ieee",
+    "set_by_fla": true,
+    "resolved_knob": "'ieee'",
+    "is_tf32_supported": false,
+    "solve_tril": "constexpr[ieee]",
+    "cc": [
+      7,
+      5
+    ],
+    "arch": "sm_75",
+    "verdict": "IEEE-fp32 dots: fla sets TRITON_F32_DEFAULT='ieee' process-globally (fla/utils/_device.py:149-152) and tl.dot without an explicit input_precision resolves to it; fla also fixes SOLVE_TRIL_DOT_PRECISION='ieee' on this arch. No bf16 MMA exists below sm_80 either."
+  },
+  "problems": [
+    "shared-memory gate INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}",
+    "device 1 (Tesla T4) is INVALID: 65,536 < 166,912 (AMPERE), num_stages={2,1}, BV={32}, BK/BV_LIST={16,32}"
+  ],
+  "unknowns": []
+}

@@ -1,0 +1,18 @@
+{
+ "id": "tenghuzhang/l4-probe",
+ "title": "l4 probe",
+ "code_file": "runner.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "machine_shape": "NvidiaRtxPro6000",
+ "dataset_sources": [
+  "tenghuzhang/l4-probe-payload/9"
+ ],
+ "competition_sources": [],
+ "kernel_sources": [],
+ "model_sources": []
+}

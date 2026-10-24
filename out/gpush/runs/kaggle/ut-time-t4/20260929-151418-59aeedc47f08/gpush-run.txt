@@ -1,0 +1,276 @@
+$ bash -c python3 -m pip install --no-input --disable-pip-version-check tinygrad==0.14.0 && python3 -m pip show tinygrad && python3 kda/ut_time.py --all --out ut_time_out
+cwd: /kaggle/working/tree/payload
+exit: 0
+wall: 1224.8 s
+
+--- stdout ---
+Collecting tinygrad==0.14.0
+  Downloading tinygrad-0.14.0-py3-none-any.whl.metadata (12 kB)
+Downloading tinygrad-0.14.0-py3-none-any.whl (2.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 30.3 MB/s eta 0:00:00
+Installing collected packages: tinygrad
+Successfully installed tinygrad-0.14.0
+Name: tinygrad
+Version: 0.14.0
+Summary: You like pytorch? You like micrograd? You love tinygrad! <3
+Home-page: 
+Author: George Hotz
+Author-email: 
+License: 
+Location: /usr/local/lib/python3.12/dist-packages
+Requires: 
+Required-by: 
+
+==============================================================================
+0. the box, the device, and the knobs
+==============================================================================
+  python           3.12.13
+  tinygrad         0.14.0
+  numpy            2.0.2
+  Device.DEFAULT   CUDA
+  device_count     2
+  arch             sm_75
+  nvidia-smi       Tesla T4, 7.5, 15360 MiB, 580.159.04
+Tesla T4, 7.5, 15360 MiB, 580.159.04
+  knobs            ALLOW_TF32=0  USE_TC=1  TC_SELECT=-1  TC_OPT=0  NOOPT=0  IMAGE=0  NOLOCALS=0  BEAM=0  SPLIT_REDUCEOP=1  CACHELEVEL=2  DEBUG=0
+
+==============================================================================
+1. self-test: ut_price's census, re-run here
+==============================================================================
+== self-test 1: the single-column chain of notes/26 section 3b ==
+   C  steps  kernels  REDUCE  expect    lane_ops  verdict
+   4      3        5       2       2          55  OK
+   8      7       11       6       6         259  OK
+  16     15       21      14      14       1,147  OK
+  32     31       43      30      30       4,843  OK
+  64     63       85      62      62      19,915  OK
+
+== self-test 2: the port's 64 outer x (C-1) inner loop, 1 slab ==
+   the whole port must be exactly C x the single chain's REDUCE count
+   C  kernels  REDUCE  expect    lane_ops  verdict
+   8       76      48      48       5,838  OK
+  16      324     224     224      43,724  OK
+  32     1316     960     960     460,302  OK
+  64     5380    3968    3968   3,056,396  OK
+
+== self-test 3: no instrument knob is set ==
+  ALLOW_TF32=0  TC=1   TC_SELECT=-1  TC_OPT=0   NOOPT=0  IMAGE=0  NOLOCALS=0   BEAM=0  SPLIT_REDUCEOP=1
+
+SELFTEST PASS
+
+==============================================================================
+1b. NEGATIVE CONTROL: can the correctness gate see wrong data?
+==============================================================================
+  candidate C, as computed                relerr 3.013e-08  < tol
+  the SAME array transposed               relerr 5.246e-02  >= tol, REJECTED
+  the transposed array's SHAPE matches     True  (so a shape assertion alone could not have caught it)
+
+  gate verdict: a value gate rejects the transpose
+
+SELFTEST PASS
+
+==============================================================================
+2. correctness on the card vs numpy float64 inverse, 2 slab(s), C=64
+==============================================================================
+  A   shape (2, 64, 64)  max rel err 3.108e-08  OK
+  B   shape (2, 64, 64)  max rel err 3.108e-08  OK
+  C   shape (2, 64, 64)  max rel err 3.108e-08  OK
+  D2  shape (2, 64, 64)  max rel err 3.108e-08  OK
+
+VERIFY PASS
+
+  The gate above ran on THIS card. Every timing number below is a timing of
+  four expressions that were just shown to compute the same operator.
+
+
+==============================================================================
+3. the table: 64 slab(s) of [64,64], on the card
+==============================================================================
+  MEASURED on this device. launches = GlobalCounters.kernel_count, the number of
+  kernels the device actually executed. gpu_us = GlobalCounters.time_sum_s under
+  DEBUG=2, which SYNCHRONISES after every launch (ops_cuda.py:26-35), so each
+  per-kernel number inside it contains that kernel's host launch latency and
+  the graph is not pipelined. t_sched and t_realize are HOST wall clock and are
+  reported next to the device numbers, never instead of them.
+
+cand  launches  census_k      gpu_us  us/launch  ops(device)  t_sched_ms  t_realize_ms  t_build_ms  what
+--------------------------------------------------------------------------------------------------------
+A        5,380     5,380      94,842      17.63  141,465,728     4,321.6           0.1     5,296.8  naive 64x63 unrolled column solve (the port today)
+B           86        86       3,258      37.88   81,767,424        78.5           0.1        89.9  the same 64 solves, batched on the leading axis
+C           44        44       2,231      50.70   22,160,128        55.7           0.1        62.4  BC=16 two-level blocked, as the reference kernel does it
+D2          41        41       2,426      59.16  329,342,720        45.5           0.1        45.1  Neumann on the block-off-diagonal, 6 [64,64] matmuls
+
+cand REDUCE(cens)   DAG   alu_lane(cens)  ops(device)   ops/cens   dev/cens launches  algMACs/slab  chain
+A           3,968    85      192,625,524  141,465,728     0.734x        5,380/5,380        391,168     63
+B              62    85       79,888,114   81,767,424     1.024x           86/86           391,168     63
+C              20    34       22,081,474   22,160,128     1.004x           44/44            66,012     17
+D2             22    34       17,731,413  329,342,720    18.574x           41/41         1,573,340     20
+
+  `ops(device)` is tinygrad's OWN per-program op estimate, summed over the
+  schedule that actually ran (engine/realize.py:63, ast.arg.estimates).
+  `alu_lane(cens)` is this repo's census of the same graph scheduled in
+  isolation. Two different definitions of the same idea, and their ratio
+  to each other is NOT 1 -- that is the non-additivity notes/31 §3.5
+  warned about, now visible in one table instead of argued about.
+
+== does the offline census transfer to THIS device? ==
+  `notes/31` priced these expressions with Context(DEV='CUDA') on a host
+  with no CUDA device. Below: the same census with DEV=the device being
+  timed, next to what the device actually executed.
+
+cand   census DEV=CUDA   census DEV=here   device executed   dev - census(here)   alu_lane CUDA   alu_lane here
+A                5,380             5,380             5,380                    0     192,625,524     192,625,524
+B                   86                86                86                    0      79,888,114      79,888,114
+C                   44                44                44                    0      22,081,474      22,081,474
+D2                  41                41                41                    0      17,731,413      17,731,413
+
+  every candidate's device launch count equals the same-device census: True
+
+==============================================================================
+4. shape sweep: launches should not move with slabs; arithmetic should
+==============================================================================
+  If the schedule is a function of the graph and not of the batch size, then
+  `launches` is flat in slabs and only the per-slab arithmetic grows. Fitting
+  gpu_us(slabs) = fixed + slope*slabs therefore separates the two axes WITHOUT
+  converting an instruction count into time by any constant.
+
+  reps per candidate in this section: {'A': 1, 'B': 3, 'C': 3, 'D2': 3}
+  (A is 5,380 launches and seconds of CPU SCHEDULING per realize; repeating it
+  over five slab counts would spend the session on it. The cheap candidates
+  get repeated measurements because they sit near the instrument's floor.)
+
+cand  slabs  launches  census_k  copies  timed_k      gpu_us   spread  t_sched_ms  t_realize_ms           ops
+-------------------------------------------------------------------------------------------------------------
+A         1     5,380     5,380      67    5,313      65,605     0.0%     5,359.2           0.1     2,274,642
+A         8     5,380     5,380      67    5,313      77,299     0.0%    35,916.6           0.1    17,754,384
+A        16     5,380     5,380      67    5,313      82,714     0.0%    37,121.7           0.2    35,366,432
+A        32     5,380     5,380      67    5,313      86,983     0.0%    36,979.1           0.1    70,732,864
+A        64     5,380     5,380      67    5,313      98,463     0.0%     5,184.0           0.1   141,465,728
+
+B         1        86        86       2       84       1,466     7.1%        79.7           0.1     1,337,296
+B         8        86        86       2       84       2,006     4.2%        81.8           0.1    10,716,800
+B        16        86        86       2       84       2,818     6.0%        80.9           0.1    21,303,040
+B        32        86        86       2       84       2,899     4.5%        85.7           0.1    42,606,080
+B        64        86        86       2       84       3,355    18.5%        79.7           0.1    81,767,424
+
+C         1        44        44      11       33       1,342     4.6%        55.7           0.1     3,475,200
+C         8        44        44      11       33       1,600     4.6%        56.3           0.1     9,226,368
+C        16        44        44      11       33       1,737    11.6%        56.6           0.1    13,197,568
+C        32        44        44      11       33       1,941     9.5%        56.5           0.1    26,395,136
+C        64        44        44      11       33       2,253     2.5%        60.1           0.1    22,160,128
+
+D2        1        41        41       6       35       1,230     4.7%        45.8           0.1     5,640,960
+D2        8        41        41       6       35       1,268    12.2%        45.2           0.1    44,996,608
+D2       16        41        41       6       35       1,452    11.8%        46.2           0.1    89,993,216
+D2       32        41        41       6       35       1,984     7.7%        46.8           0.1   179,986,432
+D2       64        41        41       6       35       2,427     5.5%        49.2           0.1   329,342,720
+
+== linear fits, gpu_us = fixed + slope * slabs ==
+cand   n    fixed_us  slope_us/slab       R2  fixed/gpu@max    ns/MAC  launch floor vs arithmetic
+-------------------------------------------------------------------------------------------------
+A      5      71,188          455.6   0.8884          72.3%      1.16  floor 72% / arith 28%
+B      5       1,868           26.5   0.7643          55.7%      0.07  floor 56% / arith 44%
+C      5       1,452           13.3   0.9396          64.5%      0.20  floor 64% / arith 36%
+D2     5       1,181           20.3   0.9666          48.6%      0.01  floor 49% / arith 51%
+
+  `fixed` is the launch-dominated floor and `slope` the marginal per-slab
+  cost. `ns/MAC` is nanoseconds of device time per algorithmic multiply-add.
+  If that number is roughly the same for two candidates, device time tracks
+  the ALGORITHM's arithmetic. If it differs by an order of magnitude between
+  them, device time is tracking the SCHEDULE and the arithmetic column is not
+  what the card is spending its time on.
+
+  `launch_counts` per candidate, across the sweep, are in ut_time.json.
+  If they are not flat in slabs, the fit above does not separate the two
+  axes the way this section claims, and the note must say so.
+
+==============================================================================
+5. launch calibration: what does one launch cost on this card?
+==============================================================================
+  A chain of n dependent one-op kernels, timed with the SAME instrument as
+  the candidates (DEBUG=2, per-kernel CUDA events). The slope of gpu_us
+  against the number of kernels that ACTUALLY LAUNCHED is microseconds per
+  launch. This is the number that lets
+      arithmetic_us = gpu_us - launches * per_launch_us
+  be a residual in MICROSECONDS rather than an instruction count times a
+  constant -- which is what the brief asks for, since the census is not
+  additive and converting it by a factor would be the error.
+
+     shape      n  launched      gpu_us  us/launch
+--------------------------------------------------
+  1 thread     16        16         311     19.426
+  1 thread     64        64         826     12.902
+  1 thread    256       256       2,903     11.341
+  1 thread   1024     1,024      11,164     10.902
+  1 thread   4096     4,096      43,948     10.729
+  1 thread    fit                           10.693   intercept 162 us, R2 1.0000
+
+     16 KB     16        16         314     19.650
+     16 KB     64        64         836     13.060
+     16 KB    256       256       2,993     11.690
+     16 KB   1024     1,024      11,796     11.519
+     16 KB   4096     4,096      45,157     11.025
+     16 KB    fit                           10.986   intercept 231 us, R2 0.9999
+
+  MEASURED, DEBUG=2, so these slopes INCLUDE the host launch latency the
+  instrument charges to every kernel -- which is exactly what the candidate
+  measurements are charged too, so the residual below compares like with like.
+  The `16 KB` row is a sensitivity check: it is what a candidate kernel of
+  this operator's size costs if it did NOTHING but copy one buffer. The
+  headline uses the `1 thread` row.
+
+== residual: gpu_us - launches * per_launch_us   (bench shape) ==
+cand  launches      gpu_us   launch_us launch_us@16KB    resid_us   resid %   ns/algMAC  reading
+------------------------------------------------------------------------------------------------
+A        5,380      94,842      57,528         59,107      37,314     39.3%        1.49  launch-dominated
+B           86       3,258         920            945       2,338     71.8%        0.09  arithmetic-dominated
+C           44       2,231         470            483       1,760     78.9%        0.42  arithmetic-dominated
+D2          41       2,426         438            450       1,987     81.9%        0.02  arithmetic-dominated
+
+  ns/algMAC is nanoseconds of NON-LAUNCH device time per algorithmic
+  multiply-add, using the algorithm's own MAC count (ut_price.macs) and not
+  any census figure. Candidates whose entries agree are being priced by the
+  same axis; candidates whose entries differ by an order of magnitude are
+  not, and THAT is the finding, not the winner.
+
+==============================================================================
+7. is the ordering spelling-invariant?
+==============================================================================
+  notes/31 §2: the `numpy` spelling of a constant costs a COPY kernel each and
+  the `arange` spelling costs ALU inside every consumer. notes/31 measured the
+  KERNEL ranking to be identical under both. The TIMING ranking is checked here,
+  for the two candidates the open question is actually about.
+
+spelling  cand  launches      gpu_us  t_realize_ms
+--------------------------------------------------
+arange    C           44       2,369           0.1
+arange    D2          41       2,385           0.1
+
+numpy     C           71       3,488           0.1
+numpy     D2          64       3,378           0.1
+
+  spelling arange  gpu_us: C 2,369 vs D2 2,385  ->  C is faster  (1.01x)
+  spelling numpy   gpu_us: C 3,488 vs D2 3,378  ->  D2 is faster  (1.03x)
+
+==============================================================================
+6. hardware counters
+==============================================================================
+  ncu on PATH: /usr/local/cuda/bin/ncu
+  NVIDIA (R) Nsight Compute Command Line Profiler
+Copyright (c) 2018-2025 NVIDIA Corporation
+Version 2025.1.1.0 (build 35528883) (public-release)
+  A   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'
+  B   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'
+  C   ncu rc=1: ModuleNotFoundError: No module named 'wrapt'
+  D2  ncu rc=1: ModuleNotFoundError: No module named 'wrapt'
+
+  NOTE: ncu serialises and replays kernels, so its absolute durations are not
+  comparable with the DEBUG=2 numbers above. Only the RATIOS between
+  candidates on the same metric are read, and even then only if the launch
+  counts ncu profiled are a complete census of the schedule, which they are
+  not (`--launch-skip 1 --launch-count 8` profiles a sample).
+
+==============================================================================
+done
+==============================================================================
+wrote ut_time_out/ut_time.json and ut_time_out/ut_time.txt

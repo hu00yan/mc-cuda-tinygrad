@@ -1,0 +1,165 @@
+{
+  "artefacts": [
+    {
+      "bytes": 221,
+      "path": "GPUSH-VERIFY.json",
+      "sha256": "283f6b92710feb185e2055a6c1cac669af39dc8d824c50b1f1794b33779a7782"
+    },
+    {
+      "bytes": 38236,
+      "path": "ut-time-t4.log",
+      "sha256": "959f7b244126608d0f3e03251ae3343f523ff238c4f00b798ab95cd9cdd1b65c"
+    },
+    {
+      "bytes": 28,
+      "path": "gpush-root.txt",
+      "sha256": "4b3cfc9176dd95c980b4de48098c6a1a651917fc7bddf50369f41c776f6f5b3f"
+    },
+    {
+      "bytes": 17489,
+      "path": "gpush-run.txt",
+      "sha256": "b10811336117bb318576c69d4000fa700b5575188479f57d9558efe43e9b0fa9"
+    },
+    {
+      "bytes": 621,
+      "path": "tree/GPUSH-ATTEST.json",
+      "sha256": "5867d8a6369fb9de75cc59f8c205f0e2892e9255362bd4fe50ce4cf0d9abe62a"
+    },
+    {
+      "bytes": 46637,
+      "path": "tree/payload/kda/ut_price.py",
+      "sha256": "d1a5dfaba0c63180188c3c1b253981316ac5d22c89d21c4ed126690a8cc7910f"
+    },
+    {
+      "bytes": 55652,
+      "path": "tree/payload/kda/ut_time.py",
+      "sha256": "61d94ca8ff896e8c51a720a6be8da723b3a21197bdd7575e1c5696eff46d2cf3"
+    },
+    {
+      "bytes": 63993,
+      "path": "tree/payload/kda/__pycache__/ut_price.cpython-312.pyc",
+      "sha256": "1e9a9f4ed0be52071c14a6f8f05c05dae7f6da87466e6a22f4cc47382429323f"
+    },
+    {
+      "bytes": 16117,
+      "path": "tree/payload/ut_time_out/ut_time.txt",
+      "sha256": "bf8788e4134ac2d926e41d6186ef9828ec033192cb38de0faa61c3e2351f869b"
+    },
+    {
+      "bytes": 53235,
+      "path": "tree/payload/ut_time_out/ut_time.json",
+      "sha256": "37648863577676bf021e045e32109b782de3dcae27a60428bf7d75398414d17f"
+    },
+    {
+      "bytes": 46637,
+      "path": "artifacts/kda/ut_price.py",
+      "sha256": "d1a5dfaba0c63180188c3c1b253981316ac5d22c89d21c4ed126690a8cc7910f"
+    },
+    {
+      "bytes": 55652,
+      "path": "artifacts/kda/ut_time.py",
+      "sha256": "61d94ca8ff896e8c51a720a6be8da723b3a21197bdd7575e1c5696eff46d2cf3"
+    },
+    {
+      "bytes": 16117,
+      "path": "artifacts/ut_time_out/ut_time.txt",
+      "sha256": "bf8788e4134ac2d926e41d6186ef9828ec033192cb38de0faa61c3e2351f869b"
+    },
+    {
+      "bytes": 53235,
+      "path": "artifacts/ut_time_out/ut_time.json",
+      "sha256": "37648863577676bf021e045e32109b782de3dcae27a60428bf7d75398414d17f"
+    }
+  ],
+  "backend": "kaggle",
+  "bytes": 120812,
+  "command": [
+    "bash",
+    "-c",
+    "python3 -m pip install --no-input --disable-pip-version-check tinygrad==0.14.0 >/dev/null && python3 kda/ut_time.py --counters --out ut_time_out"
+  ],
+  "command_line": "bash -c python3 -m pip install --no-input --disable-pip-version-check tinygrad==0.14.0 >/dev/null && python3 kda/ut_time.py --counters --out ut_time_out",
+  "compute_capability_reported": "sm_75",
+  "device": {
+    "compute_cap": "7.5",
+    "count": 2,
+    "cpu_count": 4,
+    "cuda_runtime": "13.0",
+    "driver": "580.159.04",
+    "gpu": true,
+    "hostname": "e40e09048246",
+    "kernel": "6.12.90+",
+    "machine": "x86_64",
+    "memory_mb": 15360,
+    "name": "Tesla T4",
+    "nvcc": "12.8",
+    "os": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "python": "3.12.13",
+    "reason": ""
+  },
+  "exit_code": 0,
+  "files": 2,
+  "fingerprint": "fcd71b6a239765fbaecbbadf370405a8668e1d1a4be8958274a1ca5b298f4696",
+  "finished": "20260929-161921",
+  "gates": [
+    {
+      "detail": "'ut time t4' slugs to 'ut-time-t4' (derived from the slug, never hand-edited)",
+      "name": "title round-trip",
+      "ok": true
+    },
+    {
+      "detail": "2 files, 36.6 KB, sha256 195d301be3c61fdd",
+      "name": "pack",
+      "ok": true
+    },
+    {
+      "detail": "new version published",
+      "name": "dataset version",
+      "ok": true
+    },
+    {
+      "detail": "dataset reports ready",
+      "name": "dataset READY",
+      "ok": true
+    },
+    {
+      "detail": "Kaggle lists exactly ['SHA256SUMS', 'payload.tgz']",
+      "name": "published file set",
+      "ok": true
+    },
+    {
+      "detail": "published archive re-hashed: 2 members match the manifest exactly",
+      "name": "published bytes",
+      "ok": true
+    }
+  ],
+  "gpush_version": "1.0.0",
+  "host": {
+    "gpush": "1.0.0",
+    "host": "TenghudeMacBook-Pro-4.local",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.7"
+  },
+  "manifest_source": "git",
+  "note": "pushed; session cap 40m enforced server-side by -t",
+  "plan": {
+    "added": 0,
+    "base_fingerprint": "e0d520de90c97c456b593e79a281d7d58b55c7f851018659a0a4d080de072aa3",
+    "deleted": 0,
+    "modified": 1,
+    "new_fingerprint": "fcd71b6a239765fbaecbbadf370405a8668e1d1a4be8958274a1ca5b298f4696",
+    "unchanged": 1
+  },
+  "remote": {
+    "dataset": "tenghuzhang/ut-time-payload",
+    "fingerprint": "fcd71b6a239765fbaecbbadf370405a8668e1d1a4be8958274a1ca5b298f4696",
+    "kernel": "tenghuzhang/ut-time-t4",
+    "sha256": "195d301be3c61fdd1320eb0e4e3fcb200b31e247364dff642333b6524b36a851"
+  },
+  "run_id": "20260929-161853-fcd71b6a2397",
+  "schema": "gpush/provenance@1",
+  "started": "20260929-161912",
+  "status": "COMPLETE",
+  "target": "tenghuzhang/ut-time-payload",
+  "transport": "REST API only. A tree ships as a versioned dataset, a kernel attaches it via dataset_sources and walks /kaggle/input. No SSH, no tunnel, no inbound route."
+}

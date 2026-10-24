@@ -1,0 +1,53 @@
+=== kaggle run 20260928-023936  variant=gpu ===
+kernel    tenghuzhang/mc-cuda-tinygrad-probe-battery
+dir       /Users/huyan00/mycode/mc-cuda-tinygrad/kernels/probe
+out       /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260928-023936-gpu
+session   75m cap (kaggle -t), wait up to 90m for a slot
+poll      every 30s
+DRY RUN: no network calls will be made
+
+=== auth ===
+credentials present
+Configuration values from /Users/huyan00/.kaggle
+- username: tenghuzhang
+- auth_method: ACCESS_TOKEN
+- path: None
+- proxy: None
+- competition: None
+
+=== payload ===
+would run: /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/python kernels/pack.py
+
+=== build + create ===
+  wrote kernels/probe/probe.ipynb (34.6 KB)
+  wrote kernels/probe-tpu/tpu-facts.ipynb (8.9 KB)
+  done
+  battery     item timeout 900s, kda_vs_fla 1800s, budget 3000s
+--- kernels/probe
+  ok    metadata parses, keys ['code_file', 'competition_sources', 'dataset_sources', 'enable_gpu', 'enable_internet', 'enable_tpu', 'id', 'is_private', 'kernel_sources', 'kernel_type', 'language', 'machine_shape', 'model_sources', 'title']
+  ok    title resolves to slug 'mc-cuda-tinygrad-probe-battery'
+  ok    accelerator: GPU shape=NvidiaTeslaT4  internet=True
+  ok    probe.ipynb parses, nbformat 4.5
+  ok    cell 1: compiles (81 lines)
+  ok    cell 2: compiles (196 lines)
+  ok    cell 3: compiles (74 lines)
+  ok    cell 4: compiles (166 lines)
+  ok    cell 5: compiles (102 lines)
+  ok    probe.ipynb: 6 cells, 5 code
+
+all 1 kernel director(ies) valid
+  metadata, notebook JSON and every code cell are valid Python
+would run: /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels push -p /Users/huyan00/mycode/mc-cuda-tinygrad/kernels/probe -t 4500
+            (push is create-or-update; there is no 'kernels create' verb)
+  the kernel is public to nobody: is_private=true in the metadata
+
+=== wait for tenghuzhang/mc-cuda-tinygrad-probe-battery (up to 90m for a slot, 75m session cap) ===
+  would poll: /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels status tenghuzhang/mc-cuda-tinygrad-probe-battery   (every 30s)
+  COMPLETE -> /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels output tenghuzhang/mc-cuda-tinygrad-probe-battery -p <dir>, then unpack
+  ERROR    -> /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels logs tenghuzhang/mc-cuda-tinygrad-probe-battery
+
+=== output ===
+would run: /Users/huyan00/mycode/mc-cuda-tinygrad/.venv/bin/kaggle kernels output tenghuzhang/mc-cuda-tinygrad-probe-battery -p /Users/huyan00/mycode/mc-cuda-tinygrad/out/kaggle/20260928-023936-gpu/.partial --force  (3 attempts)
+would then: unpack any *.zip, promote anything else, and print the index
+
+dry run complete. nothing was created, pushed, or downloaded.

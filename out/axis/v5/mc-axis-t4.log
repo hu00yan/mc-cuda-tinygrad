@@ -1,0 +1,390 @@
+[{"stream_name":"stderr","time":6.396554121,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.398292445,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.253294428,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.253327438,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.253333851,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.2533382060000005,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.874717948,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.874747266,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.874780966,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.874787409,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.058718648,"data":"  ok  axis/__init__.py               0 B  e3b0c44298fc1c14\n"}
+,{"stream_name":"stdout","time":9.058799851,"data":"  ok  axis/refkernels.cu         29319 B  549693c984aafa08\n"}
+,{"stream_name":"stdout","time":9.058805089,"data":"  ok  axis/rungs.py              20873 B  a597145956c3863e\n"}
+,{"stream_name":"stdout","time":9.058809252,"data":"  ok  axis/verify.py             20309 B  d4c91eb18ee6b93f\n"}
+,{"stream_name":"stdout","time":9.05881286,"data":"  ok  axis/harness.py            35524 B  b1c97b7c051a5756\n"}
+,{"stream_name":"stdout","time":9.058816866,"data":"  ok  axis/sass_census.py         3161 B  14b50b29af7a2855\n"}
+,{"stream_name":"stdout","time":9.058820727,"data":"  ok  axis/classify.py           24859 B  502c1f55b2878481\n"}
+,{"stream_name":"stdout","time":9.058824291,"data":"\n"}
+,{"stream_name":"stdout","time":9.058827824,"data":"  7 payloads verified and written to /kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":17.072310367,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 42.8 MB/s eta 0:00:00\r\n"}
+,{"stream_name":"stdout","time":17.473426995,"data":"  tinygrad imports; default device: CUDA\n"}
+,{"stream_name":"stdout","time":17.473456455,"data":"  available: \u003cgenerator object _Device.get_available_devices at 0x7a228cc5fe20\u003e\n"}
+,{"stream_name":"stdout","time":19.088308749,"data":"  numpy 2.0.2\n"}
+,{"stream_name":"stdout","time":19.166121273,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":19.473122213,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":19.473166997,"data":"axis/verify.py -- CPU gate. No GPU. Runs before any Kaggle push.\r\n"}
+,{"stream_name":"stdout","time":19.473173178,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":19.473195676,"data":"\r\n"}
+,{"stream_name":"stdout","time":19.473200348,"data":"1. the TinyGrad side is pure Tensor (task constraint, checked by AST)\r\n"}
+,{"stream_name":"stdout","time":19.473218172,"data":"   [PASS] rungs.py imports only tinygrad + numpy; no custom_kernel,\r\n"}
+,{"stream_name":"stdout","time":19.473222137,"data":"          no ctypes, no driver API, no foreign framework.\r\n"}
+,{"stream_name":"stdout","time":19.47322581,"data":"\r\n"}
+,{"stream_name":"stdout","time":19.473229222,"data":"2. every rung's TinyGrad arm against an independent float64 oracle\r\n"}
+,{"stream_name":"stdout","time":19.473233051,"data":"   (a green gate is necessary, not sufficient -- notes/06 5b)\r\n"}
+,{"stream_name":"stdout","time":19.473237444,"data":"   small shapes, CPU: {'ew': {'n': 4096}, 'red': {'R': 64, 'K': 32}, 'gemm32': {'M': 32, 'N': 32, 'K': 32}, 'gemm16': {'M': 32, 'N': 32, 'K': 32}, 'gather': {'n': 4096, 'table': 1024}, 'scan': {'R': 16, 'N': 64}, 'trisolve': {'B': 8, 'C': 64, 'BC': 16}}\r\n"}
+,{"stream_name":"stdout","time":20.384110331,"data":"   [PASS] ew        worst relerr 3.348e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":20.637687403,"data":"   [PASS] red       worst relerr 1.385e-07  (tol 1e-05)  shape (64,)\r\n"}
+,{"stream_name":"stdout","time":20.688307729,"data":"   [PASS] gemm32    worst relerr 1.200e-07  (tol 1e-05)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":21.09380363,"data":"   [PASS] gemm16    worst relerr 3.235e-04  (tol 5e-02)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":21.297574574,"data":"   [PASS] gather    worst relerr 4.102e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":21.39899723,"data":"   [PASS] scan      worst relerr 8.196e-08  (tol 1e-05)  shape (16, 64)\r\n"}
+,{"stream_name":"stdout","time":30.361345853,"data":"   [PASS] trisolve  worst relerr 1.873e-07  (tol 1e-04)  shape (8, 64, 64)\r\n"}
+,{"stream_name":"stdout","time":30.361385906,"data":"\r\n"}
+,{"stream_name":"stdout","time":30.36139248,"data":"3. the naive controls exist and are separate measurements\r\n"}
+,{"stream_name":"stdout","time":31.224676201,"data":"   [ok  ] red       naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":31.781100173,"data":"   [ok  ] scan      naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":31.781132783,"data":"\r\n"}
+,{"stream_name":"stdout","time":31.781141917,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":31.781147284,"data":"ALL CHECKS PASS -- 7 rungs\r\n"}
+,{"stream_name":"stdout","time":31.781150779,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":32.235974587,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":39.476813631,"data":"  shapes : {'M': 32, 'N': 32, 'K': 32}\r\n"}
+,{"stream_name":"stdout","time":39.476864176,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.476870691,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.476875134,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476879685,"data":"  rung gather: random access gather, no reuse\r\n"}
+,{"stream_name":"stdout","time":39.476884163,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476894244,"data":"  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.\r\n"}
+,{"stream_name":"stdout","time":39.476898131,"data":"  shapes : {'n': 4096, 'table': 1024}\r\n"}
+,{"stream_name":"stdout","time":39.476901283,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.476915743,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.476918192,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476920628,"data":"  rung scan: carried dependency chain (prefix sum)\r\n"}
+,{"stream_name":"stdout","time":39.476922938,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476925267,"data":"  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.\r\n"}
+,{"stream_name":"stdout","time":39.476928707,"data":"  shapes : {'R': 16, 'N': 64}\r\n"}
+,{"stream_name":"stdout","time":39.476943574,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.47694795,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.476951651,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476955878,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\r\n"}
+,{"stream_name":"stdout","time":39.476959942,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476963565,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\r\n"}
+,{"stream_name":"stdout","time":39.476967236,"data":"  shapes : {'B': 8, 'C': 64, 'BC': 16}\r\n"}
+,{"stream_name":"stdout","time":39.476970582,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.476974116,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.476977365,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476980809,"data":"  the axis\r\n"}
+,{"stream_name":"stdout","time":39.47698411,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.476987647,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\r\n"}
+,{"stream_name":"stdout","time":39.476991184,"data":"  --------------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":39.476994699,"data":"  ew             4.4726     0.0307 145.517x       0.0    0.0%  OK\r\n"}
+,{"stream_name":"stdout","time":39.476998147,"data":"  red            6.8588     0.0204 336.745x       0.0    0.0%  OK\r\n"}
+,{"stream_name":"stdout","time":39.477001636,"data":"  gemm32         6.1352     0.0348 176.300x       0.0       -  OK\r\n"}
+,{"stream_name":"stdout","time":39.477011417,"data":"  gemm16            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.477020357,"data":"  gather            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.477023017,"data":"  scan              nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.477026373,"data":"  trisolve          nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":39.477040409,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.47704438,"data":"  wrote /kaggle/working/axis_smoke.json\r\n"}
+,{"stream_name":"stdout","time":39.477052707,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.47705678,"data":"  3/7 rungs OK; 4 not OK\r\n"}
+,{"stream_name":"stdout","time":39.727439435,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":40.066134063,"data":"\r\n"}
+,{"stream_name":"stdout","time":40.066164586,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":40.066171109,"data":"  1. environment\r\n"}
+,{"stream_name":"stdout","time":40.066175463,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":40.370180031,"data":"  Device.DEFAULT     CUDA\r\n"}
+,{"stream_name":"stdout","time":40.37021019,"data":"  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad\r\n"}
+,{"stream_name":"stdout","time":40.370216153,"data":"  tinygrad_version   0.14.0\r\n"}
+,{"stream_name":"stdout","time":40.370221218,"data":"  numpy              2.0.2\r\n"}
+,{"stream_name":"stdout","time":40.370225842,"data":"  python             3.12.13\r\n"}
+,{"stream_name":"stdout","time":40.370230795,"data":"  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":40.370235807,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":40.370240928,"data":"\r\n"}
+,{"stream_name":"stdout","time":40.370245709,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":40.370250526,"data":"  2. compile the reference for sm_75 (on this card)\r\n"}
+,{"stream_name":"stdout","time":40.370255322,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":41.793474098,"data":"  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc\r\n"}
+,{"stream_name":"stdout","time":43.262545374,"data":"  SASS 860634 B, 9 kernels\r\n"}
+,{"stream_name":"stdout","time":43.26257625,"data":"  kernel              pattern  expected  match\r\n"}
+,{"stream_name":"stdout","time":43.262601426,"data":"  axis_ew               ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.262606182,"data":"  axis_rowdot           pppii     pppii  yes\r\n"}
+,{"stream_name":"stdout","time":43.262610643,"data":"  axis_gemm_f32        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":43.262615718,"data":"  axis_gemm_f16        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":43.262620186,"data":"  axis_gather           ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.262624525,"data":"  axis_scan              ppii      ppii  yes\r\n"}
+,{"stream_name":"stdout","time":43.262628747,"data":"  axis_trisolve           ppi       ppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.262633123,"data":"  all reference signatures match the launcher's argument lists\r\n"}
+,{"stream_name":"stdout","time":43.262637516,"data":"  cubin 72288 B  sha256 e5ea5b94ddb6f98c\r\n"}
+,{"stream_name":"stdout","time":43.262641764,"data":"  kernel               regs    smem B  params\r\n"}
+,{"stream_name":"stdout","time":43.26264631,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x7a021bf3ced0\u003e)\r\n"}
+,{"stream_name":"stdout","time":43.921894749,"data":"\r\n"}
+,{"stream_name":"stdout","time":43.921924918,"data":"  memory floor on THIS card: fill 232.8 GB/s (write-only), copy 239.2 GB/s (read+write)\r\n"}
+,{"stream_name":"stdout","time":43.921929772,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\r\n"}
+,{"stream_name":"stdout","time":43.921947332,"data":"\r\n"}
+,{"stream_name":"stdout","time":43.92195086,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.921954393,"data":"  rung ew: elementwise, pure bandwidth\r\n"}
+,{"stream_name":"stdout","time":43.921957792,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.921961132,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\r\n"}
+,{"stream_name":"stdout","time":43.921968962,"data":"  shapes : {'n': 16777216}\r\n"}
+,{"stream_name":"stdout","time":47.933919764,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":47.933953848,"data":"  tg                    48.6675 ms   (min 47.7562, max 50.3927)\r\n"}
+,{"stream_name":"stdout","time":47.933959713,"data":"  ref                    1.0866 ms   (min 1.0819, max 1.1049)\r\n"}
+,{"stream_name":"stdout","time":47.933964345,"data":"  tg kernels        4\r\n"}
+,{"stream_name":"stdout","time":47.9339688,"data":"  tg   vs oracle    3.287e-08  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":47.933978943,"data":"  ref  vs oracle    3.287e-08\r\n"}
+,{"stream_name":"stdout","time":47.933983518,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":47.933987961,"data":"  RATIO tg/ref      44.790x\r\n"}
+,{"stream_name":"stdout","time":47.933992346,"data":"\r\n"}
+,{"stream_name":"stdout","time":47.933996697,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":47.934001421,"data":"  rung red: wide reduction (row-dot)\r\n"}
+,{"stream_name":"stdout","time":47.934005987,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":47.934010557,"data":"  demands: one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.\r\n"}
+,{"stream_name":"stdout","time":47.934015227,"data":"  shapes : {'R': 65536, 'K': 256}\r\n"}
+,{"stream_name":"stdout","time":77.130433311,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":77.130473633,"data":"  tg                    37.5066 ms   (min 37.0083, max 38.4727)\r\n"}
+,{"stream_name":"stdout","time":77.130478117,"data":"  ref                    0.5251 ms   (min 0.5243, max 0.5284)\r\n"}
+,{"stream_name":"stdout","time":77.130481501,"data":"  tg kernels        3\r\n"}
+,{"stream_name":"stdout","time":77.130484631,"data":"  tg   vs oracle    1.500e-07  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":77.130487796,"data":"  ref  vs oracle    1.082e-07\r\n"}
+,{"stream_name":"stdout","time":77.130490987,"data":"  ref  vs tg        1.794e-07\r\n"}
+,{"stream_name":"stdout","time":77.130494002,"data":"  RATIO tg/ref      71.431x\r\n"}
+,{"stream_name":"stdout","time":77.130497055,"data":"\r\n"}
+,{"stream_name":"stdout","time":77.130500049,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":77.13050908,"data":"  rung gemm32: matmul fp32, no tensor core on sm_75\r\n"}
+,{"stream_name":"stdout","time":77.130512281,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":77.130515494,"data":"  demands: reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.\r\n"}
+,{"stream_name":"stdout","time":77.130518687,"data":"  shapes : {'M': 1024, 'N': 1024, 'K': 1024}\r\n"}
+,{"stream_name":"stdout","time":81.081265591,"data":"  status            OK\r\n"}
+,{"stream_name":"stdout","time":81.081299597,"data":"  tg                    14.3456 ms   (min 12.8936, max 14.7968)\r\n"}
+,{"stream_name":"stdout","time":81.081304996,"data":"  ref                    1.1776 ms   (min 1.1721, max 1.1842)\r\n"}
+,{"stream_name":"stdout","time":81.08130913,"data":"  tg kernels        3\r\n"}
+,{"stream_name":"stdout","time":81.081312842,"data":"  tg   vs oracle    1.398e-06  (tol 0.0001)\r\n"}
+,{"stream_name":"stdout","time":81.081316546,"data":"  ref  vs oracle    1.398e-06\r\n"}
+,{"stream_name":"stdout","time":81.081320192,"data":"  ref  vs tg        0.000e+00\r\n"}
+,{"stream_name":"stdout","time":81.081323828,"data":"  RATIO tg/ref      12.182x\r\n"}
+,{"stream_name":"stdout","time":81.081327458,"data":"  tg_knob               12.9561 ms   (ALLOW_TF32=1)\r\n"}
+,{"stream_name":"stdout","time":81.081331148,"data":"\r\n"}
+,{"stream_name":"stdout","time":81.081334785,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":81.081338543,"data":"  rung gemm16: matmul fp16, tensor cores present\r\n"}
+,{"stream_name":"stdout","time":81.081342279,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":81.081346063,"data":"  demands: the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).\r\n"}
+,{"stream_name":"stdout","time":81.081350128,"data":"  shapes : {'M': 2048, 'N': 2048, 'K': 2048}\r\n"}
+,{"stream_name":"stdout","time":84.081118593,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":84.081151376,"data":"\r\n"}
+,{"stream_name":"stdout","time":84.081156897,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":84.081161894,"data":"  rung gather: random access gather, no reuse\r\n"}
+,{"stream_name":"stdout","time":84.081166489,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":84.081171241,"data":"  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.\r\n"}
+,{"stream_name":"stdout","time":84.081175952,"data":"  shapes : {'n': 8388608, 'table': 4194304}\r\n"}
+,{"stream_name":"stdout","time":84.536933323,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":84.536964837,"data":"\r\n"}
+,{"stream_name":"stdout","time":84.53697229,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":84.536982187,"data":"  rung scan: carried dependency chain (prefix sum)\r\n"}
+,{"stream_name":"stdout","time":84.536985885,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":84.536989451,"data":"  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.\r\n"}
+,{"stream_name":"stdout","time":84.536992776,"data":"  shapes : {'R': 4096, 'N': 4096}\r\n"}
+,{"stream_name":"stdout","time":85.043479911,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":85.043517364,"data":"\r\n"}
+,{"stream_name":"stdout","time":85.043523393,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":85.043546237,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\r\n"}
+,{"stream_name":"stdout","time":85.043554595,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":85.043558668,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\r\n"}
+,{"stream_name":"stdout","time":85.043583621,"data":"  shapes : {'B': 16384, 'C': 64, 'BC': 16}\r\n"}
+,{"stream_name":"stdout","time":87.224999112,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":87.225031416,"data":"\r\n"}
+,{"stream_name":"stdout","time":87.22503625,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":87.225040122,"data":"  the axis\r\n"}
+,{"stream_name":"stdout","time":87.2250437,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":87.22504754,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\r\n"}
+,{"stream_name":"stdout","time":87.22505127,"data":"  --------------------------------------------------------------------------\r\n"}
+,{"stream_name":"stdout","time":87.225054926,"data":"  ew            48.6675     1.0866  44.790x       5.5    2.3%  OK\r\n"}
+,{"stream_name":"stdout","time":87.22505855,"data":"  red           37.5066     0.5251  71.431x       3.6    1.5%  OK\r\n"}
+,{"stream_name":"stdout","time":87.225062161,"data":"  gemm32        14.3456     1.1776  12.182x       1.2       -  OK\r\n"}
+,{"stream_name":"stdout","time":87.225065756,"data":"  gemm16            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":87.225069872,"data":"  gather            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":87.225073938,"data":"  scan              nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":87.225077758,"data":"  trisolve          nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\r\n"}
+,{"stream_name":"stdout","time":87.225081399,"data":"\r\n"}
+,{"stream_name":"stdout","time":87.225084726,"data":"  wrote /kaggle/working/axis_report.json\r\n"}
+,{"stream_name":"stdout","time":87.225088225,"data":"\r\n"}
+,{"stream_name":"stdout","time":87.225091628,"data":"  3/7 rungs OK; 4 not OK\r\n"}
+,{"stream_name":"stdout","time":87.637714578,"data":"  axis_report.json  12697 B\n"}
+,{"stream_name":"stdout","time":87.637759609,"data":"  axis_smoke.json  12694 B\n"}
+,{"stream_name":"stdout","time":87.637768325,"data":"\n"}
+,{"stream_name":"stdout","time":87.637772188,"data":"---- build ----\n"}
+,{"stream_name":"stdout","time":87.637776002,"data":"{\n"}
+,{"stream_name":"stdout","time":87.637779637,"data":"  \"cubin_bytes\": 72288,\n"}
+,{"stream_name":"stdout","time":87.637783467,"data":"  \"cubin_sha256\": \"e5ea5b94ddb6f98c857a5d3c45e9e9ffa9d78c2a6a9bab77dbc105ed65246d53\",\n"}
+,{"stream_name":"stdout","time":87.637788042,"data":"  \"nvcc\": \"/usr/local/cuda/bin/nvcc\",\n"}
+,{"stream_name":"stdout","time":87.637792605,"data":"  \"regs\": {},\n"}
+,{"stream_name":"stdout","time":87.637796857,"data":"  \"smem\": {},\n"}
+,{"stream_name":"stdout","time":87.637800472,"data":"  \"param_counts\": {\n"}
+,{"stream_name":"stdout","time":87.637816281,"data":"    \"axis_fill\": \"pi\",\n"}
+,{"stream_name":"stdout","time":87.637820891,"data":"    \"axis_copy\": \"ppi\",\n"}
+,{"stream_name":"stdout","time":87.637824643,"data":"    \"axis_ew\": \"ppppi\",\n"}
+,{"stream_name":"stdout","time":87.637828369,"data":"    \"axis_rowdot\": \"pppii\",\n"}
+,{"stream_name":"stdout","time":87.637832017,"data":"    \"axis_gemm_f32\": \"pppiii\",\n"}
+,{"stream_name":"stdout","time":87.637835865,"data":"    \"axis_gemm_f16\": \"pppiii\",\n"}
+,{"stream_name":"stdout","time":87.637839561,"data":"    \"axis_gather\": \"ppppi\",\n"}
+,{"stream_name":"stdout","time":87.637843163,"data":"    \"axis_scan\": \"ppii\",\n"}
+,{"stream_name":"stdout","time":87.637848377,"data":"    \"axis_trisolve\": \"ppi\"\n"}
+,{"stream_name":"stdout","time":87.637856644,"data":"  }\n"}
+,{"stream_name":"stdout","time":87.637860573,"data":"}\n"}
+,{"stream_name":"stdout","time":87.637863004,"data":"---- floor ----\n"}
+,{"stream_name":"stdout","time":87.63786541,"data":"{\n"}
+,{"stream_name":"stdout","time":87.63786783,"data":"  \"fill_ms\": 1.153007984161377,\n"}
+,{"stream_name":"stdout","time":87.637870453,"data":"  \"fill_GBps\": 232.81318055680467,\n"}
+,{"stream_name":"stdout","time":87.637873065,"data":"  \"copy_ms\": 2.2442879676818848,\n"}
+,{"stream_name":"stdout","time":87.637875505,"data":"  \"copy_GBps\": 239.21658883843304,\n"}
+,{"stream_name":"stdout","time":87.637878013,"data":"  \"n\": 67108864\n"}
+,{"stream_name":"stdout","time":87.637880448,"data":"}\n"}
+,{"stream_name":"stdout","time":87.637883082,"data":"---- device ----\n"}
+,{"stream_name":"stdout","time":87.637885478,"data":"{\n"}
+,{"stream_name":"stdout","time":87.637887852,"data":"  \"SMs\": 40,\n"}
+,{"stream_name":"stdout","time":87.637890339,"data":"  \"l2_bytes\": 4194304,\n"}
+,{"stream_name":"stdout","time":87.637892859,"data":"  \"max_smem_per_block\": 49152,\n"}
+,{"stream_name":"stdout","time":87.637895363,"data":"  \"clock_khz\": 1590000,\n"}
+,{"stream_name":"stdout","time":87.637897771,"data":"  \"compute_cap\": \"7.5\"\n"}
+,{"stream_name":"stdout","time":87.637900295,"data":"}\n"}
+,{"stream_name":"stdout","time":87.637902683,"data":"---- rungs ----\n"}
+,{"stream_name":"stdout","time":87.63790539,"data":"  ew        tg=48.667470932006836 ref=1.0865600109100342 ratio=44.790412350299945 status=OK\n"}
+,{"stream_name":"stdout","time":87.6379082,"data":"  red       tg=37.50662422180176 ref=0.5250720083713531 ratio=71.4313915497767 status=OK\n"}
+,{"stream_name":"stdout","time":87.637910901,"data":"  gemm32    tg=14.345600128173828 ref=1.1776000261306763 ratio=12.182065055917315 status=OK\n"}
+,{"stream_name":"stdout","time":87.6379135,"data":"  gemm16    tg=None ref=None ratio=None status=EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.637916056,"data":"  gather    tg=None ref=None ratio=None status=EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.637918618,"data":"  scan      tg=None ref=None ratio=None status=EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.637921169,"data":"  trisolve  tg=None ref=None ratio=None status=EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.63792373,"data":"\n"}
+,{"stream_name":"stdout","time":87.637926071,"data":"---- tail of axis_run.log ----\n"}
+,{"stream_name":"stdout","time":87.637928562,"data":"\n"}
+,{"stream_name":"stdout","time":87.637930899,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.637936586,"data":"  1. environment\n"}
+,{"stream_name":"stdout","time":87.637939142,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.637942097,"data":"  Device.DEFAULT     CUDA\n"}
+,{"stream_name":"stdout","time":87.637967776,"data":"  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad\n"}
+,{"stream_name":"stdout","time":87.637971932,"data":"  tinygrad_version   0.14.0\n"}
+,{"stream_name":"stdout","time":87.637975804,"data":"  numpy              2.0.2\n"}
+,{"stream_name":"stdout","time":87.637980166,"data":"  python             3.12.13\n"}
+,{"stream_name":"stdout","time":87.637983832,"data":"  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":87.637987596,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":87.637991219,"data":"\n"}
+,{"stream_name":"stdout","time":87.637997613,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638001342,"data":"  2. compile the reference for sm_75 (on this card)\n"}
+,{"stream_name":"stdout","time":87.638004965,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.63800861,"data":"  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc\n"}
+,{"stream_name":"stdout","time":87.638012717,"data":"  SASS 860634 B, 9 kernels\n"}
+,{"stream_name":"stdout","time":87.638016946,"data":"  kernel              pattern  expected  match\n"}
+,{"stream_name":"stdout","time":87.638021388,"data":"  axis_ew               ppppi     ppppi  yes\n"}
+,{"stream_name":"stdout","time":87.638025299,"data":"  axis_rowdot           pppii     pppii  yes\n"}
+,{"stream_name":"stdout","time":87.638028857,"data":"  axis_gemm_f32        pppiii    pppiii  yes\n"}
+,{"stream_name":"stdout","time":87.638032372,"data":"  axis_gemm_f16        pppiii    pppiii  yes\n"}
+,{"stream_name":"stdout","time":87.638035927,"data":"  axis_gather           ppppi     ppppi  yes\n"}
+,{"stream_name":"stdout","time":87.638040109,"data":"  axis_scan              ppii      ppii  yes\n"}
+,{"stream_name":"stdout","time":87.63804486,"data":"  axis_trisolve           ppi       ppi  yes\n"}
+,{"stream_name":"stdout","time":87.638048276,"data":"  all reference signatures match the launcher's argument lists\n"}
+,{"stream_name":"stdout","time":87.638051966,"data":"  cubin 72288 B  sha256 e5ea5b94ddb6f98c\n"}
+,{"stream_name":"stdout","time":87.638055581,"data":"  kernel               regs    smem B  params\n"}
+,{"stream_name":"stdout","time":87.638059244,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x7a021bf3ced0\u003e)\n"}
+,{"stream_name":"stdout","time":87.638063539,"data":"\n"}
+,{"stream_name":"stdout","time":87.638066976,"data":"  memory floor on THIS card: fill 232.8 GB/s (write-only), copy 239.2 GB/s (read+write)\n"}
+,{"stream_name":"stdout","time":87.638070724,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\n"}
+,{"stream_name":"stdout","time":87.638074848,"data":"\n"}
+,{"stream_name":"stdout","time":87.638078605,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638082257,"data":"  rung ew: elementwise, pure bandwidth\n"}
+,{"stream_name":"stdout","time":87.63808568,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638089185,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\n"}
+,{"stream_name":"stdout","time":87.638097216,"data":"  shapes : {'n': 16777216}\n"}
+,{"stream_name":"stdout","time":87.638100896,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":87.638104992,"data":"  tg                    48.6675 ms   (min 47.7562, max 50.3927)\n"}
+,{"stream_name":"stdout","time":87.638108869,"data":"  ref                    1.0866 ms   (min 1.0819, max 1.1049)\n"}
+,{"stream_name":"stdout","time":87.638112584,"data":"  tg kernels        4\n"}
+,{"stream_name":"stdout","time":87.638116186,"data":"  tg   vs oracle    3.287e-08  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":87.638119828,"data":"  ref  vs oracle    3.287e-08\n"}
+,{"stream_name":"stdout","time":87.63812338,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":87.638126734,"data":"  RATIO tg/ref      44.790x\n"}
+,{"stream_name":"stdout","time":87.638130403,"data":"\n"}
+,{"stream_name":"stdout","time":87.638134028,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638137982,"data":"  rung red: wide reduction (row-dot)\n"}
+,{"stream_name":"stdout","time":87.638141478,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638145146,"data":"  demands: one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.\n"}
+,{"stream_name":"stdout","time":87.638148619,"data":"  shapes : {'R': 65536, 'K': 256}\n"}
+,{"stream_name":"stdout","time":87.638152416,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":87.63815603,"data":"  tg                    37.5066 ms   (min 37.0083, max 38.4727)\n"}
+,{"stream_name":"stdout","time":87.638160616,"data":"  ref                    0.5251 ms   (min 0.5243, max 0.5284)\n"}
+,{"stream_name":"stdout","time":87.638164605,"data":"  tg kernels        3\n"}
+,{"stream_name":"stdout","time":87.638168793,"data":"  tg   vs oracle    1.500e-07  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":87.638172556,"data":"  ref  vs oracle    1.082e-07\n"}
+,{"stream_name":"stdout","time":87.638176286,"data":"  ref  vs tg        1.794e-07\n"}
+,{"stream_name":"stdout","time":87.63817984,"data":"  RATIO tg/ref      71.431x\n"}
+,{"stream_name":"stdout","time":87.638183455,"data":"\n"}
+,{"stream_name":"stdout","time":87.638187004,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638191045,"data":"  rung gemm32: matmul fp32, no tensor core on sm_75\n"}
+,{"stream_name":"stdout","time":87.638194868,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638198663,"data":"  demands: reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.\n"}
+,{"stream_name":"stdout","time":87.638202424,"data":"  shapes : {'M': 1024, 'N': 1024, 'K': 1024}\n"}
+,{"stream_name":"stdout","time":87.638206234,"data":"  status            OK\n"}
+,{"stream_name":"stdout","time":87.638209755,"data":"  tg                    14.3456 ms   (min 12.8936, max 14.7968)\n"}
+,{"stream_name":"stdout","time":87.63821357,"data":"  ref                    1.1776 ms   (min 1.1721, max 1.1842)\n"}
+,{"stream_name":"stdout","time":87.638217486,"data":"  tg kernels        3\n"}
+,{"stream_name":"stdout","time":87.638220945,"data":"  tg   vs oracle    1.398e-06  (tol 0.0001)\n"}
+,{"stream_name":"stdout","time":87.638224708,"data":"  ref  vs oracle    1.398e-06\n"}
+,{"stream_name":"stdout","time":87.638232861,"data":"  ref  vs tg        0.000e+00\n"}
+,{"stream_name":"stdout","time":87.638237048,"data":"  RATIO tg/ref      12.182x\n"}
+,{"stream_name":"stdout","time":87.638240421,"data":"  tg_knob               12.9561 ms   (ALLOW_TF32=1)\n"}
+,{"stream_name":"stdout","time":87.638244229,"data":"\n"}
+,{"stream_name":"stdout","time":87.638247547,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638251202,"data":"  rung gemm16: matmul fp16, tensor cores present\n"}
+,{"stream_name":"stdout","time":87.638254904,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638258689,"data":"  demands: the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).\n"}
+,{"stream_name":"stdout","time":87.638262953,"data":"  shapes : {'M': 2048, 'N': 2048, 'K': 2048}\n"}
+,{"stream_name":"stdout","time":87.638266856,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638270467,"data":"\n"}
+,{"stream_name":"stdout","time":87.638274082,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638278553,"data":"  rung gather: random access gather, no reuse\n"}
+,{"stream_name":"stdout","time":87.63828314,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638286996,"data":"  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.\n"}
+,{"stream_name":"stdout","time":87.638291404,"data":"  shapes : {'n': 8388608, 'table': 4194304}\n"}
+,{"stream_name":"stdout","time":87.63829515,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638298848,"data":"\n"}
+,{"stream_name":"stdout","time":87.63830229,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638305975,"data":"  rung scan: carried dependency chain (prefix sum)\n"}
+,{"stream_name":"stdout","time":87.638310567,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638314431,"data":"  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.\n"}
+,{"stream_name":"stdout","time":87.638318168,"data":"  shapes : {'R': 4096, 'N': 4096}\n"}
+,{"stream_name":"stdout","time":87.638321694,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638325441,"data":"\n"}
+,{"stream_name":"stdout","time":87.638328848,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638332595,"data":"  rung trisolve: blocked triangular inverse (KDA's UT transform)\n"}
+,{"stream_name":"stdout","time":87.638336222,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638339919,"data":"  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.\n"}
+,{"stream_name":"stdout","time":87.638345388,"data":"  shapes : {'B': 16384, 'C': 64, 'BC': 16}\n"}
+,{"stream_name":"stdout","time":87.638349084,"data":"  status            EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638358506,"data":"\n"}
+,{"stream_name":"stdout","time":87.638362602,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638366814,"data":"  the axis\n"}
+,{"stream_name":"stdout","time":87.638371301,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":87.638375705,"data":"  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status\n"}
+,{"stream_name":"stdout","time":87.638380147,"data":"  --------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":87.638384881,"data":"  ew            48.6675     1.0866  44.790x       5.5    2.3%  OK\n"}
+,{"stream_name":"stdout","time":87.638388421,"data":"  red           37.5066     0.5251  71.431x       3.6    1.5%  OK\n"}
+,{"stream_name":"stdout","time":87.638392011,"data":"  gemm32        14.3456     1.1776  12.182x       1.2       -  OK\n"}
+,{"stream_name":"stdout","time":87.638395982,"data":"  gemm16            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638399931,"data":"  gather            nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638403728,"data":"  scan              nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638407789,"data":"  trisolve          nan        nan        -         -       -  EXCEPTION RuntimeError: CUDA Error 716, misaligned address\n"}
+,{"stream_name":"stdout","time":87.638411886,"data":"\n"}
+,{"stream_name":"stdout","time":87.638415352,"data":"  wrote /kaggle/working/axis_report.json\n"}
+,{"stream_name":"stdout","time":87.638418997,"data":"\n"}
+,{"stream_name":"stdout","time":87.638422655,"data":"  3/7 rungs OK; 4 not OK\n"}
+,{"stream_name":"stdout","time":87.638426898,"data":"\n"}
+,{"stream_name":"stderr","time":90.477258056,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":90.477300856,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":90.634412825,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":90.634457809,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":91.296612862,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":91.600439048,"data":"[NbConvertApp] Writing 214327 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":93.913635977,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":94.718108872,"data":"[NbConvertApp] Writing 495783 bytes to __results__.html\n"}
+]

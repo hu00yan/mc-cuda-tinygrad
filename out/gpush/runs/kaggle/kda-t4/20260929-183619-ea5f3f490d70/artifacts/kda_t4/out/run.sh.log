@@ -1,0 +1,42 @@
+kda_t4 run.sh   2026-09-29T10:41:07Z
+stages: install gate sass
+
+################################################################
+# stage: install
+################################################################
+
+>>> stage install exit=0  (46 s)
+
+################################################################
+# stage: gate
+################################################################
+
+>>> stage gate exit=0  (285 s)
+
+################################################################
+# stage: sass
+################################################################
+
+>>> stage sass exit=0  (258 s)
+
+################################################################
+# summary
+################################################################
+  install    exit=0
+  gate       exit=0
+  sass       exit=0
+
+artifacts:
+  total 304
+  drwxr-xr-x 3 root root   4096 Sep 29 10:50 .
+  drwxr-xr-x 4 root root   4096 Sep 29 10:42 ..
+  -rw-r--r-- 1 root root    450 Sep 29 10:46 dot_probe.json
+  -rw-r--r-- 1 root root   8048 Sep 29 10:46 gate_observed.json
+  -rw-r--r-- 1 root root   9618 Sep 29 10:46 gate_observed.txt
+  -rw-r--r-- 1 root root   3297 Sep 29 10:41 install.log
+  -rw-r--r-- 1 root root    812 Sep 29 10:50 run.sh.log
+  drwxr-xr-x 3 root root  16384 Sep 29 10:50 sass
+  -rw-r--r-- 1 root root 223387 Sep 29 10:50 sass_t4.json
+  -rw-r--r-- 1 root root  27119 Sep 29 10:50 sass_t4.txt
+
+wrote /kaggle/working/tree/payload/kda_t4/out/run.sh.log

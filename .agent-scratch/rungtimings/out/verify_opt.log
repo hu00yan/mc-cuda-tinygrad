@@ -1,0 +1,115 @@
+==============================================================================
+  minecu_tg_opt verification -- the optimized render against the naive
+  port and against an independent float64 transcription
+  DEV=CPU  variants: ['naive', 'int_cursor', 'flat_gather', 'incremental', 'lean']
+==============================================================================
+
+6. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+1-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] V-naive: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-naive: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-naive: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] V-int_cursor: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-int_cursor: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-int_cursor: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] V-flat_gather: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-flat_gather: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-flat_gather: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] V-incremental: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-incremental: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-incremental: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] V-lean: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-lean: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-lean: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 16.861 vs 16.861; naive port 16.861)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] V-naive: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-naive: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-naive: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] V-int_cursor: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-int_cursor: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-int_cursor: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] V-flat_gather: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-flat_gather: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-flat_gather: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] V-incremental: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-incremental: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-incremental: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] V-lean: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-lean: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-lean: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 13.766 vs 13.766; naive port 13.766)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-5. the render, world 32^3 ground 8 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] V-naive: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-naive: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-naive: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-int_cursor: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-int_cursor: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-int_cursor: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-flat_gather: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-flat_gather: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-flat_gather: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-incremental: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-incremental: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-incremental: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-lean: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-lean: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-lean: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-5. the render, world 48^3 ground 12 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] V-naive: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-naive: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-naive: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-int_cursor: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-int_cursor: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-int_cursor: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-flat_gather: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-flat_gather: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-flat_gather: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-incremental: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-incremental: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-incremental: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] V-lean: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-lean: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-lean: per-pixel DDA step counts agree with float64  1022/1024 = 99.80%  (mean 16.029 vs 16.027; naive port 16.029)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  3 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+1-5. the render, world 16^3 ground 4 res 32 max_steps 16 pitch +0.0 fov 70.0
+  [PASS] V-naive: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-naive: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-naive: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 9.971 vs 9.971; naive port 9.971)
+  [PASS] V-int_cursor: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-int_cursor: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-int_cursor: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 9.971 vs 9.971; naive port 9.971)
+  [PASS] V-flat_gather: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-flat_gather: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-flat_gather: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 9.971 vs 9.971; naive port 9.971)
+  [PASS] V-incremental: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-incremental: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-incremental: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 9.971 vs 9.971; naive port 9.971)
+  [PASS] V-lean: observation identical to minecu_tg/render.py  bit-for-bit
+  [PASS] V-lean: observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] V-lean: per-pixel DDA step counts agree with float64  1024/1024 = 100.00%  (mean 9.971 vs 9.971; naive port 9.971)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. Every rung of the ladder produces the naive
+  port's observation bit for bit, and that observation equals an
+  independent float64 transcription of the same algorithm.

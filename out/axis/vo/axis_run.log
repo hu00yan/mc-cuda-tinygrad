@@ -1,0 +1,154 @@
+
+==============================================================================
+  1. environment
+==============================================================================
+  Device.DEFAULT     CUDA
+  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad
+  tinygrad_version   0.14.0
+  numpy              2.0.2
+  python             3.12.13
+  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04
+Tesla T4, 7.5, 15360 MiB, 580.159.04
+
+==============================================================================
+  2. compile the reference for sm_75 (on this card)
+==============================================================================
+  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc
+  SASS 1008064 B, 14 kernels
+  kernel              pattern  expected  match
+  axis_ew               ppppi     ppppi  yes
+  axis_rowdot           pppii     pppii  yes
+  axis_gemm_f32        pppiii    pppiii  yes
+  axis_gemm_f16        pppiii    pppiii  yes
+  axis_gather           ppppi     ppppi  yes
+  axis_scan_v4           ppii      ppii  yes
+  axis_trisolve           ppi       ppi  yes
+  all reference signatures match the launcher's argument lists
+  cubin 88672 B  sha256 c83ce0d4059ac21b
+  kernel               regs    smem B  params
+  module loaded into TinyGrad's own context (<tinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x7dcd5573d150>)
+
+  memory floor on THIS card: fill 232.8 GB/s (write-only), copy 239.4 GB/s (read+write)
+  SMs=40  L2=4.2 MB  smem/block=49152 B
+
+==============================================================================
+  rung ew: elementwise, pure bandwidth
+==============================================================================
+  demands: nothing: no reduction, no gather, no reuse. The control rung.
+  shapes : {'n': 16777216}
+  status            REF_UNAVAILABLE
+  tg_device              1.0532 ms   (min 1.0495, max 1.0670)  <- the ratio's numerator
+  tg                     2.3630 ms   (min 2.3450, max 2.5883)  (end-to-end, includes Python)
+  ref                    1.0840 ms   (min 1.0804, max 1.0991)
+  tg kernels        1
+  tg   vs oracle    3.287e-08  (tol 0.0001)
+  ref  vs oracle    3.287e-08
+  ref  vs tg        0.000e+00
+  ref ERROR: None
+
+==============================================================================
+  rung red: wide reduction (row-dot)
+==============================================================================
+  demands: one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.
+  shapes : {'R': 65536, 'K': 256}
+  status            REF_UNAVAILABLE
+  tg_device              1.0178 ms   (min 1.0057, max 1.0383)  <- the ratio's numerator
+  tg                     2.8669 ms   (min 2.8384, max 3.3423)  (end-to-end, includes Python)
+  ref                    0.5265 ms   (min 0.5252, max 0.5552)
+  tg kernels        1
+  tg   vs oracle    1.500e-07  (tol 0.0001)
+  ref  vs oracle    1.082e-07
+  ref  vs tg        1.794e-07
+  ref ERROR: None
+
+==============================================================================
+  rung gemm32: matmul fp32, no tensor core on sm_75
+==============================================================================
+  demands: reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.
+  shapes : {'M': 1024, 'N': 1024, 'K': 1024}
+  status            REF_UNAVAILABLE
+  tg_device              3.7701 ms   (min 3.7599, max 5.3760)  <- the ratio's numerator
+  tg                     9.7115 ms   (min 9.6276, max 10.1743)  (end-to-end, includes Python)
+  ref                    1.5446 ms   (min 1.5389, max 1.5606)
+  tg kernels        1
+  tg   vs oracle    1.398e-06  (tol 0.0001)
+  ref  vs oracle    1.398e-06
+  ref  vs tg        0.000e+00
+  ref ERROR: None
+
+==============================================================================
+  rung gemm16: matmul fp16, tensor cores present
+==============================================================================
+  demands: the same reuse as gemm32, on an architecture where the hardware instruction class EXISTS and the framework has a table to choose from (TC / TC_SELECT).
+  shapes : {'M': 2048, 'N': 2048, 'K': 2048}
+  status            REF_UNAVAILABLE
+  tg_device              2.4883 ms   (min 2.2632, max 2.5101)  <- the ratio's numerator
+  tg                     7.3170 ms   (min 7.2709, max 7.7330)  (end-to-end, includes Python)
+  ref                    1.5811 ms   (min 1.5651, max 1.6078)
+  tg kernels        1
+  tg   vs oracle    2.264e-04  (tol 0.05)
+  ref  vs oracle    2.264e-04
+  ref  vs tg        0.000e+00
+  ref ERROR: None
+
+==============================================================================
+  rung gather: random access gather, no reuse
+==============================================================================
+  demands: a per-element address into a table larger than L2, so the access misses. One multiply of arithmetic.
+  shapes : {'n': 8388608, 'table': 4194304}
+  status            REF_UNAVAILABLE
+  tg_device              3.7723 ms   (min 3.7581, max 3.8216)  <- the ratio's numerator
+  tg                     8.0694 ms   (min 8.0075, max 8.3752)  (end-to-end, includes Python)
+  ref                    3.9144 ms   (min 3.9110, max 3.9272)
+  tg kernels        1
+  tg   vs oracle    3.447e-08  (tol 0.0001)
+  ref  vs oracle    3.447e-08
+  ref  vs tg        0.000e+00
+  ref ERROR: None
+
+==============================================================================
+  rung scan: carried dependency chain (prefix sum)
+==============================================================================
+  demands: a dependent chain and nothing else. No contraction, no gather, no early exit to confound it.
+  shapes : {'R': 4096, 'N': 4096}
+  status            REF_UNAVAILABLE
+  tg_device             22.0393 ms   (min 22.0099, max 22.2489)  <- the ratio's numerator
+  tg                    30.2704 ms   (min 29.9177, max 37.4777)  (end-to-end, includes Python)
+  ref                    0.8281 ms   (min 0.8250, max 0.8375)
+  tg kernels        3
+  tg   vs oracle    3.546e-07  (tol 0.0001)
+  ref  vs oracle    6.786e-02
+  ref  vs tg        6.786e-02
+  ref ERROR: None
+
+==============================================================================
+  rung trisolve: blocked triangular inverse (KDA's UT transform)
+==============================================================================
+  demands: a carried chain AND a dense contraction at every step. The hardest rung, and one of the study's two subjects.
+  shapes : {'B': 16384, 'C': 64, 'BC': 16}
+  status            REF_UNAVAILABLE
+  tg_device             71.6344 ms   (min 71.3325, max 72.3639)  <- the ratio's numerator
+  tg                  1929.4724 ms   (min 1904.8718, max 2057.2620)  (end-to-end, includes Python)
+  ref                   24.2425 ms   (min 24.2225, max 39.1515)
+  tg kernels        585
+  tg   vs oracle    3.077e-07  (tol 0.0001)
+  ref  vs oracle    7.879e-01
+  ref  vs tg        7.879e-01
+  ref ERROR: None
+
+==============================================================================
+  the axis
+==============================================================================
+  rung            tg ms     ref ms   tg/ref   tg GB/s  %floor  status
+  --------------------------------------------------------------------------
+  ew             2.3630     1.0840        -         -       -  REF_UNAVAILABLE
+  red            2.8669     0.5265        -         -       -  REF_UNAVAILABLE
+  gemm32         9.7115     1.5446        -         -       -  REF_UNAVAILABLE
+  gemm16         7.3170     1.5811        -         -       -  REF_UNAVAILABLE
+  gather         8.0694     3.9144        -         -       -  REF_UNAVAILABLE
+  scan          30.2704     0.8281        -         -       -  REF_UNAVAILABLE
+  trisolve    1929.4724    24.2425        -         -       -  REF_UNAVAILABLE
+
+  wrote /kaggle/working/axis_report.json
+
+  0/7 rungs OK; 7 not OK

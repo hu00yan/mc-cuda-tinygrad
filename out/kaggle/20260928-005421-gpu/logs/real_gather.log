@@ -1,0 +1,13 @@
+$ /usr/bin/python3 probes/real_gather.py
+# cwd .
+
+real_gather: can a custom_kernel replace TinyGrad's indexed load?
+Answer: no. Both failure modes are documented in the docstring.
+
+    <null>(9): error: expression must have integral or unscoped enum type
+    <null>(10): error: expression must have integral or unscoped enum type
+    <null>(11): error: expression must have integral or unscoped enum type
+    6 errors detected in the compilation of "<null>".
+
+confirmed broken
+

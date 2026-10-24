@@ -1,0 +1,10 @@
+device=NULL arch=sm_75
+
+=== max_steps=32: 10 launches, 6 distinct programs ===
+         file         name   ld  args  state   lines  steps~  cmp3  ldvox
+ kernel000.cu     E_8_32_4   32     1      0      13     0.0     0      0
+ kernel001.cu  E_8192_32_4   32     1      1       9     0.0     0      0
+ kernel002.cu E_128_4_8_16  128     3      3      40     0.0     0      2
+ kernel003.cu r_1024_16_16   16     3      2      43     0.0     0      3
+ kernel004.cu E_512_2_8_8_  128     8      4   15860   240.0   496     12
+ kernel005.cu E_32768_32_3   32     3      2      18     0.0     0      1

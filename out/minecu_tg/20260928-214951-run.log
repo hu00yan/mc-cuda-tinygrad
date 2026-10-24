@@ -1,0 +1,70 @@
+=== minecu_tg: verify the tensor render on this host (CPU, no GPU) ===
+==============================================================================
+  minecu_tg verification -- the tensor render against a float64 transcription
+  DEV=CPU  tinygrad from the venv, CPU backend
+==============================================================================
+
+1. the world, against minecu_ref/bench/dda_model.py
+  [PASS] world 16^3, ground 4  1062/4096 solid
+  [PASS] world 32^3, ground 8  8274/32768 solid
+  [PASS] world 48^3, ground 12  27730/110592 solid
+
+6. the worldgen floor and the physics floor
+  [PASS] world 16: ground 4 == world/4 4  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 32: ground 8 == world/4 8  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+  [PASS] world 48: ground 12 == world/4 12  physics_kernel floors the agent at world_y/4; anything else buries or floats it
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 16.861 vs 16.861)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 32 pitch -0.2 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 13.766 vs 13.766)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 32^3 ground 8 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 48^3 ground 12 res 32 max_steps 32 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1022/1024 = 99.80%  (mean 16.029 vs 16.027)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  3 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+2-5. the render, world 16^3 ground 4 res 32 max_steps 16 pitch +0.0 fov 70.0
+  [PASS] uint8 observation equals the float64 transcription  0/1024 pixels differ, max channel delta 0
+  [PASS] per-pixel DDA step counts agree with the float64 transcription  1024/1024 = 100.00%  (mean 9.971 vs 9.971)
+  [PASS] count_steps=True does not change the observation  the timed path and the verified path are the same program
+  [PASS] a shared camera gives identical envs at batch [1, 5]  catches a batch axis in the wrong place, which B=1 cannot
+  [PASS] per-env cameras render correctly at batch [1, 5]  5 distinct images over 5 envs at a +-1.2 rad yaw spread, each matching its own float64 reference
+
+==============================================================================
+  all checks passed. The tensor render is verified against an independent
+  float64 transcription of the same algorithm, and the step counts
+  agree pixel for pixel on the tie-insensitive parts.
+  verification passed
+
+=== assemble the notebook ===
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/minecu_tg_t4.ipynb  (478887 B)
+  wrote /Users/huyan00/mycode/mc-cuda-tinygrad/minecu_tg/kaggle/kernel/kernel-metadata.json
+    16 payloads, 451500 b64 bytes
+    reference + memory batches [512, 1024, 2048, 4096, 8192, 16384, 32768]
+    TinyGrad timing batches [256, 512, 1024, 2048] (the generated graph needs ~4 KiB/pixel at max_steps=32)
+    on-card codegen steps 1,4,16,32; full 1..64 sweep is offline
+    dump batch 4096, iters 8
+    kernel id tenghuzhang/mc-minecu-tg-t4  title 'mc minecu tg t4'
+  notebook valid: 3 cells, 473768 source chars, all code cells compile
+
+=== pre-flight: the payload layout, as the notebook will materialise it ===
+  the payload layout or stage order the notebook will use is broken; refusing to push

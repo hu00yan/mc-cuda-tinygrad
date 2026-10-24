@@ -1,0 +1,15 @@
+.version 8.3
+.target sm_90
+.address_size 64
+.extern .shared .align 128 .b8 sm[];
+.extern .shared .align 8 .b8 mbar[];
+.visible .entry k() {
+
+  .reg .b32 %r<16>;
+  .reg .b64 %rd<16>;
+  mov.b32 %r1, 0;
+  mov.b32 %r2, 0;
+  mov.b32 %r3, 0;
+  mapa.shared::cluster.u32 %r1, %r2, %r3;
+  ret;
+}

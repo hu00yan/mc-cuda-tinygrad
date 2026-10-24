@@ -1,0 +1,6 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function 'E_512_2_8_8_4_4' for 'sm_75'
+ptxas info    : Function properties for E_512_2_8_8_4_4
+    1312 bytes stack frame, 1772 bytes spill stores, 1296 bytes spill loads
+ptxas info    : Used 255 registers, used 0 barriers, 1312 bytes cumulative stack size, 416 bytes cmem[0]
+ptxas info    : Compile time = 30870.049 ms

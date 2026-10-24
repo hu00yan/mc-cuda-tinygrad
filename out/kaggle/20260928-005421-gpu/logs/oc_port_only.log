@@ -1,0 +1,17 @@
+$ /usr/bin/python3 run_oc.py --bench 8
+# cwd probes/oc
+
+device=CUDA  ref entries=18
+
+CORRECTNESS  41472 pixels over 18 frames
+  id   mismatched:      0  (0.000%)
+  depth mismatched:      9  (0.022%)
+  edge  mismatched:      3  (0.007%)
+
+DDA STEP DEPTH  (unroll=96)
+  mean 19.8  max 84  p99 83  unroll waste 4.8x
+
+THROUGHPUT  B=8 envs x 64x36 = 18,432 rays/frame
+  cells buffer: 42 MB int32 (netherite's u16 would be 21 MB)
+  wall, graph rebuilt each call :   2115.17 ms/frame      0.01 M rays/s
+

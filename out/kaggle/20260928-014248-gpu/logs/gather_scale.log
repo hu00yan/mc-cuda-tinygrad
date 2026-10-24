@@ -1,0 +1,15 @@
+$ /usr/bin/python3 probes/gather_scale.py
+# cwd .
+
+indexed load, output fixed at 73,728 elements, source varied
+
+    source src MB (i32)     GPU us   us/1k src elems  kernels
+     1,024          0.0     2745.4         2681.0645  1 device: E_768_32_3
+    16,384          0.1     2625.9          160.2728  1 device: E_768_32_3
+   262,144          1.0     3420.8           13.0491  2 device: E_4608_16_8_4, r_768_32_3_32
+ 1,328,176          5.3     7943.5            5.9808  2 device: E_768_19_32_2_3, r_768_32_3_38
+ 5,312,704         21.3    19358.0            3.6437  2 device: E_768_19_32_2_3, r_768_32_3_38
+
+If the last column is flat, the gather is O(output) (a real indexed
+load). If it grows with source, it is O(source) (one-hot + sum).
+

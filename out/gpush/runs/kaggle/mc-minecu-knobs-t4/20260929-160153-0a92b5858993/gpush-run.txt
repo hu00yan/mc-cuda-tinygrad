@@ -1,0 +1,9 @@
+$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned
+cwd: /kaggle/working/tree/payload
+exit: 2
+wall: 0.1 s
+
+--- stdout ---
+
+--- stderr ---
+REFUSING: no working CUDA device here (tinygrad import failed: ModuleNotFoundError: No module named 'tinygrad'). This file produces DEVICE TIMES, and a CPU number in a table of GPU numbers is the exact failure mode gpush's design forbids. Use codegen.py for the offline instruction counts.

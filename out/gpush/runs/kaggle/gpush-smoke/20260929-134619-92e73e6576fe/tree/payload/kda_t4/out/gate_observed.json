@@ -1,0 +1,198 @@
+{
+  "fla_flags": {
+    "IS_TF32_SUPPORTED": "False",
+    "IS_GATHER_SUPPORTED": "True",
+    "IS_TMA_SUPPORTED": "False",
+    "IS_NVIDIA": "True",
+    "IS_NVIDIA_HOPPER": "False",
+    "IS_NVIDIA_BLACKWELL": "False",
+    "IS_NVIDIA_SM100": "False"
+  },
+  "backend_enum": {
+    "ADA": 101376,
+    "AMPERE": 166912,
+    "HOPPER": 232448,
+    "DEFAULT": 102400
+  },
+  "thresholds": {
+    "none": 102400,
+    "hopper": 232448,
+    "ampere": 166912,
+    "ada": 101376,
+    "DEFAULT": 102400,
+    "nonsense": 102400
+  },
+  "check_shared_mem": {
+    "none@0": false,
+    "ada@0": false,
+    "ampere@0": false,
+    "hopper@0": false
+  },
+  "smem_readers": {
+    "fla.get_all_max_shared_mem": [
+      65536,
+      65536
+    ],
+    "triton[0]": 65536,
+    "triton[1]": 65536,
+    "torch.shared_memory_per_block[0]": 49152,
+    "torch.shared_memory_per_block_optin[0]": 65536,
+    "torch.shared_memory_per_multiprocessor[0]": 65536,
+    "torch.shared_memory_per_block[1]": 49152,
+    "torch.shared_memory_per_block_optin[1]": 65536,
+    "torch.shared_memory_per_multiprocessor[1]": 65536,
+    "ctypes.attr97[0]": 65536,
+    "ctypes.attr97[1]": 65536
+  },
+  "optin_distinct": [
+    49152,
+    65536
+  ],
+  "cc": [
+    7,
+    5
+  ],
+  "ptxas": "/usr/local/cuda/bin/ptxas",
+  "mma_availability": {
+    "sm75::mma.sync.aligned.m8n8k4.row.col.f16.f16.f16.f16": {
+      "ok": false,
+      "stderr": "for instruction 'mov'\nptxas /tmp/tmpqvnk313p.ptx, line 15; error   : Illegal expression '%r8'\nptxas /tmp/tmpqvnk313p.ptx, line 15; error   : Arguments mismatch for instruction 'mma'\nptxas /tmp/tmpqvnk313p.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm75::mma.sync.aligned.m16n8k8.row.col.f32.f16.f16.f32": {
+      "ok": false,
+      "stderr": "x5oywd.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp5wx5oywd.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp5wx5oywd.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm75::mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32": {
+      "ok": false,
+      "stderr": "_lygi.ptx, line 15; error   : Feature '.m16n8k16' requires .target sm_80 or higher\nptxas /tmp/tmp98p_lygi.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp98p_lygi.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm75::mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32": {
+      "ok": false,
+      "stderr": "z1op8.ptx, line 15; error   : Feature '.m16n8k16' requires .target sm_80 or higher\nptxas /tmp/tmpjifz1op8.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmpjifz1op8.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm75::mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": {
+      "ok": false,
+      "stderr": "lujzq5.ptx, line 15; error   : Feature '.m16n8k8' requires .target sm_80 or higher\nptxas /tmp/tmp77lujzq5.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp77lujzq5.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm80::mma.sync.aligned.m8n8k4.row.col.f16.f16.f16.f16": {
+      "ok": false,
+      "stderr": "for instruction 'mov'\nptxas /tmp/tmp1zkrgcqg.ptx, line 15; error   : Illegal expression '%r8'\nptxas /tmp/tmp1zkrgcqg.ptx, line 15; error   : Arguments mismatch for instruction 'mma'\nptxas /tmp/tmp1zkrgcqg.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm80::mma.sync.aligned.m16n8k8.row.col.f32.f16.f16.f32": {
+      "ok": false,
+      "stderr": "vhz_h7.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp24vhz_h7.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmp24vhz_h7.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm80::mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32": {
+      "ok": false,
+      "stderr": "tion 'mov'\nptxas /tmp/tmputuyckkw.ptx, line 15; error   : Illegal expression '%r8'\nptxas /tmp/tmputuyckkw.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmputuyckkw.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm80::mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32": {
+      "ok": false,
+      "stderr": "tion 'mov'\nptxas /tmp/tmpnso7ss25.ptx, line 15; error   : Illegal expression '%r8'\nptxas /tmp/tmpnso7ss25.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmpnso7ss25.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    },
+    "sm80::mma.sync.aligned.m16n8k8.row.col.f32.tf32.tf32.f32": {
+      "ok": false,
+      "stderr": "tion 'mov'\nptxas /tmp/tmphfpxoca9.ptx, line 15; error   : Illegal expression '%r8'\nptxas /tmp/tmphfpxoca9.ptx, line 15; error   : Argument vector size mismatch for instruction 'mma'\nptxas /tmp/tmphfpxoca9.ptx, line 15; error   : Unknown symbol '%r8'\nptxas fatal   : Ptx assembly aborted due to errors"
+    }
+  },
+  "num_warps_module": "[2, 4]",
+  "autotune_configs": [
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 2,
+      "num_stages": 2,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 2,
+      "num_stages": 1,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 2,
+      "num_ctas": 1
+    },
+    {
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 1,
+      "num_ctas": 1
+    }
+  ],
+  "autotune_n_configs": 4,
+  "distinct": {
+    "BV": [
+      32
+    ],
+    "num_stages": [
+      1,
+      2
+    ],
+    "num_warps": [
+      2,
+      4
+    ]
+  },
+  "model_vs_observed": {
+    "model_BV": [
+      32
+    ],
+    "model_num_stages": [
+      2,
+      1
+    ],
+    "observed_BV": [
+      32
+    ],
+    "observed_num_stages": [
+      1,
+      2
+    ],
+    "observed_num_warps": [
+      2,
+      4
+    ],
+    "agree": true
+  },
+  "call_shape": {
+    "B": 1,
+    "T": 128,
+    "H": 2,
+    "HV": 2,
+    "K": 128,
+    "V": 128,
+    "dtype": "bfloat16",
+    "generator": "kda/kda_vs_fla.py:296 rnd(seed=0)"
+  },
+  "fwd_ok": true,
+  "fwd_finite": true,
+  "fwd_absmax": 0.0615234375,
+  "selected_configs": [
+    {
+      "key": "(2, 2, 128, 128, 64, False, 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.bfloat16', 'torch.float32', 'torch.bfloat16')",
+      "kwargs": {
+        "BV": "32"
+      },
+      "num_warps": 4,
+      "num_stages": 1
+    }
+  ],
+  "dot_probe_rc": 0,
+  "f32_default_order": "BEFORE fla import: None\nAFTER  fla import: 'ieee'\ntriton knob        : 'ieee'",
+  "f32_default_order_scrubbed": true,
+  "solve_tril_dot_precision": "constexpr[ieee]",
+  "scope_label": "fla on T4, degraded configuration - num_stages=[1, 2], BV=[32], num_warps=[2, 4], process-global IEEE fp32 (TRITON_F32_DEFAULT='ieee', written by fla at import) - this is what the reference does in its worst configuration, not what it does at its best",
+  "scope_label_short": "fla/T4 degraded [stages=1/2, BV=32, warps=2/4, ieee-fp32 dots]",
+  "scope_label_ieee": true
+}

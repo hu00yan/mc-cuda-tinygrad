@@ -1,0 +1,915 @@
+{
+  "probe": "axis/splitcausal_t4probe.py",
+  "dev": "CUDA",
+  "tinygrad_file": "/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py",
+  "op_py": "/usr/local/lib/python3.12/dist-packages/tinygrad/mixin/op.py",
+  "op_py_sha256": "53055229fe6b786a2029c7a8f1c9d155d84c8a7a5342e04992ce1a25a33c47ac",
+  "installed_SPLIT": 256,
+  "predicted_first_two_stage_N": 513,
+  "tensor_wraps_mixin": true,
+  "E": 16777216,
+  "dense_N": [
+    256,
+    320,
+    384,
+    448,
+    480,
+    512,
+    513,
+    544,
+    640,
+    768,
+    896,
+    1024,
+    1536,
+    2048,
+    4096
+  ],
+  "one_vs_two": {
+    "R": 4096,
+    "N": 4096,
+    "elements": 16777216,
+    "cumsum": {
+      "label": "cumsum (two-stage, N=4096>512)",
+      "relerr": 3.353742304012909e-07,
+      "n_kernels": 4,
+      "median_ms": 56.522624012082815,
+      "min_ms": 38.11238431185484,
+      "max_ms": 57.538272224366665,
+      "per_kernel_us": [
+        0.0,
+        37476.48,
+        55.3,
+        574.94
+      ]
+    },
+    "one_stage": {
+      "label": "_cumalu (one-stage, N=4096)",
+      "relerr": 3.4135438272998584e-06,
+      "n_kernels": 2,
+      "median_ms": 329.17391967773443,
+      "min_ms": 328.824951171875,
+      "max_ms": 329.70907592773443,
+      "per_kernel_us": [
+        0.0,
+        328794.22
+      ]
+    },
+    "ratio_two_over_one": 0.17171051724698969
+  },
+  "sweeps": {
+    "baseline": {
+      "label": "baseline",
+      "split": 256,
+      "patch_diff": null,
+      "points": [
+        {
+          "N": 256,
+          "R": 65536,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 20.707744598388672,
+          "min_ms": 20.70649528503418,
+          "x_predicted": 0.0048,
+          "relerr": 8.467932919933255e-07,
+          "per_kernel_us": [
+            0.0,
+            20705.25
+          ],
+          "wall_s": 0.6
+        },
+        {
+          "N": 320,
+          "R": 52428,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 14.665120124816895,
+          "min_ms": 14.661791801452637,
+          "x_predicted": 0.0034,
+          "relerr": 9.978191044963072e-07,
+          "per_kernel_us": [
+            0.0,
+            14662.24
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 384,
+          "R": 43690,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 18.91324806213379,
+          "min_ms": 18.908544540405277,
+          "x_predicted": 0.0044,
+          "relerr": 1.1378058007604444e-06,
+          "per_kernel_us": [
+            0.0,
+            18541.31
+          ],
+          "wall_s": 0.6
+        },
+        {
+          "N": 448,
+          "R": 37449,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 24.96623992919922,
+          "min_ms": 24.66067123413086,
+          "x_predicted": 0.0058,
+          "relerr": 1.1347006871303073e-06,
+          "per_kernel_us": [
+            0.0,
+            24658.69
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 480,
+          "R": 34952,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 39.29423904418945,
+          "min_ms": 39.123199462890625,
+          "x_predicted": 0.0091,
+          "relerr": 1.2507994134606928e-06,
+          "per_kernel_us": [
+            0.0,
+            38862.63
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 512,
+          "R": 32768,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 41.21500778198242,
+          "min_ms": 41.20943832397461,
+          "x_predicted": 0.0096,
+          "relerr": 1.390239289990706e-06,
+          "per_kernel_us": [
+            0.0,
+            41216.29
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 513,
+          "R": 32704,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 20.416256435215473,
+          "min_ms": 20.40038322657347,
+          "x_predicted": 0.0048,
+          "relerr": 6.631745355475764e-07,
+          "per_kernel_us": [
+            0.0,
+            19391.81,
+            71.84,
+            947.49
+          ],
+          "wall_s": 1.0
+        },
+        {
+          "N": 544,
+          "R": 30840,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 22.317439593374726,
+          "min_ms": 22.30777608603239,
+          "x_predicted": 0.0052,
+          "relerr": 6.149230333172215e-07,
+          "per_kernel_us": [
+            0.0,
+            21360.42,
+            65.54,
+            892.93
+          ],
+          "wall_s": 1.0
+        },
+        {
+          "N": 640,
+          "R": 26214,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 21.140127085149288,
+          "min_ms": 20.090176668018103,
+          "x_predicted": 0.0049,
+          "relerr": 5.463162167139155e-07,
+          "per_kernel_us": [
+            0.0,
+            20319.52,
+            55.52,
+            760.29
+          ],
+          "wall_s": 1.0
+        },
+        {
+          "N": 768,
+          "R": 21845,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 28.464991569519047,
+          "min_ms": 22.318719506263736,
+          "x_predicted": 0.0066,
+          "relerr": 5.191434133776488e-07,
+          "per_kernel_us": [
+            0.0,
+            21696.77,
+            63.07,
+            548.83
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 896,
+          "R": 18724,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 21.001215912401676,
+          "min_ms": 20.99711987376213,
+          "x_predicted": 0.0049,
+          "relerr": 4.6241364145906353e-07,
+          "per_kernel_us": [
+            0.0,
+            20236.83,
+            54.02,
+            708.61
+          ],
+          "wall_s": 1.2
+        },
+        {
+          "N": 1024,
+          "R": 16384,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 38.20521457865834,
+          "min_ms": 32.89791966602206,
+          "x_predicted": 0.0089,
+          "relerr": 5.211302468298849e-07,
+          "per_kernel_us": [
+            0.0,
+            31746.02,
+            51.2,
+            629.15
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 1536,
+          "R": 10922,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 14.461856171488762,
+          "min_ms": 14.461440097540617,
+          "x_predicted": 0.0034,
+          "relerr": 4.294619194605026e-07,
+          "per_kernel_us": [
+            0.0,
+            13820.8,
+            49.79,
+            600.64
+          ],
+          "wall_s": 1.0
+        },
+        {
+          "N": 2048,
+          "R": 8192,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 32.7919982895255,
+          "min_ms": 31.165183153003454,
+          "x_predicted": 0.0076,
+          "relerr": 3.847124592153779e-07,
+          "per_kernel_us": [
+            0.0,
+            30111.3,
+            51.2,
+            563.2
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 4096,
+          "R": 4096,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 23.494304552674294,
+          "min_ms": 22.41862366348505,
+          "x_predicted": 0.0055,
+          "relerr": 3.353742304012909e-07,
+          "per_kernel_us": [
+            0.0,
+            20956.8,
+            51.17,
+            579.81
+          ],
+          "wall_s": 0.7
+        }
+      ]
+    },
+    "split64": {
+      "label": "split64",
+      "split": 64,
+      "patch_diff": [
+        "--- installed SPLIT=256",
+        "+++ patched SPLIT=64",
+        "@@ -5,3 +5,3 @@",
+        "     # for now this is a two stage cumsum",
+        "-    SPLIT = 256",
+        "+    SPLIT = 64",
+        "     value = identity_element(op, self.dtype)"
+      ],
+      "points": [
+        {
+          "N": 256,
+          "R": 65536,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 6.096607893705368,
+          "min_ms": 6.093471989035607,
+          "x_predicted": 0.0057,
+          "relerr": 2.635026994054907e-07,
+          "per_kernel_us": [
+            0.0,
+            5334.62,
+            127.71,
+            632.83
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 320,
+          "R": 52428,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 8.46633593738079,
+          "min_ms": 8.050464048981668,
+          "x_predicted": 0.0079,
+          "relerr": 2.814109277947262e-07,
+          "per_kernel_us": [
+            0.0,
+            7728.13,
+            103.23,
+            634.88
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 384,
+          "R": 43690,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 9.402272462844849,
+          "min_ms": 9.40137641876936,
+          "x_predicted": 0.0088,
+          "relerr": 2.2752054541619814e-07,
+          "per_kernel_us": [
+            0.0,
+            8716.06,
+            106.46,
+            602.14
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 448,
+          "R": 37449,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 10.069663539528847,
+          "min_ms": 10.067488059401512,
+          "x_predicted": 0.0094,
+          "relerr": 2.6343314277446074e-07,
+          "per_kernel_us": [
+            0.0,
+            9291.39,
+            102.85,
+            677.92
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 480,
+          "R": 34952,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 15.17919972538948,
+          "min_ms": 15.175200313329697,
+          "x_predicted": 0.0141,
+          "relerr": 2.3719209336509298e-07,
+          "per_kernel_us": [
+            0.0,
+            14202.3,
+            137.25,
+            837.66
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 512,
+          "R": 32768,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 11.880288057029247,
+          "min_ms": 11.876287832856177,
+          "x_predicted": 0.0111,
+          "relerr": 2.255523124501038e-07,
+          "per_kernel_us": [
+            0.0,
+            11156.64,
+            109.86,
+            612.61
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 513,
+          "R": 32704,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 9.20080041885376,
+          "min_ms": 9.198400244116783,
+          "x_predicted": 0.0086,
+          "relerr": 2.637462655877104e-07,
+          "per_kernel_us": [
+            0.0,
+            8391.07,
+            143.71,
+            667.17
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 544,
+          "R": 30840,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 12.155648335814476,
+          "min_ms": 12.154592260718346,
+          "x_predicted": 0.0113,
+          "relerr": 2.390197916076143e-07,
+          "per_kernel_us": [
+            0.0,
+            11335.78,
+            145.95,
+            671.97
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 640,
+          "R": 26214,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 9.517983704805374,
+          "min_ms": 9.516127541661263,
+          "x_predicted": 0.0089,
+          "relerr": 2.6756471576057915e-07,
+          "per_kernel_us": [
+            0.0,
+            8715.33,
+            167.71,
+            636.86
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 768,
+          "R": 21845,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 9.477599859237673,
+          "min_ms": 9.476224139332771,
+          "x_predicted": 0.0088,
+          "relerr": 2.7272221007785137e-07,
+          "per_kernel_us": [
+            0.0,
+            8716.58,
+            196.29,
+            563.17
+          ],
+          "wall_s": 0.9
+        },
+        {
+          "N": 896,
+          "R": 18724,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 15.598112389445307,
+          "min_ms": 15.598048090934753,
+          "x_predicted": 0.0145,
+          "relerr": 2.457212403321475e-07,
+          "per_kernel_us": [
+            0.0,
+            14583.9,
+            210.98,
+            802.18
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 1024,
+          "R": 16384,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 15.591711685061455,
+          "min_ms": 15.589472264051437,
+          "x_predicted": 0.0145,
+          "relerr": 2.621097499377365e-07,
+          "per_kernel_us": [
+            0.0,
+            14590.82,
+            219.1,
+            785.38
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 1536,
+          "R": 10922,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 13.920768350362778,
+          "min_ms": 13.919615596532823,
+          "x_predicted": 0.013,
+          "relerr": 3.282768806013726e-07,
+          "per_kernel_us": [
+            0.0,
+            12930.11,
+            290.66,
+            700.42
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 2048,
+          "R": 8192,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 15.78783977031708,
+          "min_ms": 15.786591947078703,
+          "x_predicted": 0.0147,
+          "relerr": 2.932123268933449e-07,
+          "per_kernel_us": [
+            0.0,
+            14584.74,
+            414.53,
+            786.46
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 4096,
+          "R": 4096,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 13.161824107170105,
+          "min_ms": 13.159551501274109,
+          "x_predicted": 0.0123,
+          "relerr": 4.550098754532385e-07,
+          "per_kernel_us": [
+            0.0,
+            11854.34,
+            666.08,
+            647.2
+          ],
+          "wall_s": 0.7
+        }
+      ]
+    },
+    "split1024": {
+      "label": "split1024",
+      "split": 1024,
+      "patch_diff": [
+        "--- installed SPLIT=256",
+        "+++ patched SPLIT=1024",
+        "@@ -5,3 +5,3 @@",
+        "     # for now this is a two stage cumsum",
+        "-    SPLIT = 256",
+        "+    SPLIT = 1024",
+        "     value = identity_element(op, self.dtype)"
+      ],
+      "points": [
+        {
+          "N": 256,
+          "R": 65536,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 40.9436149597168,
+          "min_ms": 40.943294525146484,
+          "x_predicted": 0.0024,
+          "relerr": 8.467932919933255e-07,
+          "per_kernel_us": [
+            0.0,
+            36616.0
+          ],
+          "wall_s": 0.6
+        },
+        {
+          "N": 320,
+          "R": 52428,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 14.706144332885742,
+          "min_ms": 14.656736373901369,
+          "x_predicted": 0.0009,
+          "relerr": 9.978191044963072e-07,
+          "per_kernel_us": [
+            0.0,
+            14658.69
+          ],
+          "wall_s": 0.5
+        },
+        {
+          "N": 384,
+          "R": 43690,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 12.344736099243164,
+          "min_ms": 12.343999862670898,
+          "x_predicted": 0.0007,
+          "relerr": 1.1378058007604444e-06,
+          "per_kernel_us": [
+            0.0,
+            12345.66
+          ],
+          "wall_s": 0.5
+        },
+        {
+          "N": 448,
+          "R": 37449,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 22.130271911621094,
+          "min_ms": 22.129344940185547,
+          "x_predicted": 0.0013,
+          "relerr": 1.1347006871303073e-06,
+          "per_kernel_us": [
+            0.0,
+            22130.08
+          ],
+          "wall_s": 0.5
+        },
+        {
+          "N": 480,
+          "R": 34952,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 38.26911926269531,
+          "min_ms": 38.26233673095703,
+          "x_predicted": 0.0022,
+          "relerr": 1.2507994134606928e-06,
+          "per_kernel_us": [
+            0.0,
+            38260.8
+          ],
+          "wall_s": 0.6
+        },
+        {
+          "N": 512,
+          "R": 32768,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 41.20431900024414,
+          "min_ms": 41.204254150390625,
+          "x_predicted": 0.0024,
+          "relerr": 1.390239289990706e-06,
+          "per_kernel_us": [
+            0.0,
+            41207.04
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 513,
+          "R": 32704,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 47.896095275878906,
+          "min_ms": 47.73686218261719,
+          "x_predicted": 0.0028,
+          "relerr": 1.2461582855932862e-06,
+          "per_kernel_us": [
+            0.0,
+            47885.31
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 544,
+          "R": 30840,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 43.521087646484375,
+          "min_ms": 43.51884841918945,
+          "x_predicted": 0.0025,
+          "relerr": 1.3808867098259867e-06,
+          "per_kernel_us": [
+            0.0,
+            43504.45
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 640,
+          "R": 26214,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 31.77919960021973,
+          "min_ms": 31.577856063842773,
+          "x_predicted": 0.0018,
+          "relerr": 1.7601161243674608e-06,
+          "per_kernel_us": [
+            0.0,
+            31778.59
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 768,
+          "R": 21845,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 32.596256256103516,
+          "min_ms": 32.59564971923828,
+          "x_predicted": 0.0019,
+          "relerr": 1.6534734430720978e-06,
+          "per_kernel_us": [
+            0.0,
+            33117.6
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 896,
+          "R": 18724,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 42.201759338378906,
+          "min_ms": 42.18822479248047,
+          "x_predicted": 0.0025,
+          "relerr": 1.7149309105481224e-06,
+          "per_kernel_us": [
+            0.0,
+            42204.41
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 1024,
+          "R": 16384,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 82.17212677001953,
+          "min_ms": 82.1671371459961,
+          "x_predicted": 0.0048,
+          "relerr": 1.7062440476772724e-06,
+          "per_kernel_us": [
+            0.0,
+            82186.17
+          ],
+          "wall_s": 1.0
+        },
+        {
+          "N": 1536,
+          "R": 10922,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 48.9743995666504,
+          "min_ms": 48.92243194580078,
+          "x_predicted": 0.0029,
+          "relerr": 2.32114599427007e-06,
+          "per_kernel_us": [
+            0.0,
+            49514.69
+          ],
+          "wall_s": 0.8
+        },
+        {
+          "N": 2048,
+          "R": 8192,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 164.13507080078125,
+          "min_ms": 164.11737060546875,
+          "x_predicted": 0.0096,
+          "relerr": 2.17018052233503e-06,
+          "per_kernel_us": [
+            0.0,
+            164097.35
+          ],
+          "wall_s": 1.5
+        },
+        {
+          "N": 4096,
+          "R": 4096,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 82.8253475725651,
+          "min_ms": 82.81385329551993,
+          "x_predicted": 0.0048,
+          "relerr": 8.374656811727827e-07,
+          "per_kernel_us": [
+            0.0,
+            82148.12,
+            30.72,
+            639.3
+          ],
+          "wall_s": 1.2
+        }
+      ]
+    },
+    "control_last": {
+      "label": "control-last",
+      "split": 256,
+      "patch_diff": null,
+      "points": [
+        {
+          "N": 512,
+          "R": 32768,
+          "path": "one-stage",
+          "kernels": 2,
+          "median_ms": 41.21043014526367,
+          "min_ms": 41.20492935180664,
+          "x_predicted": 0.0096,
+          "relerr": 1.390239289990706e-06,
+          "per_kernel_us": [
+            0.0,
+            41205.28
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 513,
+          "R": 32704,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 20.41433674097061,
+          "min_ms": 20.401247076690197,
+          "x_predicted": 0.0048,
+          "relerr": 6.631745355475764e-07,
+          "per_kernel_us": [
+            0.0,
+            19394.14,
+            73.63,
+            956.38
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 1024,
+          "R": 16384,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 29.596671413630247,
+          "min_ms": 29.040128126740456,
+          "x_predicted": 0.0069,
+          "relerr": 5.211302468298849e-07,
+          "per_kernel_us": [
+            0.0,
+            28351.71,
+            51.2,
+            631.52
+          ],
+          "wall_s": 0.7
+        },
+        {
+          "N": 4096,
+          "R": 4096,
+          "path": "two-stage",
+          "kernels": 4,
+          "median_ms": 21.326495677232742,
+          "min_ms": 21.32588792219758,
+          "x_predicted": 0.005,
+          "relerr": 3.353742304012909e-07,
+          "per_kernel_us": [
+            0.0,
+            20694.46,
+            51.97,
+            580.83
+          ],
+          "wall_s": 0.7
+        }
+      ]
+    }
+  },
+  "n4096_by_split": {
+    "256": 23.494304552674294,
+    "64": 13.161824107170105,
+    "1024": 82.8253475725651
+  },
+  "control_last_n4096_ms": 21.326495677232742,
+  "session_drift_pct": 9.227,
+  "budget_s": 1000.0,
+  "wall_s": 68.2,
+  "patch_diff_s64": [
+    "--- installed SPLIT=256",
+    "+++ patched SPLIT=64",
+    "@@ -5,3 +5,3 @@",
+    "     # for now this is a two stage cumsum",
+    "-    SPLIT = 256",
+    "+    SPLIT = 64",
+    "     value = identity_element(op, self.dtype)"
+  ]
+}

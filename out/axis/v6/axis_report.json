@@ -1,0 +1,263 @@
+{
+  "started": 1790672165.8880994,
+  "argv": [
+    "axis/harness.py",
+    "--iters",
+    "20",
+    "--warmup",
+    "5",
+    "--json",
+    "/kaggle/working/axis_report.json"
+  ],
+  "env": {
+    "Device.DEFAULT": "CUDA",
+    "tinygrad": "/usr/local/lib/python3.12/dist-packages/tinygrad",
+    "tinygrad_version": "0.14.0",
+    "numpy": "2.0.2",
+    "python": "3.12.13",
+    "nvidia_smi": "Tesla T4, 7.5, 15360 MiB, 580.159.04\nTesla T4, 7.5, 15360 MiB, 580.159.04"
+  },
+  "build": {
+    "cubin_bytes": 84064,
+    "cubin_sha256": "9f84a514e361e6ec1e50bd6a5d458482ca43d6450bbb6ec43413af567a4e689c",
+    "nvcc": "/usr/local/cuda/bin/nvcc",
+    "regs": {},
+    "smem": {},
+    "param_counts": {
+      "axis_fill": "pi",
+      "axis_copy": "ppi",
+      "axis_ew": "ppppi",
+      "axis_rowdot": "pppii",
+      "axis_gemm_f32": "pppiii",
+      "axis_gemm_f16": "pppiii",
+      "axis_gather": "ppppi",
+      "axis_scan": "ppii",
+      "axis_trisolve": "ppi"
+    }
+  },
+  "floor": {
+    "fill_ms": 1.152895987033844,
+    "fill_GBps": 232.83579700075745,
+    "copy_ms": 2.2401119470596313,
+    "copy_GBps": 239.66253682307985,
+    "n": 67108864
+  },
+  "device": {
+    "SMs": 40,
+    "l2_bytes": 4194304,
+    "max_smem_per_block": 49152,
+    "clock_khz": 1590000,
+    "compute_cap": "7.5"
+  },
+  "rungs": [
+    {
+      "key": "ew",
+      "title": "elementwise, pure bandwidth",
+      "demands": "nothing: no reduction, no gather, no reuse. The control rung.",
+      "shapes": {
+        "n": 16777216
+      },
+      "distinguishing_evidence": "If the framework reaches the measured copy bandwidth here, the instrument and the memory path are sound and every gap above is about arithmetic/scheduling. If it does NOT, the axis is measuring the framework's memory path and no rung above is interpretable.",
+      "input_sha256": {
+        "a": "17cbe5adc2e29ab5",
+        "b": "d258634dc1e4b464",
+        "z": "4a2c6e872e995f1d"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.152,
+      "tg_compile_s": 0.27,
+      "tg_shape": [
+        16777216
+      ],
+      "tg_kernels": 4,
+      "tg_relerr_vs_oracle": 3.287152916125916e-08,
+      "tg": {
+        "median_ms": 48.396127700805664,
+        "min_ms": 47.78396987915039,
+        "max_ms": 51.64009475708008
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 44.739601135253906,
+        "min_ms": 44.17939376831055,
+        "max_ms": 45.811073303222656
+      },
+      "ref": {
+        "median_ms": 1.0854399800300598,
+        "min_ms": 1.0813759565353394,
+        "max_ms": 1.1115200519561768
+      },
+      "ref_kernel": "axis_ew",
+      "ref_grid": [
+        1280,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 3.287152916125916e-08,
+      "ref_vs_tg_relerr": 0.0,
+      "bytes": 268435456,
+      "flops": null,
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 41.217941073089,
+      "ratio_basis": "device time, cuEvent on both sides",
+      "ratio_tg_e2e_over_ref": 44.586645591832166
+    },
+    {
+      "key": "red",
+      "title": "wide reduction (row-dot)",
+      "demands": "one reduction over a K-long axis. This is the rung that separates the framework from the C-18 habit.",
+      "shapes": {
+        "R": 65536,
+        "K": 256
+      },
+      "distinguishing_evidence": "The `red` vs `ew` pair is the designed control: same traffic class, one reduction added. A gap that appears only at `red` is the reduction's; a gap already present at `ew` is the memory path's. The tg_naive control prices the C-18 habit on the same card in the same run, so 'wide contraction' is a measured choice and not an assumption about what a good port looks like.",
+      "input_sha256": {
+        "x": "5cb789e4f0a28c64",
+        "w": "17747541ddfa83ac"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.045,
+      "tg_compile_s": 0.22,
+      "tg_shape": [
+        65536
+      ],
+      "tg_kernels": 3,
+      "tg_relerr_vs_oracle": 1.5000718086505375e-07,
+      "tg": {
+        "median_ms": 38.171552658081055,
+        "min_ms": 37.1475830078125,
+        "max_ms": 43.52601623535156
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 31.844096183776855,
+        "min_ms": 31.14249610900879,
+        "max_ms": 32.599937438964844
+      },
+      "ref": {
+        "median_ms": 0.5257759988307953,
+        "min_ms": 0.5242879986763,
+        "max_ms": 0.5489919781684875
+      },
+      "ref_kernel": "axis_rowdot",
+      "ref_grid": [
+        8192,
+        1,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 1.0819906725864435e-07,
+      "ref_vs_tg_relerr": 1.7938176103655944e-07,
+      "bytes": 134217728,
+      "flops": null,
+      "tg_naive_error": "MemoryError: Allocation of 64.00 MB failed on CUDA. Used: 14.31 GB",
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 60.56589927001383,
+      "ratio_basis": "device time, cuEvent on both sides",
+      "ratio_tg_e2e_over_ref": 72.60040919130161
+    },
+    {
+      "key": "gemm32",
+      "title": "matmul fp32, no tensor core on sm_75",
+      "demands": "reuse: every input byte is read many times, so the kernel must tile and block. FFMA only -- fp32 has no TC on this arch.",
+      "shapes": {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024
+      },
+      "distinguishing_evidence": "notes/26 \u00a76b and notes/06 C-19 together: fp32 does not reach a tensor core at ANY shape on sm_75, and the shape-gate version of that claim was a sweep artefact. The falsifier for 'does not exist for this architecture' (class iv) is a SASS census of BOTH arms: if the reference emits FFMA and no HMMA and the framework does likewise, class (iv) is settled by the hardware, not by the compiler. ALLOW_TF32 is measured separately and labelled, because it changes the numerics and so is a different rung.",
+      "input_sha256": {
+        "A": "090a3ee82794927d",
+        "B": "c918b56017e5e906"
+      },
+      "seed_note": "fixed seeds in axis/rungs.py; both arms read the same buffers",
+      "upload_s": 0.014,
+      "tg_compile_s": 3.06,
+      "tg_shape": [
+        1024,
+        1024
+      ],
+      "tg_kernels": 3,
+      "tg_relerr_vs_oracle": 1.3977356416318252e-06,
+      "tg": {
+        "median_ms": 15.493103981018066,
+        "min_ms": 14.730143547058105,
+        "max_ms": 16.49001693725586
+      },
+      "tg_note": "end-to-end: Python graph build + realize + sync. NOT the ratio's numerator -- see tg_device.",
+      "tg_device": {
+        "median_ms": 5.6209118366241455,
+        "min_ms": 5.509119987487793,
+        "max_ms": 7.0899200439453125
+      },
+      "ref": {
+        "median_ms": 0.9910399913787842,
+        "min_ms": 0.9856320023536682,
+        "max_ms": 1.0158079862594604
+      },
+      "ref_kernel": "axis_gemm_f32",
+      "ref_grid": [
+        8,
+        8,
+        1
+      ],
+      "ref_block": [
+        256,
+        1,
+        1
+      ],
+      "ref_smem": null,
+      "ref_regs": null,
+      "ref_relerr_vs_oracle": 1.3977356416318252e-06,
+      "ref_vs_tg_relerr": 0.0,
+      "bytes": 16777216,
+      "flops": 2147483648,
+      "tg_knob": {
+        "median_ms": 4.15936017036438,
+        "min_ms": 3.9751999378204346,
+        "max_ms": 4.306528091430664
+      },
+      "tg_knob_label": "ALLOW_TF32=1",
+      "tolerance": 0.0001,
+      "status": "OK",
+      "ratio_tg_over_ref": 5.671730591622294,
+      "ratio_basis": "device time, cuEvent on both sides",
+      "ratio_tg_e2e_over_ref": 15.633177385166151
+    },
+    {
+      "key": "gemm16",
+      "status": "EXCEPTION RuntimeError: CUDA Error 716, misaligned address",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/axisrepo/axis/harness.py\", line 841, in main\n    res = measure_rung(r, shapes, a.iters, a.warmup,\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/axisrepo/axis/harness.py\", line 516, in measure_rung\n    dev.synchronize()\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 128, in synchronize\n    check(cuda.cuCtxSynchronize())\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 16, in check\n    raise RuntimeError(f\"CUDA Error {status}, {error}\")\nRuntimeError: CUDA Error 716, misaligned address\n"
+    },
+    {
+      "key": "gather",
+      "status": "EXCEPTION RuntimeError: CUDA Error 716, misaligned address",
+      "traceback": " Buffer: return self.allocate() if not self.is_initialized() else self\n                                                 ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 157, in allocate\n    self._bufs[self.device] = opaque if opaque is not None else self.allocator.alloc(self.nbytes, self.options)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 262, in alloc\n    self.free_cache()\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 266, in free_cache\n    for opaque in opaques: super().free(opaque, sz, options)\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 234, in free\n    self._free(opaque, options if options is not None else self.default_buffer_spec)\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/helpers.py\", line 127, in wrapper\n    try: return func(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 77, in _free\n    else: check(cuda.cuMemFree_v2(opaque))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 16, in check\n    raise RuntimeError(f\"CUDA Error {status}, {error}\")\nRuntimeError: CUDA Error 716, misaligned address\n"
+    },
+    {
+      "key": "scan",
+      "status": "EXCEPTION RuntimeError: CUDA Error 716, misaligned address",
+      "traceback": " Buffer: return self.allocate() if not self.is_initialized() else self\n                                                 ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 157, in allocate\n    self._bufs[self.device] = opaque if opaque is not None else self.allocator.alloc(self.nbytes, self.options)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 262, in alloc\n    self.free_cache()\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 266, in free_cache\n    for opaque in opaques: super().free(opaque, sz, options)\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 234, in free\n    self._free(opaque, options if options is not None else self.default_buffer_spec)\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/helpers.py\", line 127, in wrapper\n    try: return func(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 77, in _free\n    else: check(cuda.cuMemFree_v2(opaque))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 16, in check\n    raise RuntimeError(f\"CUDA Error {status}, {error}\")\nRuntimeError: CUDA Error 716, misaligned address\n"
+    },
+    {
+      "key": "trisolve",
+      "status": "EXCEPTION RuntimeError: CUDA Error 716, misaligned address",
+      "traceback": " Buffer: return self.allocate() if not self.is_initialized() else self\n                                                 ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 157, in allocate\n    self._bufs[self.device] = opaque if opaque is not None else self.allocator.alloc(self.nbytes, self.options)\n                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 262, in alloc\n    self.free_cache()\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 266, in free_cache\n    for opaque in opaques: super().free(opaque, sz, options)\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/device.py\", line 234, in free\n    self._free(opaque, options if options is not None else self.default_buffer_spec)\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/helpers.py\", line 127, in wrapper\n    try: return func(*args, **kwargs)\n                ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 77, in _free\n    else: check(cuda.cuMemFree_v2(opaque))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/tinygrad/runtime/ops_cuda.py\", line 16, in check\n    raise RuntimeError(f\"CUDA Error {status}, {error}\")\nRuntimeError: CUDA Error 716, misaligned address\n"
+    }
+  ]
+}

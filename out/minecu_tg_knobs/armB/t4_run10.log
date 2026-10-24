@@ -1,0 +1,89 @@
+== 1/3  plan (offline: no network, no credentials, costs nothing)
+== plan (offline: no network, no credentials) ================================
+  tree         48 files, 1101.1 KB (from git)
+  fingerprint  c5df0828eb7d662989e574c589cec88e8ea15ea6769316652132c51dbd733613
+  baseline     confirmed  04f8b0be1b2b  48 files
+  change       +0 ~1 -0 =47   (31.7 KB to send)
+
+change    path
+--------  --------------------------
+modified  minecu_tg_knobs/codegen.py
+
+  8862 working-tree files are NOT in the payload and cannot be measured remotely:
+      .agent-scratch/batt-smoke/report.json
+      .agent-scratch/cap-b1024.log
+      .agent-scratch/cap-naive/all_sources.txt
+      .agent-scratch/cap-naive/census.json
+      .agent-scratch/cap-naive/inputs.npz
+      .agent-scratch/cap-naive/max_steps_0032/kernel000.cu
+      .agent-scratch/cap-naive/max_steps_0032/kernel001.cu
+      .agent-scratch/cap-naive/max_steps_0032/kernel002.cu
+      ... and 8854 more
+
+  would send   1 file(s), skip 47
+  would delete 0 remote file(s) (0.0% of the remote manifest)
+  would skip the transfer entirely if the baseline were proven (it is not)
+
+== 2/3  run  (THIS SPENDS GPU QUOTA)
+   dataset tenghuzhang/mc-minecu-knobs-payload
+   kernel  tenghuzhang/mc-minecu-knobs-t4
+   session cap 35m, queue wait 30m
+== run: kaggle ===============================================================
+  THIS SPENDS GPU QUOTA
+  backend   kaggle
+  command   python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned
+  runs at   /Users/huyan00/mycode/mc-cuda-tinygrad/out/gpush/runs/kaggle/mc-minecu-knobs-t4/20260929-164723-c5df0828eb7d
+
+== push: kaggle ==============================================================
+==============================================================================
+  tree         48 files, 1101.1 KB (from git)
+  fingerprint  c5df0828eb7d662989e574c589cec88e8ea15ea6769316652132c51dbd733613
+  baseline     no baseline: never pushed
+  change       +48 ~0 -0 =0   (1101.1 KB to send)
+
+change  path
+------  ----------------------------------------
+added   derivation/_fp32.py
+added   derivation/_util.py
+added   derivation/divide.py
+added   derivation/divide_backends.py
+added   derivation/kda_decay.py
+added   derivation/minecu_gap.py
+added   minecu_ref/bench/bench.cu
+added   minecu_ref/bench/dda_model.py
+added   minecu_ref/bench/stepcount_fast.json
+added   minecu_ref/bench/stepcount_fp32.json
+added   minecu_ref/bench/stepcount_prebasis.json
+added   minecu_tg/README.md
+...     and 12 more
+
+  8862 working-tree files are NOT in the payload and cannot be measured remotely:
+      .agent-scratch/batt-smoke/report.json
+      .agent-scratch/cap-b1024.log
+      .agent-scratch/cap-naive/all_sources.txt
+      .agent-scratch/cap-naive/census.json
+      .agent-scratch/cap-naive/inputs.npz
+      .agent-scratch/cap-naive/max_steps_0032/kernel000.cu
+      .agent-scratch/cap-naive/max_steps_0032/kernel001.cu
+      .agent-scratch/cap-naive/max_steps_0032/kernel002.cu
+      ... and 8854 more
+
+guards
+  [pass  ] mass-deletion guard                resetting the remote workdir; delete-sync is moot
+  [pass  ] working-tree coverage              8862 working-tree files are NOT in the payload (e.g. .agent-scratch/batt-smoke/report.json, .agent-scratch/cap-b1024.log, .agent-scratch/cap-naive/all_sources.txt); they cannot be measured remotely
+  [pass  ] no changes, skipping               +48 ~0 -0 =0: 1101.1 KB to send
+
+
+== backend gates =============================================================
+  [pass  ] title round-trip             'mc minecu knobs t4' slugs to 'mc-minecu-knobs-t4' (derived from the slug, never hand-edited)
+  [pass  ] pack                         48 files, 333.7 KB, sha256 094db7e1107cc898
+  [pass  ] full resync                  nonce added so the version is not byte-identical to the last
+  [pass  ] dataset version              new version published
+  [pass  ] dataset READY                dataset reports ready
+  [pass  ] published file set           Kaggle lists exactly ['SHA256SUMS', 'payload.tgz']
+  [REFUSE] published bytes              published archive: DIFFERING 1: minecu_tg_knobs/codegen.py
+
+  push REFUSED by a backend gate. No GPU time was spent.
+
+  provenance written to /Users/huyan00/mycode/mc-cuda-tinygrad/out/gpush/runs/kaggle/mc-minecu-knobs-t4/20260929-164723-c5df0828eb7d
+EXIT=3

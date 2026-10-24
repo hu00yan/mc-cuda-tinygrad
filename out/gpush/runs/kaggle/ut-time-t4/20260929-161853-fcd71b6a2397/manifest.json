@@ -1,0 +1,21 @@
+{
+  "bytes": 120812,
+  "entries": [
+    {
+      "mtime_ns": 1790663068054614097,
+      "path": "kda/ut_price.py",
+      "sha256": "d1a5dfaba0c63180188c3c1b253981316ac5d22c89d21c4ed126690a8cc7910f",
+      "size": 46637
+    },
+    {
+      "mtime_ns": 1790669908751891705,
+      "path": "kda/ut_time.py",
+      "sha256": "65836ecc180dc256c5106d551761e6667533d17424ea4d490aa277757ea93a47",
+      "size": 74175
+    }
+  ],
+  "files": 2,
+  "fingerprint": "fcd71b6a239765fbaecbbadf370405a8668e1d1a4be8958274a1ca5b298f4696",
+  "schema": "gpush/manifest@1",
+  "source": "git"
+}

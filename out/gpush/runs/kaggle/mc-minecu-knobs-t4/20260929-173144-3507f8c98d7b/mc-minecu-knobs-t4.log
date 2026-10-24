@@ -1,0 +1,110 @@
+[{"stream_name":"stderr","time":7.666147308,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.66619478,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.666199146,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.666201748,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.28593794,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.28597079,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.285975876,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.285979608,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.639986665,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.640037202,"data":"GPUSH runner 1.0.0\n"}
+,{"stream_name":"stdout","time":9.64004347,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":9.640048412,"data":"archive      /kaggle/input/mc-minecu-knobs-payload/payload.tgz\n"}
+,{"stream_name":"stdout","time":9.640052392,"data":"mount        /kaggle/input/mc-minecu-knobs-payload\n"}
+,{"stream_name":"stdout","time":9.640055837,"data":"\n"}
+,{"stream_name":"stdout","time":9.640059257,"data":"--- device ---\n"}
+,{"stream_name":"stdout","time":10.059064202,"data":"GPUSH_DEVICE_JSON:{\"gpu\": true, \"name\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"cuda_runtime\": \"13.0\", \"count\": 2, \"reason\": \"\", \"nvcc\": \"12.8\", \"kernel\": \"6.12.90+\", \"machine\": \"x86_64\", \"os\": \"Linux-6.12.90+-x86_64-with-glibc2.35\", \"python\": \"3.12.13\", \"hostname\": \"9d14af47f215\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":10.059100074,"data":"tree root    /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.059105486,"data":"\n"}
+,{"stream_name":"stdout","time":10.059109307,"data":"--- payload integrity ---\n"}
+,{"stream_name":"stdout","time":10.059113058,"data":"expected 48 files, the tree we will execute has 48\n"}
+,{"stream_name":"stdout","time":10.059124578,"data":"VERDICT: payload matches the fingerprint that was pushed\n"}
+,{"stream_name":"stdout","time":10.059128623,"data":"\n"}
+,{"stream_name":"stdout","time":10.222678425,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":10.222712303,"data":"$ python3 -m minecu_tg_knobs.battery --out /kaggle/working/out/minecu_tg_knobs --ports naive,lean,lean-no-flat,lean-no-unsigned\n"}
+,{"stream_name":"stdout","time":10.222717635,"data":"  cwd   /kaggle/working/tree/payload\n"}
+,{"stream_name":"stdout","time":10.222721767,"data":"  at    2026-09-29 09:37:20 UTC\n"}
+,{"stream_name":"stdout","time":10.222725678,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":1285.786195709,"data":"  installed tinygrad ? (/usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py)\n"}
+,{"stream_name":"stdout","time":1285.786261085,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1285.786269664,"data":"  minecu_tg_knobs -- the on-card battery, one run, same card\n"}
+,{"stream_name":"stdout","time":1285.786304329,"data":"  device  {\"gpu\": \"Tesla T4\", \"memory_mb\": 15360, \"compute_cap\": \"7.5\", \"driver\": \"580.159.04\", \"nvcc\": \"12.8\", \"hostname\": \"9d14af47f215\"}\n"}
+,{"stream_name":"stdout","time":1285.786313321,"data":"  shape   batch 1024, res 32, max_steps 32, world 32^3\n"}
+,{"stream_name":"stdout","time":1285.786317684,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":1285.786322152,"data":"  naive             default                            616.218 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786326475,"data":"  lean              default                            391.416 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786331775,"data":"  lean-no-flat      default                            585.556 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786336284,"data":"  lean-no-unsigned  default                            416.998 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786341665,"data":"  naive             USE_TC=0                           621.414 ms   14 kern  mean steps  19.045  gate PASS           x1.015\n"}
+,{"stream_name":"stdout","time":1285.786346111,"data":"  lean              USE_TC=0                           388.917 ms   14 kern  mean steps  19.045  gate PASS           x1.007\n"}
+,{"stream_name":"stdout","time":1285.78635049,"data":"  lean-no-flat      USE_TC=0                           570.045 ms   14 kern  mean steps  19.045  gate PASS           x0.984\n"}
+,{"stream_name":"stdout","time":1285.786354667,"data":"  lean-no-unsigned  USE_TC=0                           413.579 ms   14 kern  mean steps  19.045  gate PASS           x0.954\n"}
+,{"stream_name":"stdout","time":1285.786359084,"data":"  naive             TC_SELECT=0                        616.578 ms   14 kern  mean steps  19.045  gate PASS           x1.001\n"}
+,{"stream_name":"stdout","time":1285.786362994,"data":"  lean              TC_SELECT=0                        383.565 ms   14 kern  mean steps  19.045  gate PASS           x0.991\n"}
+,{"stream_name":"stdout","time":1285.786368521,"data":"  lean-no-flat      TC_SELECT=0                        573.089 ms   14 kern  mean steps  19.045  gate PASS           x0.991\n"}
+,{"stream_name":"stdout","time":1285.786372669,"data":"  lean-no-unsigned  TC_SELECT=0                        417.067 ms   14 kern  mean steps  19.045  gate PASS           x1.012\n"}
+,{"stream_name":"stdout","time":1285.786379254,"data":"  naive             TC_SELECT=2                        618.823 ms   14 kern  mean steps  19.045  gate PASS           x0.962\n"}
+,{"stream_name":"stdout","time":1285.786383592,"data":"  lean              TC_SELECT=2                        385.782 ms   14 kern  mean steps  19.045  gate PASS           x0.982\n"}
+,{"stream_name":"stdout","time":1285.78638811,"data":"  lean-no-flat      TC_SELECT=2                        585.662 ms   14 kern  mean steps  19.045  gate PASS           x1.011\n"}
+,{"stream_name":"stdout","time":1285.786392524,"data":"  lean-no-unsigned  TC_SELECT=2                        416.740 ms   14 kern  mean steps  19.045  gate PASS           x1.013\n"}
+,{"stream_name":"stdout","time":1285.786396369,"data":"  naive             TC_OPT=1                           623.664 ms   14 kern  mean steps  19.045  gate PASS           x1.003\n"}
+,{"stream_name":"stdout","time":1285.786400133,"data":"  lean              TC_OPT=1                           393.283 ms   14 kern  mean steps  19.045  gate PASS           x1.002\n"}
+,{"stream_name":"stdout","time":1285.786404102,"data":"  lean-no-flat      TC_OPT=1                           574.203 ms   14 kern  mean steps  19.045  gate PASS           x0.999\n"}
+,{"stream_name":"stdout","time":1285.786413216,"data":"  lean-no-unsigned  TC_OPT=1                           408.752 ms   14 kern  mean steps  19.045  gate PASS           x0.984\n"}
+,{"stream_name":"stdout","time":1285.786417403,"data":"  naive             TC_OPT=2                           615.448 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786421512,"data":"  lean              TC_OPT=2                           383.833 ms   14 kern  mean steps  19.045  gate PASS           x1.022\n"}
+,{"stream_name":"stdout","time":1285.786425751,"data":"  lean-no-flat      TC_OPT=2                           564.958 ms   14 kern  mean steps  19.045  gate PASS           x0.977\n"}
+,{"stream_name":"stdout","time":1285.786429938,"data":"  lean-no-unsigned  TC_OPT=2                           415.297 ms   14 kern  mean steps  19.045  gate PASS           x1.028\n"}
+,{"stream_name":"stdout","time":1285.786434601,"data":"  naive             ALLOW_TF32=1                       622.995 ms   14 kern  mean steps  19.045  gate PASS           x1.014\n"}
+,{"stream_name":"stdout","time":1285.786438231,"data":"  lean              ALLOW_TF32=1                       383.515 ms   14 kern  mean steps  19.045  gate PASS           x0.987\n"}
+,{"stream_name":"stdout","time":1285.786442366,"data":"  lean-no-flat      ALLOW_TF32=1                       577.551 ms   14 kern  mean steps  19.045  gate PASS           x0.972\n"}
+,{"stream_name":"stdout","time":1285.786446592,"data":"  lean-no-unsigned  ALLOW_TF32=1                       415.494 ms   14 kern  mean steps  19.045  gate PASS           x0.995\n"}
+,{"stream_name":"stdout","time":1285.786450621,"data":"  naive             NOLOCALS=1                         626.167 ms   14 kern  mean steps  19.045  gate PASS           x1.018\n"}
+,{"stream_name":"stdout","time":1285.786455218,"data":"  lean              NOLOCALS=1                         384.548 ms   14 kern  mean steps  19.045  gate PASS           x0.992\n"}
+,{"stream_name":"stdout","time":1285.78645944,"data":"  lean-no-flat      NOLOCALS=1                         571.197 ms   14 kern  mean steps  19.045  gate PASS           x1.002\n"}
+,{"stream_name":"stdout","time":1285.786463255,"data":"  lean-no-unsigned  NOLOCALS=1                         403.149 ms   14 kern  mean steps  19.045  gate PASS           x0.974\n"}
+,{"stream_name":"stdout","time":1285.786467097,"data":"  naive             IMAGE=1                            613.685 ms   14 kern  mean steps  19.045  gate PASS           x0.991\n"}
+,{"stream_name":"stdout","time":1285.786470963,"data":"  lean              IMAGE=1                            385.938 ms   14 kern  mean steps  19.045  gate PASS           x1.025\n"}
+,{"stream_name":"stdout","time":1285.786475326,"data":"  lean-no-flat      IMAGE=1                            569.739 ms   14 kern  mean steps  19.045  gate PASS           x0.989\n"}
+,{"stream_name":"stdout","time":1285.786479589,"data":"  lean-no-unsigned  IMAGE=1                            415.398 ms   14 kern  mean steps  19.045  gate PASS           x1.010\n"}
+,{"stream_name":"stdout","time":1285.7864838,"data":"  naive             TRANSCENDENTAL=2                   615.769 ms   14 kern  mean steps  19.045  gate PASS           x0.996\n"}
+,{"stream_name":"stdout","time":1285.786488192,"data":"  lean              TRANSCENDENTAL=2                   382.326 ms   14 kern  mean steps  19.045  gate PASS           x0.983\n"}
+,{"stream_name":"stdout","time":1285.786492818,"data":"  lean-no-flat      TRANSCENDENTAL=2                   575.224 ms   14 kern  mean steps  19.045  gate PASS           x1.002\n"}
+,{"stream_name":"stdout","time":1285.786496736,"data":"  lean-no-unsigned  TRANSCENDENTAL=2                   419.529 ms   14 kern  mean steps  19.045  gate PASS           x1.025\n"}
+,{"stream_name":"stdout","time":1285.786505395,"data":"  naive             NOLOCALS=0+TRANSCENDENTAL=1        623.230 ms   14 kern  mean steps  19.045  gate PASS           x1.019\n"}
+,{"stream_name":"stdout","time":1285.786509612,"data":"  lean              NOLOCALS=0+TRANSCENDENTAL=1        387.102 ms   14 kern  mean steps  19.045  gate PASS           x1.005\n"}
+,{"stream_name":"stdout","time":1285.786513809,"data":"  lean-no-flat      NOLOCALS=0+TRANSCENDENTAL=1        576.329 ms   14 kern  mean steps  19.045  gate PASS           x1.010\n"}
+,{"stream_name":"stdout","time":1285.786517845,"data":"  lean-no-unsigned  NOLOCALS=0+TRANSCENDENTAL=1        410.665 ms   14 kern  mean steps  19.045  gate PASS           x0.999\n"}
+,{"stream_name":"stdout","time":1285.786522067,"data":"  naive             NOLOCALS=0+TRANSCENDENTAL=2        620.585 ms   14 kern  mean steps  19.045  gate PASS           x1.023\n"}
+,{"stream_name":"stdout","time":1285.786526928,"data":"  lean              NOLOCALS=0+TRANSCENDENTAL=2        381.264 ms   14 kern  mean steps  19.045  gate PASS           x0.995\n"}
+,{"stream_name":"stdout","time":1285.786531152,"data":"  lean-no-flat      NOLOCALS=0+TRANSCENDENTAL=2        569.760 ms   14 kern  mean steps  19.045  gate PASS           x0.995\n"}
+,{"stream_name":"stdout","time":1285.786535502,"data":"  lean-no-unsigned  NOLOCALS=0+TRANSCENDENTAL=2        411.755 ms   14 kern  mean steps  19.045  gate PASS           x0.998\n"}
+,{"stream_name":"stdout","time":1285.786539878,"data":"  naive             NOLOCALS=1+TRANSCENDENTAL=1        607.895 ms   14 kern  mean steps  19.045  gate PASS           x0.962\n"}
+,{"stream_name":"stdout","time":1285.786544415,"data":"  lean              NOLOCALS=1+TRANSCENDENTAL=1        386.743 ms   14 kern  mean steps  19.045  gate PASS           x1.006\n"}
+,{"stream_name":"stdout","time":1285.786548854,"data":"  lean-no-flat      NOLOCALS=1+TRANSCENDENTAL=1        575.805 ms   14 kern  mean steps  19.045  gate PASS           x1.000\n"}
+,{"stream_name":"stdout","time":1285.786553258,"data":"  lean-no-unsigned  NOLOCALS=1+TRANSCENDENTAL=1        409.428 ms   14 kern  mean steps  19.045  gate PASS           x0.987\n"}
+,{"stream_name":"stdout","time":1285.786557698,"data":"  naive             NOLOCALS=1+TRANSCENDENTAL=2        632.935 ms   14 kern  mean steps  19.045  gate PASS           x1.044\n"}
+,{"stream_name":"stdout","time":1285.786562316,"data":"  lean              NOLOCALS=1+TRANSCENDENTAL=2        386.790 ms   14 kern  mean steps  19.045  gate PASS           x1.012\n"}
+,{"stream_name":"stdout","time":1285.786566406,"data":"  lean-no-flat      NOLOCALS=1+TRANSCENDENTAL=2        579.810 ms   14 kern  mean steps  19.045  gate PASS           x1.019\n"}
+,{"stream_name":"stdout","time":1285.786570593,"data":"  lean-no-unsigned  NOLOCALS=1+TRANSCENDENTAL=2        409.981 ms   14 kern  mean steps  19.045  gate PASS           x1.002\n"}
+,{"stream_name":"stdout","time":1285.786574865,"data":"\n"}
+,{"stream_name":"stdout","time":1285.786578601,"data":"  control re-timed through the run (relative spread):\n"}
+,{"stream_name":"stdout","time":1285.786583072,"data":"    naive              6.14%   \n"}
+,{"stream_name":"stdout","time":1285.786587326,"data":"    lean               4.66%   \n"}
+,{"stream_name":"stdout","time":1285.786591224,"data":"    lean-no-flat       4.44%   \n"}
+,{"stream_name":"stdout","time":1285.786595104,"data":"    lean-no-unsigned   7.35%   \n"}
+,{"stream_name":"stdout","time":1285.786599004,"data":"\n"}
+,{"stream_name":"stdout","time":1285.786602741,"data":"  wrote /kaggle/working/out/minecu_tg_knobs/battery.json\n"}
+,{"stream_name":"stdout","time":1285.786606543,"data":"\n"}
+,{"stream_name":"stdout","time":1285.786621388,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":1285.786629578,"data":"exit 0 after 1275.7 s\n"}
+,{"stream_name":"stdout","time":1285.803821425,"data":"collected 48 files to /kaggle/working/artifacts\n"}
+,{"stream_name":"stderr","time":1288.306894072,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1288.306935043,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1288.48078779,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1288.480815158,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1289.129975056,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1289.447776101,"data":"[NbConvertApp] Writing 29802 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1291.889107315,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1292.734850697,"data":"[NbConvertApp] Writing 339599 bytes to __results__.html\n"}
+]

@@ -1,0 +1,56 @@
+  [  1/70] default                                                  ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [  2/70] default                                                  ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [  3/70] default                                                  ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [  4/70] default                                                  ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [  5/70] default                                                  ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [  6/70] NOLOCALS=1                                               ms=4    launches=13 distinct=17 captured=9 inl_tot=17.0 fp=5b1e2891429a6531
+  [  7/70] NOLOCALS=1                                               ms=8    launches=17 distinct=25 captured=13 inl_tot=58.0 fp=5c03f46089368392
+  [  8/70] NOLOCALS=1                                               ms=16   launches=25 distinct=34 captured=21 inl_tot=164.0 fp=016fdbee56b350a1
+  [  9/70] NOLOCALS=1                                               ms=32   launches=41 distinct=60 captured=37 inl_tot=472.0 fp=f282bdee88f65995
+  [ 10/70] NOLOCALS=1                                               ms=64   launches=73 distinct=91 captured=69 inl_tot=1472.0 fp=5bd3eb34016367a0
+  [ 11/70] TRANSCENDENTAL=2                                         ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=b09a9f4d89ce53ea
+  [ 12/70] TRANSCENDENTAL=2                                         ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=1a4af9dd571552bb
+  [ 13/70] TRANSCENDENTAL=2                                         ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=d6c1ae811bd93864
+  [ 14/70] TRANSCENDENTAL=2                                         ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=a4d8ded8a38a6349
+  [ 15/70] TRANSCENDENTAL=2                                         ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=8c29c3f9168019d4
+  [ 16/70] USE_TC=0                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 17/70] USE_TC=0                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 18/70] USE_TC=0                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 19/70] USE_TC=0                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 20/70] USE_TC=0                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 21/70] TC_SELECT=0                                              ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 22/70] TC_SELECT=0                                              ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 23/70] TC_SELECT=0                                              ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 24/70] TC_SELECT=0                                              ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 25/70] TC_SELECT=0                                              ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 26/70] TC_SELECT=2                                              ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 27/70] TC_SELECT=2                                              ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 28/70] TC_SELECT=2                                              ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 29/70] TC_SELECT=2                                              ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 30/70] TC_SELECT=2                                              ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 31/70] TC_OPT=1                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 32/70] TC_OPT=1                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 33/70] TC_OPT=1                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 34/70] TC_OPT=1                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 35/70] TC_OPT=1                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 36/70] TC_OPT=2                                                 ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 37/70] TC_OPT=2                                                 ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 38/70] TC_OPT=2                                                 ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 39/70] TC_OPT=2                                                 ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 40/70] TC_OPT=2                                                 ms=64   launches=73 distinct=69 captured=69 inl_tot=1472.0 fp=f7bc833ef4f2a3bb
+  [ 41/70] ALLOW_TF32=1                                             ms=4    launches=13 distinct=9 captured=9 inl_tot=17.0 fp=32b8b78e47870496
+  [ 42/70] ALLOW_TF32=1                                             ms=8    launches=17 distinct=13 captured=13 inl_tot=58.0 fp=9252e8e0bdcf7ff3
+  [ 43/70] ALLOW_TF32=1                                             ms=16   launches=25 distinct=21 captured=21 inl_tot=164.0 fp=10f68b7ff620e280
+  [ 44/70] ALLOW_TF32=1                                             ms=32   launches=41 distinct=37 captured=37 inl_tot=472.0 fp=aeff50a0304d0123
+  [ 45/70] ALLOW_TF32=1 ms=64   FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/ALLOW_TF32-1__0064.json'"]
+  [ 46/70] IMAGE=1 ms=4    FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/IMAGE-1__0004.json'"]
+  [ 47/70] IMAGE=1 ms=8    FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/IMAGE-1__0008.json'"]
+  [ 48/70] IMAGE=1 ms=16   FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/IMAGE-1__0016.json'"]
+  [ 49/70] IMAGE=1 ms=32   FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/IMAGE-1__0032.json'"]
+  [ 50/70] IMAGE=1 ms=64   FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/IMAGE-1__0064.json'"]
+  [ 51/70] EMULATED_DTYPES=float64 ms=4    FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/EMULATED_DTYPES-float64__0004.json'"]
+  [ 52/70] EMULATED_DTYPES=float64 ms=8    FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/EMULATED_DTYPES-float64__0008.json'"]
+  [ 53/70] EMULATED_DTYPES=float64 ms=16   FAILED: ["OSError: [Errno 28] No space left on device: '/var/folders/pw/zr39lg6537l37bwc6gtzs0780000gn/T/minecu_knobs_iso.0u7kxlav/EMULATED_DTYPES-float64__0016.json'"]
+Traceback (most recent call last):
+object address  : 0x1018ea0c0
+

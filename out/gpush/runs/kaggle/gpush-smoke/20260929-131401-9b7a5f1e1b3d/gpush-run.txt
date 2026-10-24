@@ -1,0 +1,43 @@
+$ bash kda_t4/INSTALL.sh --cmd && --cmd python3 --cmd kda_t4/probe_env.py
+cwd: /kaggle/working/tree/payload
+exit: 0
+wall: 53.3 s
+
+--- stdout ---
+==============================================================
+kda_t4 INSTALL  2026-09-29T05:14:37Z
+python  : 3.12.13
+pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)
+==============================================================
+
+--> einops
+    $ python3 -m pip install --disable-pip-version-check einops
+    OK einops
+
+--> fla-core
+    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2
+    OK fla-core
+
+--> flash-linear-attention
+    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2
+    OK flash-linear-attention
+
+--> tinygrad
+    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0
+    OK tinygrad
+
+==============================================================
+installed, as the card sees it
+==============================================================
+  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py
+  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py
+  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py
+  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py
+  flash_linear_attention 0.5.2          <import failed: ModuleNotFoundError: No module named 'flash_linear_attention'>
+  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+
+  torch.cuda.is_available()    True
+  device_count                 2
+
+done.

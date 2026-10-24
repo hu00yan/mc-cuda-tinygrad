@@ -1,0 +1,174 @@
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+======================================================================
+GPUSH runner 1.0.0
+======================================================================
+archive      /kaggle/input/datasets/tenghuzhang/l4-probe-payload/payload.tgz
+mount        /kaggle/input/datasets/tenghuzhang/l4-probe-payload
+
+--- device ---
+GPUSH_DEVICE_JSON:{"gpu": true, "name": "Tesla T4", "memory_mb": 15360, "compute_cap": "7.5", "driver": "580.159.04", "cuda_runtime": "13.0", "count": 2, "reason": "", "nvcc": "12.8", "kernel": "6.12.90+", "machine": "x86_64", "os": "Linux-6.12.90+-x86_64-with-glibc2.35", "python": "3.12.13", "hostname": "81732fc9dd0a", "cpu_count": 4}
+tree root    /kaggle/working/tree/payload
+
+--- payload integrity ---
+expected 12 files, the tree we will execute has 12
+VERDICT: payload matches the fingerprint that was pushed
+
+======================================================================
+$ bash kda_t4/l4_run.sh
+  cwd   /kaggle/working/tree/payload
+  at    2026-09-30 03:56:25 UTC
+======================================================================
+l4_run.sh   2026-09-30T03:56:25Z
+python: 3.12.13
+
+################################################################
+# stage: install
+################################################################
+==============================================================
+kda_t4 INSTALL  2026-09-30T03:56:26Z
+python  : 3.12.13
+pip     : pip 24.1.2 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)
+==============================================================
+
+--> einops
+    $ python3 -m pip install --disable-pip-version-check einops
+    OK einops
+
+--> fla-core
+    $ python3 -m pip install --disable-pip-version-check --no-deps fla-core==0.5.2
+    OK fla-core
+
+--> flash-linear-attention
+    $ python3 -m pip install --disable-pip-version-check --no-deps flash-linear-attention==0.5.2
+    OK flash-linear-attention
+
+--> tinygrad
+    $ python3 -m pip install --disable-pip-version-check tinygrad==0.14.0
+    OK tinygrad
+
+==============================================================
+installed, as the card sees it
+==============================================================
+  torch                  2.10.0+cu128   /usr/local/lib/python3.12/dist-packages/torch/__init__.py
+  triton                 3.6.0          /usr/local/lib/python3.12/dist-packages/triton/__init__.py
+  numpy                  2.0.2          /usr/local/lib/python3.12/dist-packages/numpy/__init__.py
+  einops                 0.8.2          /usr/local/lib/python3.12/dist-packages/einops/__init__.py
+  fla                    0.5.2          /usr/local/lib/python3.12/dist-packages/fla/__init__.py
+  flash_linear_attention 0.5.2          <import failed: ModuleNotFoundError: No module named 'flash_linear_attention'>
+  tinygrad               0.14.0         /usr/local/lib/python3.12/dist-packages/tinygrad/__init__.py
+
+  torch.cuda.is_available()    True
+  device_count                 2
+
+done.
+
+>>> install exit=0 (69 s)
+
+################################################################
+# stage: probe
+################################################################
+============================================================================
+l4_probe   started 2026-09-30T03:57:35Z   python 3.12.13
+============================================================================
+durable record: /kaggle/working/l4_probe.jsonl
+
+  BEFORE any import: TRITON_F32_DEFAULT=None
+
+### 0 identity  (t+   0.0s)
+
+============================================================================
+0. IDENTITY -- read this before believing anything below
+============================================================================
+
+  nvidia-smi name        Tesla T4
+  nvidia-smi reason      -
+  torch device name      Tesla T4
+  torch build            2.10.0+cu128  cuda=12.8
+  triton props name      None
+  device_count           2
+  compute capability     7.5   (want 8.9 for an L4)
+  driver / cuda          580.159.04 / None
+  names all sources saw  ['Tesla T4']
+  nvidia-smi driver      580.159.04
+  GPU PRESENT            True   (nvidia-smi present: True)
+{"cc": [7, 5], "cc_str": "7.5", "cuda_runtime": {"cuda_runtime_version_raw": 12080, "driver_version": "580.159.04", "l2_cache_size": 0, "libcudart": "libcudart.so", "max_threads_per_mp": 0, "multiprocessor_count": 7, "shared_optin": 65536, "shared_per_block": 40, "shared_per_mp": 65536}, "gpu_present": true, "is_ada_89": false, "names_seen": ["Tesla T4"], "ok": true, "section": "identity", "smi": {"compute_cap": "7.5", "driver_version_query": "580.159.04", "exe": "/opt/bin/nvidia-smi", "memory_total": "15360 MiB", "n_rows": 2, "name": "Tesla T4", "raw": "Tesla T4, 7.5, 15360 MiB\nTesla T4, 7.5, 15360 MiB"}, "smi_present": true, "smi_reason": null, "torch_info": {"capability": [7, 5], "cuda_compiled": "12.8", "device_count": 2, "float32_matmul_precision": "highest", "is_available": true, "multi_processor_count": 40, "name": "Tesla T4", "tf32_cudnn": true, "tf32_matmul": false, "torch_version": "2.10.0+cu128", "total_memory": 15636037632}, "triton_props": {"cc": null, "keys": ["max_num_regs", "max_shared_mem", "mem_bus_width", "mem_clock_rate", "multiprocessor_count", "sm_clock_rate", "warpSize"], "max_shared_mem": 65536, "multiprocessor_count": 40, "warpSize": 32}}
+
+  VERDICT: cc 7.5, NOT 8.9.
+  This run is a CONTROL for the request, not an L4 measurement, and
+  every number below is labelled control. Nothing in it may be
+  quoted as an L4 property.
+
+### 1 shared memory (imports fla)  (t+   2.1s)
+  AFTER  import fla: TRITON_F32_DEFAULT='ieee'
+{"after": {"TRITON_F32_DEFAULT": "ieee", "TRITON_F32_DEFAULT_PRECISION": null}, "before": {"TRITON_F32_DEFAULT": null, "TRITON_F32_DEFAULT_PRECISION": null}, "changed_by_import": true, "fla_import_error": null, "ok": true, "section": "f32_default"}
+
+============================================================================
+1. SHARED MEMORY -- five readers, and the gate's own verdict
+============================================================================
+
+  reader                                        value
+  fla.get_all_max_shared_mem                   {'file': '/usr/local/lib/python3.12/dist-packages/fla/utils/_device.py', 'get_all_max_shared_mem': [65536, 65536], 'check_shared_mem': '', 'thresholds': {'ADA': 101376, 'AMPERE': 166912, 'HOPPER': 232448, 'DEFAULT': 102400}, 'gate': {'ampere': False, 'ada': False, 'default': False, 'hopper': False}, 'gate_source': ['170: def get_all_max_shared_mem():', "173:             triton.runtime.driver.active.utils.get_device_properties(i)['max_shared_mem']", '188:     def get_shared_memory(cls, arch: str) -> int:', '196: def check_shared_mem(arch: str = "none", tensor_idx: int = 0) -> bool:', '198:         device_shared_mem_list = get_all_max_shared_mem()', '199:         max_shared_memory = device_shared_mem_list[tensor_idx]', '200:         return max_shared_memory >= Backend.get_shared_memory(arch)']}
+  triton.max_shared_mem                        {'max_shared_mem': 65536, 'all_keys': ['max_num_regs', 'max_shared_mem', 'mem_bus_width', 'mem_clock_rate', 'multiprocessor_count', 'sm_clock_rate', 'warpSize'], 'n_devices': 2}
+  torch.shared_memory_per_block_optin          {'shared_memory_per_block': 49152, 'shared_memory_per_block_optin': 65536, 'shared_memory_per_multiprocessor': 65536}
+  torch.shared_memory_per_multiprocessor       {'shared_memory_per_block': 49152, 'shared_memory_per_block_optin': 65536, 'shared_memory_per_multiprocessor': 65536}
+  torch.shared_memory_per_block (NOT optin)    {'shared_memory_per_block': 49152, 'shared_memory_per_block_optin': 65536, 'shared_memory_per_multiprocessor': 65536}
+  cudaDeviceGetAttribute(97)                   {}
+
+  fla's gate, from the installed fla source, not from a note:
+    check_shared_mem('ampere') = False
+    check_shared_mem('ada') = False
+{"gate": {"ada": false, "ampere": false, "default": false, "hopper": false}, "ok": true, "readers": {"attr97": {"attr97[0]": 65536}, "fla": {"check_shared_mem": "", "file": "/usr/local/lib/python3.12/dist-packages/fla/utils/_device.py", "gate": {"ada": false, "ampere": false, "default": false, "hopper": false}, "gate_source": ["170: def get_all_max_shared_mem():", "173:             triton.runtime.driver.active.utils.get_device_properties(i)['max_shared_mem']", "188:     def get_shared_memory(cls, arch: str) -> int:", "196: def check_shared_mem(arch: str = \"none\", tensor_idx: int = 0) -> bool:", "198:         device_shared_mem_list = get_all_max_shared_mem()", "199:         max_shared_memory = device_shared_mem_list[tensor_idx]", "200:         return max_shared_memory >= Backend.get_shared_memory(arch)"], "get_all_max_shared_mem": [65536, 65536], "thresholds": {"ADA": 101376, "AMPERE": 166912, "DEFAULT": 102400, "HOPPER": 232448}}, "torch": {"shared_memory_per_block": 49152, "shared_memory_per_block_optin": 65536, "shared_memory_per_multiprocessor": 65536}, "triton": {"all_keys": ["max_num_regs", "max_shared_mem", "mem_bus_width", "mem_clock_rate", "multiprocessor_count", "sm_clock_rate", "warpSize"], "max_shared_mem": 65536, "n_devices": 2}}, "section": "shared_memory", "thresholds": {"ADA": 101376, "AMPERE": 166912, "DEFAULT": 102400, "HOPPER": 232448}}
+
+>>> probe exit=1 (11 s)
+
+################################################################
+# summary
+################################################################
+  install exit=0
+  probe   exit=1
+  total      80 s
+
+artifacts:
+total 16
+drwxr-xr-x 2 root root 4096 Sep 30 03:56 .
+drwxr-xr-x 3 root root 4096 Sep 30 03:56 ..
+-rw-r--r-- 1 root root 3297 Sep 30 03:57 install.log
+-rw-r--r-- 1 root root  811 Sep 30 03:57 l4_run.log
+
+wrote /kaggle/working/tree/payload/kda_t4/out/l4_run.log
+
+======================================================================
+exit 0 after 80.7 s
+Traceback (most recent call last):
+  File "/kaggle/working/tree/payload/kda_t4/l4_probe.py", line 962, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/kaggle/working/tree/payload/kda_t4/l4_probe.py", line 916, in main
+    if cc < (8, 0):
+       ^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'list' and 'tuple'
+
+Traceback (most recent call last):
+  File "/kaggle/working/tree/payload/kda_t4/l4_probe.py", line 962, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/kaggle/working/tree/payload/kda_t4/l4_probe.py", line 916, in main
+    if cc < (8, 0):
+       ^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'list' and 'tuple'
+collected 14 files to /kaggle/working/artifacts
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[NbConvertApp] Writing 27898 bytes to __notebook__.ipynb
+[NbConvertApp] Converting notebook __notebook__.ipynb to html
+[NbConvertApp] Writing 334310 bytes to __results__.html

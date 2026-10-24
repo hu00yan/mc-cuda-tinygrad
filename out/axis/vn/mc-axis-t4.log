@@ -1,0 +1,216 @@
+[{"stream_name":"stderr","time":6.84932022,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.849383411,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.756133618,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.756166756,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.756171505,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.75617529,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.382553948,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.382585533,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.382590498,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.382594453,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.596970197,"data":"  ok  axis/__init__.py               0 B  e3b0c44298fc1c14\n"}
+,{"stream_name":"stdout","time":9.597015344,"data":"  ok  axis/refkernels.cu         34390 B  d6c7bab72a340311\n"}
+,{"stream_name":"stdout","time":9.597020042,"data":"  ok  axis/rungs.py              21459 B  a11063135986c431\n"}
+,{"stream_name":"stdout","time":9.597023975,"data":"  ok  axis/verify.py             20671 B  4cfe8808f1294045\n"}
+,{"stream_name":"stdout","time":9.597027562,"data":"  ok  axis/harness.py            52038 B  973777640a269569\n"}
+,{"stream_name":"stdout","time":9.597030971,"data":"  ok  axis/sass_census.py         3161 B  14b50b29af7a2855\n"}
+,{"stream_name":"stdout","time":9.59703431,"data":"  ok  axis/classify.py           24859 B  502c1f55b2878481\n"}
+,{"stream_name":"stdout","time":9.597037897,"data":"\n"}
+,{"stream_name":"stdout","time":9.597045984,"data":"  7 payloads verified and written to /kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":17.70505203,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 29.2 MB/s eta 0:00:00\r\n"}
+,{"stream_name":"stdout","time":17.905192912,"data":"  tinygrad imports; default device: CUDA\n"}
+,{"stream_name":"stdout","time":17.905223732,"data":"  available: \u003cgenerator object _Device.get_available_devices at 0x7daff65bfe20\u003e\n"}
+,{"stream_name":"stdout","time":19.774608642,"data":"  numpy 2.0.2\n"}
+,{"stream_name":"stdout","time":19.853145282,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":20.111982924,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":20.112022262,"data":"axis/verify.py -- CPU gate. No GPU. Runs before any Kaggle push.\r\n"}
+,{"stream_name":"stdout","time":20.112026867,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":20.112051502,"data":"\r\n"}
+,{"stream_name":"stdout","time":20.112056681,"data":"1. the TinyGrad side is pure Tensor (task constraint, checked by AST)\r\n"}
+,{"stream_name":"stdout","time":20.163032711,"data":"   [PASS] rungs.py imports only tinygrad + numpy; no custom_kernel,\r\n"}
+,{"stream_name":"stdout","time":20.16306292,"data":"          no ctypes, no driver API, no foreign framework.\r\n"}
+,{"stream_name":"stdout","time":20.16306993,"data":"\r\n"}
+,{"stream_name":"stdout","time":20.163077264,"data":"2. every rung's TinyGrad arm against an independent float64 oracle\r\n"}
+,{"stream_name":"stdout","time":20.163080543,"data":"   (a green gate is necessary, not sufficient -- notes/06 5b)\r\n"}
+,{"stream_name":"stdout","time":20.163083123,"data":"   small shapes, CPU: {'ew': {'n': 4096}, 'red': {'R': 64, 'K': 32}, 'gemm32': {'M': 32, 'N': 32, 'K': 32}, 'gemm16': {'M': 32, 'N': 32, 'K': 32}, 'gather': {'n': 4096, 'table': 1024}, 'scan': {'R': 16, 'N': 64}, 'trisolve': {'B': 8, 'C': 64, 'BC': 16}}\r\n"}
+,{"stream_name":"stdout","time":21.075928108,"data":"   [PASS] ew        worst relerr 3.348e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":21.278794241,"data":"   [PASS] red       worst relerr 1.385e-07  (tol 1e-05)  shape (64,)\r\n"}
+,{"stream_name":"stdout","time":21.380388179,"data":"   [PASS] gemm32    worst relerr 1.200e-07  (tol 1e-05)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":21.786348084,"data":"   [PASS] gemm16    worst relerr 3.235e-04  (tol 5e-02)  shape (32, 32)\r\n"}
+,{"stream_name":"stdout","time":21.93876644,"data":"   [PASS] gather    worst relerr 4.102e-08  (tol 1e-05)  shape (4096,)\r\n"}
+,{"stream_name":"stdout","time":22.040759773,"data":"   [PASS] scan      worst relerr 8.196e-08  (tol 1e-05)  shape (16, 64)\r\n"}
+,{"stream_name":"stdout","time":31.361700153,"data":"   [PASS] trisolve  worst relerr 1.873e-07  (tol 1e-04)  shape (8, 64, 64)\r\n"}
+,{"stream_name":"stdout","time":31.361771516,"data":"\r\n"}
+,{"stream_name":"stdout","time":31.361779119,"data":"3. the naive controls exist and are separate measurements\r\n"}
+,{"stream_name":"stdout","time":32.323797938,"data":"   [ok  ] red       naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":32.932793577,"data":"   [ok  ] scan      naive spelling runs (its TIME is the control)\r\n"}
+,{"stream_name":"stdout","time":32.932830675,"data":"\r\n"}
+,{"stream_name":"stdout","time":32.932837228,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":32.932842897,"data":"ALL CHECKS PASS -- 7 rungs\r\n"}
+,{"stream_name":"stdout","time":32.932890045,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":33.363887232,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":39.090488683,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.090530816,"data":"  2. compile the reference for sm_75 (on this card)\r\n"}
+,{"stream_name":"stdout","time":39.090536967,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.090542389,"data":"  nvcc rc=0 in 2.6s   /usr/local/cuda/bin/nvcc\r\n"}
+,{"stream_name":"stdout","time":39.090547476,"data":"  SASS 1008064 B, 14 kernels\r\n"}
+,{"stream_name":"stdout","time":39.090552489,"data":"  kernel              pattern  expected  match\r\n"}
+,{"stream_name":"stdout","time":39.090557527,"data":"  axis_ew               ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":39.090562346,"data":"  axis_rowdot           pppii     pppii  yes\r\n"}
+,{"stream_name":"stdout","time":39.090567331,"data":"  axis_gemm_f32        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":39.090583673,"data":"  axis_gemm_f16        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":39.090587774,"data":"  axis_gather           ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":39.090591607,"data":"  axis_scan_v4           ppii      ppii  yes\r\n"}
+,{"stream_name":"stdout","time":39.090595444,"data":"  axis_trisolve           ppi       ppi  yes\r\n"}
+,{"stream_name":"stdout","time":39.090599303,"data":"  all reference signatures match the launcher's argument lists\r\n"}
+,{"stream_name":"stdout","time":39.090603259,"data":"  cubin 88672 B  sha256 c83ce0d4059ac21b\r\n"}
+,{"stream_name":"stdout","time":39.09060713,"data":"  kernel               regs    smem B  params\r\n"}
+,{"stream_name":"stdout","time":39.090611073,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x782fcf51a850\u003e)\r\n"}
+,{"stream_name":"stdout","time":39.090615862,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.090619683,"data":"  memory floor on THIS card: fill 233.1 GB/s (write-only), copy 239.8 GB/s (read+write)\r\n"}
+,{"stream_name":"stdout","time":39.090623624,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\r\n"}
+,{"stream_name":"stdout","time":39.090627524,"data":"  SMOKE: tiny shapes, 2 iterations -- mechanism check, not a measurement\r\n"}
+,{"stream_name":"stdout","time":39.090631503,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.090635171,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.090639181,"data":"  rung ew: elementwise, pure bandwidth\r\n"}
+,{"stream_name":"stdout","time":39.090643083,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.090647068,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\r\n"}
+,{"stream_name":"stdout","time":39.090651056,"data":"  shapes : {'n': 4096}\r\n"}
+,{"stream_name":"stdout","time":39.090654862,"data":"  status            REF_UNAVAILABLE\r\n"}
+,{"stream_name":"stdout","time":39.090658785,"data":"  tg_device              0.0431 ms   (min 0.0392, max 0.0469)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":39.090662863,"data":"  tg                     1.4235 ms   (min 1.3720, max 1.4750)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":39.090666943,"data":"Traceback (most recent call last):\r\n"}
+,{"stream_name":"stdout","time":39.090670775,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1156, in \u003cmodule\u003e\r\n"}
+,{"stream_name":"stdout","time":39.090675016,"data":"    sys.exit(main())\r\n"}
+,{"stream_name":"stdout","time":39.090678879,"data":"             ^^^^^^\r\n"}
+,{"stream_name":"stdout","time":39.090682702,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1074, in main\r\n"}
+,{"stream_name":"stdout","time":39.090686842,"data":"    _print_rung(res)\r\n"}
+,{"stream_name":"stdout","time":39.090690642,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1110, in _print_rung\r\n"}
+,{"stream_name":"stdout","time":39.090695969,"data":"    log(f\"  {side:\u003c18} {t['median_ms']:10.4f} ms   (min {t['min_ms']:.4f}, max {t['max_ms']:.4f}){note}\")\r\n"}
+,{"stream_name":"stdout","time":39.090711835,"data":"                        ~^^^^^^^^^^^^^\r\n"}
+,{"stream_name":"stdout","time":39.090715905,"data":"KeyError: 'median_ms'\r\n"}
+,{"stream_name":"stdout","time":39.392955884,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":39.727699064,"data":"\r\n"}
+,{"stream_name":"stdout","time":39.727772043,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":39.727779672,"data":"  1. environment\r\n"}
+,{"stream_name":"stdout","time":39.727783984,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":40.032464071,"data":"  Device.DEFAULT     CUDA\r\n"}
+,{"stream_name":"stdout","time":40.032492725,"data":"  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad\r\n"}
+,{"stream_name":"stdout","time":40.032499321,"data":"  tinygrad_version   0.14.0\r\n"}
+,{"stream_name":"stdout","time":40.032506093,"data":"  numpy              2.0.2\r\n"}
+,{"stream_name":"stdout","time":40.032508498,"data":"  python             3.12.13\r\n"}
+,{"stream_name":"stdout","time":40.032510805,"data":"  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":40.032513233,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\r\n"}
+,{"stream_name":"stdout","time":40.032515592,"data":"\r\n"}
+,{"stream_name":"stdout","time":40.032517806,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":40.032520224,"data":"  2. compile the reference for sm_75 (on this card)\r\n"}
+,{"stream_name":"stdout","time":40.032523123,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":41.454949928,"data":"  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc\r\n"}
+,{"stream_name":"stdout","time":43.079955613,"data":"  SASS 1008064 B, 14 kernels\r\n"}
+,{"stream_name":"stdout","time":43.079986228,"data":"  kernel              pattern  expected  match\r\n"}
+,{"stream_name":"stdout","time":43.079991048,"data":"  axis_ew               ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.079995278,"data":"  axis_rowdot           pppii     pppii  yes\r\n"}
+,{"stream_name":"stdout","time":43.079998859,"data":"  axis_gemm_f32        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":43.080002549,"data":"  axis_gemm_f16        pppiii    pppiii  yes\r\n"}
+,{"stream_name":"stdout","time":43.080006028,"data":"  axis_gather           ppppi     ppppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.080009522,"data":"  axis_scan_v4           ppii      ppii  yes\r\n"}
+,{"stream_name":"stdout","time":43.080013073,"data":"  axis_trisolve           ppi       ppi  yes\r\n"}
+,{"stream_name":"stdout","time":43.080016859,"data":"  all reference signatures match the launcher's argument lists\r\n"}
+,{"stream_name":"stdout","time":43.080020349,"data":"  cubin 88672 B  sha256 c83ce0d4059ac21b\r\n"}
+,{"stream_name":"stdout","time":43.080023796,"data":"  kernel               regs    smem B  params\r\n"}
+,{"stream_name":"stdout","time":43.080027377,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x79c9ee649150\u003e)\r\n"}
+,{"stream_name":"stdout","time":43.739972385,"data":"\r\n"}
+,{"stream_name":"stdout","time":43.74000994,"data":"  memory floor on THIS card: fill 232.8 GB/s (write-only), copy 239.8 GB/s (read+write)\r\n"}
+,{"stream_name":"stdout","time":43.740015036,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\r\n"}
+,{"stream_name":"stdout","time":43.740018056,"data":"\r\n"}
+,{"stream_name":"stdout","time":43.740020608,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.740023758,"data":"  rung ew: elementwise, pure bandwidth\r\n"}
+,{"stream_name":"stdout","time":43.740056411,"data":"==============================================================================\r\n"}
+,{"stream_name":"stdout","time":43.740061221,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\r\n"}
+,{"stream_name":"stdout","time":43.740064835,"data":"  shapes : {'n': 16777216}\r\n"}
+,{"stream_name":"stdout","time":47.692046984,"data":"  status            REF_UNAVAILABLE\r\n"}
+,{"stream_name":"stdout","time":47.692092329,"data":"  tg_device              1.0603 ms   (min 1.0495, max 1.0868)  \u003c- the ratio's numerator\r\n"}
+,{"stream_name":"stdout","time":47.692099978,"data":"  tg                     2.3852 ms   (min 2.3447, max 2.6050)  (end-to-end, includes Python)\r\n"}
+,{"stream_name":"stdout","time":47.692103804,"data":"Traceback (most recent call last):\r\n"}
+,{"stream_name":"stdout","time":47.692107076,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1156, in \u003cmodule\u003e\r\n"}
+,{"stream_name":"stdout","time":47.692110642,"data":"    sys.exit(main())\r\n"}
+,{"stream_name":"stdout","time":47.692113707,"data":"             ^^^^^^\r\n"}
+,{"stream_name":"stdout","time":47.692116689,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1074, in main\r\n"}
+,{"stream_name":"stdout","time":47.692119757,"data":"    _print_rung(res)\r\n"}
+,{"stream_name":"stdout","time":47.692122636,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1110, in _print_rung\r\n"}
+,{"stream_name":"stdout","time":47.692126353,"data":"    log(f\"  {side:\u003c18} {t['median_ms']:10.4f} ms   (min {t['min_ms']:.4f}, max {t['max_ms']:.4f}){note}\")\r\n"}
+,{"stream_name":"stdout","time":47.692129739,"data":"                        ~^^^^^^^^^^^^^\r\n"}
+,{"stream_name":"stdout","time":47.692132969,"data":"KeyError: 'median_ms'\r\n"}
+,{"stream_name":"stdout","time":48.0961305,"data":"/kaggle/working/axisrepo\n"}
+,{"stream_name":"stdout","time":48.447289084,"data":"usage: harness.py [-h] [--iters ITERS] [--warmup WARMUP] [--skip-controls]\r\n"}
+,{"stream_name":"stdout","time":48.447325129,"data":"                  [--rungs RUNGS] [--smoke] [--no-naive] [--no-knob]\r\n"}
+,{"stream_name":"stdout","time":48.447331642,"data":"                  [--floor-n FLOOR_N] [--json JSON]\r\n"}
+,{"stream_name":"stdout","time":48.447336657,"data":"harness.py: error: argument --iters: invalid int value: '{iters}'\r\n"}
+,{"stream_name":"stdout","time":48.568920166,"data":"  axis_report.json     1877\n"}
+,{"stream_name":"stdout","time":48.568947391,"data":"  axis_smoke.json      1873\n"}
+,{"stream_name":"stdout","time":48.568953841,"data":"  axis_controls.json   MISSING\n"}
+,{"stream_name":"stdout","time":48.568959286,"data":"\n"}
+,{"stream_name":"stdout","time":48.568963677,"data":"---- axis_report.json ----\n"}
+,{"stream_name":"stdout","time":48.568967928,"data":"\n"}
+,{"stream_name":"stdout","time":48.568977712,"data":"---- tail of axis_run.log ----\n"}
+,{"stream_name":"stdout","time":48.568981664,"data":"\n"}
+,{"stream_name":"stdout","time":48.568985654,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.568990249,"data":"  1. environment\n"}
+,{"stream_name":"stdout","time":48.568994826,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.568998062,"data":"  Device.DEFAULT     CUDA\n"}
+,{"stream_name":"stdout","time":48.56900115,"data":"  tinygrad           /usr/local/lib/python3.12/dist-packages/tinygrad\n"}
+,{"stream_name":"stdout","time":48.569004247,"data":"  tinygrad_version   0.14.0\n"}
+,{"stream_name":"stdout","time":48.569016772,"data":"  numpy              2.0.2\n"}
+,{"stream_name":"stdout","time":48.569019245,"data":"  python             3.12.13\n"}
+,{"stream_name":"stdout","time":48.569021555,"data":"  nvidia_smi         Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":48.569023875,"data":"Tesla T4, 7.5, 15360 MiB, 580.159.04\n"}
+,{"stream_name":"stdout","time":48.569026062,"data":"\n"}
+,{"stream_name":"stdout","time":48.569028256,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.569030521,"data":"  2. compile the reference for sm_75 (on this card)\n"}
+,{"stream_name":"stdout","time":48.569032748,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.569035024,"data":"  nvcc rc=0 in 1.4s   /usr/local/cuda/bin/nvcc\n"}
+,{"stream_name":"stdout","time":48.569037312,"data":"  SASS 1008064 B, 14 kernels\n"}
+,{"stream_name":"stdout","time":48.569039466,"data":"  kernel              pattern  expected  match\n"}
+,{"stream_name":"stdout","time":48.569041631,"data":"  axis_ew               ppppi     ppppi  yes\n"}
+,{"stream_name":"stdout","time":48.569043901,"data":"  axis_rowdot           pppii     pppii  yes\n"}
+,{"stream_name":"stdout","time":48.569046072,"data":"  axis_gemm_f32        pppiii    pppiii  yes\n"}
+,{"stream_name":"stdout","time":48.569048248,"data":"  axis_gemm_f16        pppiii    pppiii  yes\n"}
+,{"stream_name":"stdout","time":48.569050502,"data":"  axis_gather           ppppi     ppppi  yes\n"}
+,{"stream_name":"stdout","time":48.569052694,"data":"  axis_scan_v4           ppii      ppii  yes\n"}
+,{"stream_name":"stdout","time":48.569054865,"data":"  axis_trisolve           ppi       ppi  yes\n"}
+,{"stream_name":"stdout","time":48.569057134,"data":"  all reference signatures match the launcher's argument lists\n"}
+,{"stream_name":"stdout","time":48.569078033,"data":"  cubin 88672 B  sha256 c83ce0d4059ac21b\n"}
+,{"stream_name":"stdout","time":48.569081891,"data":"  kernel               regs    smem B  params\n"}
+,{"stream_name":"stdout","time":48.569085667,"data":"  module loaded into TinyGrad's own context (\u003ctinygrad.runtime.support.c.LP_struct_CUctx_st object at 0x79c9ee649150\u003e)\n"}
+,{"stream_name":"stdout","time":48.569090414,"data":"\n"}
+,{"stream_name":"stdout","time":48.569094332,"data":"  memory floor on THIS card: fill 232.8 GB/s (write-only), copy 239.8 GB/s (read+write)\n"}
+,{"stream_name":"stdout","time":48.569098532,"data":"  SMs=40  L2=4.2 MB  smem/block=49152 B\n"}
+,{"stream_name":"stdout","time":48.56910255,"data":"\n"}
+,{"stream_name":"stdout","time":48.569106299,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.569109792,"data":"  rung ew: elementwise, pure bandwidth\n"}
+,{"stream_name":"stdout","time":48.569113817,"data":"==============================================================================\n"}
+,{"stream_name":"stdout","time":48.569118194,"data":"  demands: nothing: no reduction, no gather, no reuse. The control rung.\n"}
+,{"stream_name":"stdout","time":48.56912249,"data":"  shapes : {'n': 16777216}\n"}
+,{"stream_name":"stdout","time":48.569125893,"data":"  status            REF_UNAVAILABLE\n"}
+,{"stream_name":"stdout","time":48.569130679,"data":"  tg_device              1.0603 ms   (min 1.0495, max 1.0868)  \u003c- the ratio's numerator\n"}
+,{"stream_name":"stdout","time":48.569134303,"data":"  tg                     2.3852 ms   (min 2.3447, max 2.6050)  (end-to-end, includes Python)\n"}
+,{"stream_name":"stdout","time":48.569143696,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":48.569148967,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1156, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":48.569153221,"data":"    sys.exit(main())\n"}
+,{"stream_name":"stdout","time":48.569156979,"data":"             ^^^^^^\n"}
+,{"stream_name":"stdout","time":48.569160711,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1074, in main\n"}
+,{"stream_name":"stdout","time":48.569164044,"data":"    _print_rung(res)\n"}
+,{"stream_name":"stdout","time":48.569167219,"data":"  File \"/kaggle/working/axisrepo/axis/harness.py\", line 1110, in _print_rung\n"}
+,{"stream_name":"stdout","time":48.569170684,"data":"    log(f\"  {side:\u003c18} {t['median_ms']:10.4f} ms   (min {t['min_ms']:.4f}, max {t['max_ms']:.4f}){note}\")\n"}
+,{"stream_name":"stdout","time":48.569174401,"data":"                        ~^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":48.569177721,"data":"KeyError: 'median_ms'\n"}
+,{"stream_name":"stdout","time":48.569180811,"data":"\n"}
+,{"stream_name":"stderr","time":51.417505368,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":51.417535073,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":51.585873293,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":51.585898111,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":52.245625127,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":52.55407274,"data":"[NbConvertApp] Writing 234721 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":54.854754466,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":55.658790088,"data":"[NbConvertApp] Writing 518728 bytes to __results__.html\n"}
+]

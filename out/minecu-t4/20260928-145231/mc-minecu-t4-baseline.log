@@ -1,0 +1,1124 @@
+[{"stream_name":"stderr","time":6.411052927,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.411146648,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.303906445,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.303928724,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.303947516,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.303952124,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.9170742,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.9171056239999995,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.917110366,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.9171159410000005,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.082162052,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":9.083238788,"data":"minecu_ref -- hand-written CUDA baseline on Kaggle\n"}
+,{"stream_name":"stdout","time":9.084080639,"data":"========================================================================\n"}
+,{"stream_name":"stdout","time":9.084879143,"data":"\n"}
+,{"stream_name":"stdout","time":9.085680204,"data":"--- provenance ---\n"}
+,{"stream_name":"stdout","time":9.086485714,"data":"  notebook assembled by minecu_ref/kaggle/make_notebook.py\n"}
+,{"stream_name":"stdout","time":9.087304889,"data":"  kernels.cu       116131 B  sha256 c6ed8f06ee64d40a8a8ab7ebce3b3ceea1e3ac93f9ee50cfc1e63d3f090d878f  OK\n"}
+,{"stream_name":"stdout","time":9.088920389,"data":"                 matches the vendored copy in minecu_ref/src or bench/\n"}
+,{"stream_name":"stdout","time":9.089734486,"data":"  bench.cu          56300 B  sha256 416b559dc275a51cc5cee4fe8543788299e83f1b36cd20d7d78a75daa6da0738  OK\n"}
+,{"stream_name":"stdout","time":9.090495466,"data":"                 matches the vendored copy in minecu_ref/src or bench/\n"}
+,{"stream_name":"stdout","time":9.091199491,"data":"\n"}
+,{"stream_name":"stdout","time":9.091928568,"data":"--- build for sm_75 ---\n"}
+,{"stream_name":"stdout","time":9.122541579,"data":"  Cuda compilation tools, release 12.8, V12.8.93\n"}
+,{"stream_name":"stdout","time":9.123199444,"data":"  Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+,{"stream_name":"stdout","time":17.57253667,"data":"  nvcc -arch=sm_75 rc=0 in 8.4s\n"}
+,{"stream_name":"stdout","time":17.573474146,"data":"  binary 1414448 B at /kaggle/working/minecu_bench_sm_75\n"}
+,{"stream_name":"stdout","time":17.574116996,"data":"\n"}
+,{"stream_name":"stdout","time":17.575040461,"data":"--- SASS census (proves the binary really is sm_75) ---\n"}
+,{"stream_name":"stdout","time":18.615033279,"data":"  arch line: arch = sm_75\n"}
+,{"stream_name":"stdout","time":18.616061897,"data":"  HMMA=0  HGMMA=0  LDGSTS=0  REDUX=0  ELECT=0  BAR.RED=0  F2FP=0\n"}
+,{"stream_name":"stdout","time":18.618080013,"data":"  verdict: no sm_75-illegal instructions\n"}
+,{"stream_name":"stdout","time":18.619031028,"data":"  STG.E.U8.SYS (uint8 obs store) 140, LDG.E.S8.CONSTANT.SYS (__ldg voxel read) 112\n"}
+,{"stream_name":"stdout","time":18.619923436,"data":"\n"}
+,{"stream_name":"stdout","time":18.620815077,"data":"--- battery ---\n"}
+,{"stream_name":"stdout","time":18.621768322,"data":"  12 entries, wall budget 1500s\n"}
+,{"stream_name":"stdout","time":18.622611571,"data":"\n"}
+,{"stream_name":"stdout","time":18.623299479,"data":"  === selftest_w16: --batch 4096 --world 16 --res 32 --selftest-only ===\n"}
+,{"stream_name":"stdout","time":19.398380368,"data":"  \n"}
+,{"stream_name":"stdout","time":19.399522895,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":19.401343709,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":19.401674381,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":19.402769404,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":19.403792129,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":19.404799462,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":19.405702885,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":19.40665974,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":19.407585697000002,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":19.408495692,"data":"  shape             batch=4096 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":19.409439692,"data":"  iters             per-kernel=200 graph=200 warmup=25\n"}
+,{"stream_name":"stdout","time":19.410376772,"data":"  memory            need ~154 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":19.411313144,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":19.412305915,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=8232960 dirt=6291456 log=36864 leaf=4096 brick=32768 cobble=32768 planks=49152\n"}
+,{"stream_name":"stdout","time":19.41334347,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":19.41432876,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":19.415219348,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":19.41612676,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":19.417084494,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":19.418006341,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":19.418776913,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":19.419520718,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":19.420593163,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":19.421465626,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":19.422313216,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":19.423091518,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":19.424004628,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":19.424811393,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":19.425532045,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 4096 of 4096 envs rewarded (mean 1.00, target_block=3), 4096 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":19.42618502,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 4096 envs rewarded (want 0), 4096 voxels mutated (want 4096), 4096 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":19.426855181,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 4096 envs\n"}
+,{"stream_name":"stdout","time":19.427557354,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":19.428196574,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":19.428871386,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":19.429573386,"data":"  \n"}
+,{"stream_name":"stdout","time":19.430218238,"data":"  DONE (selftest only)\n"}
+,{"stream_name":"stdout","time":19.430885945,"data":"  --- selftest_w16: rc=0 in 0.8s -\u003e log_selftest_w16.txt\n"}
+,{"stream_name":"stdout","time":19.431574396,"data":"\n"}
+,{"stream_name":"stdout","time":19.432196129,"data":"  === selftest_w32: --batch 4096 --world 32 --res 32 --selftest-only ===\n"}
+,{"stream_name":"stdout","time":20.624446052,"data":"  \n"}
+,{"stream_name":"stdout","time":20.62551682,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":20.626501828,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":20.627426802,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":20.628360277,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":20.629301388000002,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":20.630204064,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":20.631190566,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":20.632218221,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":20.633073749,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":20.633885261,"data":"  shape             batch=4096 world=32^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":20.634830602,"data":"  iters             per-kernel=200 graph=200 warmup=25\n"}
+,{"stream_name":"stdout","time":20.63603375,"data":"  memory            need ~378 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":20.636309705,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":20.637362866,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=100319232 dirt=25165824 log=61440 leaf=4096 brick=81920 cobble=81920 planks=114688\n"}
+,{"stream_name":"stdout","time":20.638180968,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":20.639073738,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":20.639783304,"data":"    [PASS] physics_kernel moved the agent               x 16.0000 -\u003e 16.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":20.640772096,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":20.641701724,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=8.00\n"}
+,{"stream_name":"stdout","time":20.642586236,"data":"    [PASS] physics_kernel clamped x to the world box    x=16.0000 must be in [1,31]\n"}
+,{"stream_name":"stdout","time":20.643584667,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":20.644505405,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":20.645413565,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":20.646298394,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 529/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":20.647002622,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 529 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":20.647728972,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 529, minimal sky 529, agree 529\n"}
+,{"stream_name":"stdout","time":20.648434317,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":20.649139001,"data":"      (dig aim: log (16.5,9.5,18.5) from eye (16.00,11.60,16.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":20.649880593,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 4096 of 4096 envs rewarded (mean 1.00, target_block=3), 4096 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":20.650564555,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 4096 envs rewarded (want 0), 4096 voxels mutated (want 4096), 4096 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":20.651257435,"data":"    [PASS] reset_kernel restored the spawn point        spawn (16.0,10.0,16.0) for all 4096 envs\n"}
+,{"stream_name":"stdout","time":20.651872988,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":20.652569795,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":20.653206882,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":20.653937265,"data":"  \n"}
+,{"stream_name":"stdout","time":20.654788042,"data":"  DONE (selftest only)\n"}
+,{"stream_name":"stdout","time":20.655458317,"data":"  --- selftest_w32: rc=0 in 1.2s -\u003e log_selftest_w32.txt\n"}
+,{"stream_name":"stdout","time":20.65611259,"data":"\n"}
+,{"stream_name":"stdout","time":20.656853378,"data":"  === selftest_w48: --batch 4096 --world 48 --res 32 --selftest-only ===\n"}
+,{"stream_name":"stdout","time":23.367412875,"data":"  \n"}
+,{"stream_name":"stdout","time":23.368354882,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":23.369577519,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":23.370821816,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":23.37179079,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":23.372686595,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":23.373538518,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":23.374457643,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":23.375326505,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":23.376280152,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":23.377170179,"data":"  shape             batch=4096 world=48^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":23.378040698,"data":"  iters             per-kernel=200 graph=200 warmup=25\n"}
+,{"stream_name":"stdout","time":23.378936935,"data":"  memory            need ~986 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":23.379810539,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":23.380733667,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=377143296 dirt=56623104 log=61440 leaf=4096 brick=81920 cobble=81920 planks=114688\n"}
+,{"stream_name":"stdout","time":23.381608937,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":23.382479095,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":23.383347851,"data":"    [PASS] physics_kernel moved the agent               x 24.0000 -\u003e 24.0000, y 10.0000 -\u003e 12.0000\n"}
+,{"stream_name":"stdout","time":23.384258119,"data":"    [PASS] physics_kernel clamped to its floor y=world_y/4 spawn y0=10.00 is at/below the physics floor world_y/4=12.00 so the clamp dominates; y1=12.00000 must be the floor. reference defect: floor=world_y/4 but the visible surface is ground_h-1=7\n"}
+,{"stream_name":"stdout","time":23.385143102,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=12.00000 must be \u003e= floor world_y/4=12.00\n"}
+,{"stream_name":"stdout","time":23.38618631,"data":"    [PASS] physics_kernel clamped x to the world box    x=24.0000 must be in [1,47]\n"}
+,{"stream_name":"stdout","time":23.386901377,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 13.6000 got 13.6000 (cam_y 12.0000 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":23.387697453,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":23.388670972,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":23.390336477,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 8 distinct byte values, 726/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":23.390353745,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 726 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":23.391119441,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 726, minimal sky 726, agree 726\n"}
+,{"stream_name":"stdout","time":23.391846211,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":23.392562343,"data":"      (dig aim: log (24.5,9.5,26.5) from eye (24.00,11.60,24.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":23.393228572,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 4096 of 4096 envs rewarded (mean 1.00, target_block=3), 4096 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":23.393883489,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 4096 envs rewarded (want 0), 4096 voxels mutated (want 4096), 4096 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":23.394609228,"data":"    [PASS] reset_kernel restored the spawn point        spawn (24.0,10.0,24.0) for all 4096 envs\n"}
+,{"stream_name":"stdout","time":23.395282392,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":23.3959357,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":23.396659984,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":23.397332774,"data":"  \n"}
+,{"stream_name":"stdout","time":23.398012805,"data":"  DONE (selftest only)\n"}
+,{"stream_name":"stdout","time":23.398726105,"data":"  --- selftest_w48: rc=0 in 2.7s -\u003e log_selftest_w48.txt\n"}
+,{"stream_name":"stdout","time":23.399439416,"data":"\n"}
+,{"stream_name":"stdout","time":23.400140737,"data":"  === headline_w16: --batch 32768 --world 16 --res 32 --max-steps 32 --ground 8 --iters 200 --graph-iters 200 ===\n"}
+,{"stream_name":"stdout","time":28.305917025,"data":"  \n"}
+,{"stream_name":"stdout","time":28.306504797,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":28.307466083,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":28.30842035,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":28.309361125,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":28.3103111,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":28.311279675,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":28.312218009,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":28.31312071,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":28.31405194,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":28.314994554,"data":"  shape             batch=32768 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":28.315942438,"data":"  iters             per-kernel=200 graph=200 warmup=25\n"}
+,{"stream_name":"stdout","time":28.316853474,"data":"  memory            need ~1232 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":28.317793674,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":28.318767962,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=65863680 dirt=50331648 log=294912 leaf=32768 brick=262144 cobble=262144 planks=393216\n"}
+,{"stream_name":"stdout","time":28.31955401,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":28.320335485,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":28.321359466,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":28.322316677,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":28.323357369,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":28.324385598,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":28.325196817,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":28.325930263,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":28.326657572,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":28.327343892000002,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":28.327999305,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":28.328795908,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":28.329683876,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":28.330644276,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":28.331568848,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":28.33248504,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":28.333438457,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":28.334198053,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":28.335082908,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":28.33601168,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":28.33692485,"data":"  \n"}
+,{"stream_name":"stdout","time":28.337732544,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":28.338604831,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":28.339338836,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":28.340202745,"data":"    write    1x (store only)  536870912    2291.4     234.3\n"}
+,{"stream_name":"stdout","time":28.340931902,"data":"    read     1x (load only)   536870912    1933.6     277.6\n"}
+,{"stream_name":"stdout","time":28.341874827,"data":"    copy     2x (1:1 RMW)     1073741824     208.6    5148.0\n"}
+,{"stream_name":"stdout","time":28.342756559,"data":"    memcpy   2x (1:1 D2D)     1073741824    4481.4     239.6\n"}
+,{"stream_name":"stdout","time":28.343669832,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":28.344524661,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":28.3453178,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":28.346215525,"data":"  \n"}
+,{"stream_name":"stdout","time":28.347174261,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":28.348094376,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":28.34891952,"data":"    200 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":28.349715445,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":28.35061806,"data":"    decode_actions_kernel                       6.0        4.4       16.7        1.1       0.0         -\n"}
+,{"stream_name":"stdout","time":28.351501378,"data":"    physics_kernel                              6.1        4.8       12.3        0.7       0.0         -\n"}
+,{"stream_name":"stdout","time":28.352260042,"data":"    raycast_interact_kernel                    12.3       10.7       15.9        0.6       0.0         -\n"}
+,{"stream_name":"stdout","time":28.35311384,"data":"    reset_kernel                                4.4        4.0       12.3        1.0       0.0         -\n"}
+,{"stream_name":"stdout","time":28.354032441,"data":"    precompute_camera_basis_kernel             26.6       24.6       47.2        2.5       0.0         -\n"}
+,{"stream_name":"stdout","time":28.354841983,"data":"    render_kernel (fp32 obs)                 2814.0     2811.9     3169.6       80.4     190.8       81%\n"}
+,{"stream_name":"stdout","time":28.355810929,"data":"    render_kernel_uint8_minimal              1990.7     1974.1     2093.0       16.6     118.0       50%\n"}
+,{"stream_name":"stdout","time":28.356714521,"data":"    render_kernel_uint8_fp16                 2109.1     2077.0     2170.8       19.3     111.4       48%\n"}
+,{"stream_name":"stdout","time":28.357592013,"data":"    render_kernel_uint8_prebasis             1751.0     1686.0     1786.2       20.4     134.1       57%\n"}
+,{"stream_name":"stdout","time":28.358586859,"data":"    SUM (informative)                        8720.2  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":28.35948055,"data":"  \n"}
+,{"stream_name":"stdout","time":28.360379003,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":28.361307661,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":28.362211494,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":28.363184207,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":28.364059553,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":28.365086234,"data":"    launch_step (fp32 obs, 6 kern)          6     2807.0     2381.8     2940.4     148.4     11.67\n"}
+,{"stream_name":"stdout","time":28.366031328,"data":"    launch_step_uint8_prebasis (7)          7     1824.1     1782.4     2016.6      45.6     17.96\n"}
+,{"stream_name":"stdout","time":28.366908346,"data":"    launch_step_..._prebasis_full (9)       9     1824.8     1784.2     1883.6      17.1     17.96\n"}
+,{"stream_name":"stdout","time":28.368011405,"data":"  \n"}
+,{"stream_name":"stdout","time":28.368994365,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":28.370024008,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":28.371065917,"data":"    write-only floor               234.3 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":28.372086341,"data":"    read-modify-write floor       5148.0 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":28.373122283,"data":"    D2D memcpy floor               239.6 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":28.374114379,"data":"  \n"}
+,{"stream_name":"stdout","time":28.375157195,"data":"    per step, float32 obs path: write 384.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":28.376197609,"data":"    per step, uint8    obs path: write 96.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":28.377331683,"data":"  \n"}
+,{"stream_name":"stdout","time":28.378366888,"data":"    obs-write-only time, fp32     1718.6 us  -\u003e   19.07 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":28.379395858,"data":"    obs-write-only time, uint8      429.6 us  -\u003e   76.27 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":28.380625082,"data":"  \n"}
+,{"stream_name":"stdout","time":28.381665416,"data":"    measured whole-step, fp32      2807.0 us   -\u003e    11.67 M env-steps/s\n"}
+,{"stream_name":"stdout","time":28.382691831,"data":"    measured whole-step, u8 pre    1824.1 us   -\u003e    17.96 M env-steps/s\n"}
+,{"stream_name":"stdout","time":28.383721743,"data":"    measured whole-step, u8 full   1824.8 us   -\u003e    17.96 M env-steps/s\n"}
+,{"stream_name":"stdout","time":28.38474976,"data":"  \n"}
+,{"stream_name":"stdout","time":28.385748855,"data":"    fp32 step, obs write alone   :    143.4 GB/s =  61.2% of the write floor\n"}
+,{"stream_name":"stdout","time":28.386742545,"data":"    fp32 step, obs+voxel counted :    191.3 GB/s =   3.7% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":28.387675548,"data":"    u8   step, obs write alone   :     55.2 GB/s =  23.6% of the write floor\n"}
+,{"stream_name":"stdout","time":28.38855943,"data":"    u8   step, obs+voxel counted :    128.8 GB/s =   2.5% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":28.389367272,"data":"  \n"}
+,{"stream_name":"stdout","time":28.39006036,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":28.390799206,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":28.391598287,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":28.392339993,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":28.393020941,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":28.393759188,"data":"  \n"}
+,{"stream_name":"stdout","time":28.394535607999998,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":28.395191972,"data":"  --- headline_w16: rc=0 in 4.9s -\u003e log_headline_w16.txt\n"}
+,{"stream_name":"stdout","time":28.395894549,"data":"\n"}
+,{"stream_name":"stdout","time":28.396538874,"data":"  === sweep_w16: --batch 32768 --world 16 --res 32 --max-steps 32 --iters 60 --graph-iters 60 ===\n"}
+,{"stream_name":"stdout","time":31.000457393,"data":"  \n"}
+,{"stream_name":"stdout","time":31.001436949,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":31.002344209,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":31.00332331,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":31.004281825,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":31.005094926,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":31.006027601,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":31.006947916,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":31.007866233,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":31.008875346,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":31.009790933,"data":"  shape             batch=32768 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":31.010774928,"data":"  iters             per-kernel=60 graph=60 warmup=25\n"}
+,{"stream_name":"stdout","time":31.011669099,"data":"  memory            need ~1232 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":31.012530525,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":31.013508117,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=65863680 dirt=50331648 log=294912 leaf=32768 brick=262144 cobble=262144 planks=393216\n"}
+,{"stream_name":"stdout","time":31.014342916,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":31.015331449,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":31.016215829,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":31.017183405,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":31.0181135,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":31.019025925,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":31.019986996,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":31.020836148,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":31.021824722,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":31.022733529,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":31.023778773,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":31.025329503,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":31.026194476,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":31.026968694,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":31.027839551,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":31.02877547,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":31.029646645,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":31.030551477,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":31.031171938,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":31.032126478,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":31.033067836,"data":"  \n"}
+,{"stream_name":"stdout","time":31.03410927,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":31.035014434,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":31.035949739,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":31.036849728,"data":"    write    1x (store only)  536870912    2289.8     234.5\n"}
+,{"stream_name":"stdout","time":31.037799641,"data":"    read     1x (load only)   536870912    1929.0     278.3\n"}
+,{"stream_name":"stdout","time":31.038765112,"data":"    copy     2x (1:1 RMW)     1073741824     148.5    7231.6\n"}
+,{"stream_name":"stdout","time":31.039848825,"data":"    memcpy   2x (1:1 D2D)     1073741824    4593.7     233.7\n"}
+,{"stream_name":"stdout","time":31.04066665,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":31.041642951,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":31.042549402,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":31.043527299,"data":"  \n"}
+,{"stream_name":"stdout","time":31.044436693,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":31.045410064,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":31.046328409,"data":"    60 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":31.047263672,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":31.048187545,"data":"    decode_actions_kernel                       5.9        4.5       10.8        1.0       0.0         -\n"}
+,{"stream_name":"stdout","time":31.049127013,"data":"    physics_kernel                              6.1        4.7       11.7        0.9       0.0         -\n"}
+,{"stream_name":"stdout","time":31.050140768,"data":"    raycast_interact_kernel                    12.3       10.8       19.4        1.4       0.0         -\n"}
+,{"stream_name":"stdout","time":31.051182413,"data":"    reset_kernel                                4.3        3.9        5.6        0.4       0.0         -\n"}
+,{"stream_name":"stdout","time":31.052055113,"data":"    precompute_camera_basis_kernel             26.1       24.6       33.5        1.3       0.0         -\n"}
+,{"stream_name":"stdout","time":31.053009146,"data":"    render_kernel (fp32 obs)                 2906.3     2857.5     3226.7      119.9     184.7       79%\n"}
+,{"stream_name":"stdout","time":31.05393213,"data":"    render_kernel_uint8_minimal              2031.6     2005.7     2129.5       33.9     115.6       49%\n"}
+,{"stream_name":"stdout","time":31.054860455,"data":"    render_kernel_uint8_fp16                 2137.0     2110.5     2142.2       11.2     109.9       47%\n"}
+,{"stream_name":"stdout","time":31.055848273,"data":"    render_kernel_uint8_prebasis             1759.7     1751.5     1814.5       13.3     133.5       57%\n"}
+,{"stream_name":"stdout","time":31.056755845,"data":"    SUM (informative)                        8889.3  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":31.057731966,"data":"  \n"}
+,{"stream_name":"stdout","time":31.058589978,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":31.059532155,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":31.060356806,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":31.061011683,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":31.061788339,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":31.062501024,"data":"    launch_step (fp32 obs, 6 kern)          6     2809.9     2600.9     2854.0      59.6     11.66\n"}
+,{"stream_name":"stdout","time":31.063135375,"data":"    launch_step_uint8_prebasis (7)          7     1862.0     1814.4     2010.9      61.5     17.60\n"}
+,{"stream_name":"stdout","time":31.063886589,"data":"    launch_step_..._prebasis_full (9)       9     1829.0     1797.7     1875.2      24.4     17.92\n"}
+,{"stream_name":"stdout","time":31.064589536,"data":"  \n"}
+,{"stream_name":"stdout","time":31.065260397,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":31.065982154,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":31.066687774,"data":"    write-only floor               234.5 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":31.067430597,"data":"    read-modify-write floor       7231.6 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":31.06811565,"data":"    D2D memcpy floor               233.7 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":31.068843629,"data":"  \n"}
+,{"stream_name":"stdout","time":31.069587008,"data":"    per step, float32 obs path: write 384.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":31.070265573,"data":"    per step, uint8    obs path: write 96.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":31.070888937,"data":"  \n"}
+,{"stream_name":"stdout","time":31.071598044,"data":"    obs-write-only time, fp32     1717.4 us  -\u003e   19.08 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":31.072226994,"data":"    obs-write-only time, uint8      429.3 us  -\u003e   76.32 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":31.073094503,"data":"  \n"}
+,{"stream_name":"stdout","time":31.073741632,"data":"    measured whole-step, fp32      2809.9 us   -\u003e    11.66 M env-steps/s\n"}
+,{"stream_name":"stdout","time":31.074450511,"data":"    measured whole-step, u8 pre    1862.0 us   -\u003e    17.60 M env-steps/s\n"}
+,{"stream_name":"stdout","time":31.075108133,"data":"    measured whole-step, u8 full   1829.0 us   -\u003e    17.92 M env-steps/s\n"}
+,{"stream_name":"stdout","time":31.075924132,"data":"  \n"}
+,{"stream_name":"stdout","time":31.076624197,"data":"    fp32 step, obs write alone   :    143.3 GB/s =  61.1% of the write floor\n"}
+,{"stream_name":"stdout","time":31.077331057,"data":"    fp32 step, obs+voxel counted :    191.1 GB/s =   2.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":31.078104571,"data":"    u8   step, obs write alone   :     54.1 GB/s =  23.1% of the write floor\n"}
+,{"stream_name":"stdout","time":31.078838641,"data":"    u8   step, obs+voxel counted :    126.1 GB/s =   1.7% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":31.079521111,"data":"  \n"}
+,{"stream_name":"stdout","time":31.080251626,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":31.080873737,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":31.081644922,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":31.082400083,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":31.083103898,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":31.08388786,"data":"  \n"}
+,{"stream_name":"stdout","time":31.08470372,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":31.085410118,"data":"  --- sweep_w16: rc=0 in 2.6s -\u003e log_sweep_w16.txt\n"}
+,{"stream_name":"stdout","time":31.086091581,"data":"\n"}
+,{"stream_name":"stdout","time":31.086833885,"data":"  === batch4k_w16: --batch 4096 --world 16 --res 32 --max-steps 32 --iters 100 --graph-iters 100 ===\n"}
+,{"stream_name":"stdout","time":32.042217816,"data":"  \n"}
+,{"stream_name":"stdout","time":32.043265554,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":32.04412385,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":32.045083261,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":32.045952218,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":32.046905142,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":32.047926375,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":32.048838764,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":32.049745263,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":32.050689179,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":32.051584589,"data":"  shape             batch=4096 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":32.05250709,"data":"  iters             per-kernel=100 graph=100 warmup=25\n"}
+,{"stream_name":"stdout","time":32.053482799,"data":"  memory            need ~154 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":32.054344841,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":32.055340587,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=8232960 dirt=6291456 log=36864 leaf=4096 brick=32768 cobble=32768 planks=49152\n"}
+,{"stream_name":"stdout","time":32.056369486,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":32.057348204,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":32.058280659,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":32.059140725,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":32.060122704,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":32.061064323,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":32.061973148,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":32.062951519,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":32.063784689,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":32.064695421,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":32.065651839,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":32.066464235,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":32.067352723,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":32.068261239,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":32.069214741,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 4096 of 4096 envs rewarded (mean 1.00, target_block=3), 4096 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":32.070117894,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 4096 envs rewarded (want 0), 4096 voxels mutated (want 4096), 4096 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":32.071024495,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 4096 envs\n"}
+,{"stream_name":"stdout","time":32.071892724,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":32.072945633,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":32.07387042,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":32.074828296,"data":"  \n"}
+,{"stream_name":"stdout","time":32.075760764,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":32.076696901,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":32.077720117,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":32.078638542,"data":"    write    1x (store only)  536870912    2285.5     234.9\n"}
+,{"stream_name":"stdout","time":32.07962032,"data":"    read     1x (load only)   536870912    1929.2     278.3\n"}
+,{"stream_name":"stdout","time":32.080696122,"data":"    copy     2x (1:1 RMW)     1073741824     145.4    7384.3\n"}
+,{"stream_name":"stdout","time":32.081632942,"data":"    memcpy   2x (1:1 D2D)     1073741824    4598.7     233.5\n"}
+,{"stream_name":"stdout","time":32.082581599,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":32.083540157,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":32.084325484,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":32.085166238,"data":"  \n"}
+,{"stream_name":"stdout","time":32.085984125,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":32.086851065,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":32.087904868,"data":"    100 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":32.08871744,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":32.089600942,"data":"    decode_actions_kernel                       4.3        3.8       22.4        2.0       0.0         -\n"}
+,{"stream_name":"stdout","time":32.090523004,"data":"    physics_kernel                              4.6        4.1       19.4        1.7       0.0         -\n"}
+,{"stream_name":"stdout","time":32.091454931,"data":"    raycast_interact_kernel                     8.6        8.2       28.5        2.2       0.0         -\n"}
+,{"stream_name":"stdout","time":32.092320895,"data":"    reset_kernel                                4.3        2.8       32.6        3.0       0.0         -\n"}
+,{"stream_name":"stdout","time":32.09329779,"data":"    precompute_camera_basis_kernel              7.0        6.1       12.7        1.0       0.0         -\n"}
+,{"stream_name":"stdout","time":32.094125545,"data":"    render_kernel (fp32 obs)                  267.4      260.1      327.4       24.3     251.0      107%\n"}
+,{"stream_name":"stdout","time":32.095053778,"data":"    render_kernel_uint8_minimal               288.8      254.0      297.0       17.4     101.7       43%\n"}
+,{"stream_name":"stdout","time":32.095934735,"data":"    render_kernel_uint8_fp16                  293.8      281.2      301.3        6.4      99.9       43%\n"}
+,{"stream_name":"stdout","time":32.09685605,"data":"    render_kernel_uint8_prebasis              239.6      229.3      253.7        4.4     122.6       52%\n"}
+,{"stream_name":"stdout","time":32.097737214,"data":"    SUM (informative)                        1118.2  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":32.098656709,"data":"  \n"}
+,{"stream_name":"stdout","time":32.099516968,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":32.100710898,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":32.101357121,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":32.102267498,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":32.103144141,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":32.103987859,"data":"    launch_step (fp32 obs, 6 kern)          6      327.2      325.3      339.7       1.9     12.52\n"}
+,{"stream_name":"stdout","time":32.104764264,"data":"    launch_step_uint8_prebasis (7)          7      260.2      250.0      268.3       4.6     15.74\n"}
+,{"stream_name":"stdout","time":32.105500889,"data":"    launch_step_..._prebasis_full (9)       9      253.1      246.6      265.0       3.1     16.18\n"}
+,{"stream_name":"stdout","time":32.106248428,"data":"  \n"}
+,{"stream_name":"stdout","time":32.106949791,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":32.107714583,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":32.108507502,"data":"    write-only floor               234.9 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":32.109207055,"data":"    read-modify-write floor       7384.3 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":32.109880264,"data":"    D2D memcpy floor               233.5 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":32.110656054,"data":"  \n"}
+,{"stream_name":"stdout","time":32.111395553,"data":"    per step, float32 obs path: write 48.0 MiB + at least 16.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":32.112056914,"data":"    per step, uint8    obs path: write 12.0 MiB + at least 16.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":32.112794161,"data":"  \n"}
+,{"stream_name":"stdout","time":32.113574636,"data":"    obs-write-only time, fp32      214.3 us  -\u003e   19.12 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":32.114295696,"data":"    obs-write-only time, uint8       53.6 us  -\u003e   76.47 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":32.114979679,"data":"  \n"}
+,{"stream_name":"stdout","time":32.115747871,"data":"    measured whole-step, fp32       327.2 us   -\u003e    12.52 M env-steps/s\n"}
+,{"stream_name":"stdout","time":32.116513152,"data":"    measured whole-step, u8 pre     260.2 us   -\u003e    15.74 M env-steps/s\n"}
+,{"stream_name":"stdout","time":32.117282025,"data":"    measured whole-step, u8 full    253.1 us   -\u003e    16.18 M env-steps/s\n"}
+,{"stream_name":"stdout","time":32.1180226,"data":"  \n"}
+,{"stream_name":"stdout","time":32.118774157,"data":"    fp32 step, obs write alone   :    153.8 GB/s =  65.5% of the write floor\n"}
+,{"stream_name":"stdout","time":32.119503403,"data":"    fp32 step, obs+voxel counted :    205.1 GB/s =   2.8% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":32.12025634,"data":"    u8   step, obs write alone   :     48.4 GB/s =  20.6% of the write floor\n"}
+,{"stream_name":"stdout","time":32.120946196,"data":"    u8   step, obs+voxel counted :    112.8 GB/s =   1.5% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":32.121709037,"data":"  \n"}
+,{"stream_name":"stdout","time":32.122445963,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":32.123185985,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":32.123978775,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":32.124796916,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":32.125547938,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":32.12617755,"data":"  \n"}
+,{"stream_name":"stdout","time":32.126935628,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":32.12766499,"data":"  --- batch4k_w16: rc=0 in 1.0s -\u003e log_batch4k_w16.txt\n"}
+,{"stream_name":"stdout","time":32.128352049,"data":"\n"}
+,{"stream_name":"stdout","time":32.129086808,"data":"  === batch8k_w16: --batch 8192 --world 16 --res 32 --max-steps 32 --iters 100 --graph-iters 100 ===\n"}
+,{"stream_name":"stdout","time":33.41488546,"data":"  \n"}
+,{"stream_name":"stdout","time":33.415833407,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":33.416761778,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":33.417710706,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":33.418639154,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":33.41940786,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":33.420174259,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":33.42103374,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":33.421816775,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":33.422742462,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":33.423722735,"data":"  shape             batch=8192 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":33.424664214,"data":"  iters             per-kernel=100 graph=100 warmup=25\n"}
+,{"stream_name":"stdout","time":33.425630385,"data":"  memory            need ~308 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":33.426491276,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":33.427395632,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=16465920 dirt=12582912 log=73728 leaf=8192 brick=65536 cobble=65536 planks=98304\n"}
+,{"stream_name":"stdout","time":33.428340318,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":33.429211518,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":33.430090683,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":33.431003273,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":33.431855294,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":33.432770907,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":33.433692186,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":33.434609885,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":33.4354672,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":33.43636475,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":33.43725135,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":33.438209843,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":33.43922452,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":33.440106902,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":33.440936265,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 8192 of 8192 envs rewarded (mean 1.00, target_block=3), 8192 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":33.441782512,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 8192 envs rewarded (want 0), 8192 voxels mutated (want 8192), 8192 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":33.442585566,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 8192 envs\n"}
+,{"stream_name":"stdout","time":33.443508854,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":33.444220801,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":33.444940041,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":33.446008379,"data":"  \n"}
+,{"stream_name":"stdout","time":33.447084874,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":33.448070875,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":33.448954941,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":33.44977621,"data":"    write    1x (store only)  536870912    2286.7     234.8\n"}
+,{"stream_name":"stdout","time":33.450797261,"data":"    read     1x (load only)   536870912    1929.7     278.2\n"}
+,{"stream_name":"stdout","time":33.451835767,"data":"    copy     2x (1:1 RMW)     1073741824     147.1    7300.8\n"}
+,{"stream_name":"stdout","time":33.452810079,"data":"    memcpy   2x (1:1 D2D)     1073741824    4593.6     233.7\n"}
+,{"stream_name":"stdout","time":33.45371832,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":33.454720329,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":33.455646252,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":33.45661417,"data":"  \n"}
+,{"stream_name":"stdout","time":33.457562171,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":33.458511641,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":33.459454545,"data":"    100 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":33.460221127,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":33.461098855,"data":"    decode_actions_kernel                       4.5        4.1       18.4        1.7       0.0         -\n"}
+,{"stream_name":"stdout","time":33.461914185,"data":"    physics_kernel                              4.8        4.1       12.1        1.1       0.0         -\n"}
+,{"stream_name":"stdout","time":33.462796086,"data":"    raycast_interact_kernel                     8.8        8.2       16.1        1.0       0.0         -\n"}
+,{"stream_name":"stdout","time":33.463682577,"data":"    reset_kernel                                4.3        3.9       30.8        3.6       0.0         -\n"}
+,{"stream_name":"stdout","time":33.464495732,"data":"    precompute_camera_basis_kernel             10.2        8.7       26.7        2.6       0.0         -\n"}
+,{"stream_name":"stdout","time":33.465472508,"data":"    render_kernel (fp32 obs)                  528.3      508.5      801.9      119.9     254.1      108%\n"}
+,{"stream_name":"stdout","time":33.466286843,"data":"    render_kernel_uint8_minimal               550.9      516.4      644.5       39.1     106.6       45%\n"}
+,{"stream_name":"stdout","time":33.467029985,"data":"    render_kernel_uint8_fp16                  540.4      538.2      549.9        2.5     108.7       46%\n"}
+,{"stream_name":"stdout","time":33.467888345,"data":"    render_kernel_uint8_prebasis              454.7      443.0      478.4        7.0     129.2       55%\n"}
+,{"stream_name":"stdout","time":33.468805516,"data":"    SUM (informative)                        2107.0  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":33.469818979,"data":"  \n"}
+,{"stream_name":"stdout","time":33.470790103,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":33.471629914,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":33.472558786,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":33.473419675,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":33.474333299,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":33.475167264,"data":"    launch_step (fp32 obs, 6 kern)          6      665.6      604.4      733.5      46.5     12.31\n"}
+,{"stream_name":"stdout","time":33.476064273,"data":"    launch_step_uint8_prebasis (7)          7      502.3      479.2      557.1      19.5     16.31\n"}
+,{"stream_name":"stdout","time":33.476971414,"data":"    launch_step_..._prebasis_full (9)       9      476.5      466.4      499.7       6.7     17.19\n"}
+,{"stream_name":"stdout","time":33.477868982,"data":"  \n"}
+,{"stream_name":"stdout","time":33.478807422,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":33.479888839,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":33.480705464,"data":"    write-only floor               234.8 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":33.481742255,"data":"    read-modify-write floor       7300.8 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":33.482804088,"data":"    D2D memcpy floor               233.7 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":33.483770379,"data":"  \n"}
+,{"stream_name":"stdout","time":33.484819921,"data":"    per step, float32 obs path: write 96.0 MiB + at least 32.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":33.48586084,"data":"    per step, uint8    obs path: write 24.0 MiB + at least 32.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":33.487010795,"data":"  \n"}
+,{"stream_name":"stdout","time":33.488122409,"data":"    obs-write-only time, fp32      428.7 us  -\u003e   19.11 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":33.489129465,"data":"    obs-write-only time, uint8      107.2 us  -\u003e   76.43 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":33.490119428,"data":"  \n"}
+,{"stream_name":"stdout","time":33.491123831,"data":"    measured whole-step, fp32       665.6 us   -\u003e    12.31 M env-steps/s\n"}
+,{"stream_name":"stdout","time":33.492323642,"data":"    measured whole-step, u8 pre     502.3 us   -\u003e    16.31 M env-steps/s\n"}
+,{"stream_name":"stdout","time":33.49333005,"data":"    measured whole-step, u8 full    476.5 us   -\u003e    17.19 M env-steps/s\n"}
+,{"stream_name":"stdout","time":33.494502386,"data":"  \n"}
+,{"stream_name":"stdout","time":33.495495761,"data":"    fp32 step, obs write alone   :    151.2 GB/s =  64.4% of the write floor\n"}
+,{"stream_name":"stdout","time":33.496510634,"data":"    fp32 step, obs+voxel counted :    201.6 GB/s =   2.8% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":33.497600106,"data":"    u8   step, obs write alone   :     50.1 GB/s =  21.3% of the write floor\n"}
+,{"stream_name":"stdout","time":33.498639725,"data":"    u8   step, obs+voxel counted :    116.9 GB/s =   1.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":33.49964335,"data":"  \n"}
+,{"stream_name":"stdout","time":33.50067683,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":33.501680076,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":33.502649997,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":33.503629758,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":33.504656554,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":33.505939353,"data":"  \n"}
+,{"stream_name":"stdout","time":33.507055828,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":33.508066974,"data":"  --- batch8k_w16: rc=0 in 1.3s -\u003e log_batch8k_w16.txt\n"}
+,{"stream_name":"stdout","time":33.509058016,"data":"\n"}
+,{"stream_name":"stdout","time":33.510077224,"data":"  === batch16k_w16: --batch 16384 --world 16 --res 32 --max-steps 32 --iters 100 --graph-iters 100 ===\n"}
+,{"stream_name":"stdout","time":35.438043019,"data":"  \n"}
+,{"stream_name":"stdout","time":35.438973463,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":35.439870482,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":35.440895236,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":35.441963599,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":35.443000393,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":35.443928067,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":35.444801875,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":35.445712825,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":35.446634474,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":35.447557395,"data":"  shape             batch=16384 world=16^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":35.448602714,"data":"  iters             per-kernel=100 graph=100 warmup=25\n"}
+,{"stream_name":"stdout","time":35.449596376,"data":"  memory            need ~616 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":35.45060685,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":35.451690639,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=32931840 dirt=25165824 log=147456 leaf=16384 brick=131072 cobble=131072 planks=196608\n"}
+,{"stream_name":"stdout","time":35.452584592,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":35.453492882,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":35.454359744,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":35.455251568,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":35.456128617,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":35.457010938,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":35.457945132,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":35.458887339,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":35.459789177,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":35.460676754,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":35.461556655,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":35.46244549,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":35.463332048,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":35.464225783,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":35.465117819,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 16384 of 16384 envs rewarded (mean 1.00, target_block=3), 16384 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":35.466015342,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 16384 envs rewarded (want 0), 16384 voxels mutated (want 16384), 16384 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":35.46688619,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 16384 envs\n"}
+,{"stream_name":"stdout","time":35.46783451,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":35.468883921,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":35.469738231,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":35.470586909,"data":"  \n"}
+,{"stream_name":"stdout","time":35.471486864,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":35.472362632,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":35.473293859,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":35.474147043,"data":"    write    1x (store only)  536870912    2288.1     234.6\n"}
+,{"stream_name":"stdout","time":35.475023615,"data":"    read     1x (load only)   536870912    1930.8     278.1\n"}
+,{"stream_name":"stdout","time":35.475952037,"data":"    copy     2x (1:1 RMW)     1073741824     148.4    7233.9\n"}
+,{"stream_name":"stdout","time":35.476824353,"data":"    memcpy   2x (1:1 D2D)     1073741824    4593.4     233.8\n"}
+,{"stream_name":"stdout","time":35.477741726,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":35.478636465,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":35.47953238,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":35.48043057,"data":"  \n"}
+,{"stream_name":"stdout","time":35.481335145,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":35.482190702,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":35.483073391,"data":"    100 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":35.484073762,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":35.484980906,"data":"    decode_actions_kernel                       5.1        4.1        9.0        0.9       0.0         -\n"}
+,{"stream_name":"stdout","time":35.485869659,"data":"    physics_kernel                              5.3        4.1       12.3        0.9       0.0         -\n"}
+,{"stream_name":"stdout","time":35.486795289,"data":"    raycast_interact_kernel                     9.8        8.2       16.4        1.3       0.0         -\n"}
+,{"stream_name":"stdout","time":35.487753044,"data":"    reset_kernel                                4.2        3.8       21.5        2.1       0.0         -\n"}
+,{"stream_name":"stdout","time":35.488786762,"data":"    precompute_camera_basis_kernel             16.4       15.0       18.0        0.5       0.0         -\n"}
+,{"stream_name":"stdout","time":35.489758504,"data":"    render_kernel (fp32 obs)                 1501.6     1028.1     1653.0      188.3     178.8       76%\n"}
+,{"stream_name":"stdout","time":35.490711535,"data":"    render_kernel_uint8_minimal              1038.5     1011.7     1120.3       34.4     113.1       48%\n"}
+,{"stream_name":"stdout","time":35.491659975,"data":"    render_kernel_uint8_fp16                 1077.3     1075.2     1083.2        1.3     109.0       46%\n"}
+,{"stream_name":"stdout","time":35.492712199,"data":"    render_kernel_uint8_prebasis              889.8      883.7      925.2       12.0     132.0       56%\n"}
+,{"stream_name":"stdout","time":35.493701329,"data":"    SUM (informative)                        4548.0  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":35.494706123,"data":"  \n"}
+,{"stream_name":"stdout","time":35.495525358,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":35.496444779,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":35.497353368,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":35.498166133,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":35.499106507,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":35.500007158,"data":"    launch_step (fp32 obs, 6 kern)          6     1441.6     1209.4     1464.2      72.6     11.37\n"}
+,{"stream_name":"stdout","time":35.500885895,"data":"    launch_step_uint8_prebasis (7)          7      972.8      936.4     1046.5      36.9     16.84\n"}
+,{"stream_name":"stdout","time":35.501685288,"data":"    launch_step_..._prebasis_full (9)       9      929.4      924.2      942.1       2.5     17.63\n"}
+,{"stream_name":"stdout","time":35.502659393,"data":"  \n"}
+,{"stream_name":"stdout","time":35.503555888,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":35.504258204,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":35.504942334,"data":"    write-only floor               234.6 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":35.505711076,"data":"    read-modify-write floor       7233.9 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":35.506484107,"data":"    D2D memcpy floor               233.8 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":35.507533817,"data":"  \n"}
+,{"stream_name":"stdout","time":35.508333446,"data":"    per step, float32 obs path: write 192.0 MiB + at least 64.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":35.509028874,"data":"    per step, uint8    obs path: write 48.0 MiB + at least 64.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":35.509772056,"data":"  \n"}
+,{"stream_name":"stdout","time":35.510548676,"data":"    obs-write-only time, fp32      858.1 us  -\u003e   19.09 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":35.511184597,"data":"    obs-write-only time, uint8      214.5 us  -\u003e   76.38 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":35.511890714,"data":"  \n"}
+,{"stream_name":"stdout","time":35.512655687,"data":"    measured whole-step, fp32      1441.6 us   -\u003e    11.37 M env-steps/s\n"}
+,{"stream_name":"stdout","time":35.513463053,"data":"    measured whole-step, u8 pre     972.8 us   -\u003e    16.84 M env-steps/s\n"}
+,{"stream_name":"stdout","time":35.514197472,"data":"    measured whole-step, u8 full    929.4 us   -\u003e    17.63 M env-steps/s\n"}
+,{"stream_name":"stdout","time":35.514917289,"data":"  \n"}
+,{"stream_name":"stdout","time":35.515696808,"data":"    fp32 step, obs write alone   :    139.7 GB/s =  59.5% of the write floor\n"}
+,{"stream_name":"stdout","time":35.516472026,"data":"    fp32 step, obs+voxel counted :    186.2 GB/s =   2.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":35.517381512,"data":"    u8   step, obs write alone   :     51.7 GB/s =  22.1% of the write floor\n"}
+,{"stream_name":"stdout","time":35.518081769,"data":"    u8   step, obs+voxel counted :    120.7 GB/s =   1.7% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":35.518841015,"data":"  \n"}
+,{"stream_name":"stdout","time":35.519529593,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":35.520290992,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":35.520934048,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":35.521684057,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":35.5224624,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":35.523152912,"data":"  \n"}
+,{"stream_name":"stdout","time":35.52390065,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":35.524662415,"data":"  --- batch16k_w16: rc=0 in 2.0s -\u003e log_batch16k_w16.txt\n"}
+,{"stream_name":"stdout","time":35.525398374,"data":"\n"}
+,{"stream_name":"stdout","time":35.526146154,"data":"  === w32_32px: --batch 32768 --world 32 --res 32 --max-steps 32 --iters 60 --graph-iters 60 ===\n"}
+,{"stream_name":"stdout","time":44.500960405,"data":"  \n"}
+,{"stream_name":"stdout","time":44.502070318,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":44.50305609,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":44.503957137,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":44.504948029,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":44.505870034,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":44.506804885,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":44.507653877,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":44.508332611,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":44.509022314,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":44.509850333,"data":"  shape             batch=32768 world=32^3 res=32x32 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":44.510557183,"data":"  iters             per-kernel=60 graph=60 warmup=25\n"}
+,{"stream_name":"stdout","time":44.511621468,"data":"  memory            need ~3024 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":44.512345265,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":44.513072752,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=802553856 dirt=201326592 log=491520 leaf=32768 brick=655360 cobble=655360 planks=917504\n"}
+,{"stream_name":"stdout","time":44.51380838,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":44.514584472,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":44.515387626,"data":"    [PASS] physics_kernel moved the agent               x 16.0000 -\u003e 16.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":44.516142786,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":44.516951803,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=8.00\n"}
+,{"stream_name":"stdout","time":44.517858122,"data":"    [PASS] physics_kernel clamped x to the world box    x=16.0000 must be in [1,31]\n"}
+,{"stream_name":"stdout","time":44.518609196,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":44.519315718,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":44.52002964,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":44.520841035,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 529/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":44.521646162,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 529 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":44.522411831,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 529, minimal sky 529, agree 529\n"}
+,{"stream_name":"stdout","time":44.523184656,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":44.523885718,"data":"      (dig aim: log (16.5,9.5,18.5) from eye (16.00,11.60,16.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":44.524665347,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":44.525421313,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":44.526140581,"data":"    [PASS] reset_kernel restored the spawn point        spawn (16.0,10.0,16.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":44.526827426,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":44.52759477,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":44.528334365,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":44.529006487,"data":"  \n"}
+,{"stream_name":"stdout","time":44.529862819,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":44.530695224,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":44.53141146,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":44.532121125,"data":"    write    1x (store only)  536870912    2305.3     232.9\n"}
+,{"stream_name":"stdout","time":44.532877173,"data":"    read     1x (load only)   536870912    1933.2     277.7\n"}
+,{"stream_name":"stdout","time":44.533610198,"data":"    copy     2x (1:1 RMW)     1073741824     276.5    3883.2\n"}
+,{"stream_name":"stdout","time":44.53432375,"data":"    memcpy   2x (1:1 D2D)     1073741824    4598.1     233.5\n"}
+,{"stream_name":"stdout","time":44.535121083,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":44.535924177,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":44.536769328,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":44.537638332,"data":"  \n"}
+,{"stream_name":"stdout","time":44.538395399,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":44.539049614,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":44.53979473,"data":"    60 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":44.540557591,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":44.541239618,"data":"    decode_actions_kernel                       6.1        4.6       12.3        1.3       0.0         -\n"}
+,{"stream_name":"stdout","time":44.541969976,"data":"    physics_kernel                              6.1        5.1       10.2        0.8       0.0         -\n"}
+,{"stream_name":"stdout","time":44.54280967,"data":"    raycast_interact_kernel                    12.5       11.0       28.6        2.5       0.0         -\n"}
+,{"stream_name":"stdout","time":44.543614673,"data":"    reset_kernel                                4.4        2.8        9.8        1.2       0.0         -\n"}
+,{"stream_name":"stdout","time":44.544284222,"data":"    precompute_camera_basis_kernel             26.6       24.7       37.4        2.3       0.0         -\n"}
+,{"stream_name":"stdout","time":44.545016461,"data":"    render_kernel (fp32 obs)                 4456.2     4381.3     4624.6       57.4     331.3      142%\n"}
+,{"stream_name":"stdout","time":44.545806531,"data":"    render_kernel_uint8_minimal              3373.0     3315.7     3422.2       30.5     348.2      150%\n"}
+,{"stream_name":"stdout","time":44.546528052,"data":"    render_kernel_uint8_fp16                 3512.6     3469.3     3603.8       27.8     334.3      144%\n"}
+,{"stream_name":"stdout","time":44.547286123,"data":"    render_kernel_uint8_prebasis             3147.9     3086.0     3170.3       19.4     373.1      160%\n"}
+,{"stream_name":"stdout","time":44.548023873,"data":"    SUM (informative)                       14545.5  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":44.548712957,"data":"  \n"}
+,{"stream_name":"stdout","time":44.549511528,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":44.550229013,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":44.550907295,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":44.551653735,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":44.552418566,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":44.553103956,"data":"    launch_step (fp32 obs, 6 kern)          6     7401.1     6975.3     7596.0     133.8      4.43\n"}
+,{"stream_name":"stdout","time":44.553854902,"data":"    launch_step_uint8_prebasis (7)          7     8316.6     7909.2     8503.1     115.3      3.94\n"}
+,{"stream_name":"stdout","time":44.554917671,"data":"    launch_step_..._prebasis_full (9)       9     8357.3     8059.3     8553.0     102.4      3.92\n"}
+,{"stream_name":"stdout","time":44.555819869,"data":"  \n"}
+,{"stream_name":"stdout","time":44.557167625,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":44.558609535,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":44.559982423,"data":"    write-only floor               232.9 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":44.561008917,"data":"    read-modify-write floor       3883.2 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":44.562019578,"data":"    D2D memcpy floor               233.5 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":44.563023103,"data":"  \n"}
+,{"stream_name":"stdout","time":44.564004012,"data":"    per step, float32 obs path: write 384.0 MiB + at least 1024.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":44.564991284,"data":"    per step, uint8    obs path: write 96.0 MiB + at least 1024.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":44.565929196,"data":"  \n"}
+,{"stream_name":"stdout","time":44.566923292,"data":"    obs-write-only time, fp32     1729.0 us  -\u003e   18.95 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":44.567877902,"data":"    obs-write-only time, uint8      432.2 us  -\u003e   75.81 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":44.568850513,"data":"  \n"}
+,{"stream_name":"stdout","time":44.569837853,"data":"    measured whole-step, fp32      7401.1 us   -\u003e     4.43 M env-steps/s\n"}
+,{"stream_name":"stdout","time":44.570831675,"data":"    measured whole-step, u8 pre    8316.6 us   -\u003e     3.94 M env-steps/s\n"}
+,{"stream_name":"stdout","time":44.571787589,"data":"    measured whole-step, u8 full   8357.3 us   -\u003e     3.92 M env-steps/s\n"}
+,{"stream_name":"stdout","time":44.572758272,"data":"  \n"}
+,{"stream_name":"stdout","time":44.573740812,"data":"    fp32 step, obs write alone   :     54.4 GB/s =  23.4% of the write floor\n"}
+,{"stream_name":"stdout","time":44.574714187,"data":"    fp32 step, obs+voxel counted :    199.5 GB/s =   5.1% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":44.575724222,"data":"    u8   step, obs write alone   :     12.1 GB/s =   5.2% of the write floor\n"}
+,{"stream_name":"stdout","time":44.576750155,"data":"    u8   step, obs+voxel counted :    141.2 GB/s =   3.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":44.577774219,"data":"  \n"}
+,{"stream_name":"stdout","time":44.578967175,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":44.57990595,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":44.580983552,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":44.581916131,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":44.582841316,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":44.584037647,"data":"  \n"}
+,{"stream_name":"stdout","time":44.58510217,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":44.586074567,"data":"  --- w32_32px: rc=0 in 9.0s -\u003e log_w32_32px.txt\n"}
+,{"stream_name":"stdout","time":44.587169224,"data":"\n"}
+,{"stream_name":"stdout","time":44.588299106,"data":"  === w16_64px: --batch 32768 --world 16 --res 64 --max-steps 32 --iters 30 --graph-iters 30 ===\n"}
+,{"stream_name":"stdout","time":49.194325418,"data":"  \n"}
+,{"stream_name":"stdout","time":49.195284227,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":49.196268147,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":49.197139141,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":49.198050847,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":49.198957837,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":49.199824889,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":49.200720562,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":49.201624966,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":49.202492269,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":49.203411445,"data":"  shape             batch=32768 world=16^3 res=64x64 max_steps=32 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":49.204257489,"data":"  iters             per-kernel=30 graph=30 warmup=25\n"}
+,{"stream_name":"stdout","time":49.205276902,"data":"  memory            need ~4112 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":49.206110519,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":49.207030738,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=65863680 dirt=50331648 log=294912 leaf=32768 brick=262144 cobble=262144 planks=393216\n"}
+,{"stream_name":"stdout","time":49.207887389,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":49.208819648,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":49.209697353,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":49.210600228,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":49.211578895,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":49.212425467,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":49.213494071,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":49.214444939,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":49.215349179,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":49.216253299,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 2592/4096 sky pixels\n"}
+,{"stream_name":"stdout","time":49.217120467,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 2592 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":49.218038298,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 2592, minimal sky 2592, agree 2592\n"}
+,{"stream_name":"stdout","time":49.218965369,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 12288 values\n"}
+,{"stream_name":"stdout","time":49.219849495,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":49.220768512,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":49.221619282,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":49.222538227,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":49.22338399,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":49.224327257,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":49.225145973,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":49.226047317,"data":"  \n"}
+,{"stream_name":"stdout","time":49.226905439,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":49.227803031,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":49.228748669,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":49.229726963,"data":"    write    1x (store only)  536870912    2289.7     234.5\n"}
+,{"stream_name":"stdout","time":49.230559397,"data":"    read     1x (load only)   536870912    1929.2     278.3\n"}
+,{"stream_name":"stdout","time":49.231461986,"data":"    copy     2x (1:1 RMW)     1073741824     147.7    7268.4\n"}
+,{"stream_name":"stdout","time":49.23241534,"data":"    memcpy   2x (1:1 D2D)     1073741824    4593.2     233.8\n"}
+,{"stream_name":"stdout","time":49.233336925,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":49.234161445,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":49.234861138,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":49.235651302,"data":"  \n"}
+,{"stream_name":"stdout","time":49.23658522,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":49.237498237,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":49.238363846,"data":"    30 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":49.239257858,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":49.24014104,"data":"    decode_actions_kernel                       6.1        4.7        7.4        0.5       0.0         -\n"}
+,{"stream_name":"stdout","time":49.241028345,"data":"    physics_kernel                              6.1        5.7       10.4        1.1       0.0         -\n"}
+,{"stream_name":"stdout","time":49.241933197,"data":"    raycast_interact_kernel                    12.3       11.2       14.1        0.6       0.0         -\n"}
+,{"stream_name":"stdout","time":49.242834044,"data":"    reset_kernel                                4.9        4.1       48.6        8.0       0.0         -\n"}
+,{"stream_name":"stdout","time":49.243757576,"data":"    precompute_camera_basis_kernel             26.3       24.9       43.0        3.3       0.0         -\n"}
+,{"stream_name":"stdout","time":49.244709436,"data":"    render_kernel (fp32 obs)                11586.6    11583.9    11595.3        2.9     150.6       64%\n"}
+,{"stream_name":"stdout","time":49.245553563,"data":"    render_kernel_uint8_minimal              8126.8     8116.2     8255.5       59.0      66.1       28%\n"}
+,{"stream_name":"stdout","time":49.246536355,"data":"    render_kernel_uint8_fp16                 8556.0     8476.7     8745.2       76.9      62.7       27%\n"}
+,{"stream_name":"stdout","time":49.247453613,"data":"    render_kernel_uint8_prebasis             6914.6     6793.0     6947.5       36.8      77.6       33%\n"}
+,{"stream_name":"stdout","time":49.248418234,"data":"    SUM (informative)                       35239.8  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":49.249272214,"data":"  \n"}
+,{"stream_name":"stdout","time":49.250220056,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":49.25114572,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":49.252116675,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":49.253004461,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":49.253992439,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":49.254833453,"data":"    launch_step (fp32 obs, 6 kern)          6    11258.0    11253.8    11282.3       5.9      2.91\n"}
+,{"stream_name":"stdout","time":49.255720401,"data":"    launch_step_uint8_prebasis (7)          7     7055.0     6925.0     7092.4      41.9      4.64\n"}
+,{"stream_name":"stdout","time":49.256669657,"data":"    launch_step_..._prebasis_full (9)       9     7057.4     6932.5     7091.6      38.4      4.64\n"}
+,{"stream_name":"stdout","time":49.257552919,"data":"  \n"}
+,{"stream_name":"stdout","time":49.258402776,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":49.259129538,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":49.25993529,"data":"    write-only floor               234.5 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":49.260730601,"data":"    read-modify-write floor       7268.4 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":49.261506405,"data":"    D2D memcpy floor               233.8 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":49.262249693,"data":"  \n"}
+,{"stream_name":"stdout","time":49.26297709,"data":"    per step, float32 obs path: write 1536.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":49.26371312,"data":"    per step, uint8    obs path: write 384.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":49.264478745,"data":"  \n"}
+,{"stream_name":"stdout","time":49.265196479,"data":"    obs-write-only time, fp32     6869.0 us  -\u003e    4.77 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":49.265949778,"data":"    obs-write-only time, uint8     1717.2 us  -\u003e   19.08 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":49.266717693,"data":"  \n"}
+,{"stream_name":"stdout","time":49.267494221,"data":"    measured whole-step, fp32     11258.0 us   -\u003e     2.91 M env-steps/s\n"}
+,{"stream_name":"stdout","time":49.268201469,"data":"    measured whole-step, u8 pre    7055.0 us   -\u003e     4.64 M env-steps/s\n"}
+,{"stream_name":"stdout","time":49.268891399,"data":"    measured whole-step, u8 full   7057.4 us   -\u003e     4.64 M env-steps/s\n"}
+,{"stream_name":"stdout","time":49.269669865,"data":"  \n"}
+,{"stream_name":"stdout","time":49.270348319,"data":"    fp32 step, obs write alone   :    143.1 GB/s =  61.0% of the write floor\n"}
+,{"stream_name":"stdout","time":49.271067957,"data":"    fp32 step, obs+voxel counted :    155.0 GB/s =   2.1% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":49.271855566,"data":"    u8   step, obs write alone   :     57.1 GB/s =  24.3% of the write floor\n"}
+,{"stream_name":"stdout","time":49.272590505,"data":"    u8   step, obs+voxel counted :     76.1 GB/s =   1.0% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":49.273300518,"data":"  \n"}
+,{"stream_name":"stdout","time":49.274000011,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":49.274738189,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":49.275520626,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":49.276250957,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":49.27691638,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":49.277688027,"data":"  \n"}
+,{"stream_name":"stdout","time":49.27840938,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":49.279050985,"data":"  --- w16_64px: rc=0 in 4.7s -\u003e log_w16_64px.txt\n"}
+,{"stream_name":"stdout","time":49.279798068,"data":"\n"}
+,{"stream_name":"stdout","time":49.280569123,"data":"  === w16_ms8: --batch 32768 --world 16 --res 32 --max-steps 8 --iters 60 --graph-iters 60 ===\n"}
+,{"stream_name":"stdout","time":51.877173397,"data":"  \n"}
+,{"stream_name":"stdout","time":51.878085509,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":51.878972608,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":51.879898065,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":51.880868587,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":51.881707043,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":51.882623479,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":51.883508022,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":51.884432478,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":51.885318405,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":51.886284493,"data":"  shape             batch=32768 world=16^3 res=32x32 max_steps=8 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":51.887080761,"data":"  iters             per-kernel=60 graph=60 warmup=25\n"}
+,{"stream_name":"stdout","time":51.887983969,"data":"  memory            need ~1232 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":51.888894847,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":51.889779169,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=65863680 dirt=50331648 log=294912 leaf=32768 brick=262144 cobble=262144 planks=393216\n"}
+,{"stream_name":"stdout","time":51.890845466,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":51.891537193,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":51.89247077,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":51.893377554,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":51.894300935,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":51.895225143,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":51.896115086,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":51.897014319,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":51.898035563,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":51.89906229,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 8 distinct byte values, 738/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":51.899941499,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 738 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":51.900835883,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 738, minimal sky 738, agree 738\n"}
+,{"stream_name":"stdout","time":51.901764694,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":51.902650381,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":51.903501284,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":51.904423681,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":51.905310758,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":51.906162548,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":51.906991831,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":51.907834964,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":51.908701878,"data":"  \n"}
+,{"stream_name":"stdout","time":51.909501203,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":51.910213008,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":51.911048707,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":51.912111913,"data":"    write    1x (store only)  536870912    2289.5     234.5\n"}
+,{"stream_name":"stdout","time":51.913002061,"data":"    read     1x (load only)   536870912    1931.3     278.0\n"}
+,{"stream_name":"stdout","time":51.913969234,"data":"    copy     2x (1:1 RMW)     1073741824     151.5    7089.5\n"}
+,{"stream_name":"stdout","time":51.914704814,"data":"    memcpy   2x (1:1 D2D)     1073741824    4593.8     233.7\n"}
+,{"stream_name":"stdout","time":51.915565674,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":51.916445062,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":51.91719183,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":51.91800655,"data":"  \n"}
+,{"stream_name":"stdout","time":51.919071569,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":51.919971758,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":51.920875398,"data":"    60 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":51.921760632,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":51.922574134,"data":"    decode_actions_kernel                       6.1        4.5       22.7        3.1       0.0         -\n"}
+,{"stream_name":"stdout","time":51.923428732,"data":"    physics_kernel                              6.1        4.8       18.4        1.7       0.0         -\n"}
+,{"stream_name":"stdout","time":51.924215968,"data":"    raycast_interact_kernel                    12.3       10.8       18.6        1.1       0.0         -\n"}
+,{"stream_name":"stdout","time":51.924998209,"data":"    reset_kernel                                4.2        3.8       34.8        4.3       0.0         -\n"}
+,{"stream_name":"stdout","time":51.925842232,"data":"    precompute_camera_basis_kernel             26.0       24.6       32.7        1.3       0.0         -\n"}
+,{"stream_name":"stdout","time":51.926725106,"data":"    render_kernel (fp32 obs)                 2981.7     2978.3     3393.6      138.6     180.1       77%\n"}
+,{"stream_name":"stdout","time":51.927675146,"data":"    render_kernel_uint8_minimal              2091.1     2055.0     2185.9       23.0     112.3       48%\n"}
+,{"stream_name":"stdout","time":51.928555379,"data":"    render_kernel_uint8_fp16                 2175.0     2170.2     2206.6       11.3     108.0       46%\n"}
+,{"stream_name":"stdout","time":51.929552823,"data":"    render_kernel_uint8_prebasis             1783.1     1775.6     1825.7       11.0     131.7       56%\n"}
+,{"stream_name":"stdout","time":51.930393454,"data":"    SUM (informative)                        9085.6  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":51.931079899,"data":"  \n"}
+,{"stream_name":"stdout","time":51.932189735,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":51.93303649,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":51.933896673,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":51.934724164,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":51.935529262,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":51.936454305,"data":"    launch_step (fp32 obs, 6 kern)          6     2941.4     2760.4     2963.5      45.5     11.14\n"}
+,{"stream_name":"stdout","time":51.937330583,"data":"    launch_step_uint8_prebasis (7)          7     1870.1     1828.4     2052.3      60.5     17.52\n"}
+,{"stream_name":"stdout","time":51.938273604,"data":"    launch_step_..._prebasis_full (9)       9     1837.7     1808.6     1871.7      16.8     17.83\n"}
+,{"stream_name":"stdout","time":51.939187159,"data":"  \n"}
+,{"stream_name":"stdout","time":51.940047621,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":51.940942235,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":51.941646879,"data":"    write-only floor               234.5 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":51.942302574,"data":"    read-modify-write floor       7089.5 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":51.942975155,"data":"    D2D memcpy floor               233.7 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":51.943665208,"data":"  \n"}
+,{"stream_name":"stdout","time":51.944408607,"data":"    per step, float32 obs path: write 384.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":51.94517336,"data":"    per step, uint8    obs path: write 96.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":51.945908752,"data":"  \n"}
+,{"stream_name":"stdout","time":51.946711144,"data":"    obs-write-only time, fp32     1717.2 us  -\u003e   19.08 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":51.947521222,"data":"    obs-write-only time, uint8      429.3 us  -\u003e   76.33 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":51.948220425,"data":"  \n"}
+,{"stream_name":"stdout","time":51.94887713,"data":"    measured whole-step, fp32      2941.4 us   -\u003e    11.14 M env-steps/s\n"}
+,{"stream_name":"stdout","time":51.949735329,"data":"    measured whole-step, u8 pre    1870.1 us   -\u003e    17.52 M env-steps/s\n"}
+,{"stream_name":"stdout","time":51.950481544,"data":"    measured whole-step, u8 full   1837.7 us   -\u003e    17.83 M env-steps/s\n"}
+,{"stream_name":"stdout","time":51.951126817,"data":"  \n"}
+,{"stream_name":"stdout","time":51.951817189,"data":"    fp32 step, obs write alone   :    136.9 GB/s =  58.4% of the write floor\n"}
+,{"stream_name":"stdout","time":51.952518349,"data":"    fp32 step, obs+voxel counted :    182.5 GB/s =   2.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":51.953173069,"data":"    u8   step, obs write alone   :     53.8 GB/s =  23.0% of the write floor\n"}
+,{"stream_name":"stdout","time":51.953836535,"data":"    u8   step, obs+voxel counted :    125.6 GB/s =   1.8% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":51.95457166,"data":"  \n"}
+,{"stream_name":"stdout","time":51.955183697,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":51.955845058,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":51.956522386,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":51.957196227,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":51.957923846,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":51.958556928,"data":"  \n"}
+,{"stream_name":"stdout","time":51.959184042,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":51.959852651,"data":"  --- w16_ms8: rc=0 in 2.6s -\u003e log_w16_ms8.txt\n"}
+,{"stream_name":"stdout","time":51.960543289,"data":"\n"}
+,{"stream_name":"stdout","time":51.961262217,"data":"  === w16_ms64: --batch 32768 --world 16 --res 32 --max-steps 64 --iters 60 --graph-iters 60 ===\n"}
+,{"stream_name":"stdout","time":54.716270726,"data":"  \n"}
+,{"stream_name":"stdout","time":54.717280647,"data":"  minecu_ref -- hand-written CUDA baseline for the mine.cu reference\n"}
+,{"stream_name":"stdout","time":54.718177926,"data":"  ==================================================================\n"}
+,{"stream_name":"stdout","time":54.719075046,"data":"  device            Tesla T4\n"}
+,{"stream_name":"stdout","time":54.719942438,"data":"  cc                sm_75\n"}
+,{"stream_name":"stdout","time":54.720748325,"data":"  SMs               40\n"}
+,{"stream_name":"stdout","time":54.721904444,"data":"  l2 bytes          4194304\n"}
+,{"stream_name":"stdout","time":54.722624721,"data":"  smem per block     49152\n"}
+,{"stream_name":"stdout","time":54.723515337,"data":"  mem clock/bus      5001000 MHz / 256-bit  -\u003e datasheet 320.1 GB/s\n"}
+,{"stream_name":"stdout","time":54.724387583,"data":"  runtime/driver     CUDA runtime 12080, driver 13000\n"}
+,{"stream_name":"stdout","time":54.725228574,"data":"  shape             batch=32768 world=16^3 res=32x32 max_steps=64 ground=8 view=32.0\n"}
+,{"stream_name":"stdout","time":54.726116785,"data":"  iters             per-kernel=60 graph=60 warmup=25\n"}
+,{"stream_name":"stdout","time":54.727026897,"data":"  memory            need ~1232 MiB, free 14807 MiB of 14912 MiB\n"}
+,{"stream_name":"stdout","time":54.727876616,"data":"  == selftest (on this device, this build) ==\n"}
+,{"stream_name":"stdout","time":54.728835499,"data":"    [PASS] generate_world_kernel: every id in range     ids all in [-1,12]; air=65863680 dirt=50331648 log=294912 leaf=32768 brick=262144 cobble=262144 planks=393216\n"}
+,{"stream_name":"stdout","time":54.730310552,"data":"    [PASS] place_tree_kernel: a log and a leaf exist    log=1 leaf=1\n"}
+,{"stream_name":"stdout","time":54.730745289,"data":"    [PASS] place_house_kernel: floor, walls and roof exist cobble=1 planks=1 brick=1\n"}
+,{"stream_name":"stdout","time":54.731685685,"data":"    [PASS] physics_kernel moved the agent               x 8.0000 -\u003e 8.0000, y 10.0000 -\u003e 9.9500\n"}
+,{"stream_name":"stdout","time":54.732569849,"data":"    [PASS] physics_kernel applied gravity downward      y1=9.95000 \u003c y0=10.00000 (gravity=-20.0, dt=0.050)\n"}
+,{"stream_name":"stdout","time":54.733499676,"data":"    [PASS] physics_kernel never leaves the agent below the floor y1=9.95000 must be \u003e= floor world_y/4=4.00\n"}
+,{"stream_name":"stdout","time":54.734424011,"data":"    [PASS] physics_kernel clamped x to the world box    x=8.0000 must be in [1,15]\n"}
+,{"stream_name":"stdout","time":54.73513528,"data":"    [PASS] precompute_camera_basis wrote the eye        eye_y want 11.5500 got 11.5500 (cam_y 9.9500 + 1.6; spawn_y is 10.0000, stale)\n"}
+,{"stream_name":"stdout","time":54.735910497,"data":"    [PASS] precompute_camera_basis wrote scale_u        scale_u want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":54.736815907,"data":"    [PASS] precompute_camera_basis wrote scale_v        scale_v want 0.700207 got 0.700207\n"}
+,{"stream_name":"stdout","time":54.737675404,"data":"    [PASS] prebasis render wrote more than one colour   env 0: 10 distinct byte values, 624/1024 sky pixels\n"}
+,{"stream_name":"stdout","time":54.738508387,"data":"    [PASS] prebasis render contains SKY_COLOR_U8 {135,206,235} 624 sky pixels, want \u003e 0\n"}
+,{"stream_name":"stdout","time":54.739285057000004,"data":"    [PASS] prebasis and minimal agree on sky pixels     prebasis sky 624, minimal sky 624, agree 624\n"}
+,{"stream_name":"stdout","time":54.740157087,"data":"    [PASS] float32 obs finite and inside [0,1]          non-finite=0 out-of-[0,1]=0 of 3072 values\n"}
+,{"stream_name":"stdout","time":54.741075349,"data":"      (dig aim: log (8.5,9.5,10.5) from eye (8.00,11.60,8.00), dist 3.30 of 4.00 reach, yaw 0.1974 pitch -0.6890)\n"}
+,{"stream_name":"stdout","time":54.742049179,"data":"    [PASS] raycast_interact_kernel broke the target log and paid reward 32768 of 32768 envs rewarded (mean 1.00, target_block=3), 32768 voxels mutated, 1 trunk log(s) of the column now air (row 9)\n"}
+,{"stream_name":"stdout","time":54.742901553,"data":"    [PASS] raycast_interact_kernel broke a non-target block and paid nothing 0 of 32768 envs rewarded (want 0), 32768 voxels mutated (want 32768), 32768 leaf canopies broken\n"}
+,{"stream_name":"stdout","time":54.743843329,"data":"    [PASS] reset_kernel restored the spawn point        spawn (8.0,10.0,8.0) for all 32768 envs\n"}
+,{"stream_name":"stdout","time":54.7447206,"data":"    [PASS] 12x launch_step_uint8_prebasis_full, graph path cudaGetLastError -\u003e no error\n"}
+,{"stream_name":"stdout","time":54.745620723,"data":"    [PASS] graph step produced a non-constant observation 6 distinct byte values in env 0 after 12 steps\n"}
+,{"stream_name":"stdout","time":54.746494643,"data":"  == selftest: PASS (0 failures) ==\n"}
+,{"stream_name":"stdout","time":54.747345371,"data":"  \n"}
+,{"stream_name":"stdout","time":54.748434587,"data":"  memory floors, measured on this device, in this run\n"}
+,{"stream_name":"stdout","time":54.749589836,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":54.750505032,"data":"    probe    traffic counted     bytes        us      GB/s\n"}
+,{"stream_name":"stdout","time":54.751455312,"data":"    write    1x (store only)  536870912    2290.7     234.4\n"}
+,{"stream_name":"stdout","time":54.752330499,"data":"    read     1x (load only)   536870912    1929.2     278.3\n"}
+,{"stream_name":"stdout","time":54.753226535,"data":"    copy     2x (1:1 RMW)     1073741824     149.4    7189.0\n"}
+,{"stream_name":"stdout","time":54.754006936,"data":"    memcpy   2x (1:1 D2D)     1073741824    4591.9     233.8\n"}
+,{"stream_name":"stdout","time":54.754807905,"data":"    read this carefully: write/read count ONE direction, copy/memcpy count\n"}
+,{"stream_name":"stdout","time":54.755678962,"data":"    TWO. Dividing a one-direction figure by a two-direction figure is the\n"}
+,{"stream_name":"stdout","time":54.756626317,"data":"    single easiest way to be wrong by exactly 2x here.\n"}
+,{"stream_name":"stdout","time":54.75755534,"data":"  \n"}
+,{"stream_name":"stdout","time":54.758392581,"data":"  per-kernel, each launched on its own through its own extern \"C\" launcher\n"}
+,{"stream_name":"stdout","time":54.759283231,"data":"  ========================================================================\n"}
+,{"stream_name":"stdout","time":54.760135551,"data":"    60 timed iterations after 25 warmup, cudaEvent pair per launch, median reported\n"}
+,{"stream_name":"stdout","time":54.761057721,"data":"    kernel                                   med us     min us     max us     std us      GB/s       %wr\n"}
+,{"stream_name":"stdout","time":54.761949669,"data":"    decode_actions_kernel                       6.0        4.4       13.9        1.2       0.0         -\n"}
+,{"stream_name":"stdout","time":54.762888497,"data":"    physics_kernel                              6.1        4.9       13.4        1.3       0.0         -\n"}
+,{"stream_name":"stdout","time":54.763758604,"data":"    raycast_interact_kernel                    12.3       10.9       24.9        1.8       0.0         -\n"}
+,{"stream_name":"stdout","time":54.764720701,"data":"    reset_kernel                                4.4        2.9       16.6        1.8       0.0         -\n"}
+,{"stream_name":"stdout","time":54.765686011,"data":"    precompute_camera_basis_kernel             26.1       24.6       34.0        1.6       0.0         -\n"}
+,{"stream_name":"stdout","time":54.766606881,"data":"    render_kernel (fp32 obs)                 3057.5     3002.3     3493.9      163.3     175.6       75%\n"}
+,{"stream_name":"stdout","time":54.767441538,"data":"    render_kernel_uint8_minimal              2128.9     2123.8     2271.4       39.2     110.3       47%\n"}
+,{"stream_name":"stdout","time":54.768288384,"data":"    render_kernel_uint8_fp16                 2264.5     2232.9     2302.8       20.8     103.7       44%\n"}
+,{"stream_name":"stdout","time":54.769032654,"data":"    render_kernel_uint8_prebasis             1847.3     1811.3     1863.6       12.2     127.1       54%\n"}
+,{"stream_name":"stdout","time":54.769829067,"data":"    SUM (informative)                        9353.1  \u003c- sum of the five state kernels, not the step\n"}
+,{"stream_name":"stdout","time":54.770651067,"data":"  \n"}
+,{"stream_name":"stdout","time":54.771442247,"data":"  whole step, CUDA graph, as the project's headline counts it\n"}
+,{"stream_name":"stdout","time":54.772093781,"data":"  ===========================================================\n"}
+,{"stream_name":"stdout","time":54.772833574,"data":"    each row replays one captured graph. `kern` is the number of kernels the\n"}
+,{"stream_name":"stdout","time":54.773615807,"data":"    graph holds. env-steps/sec = batch / median_us.\n"}
+,{"stream_name":"stdout","time":54.774670417,"data":"    step launcher                        kern     med us     min us     max us    std us   Mstep/s\n"}
+,{"stream_name":"stdout","time":54.775521071,"data":"    launch_step (fp32 obs, 6 kern)          6     2986.6     2845.8     2991.1      40.8     10.97\n"}
+,{"stream_name":"stdout","time":54.776380607,"data":"    launch_step_uint8_prebasis (7)          7     2005.1     1954.2     2201.8      62.4     16.34\n"}
+,{"stream_name":"stdout","time":54.777303337,"data":"    launch_step_..._prebasis_full (9)       9     1943.6     1937.4     1978.4      13.5     16.86\n"}
+,{"stream_name":"stdout","time":54.778198765,"data":"  \n"}
+,{"stream_name":"stdout","time":54.779189697,"data":"  roofline position against the floors measured above\n"}
+,{"stream_name":"stdout","time":54.780127242,"data":"  ===================================================\n"}
+,{"stream_name":"stdout","time":54.781066841,"data":"    write-only floor               234.4 GB/s   (measured)\n"}
+,{"stream_name":"stdout","time":54.781957267,"data":"    read-modify-write floor       7189.0 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":54.782846724,"data":"    D2D memcpy floor               233.8 GB/s   (measured, 1:1)\n"}
+,{"stream_name":"stdout","time":54.783779489,"data":"  \n"}
+,{"stream_name":"stdout","time":54.78480756,"data":"    per step, float32 obs path: write 384.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":54.785831936,"data":"    per step, uint8    obs path: write 96.0 MiB + at least 128.0 MiB of voxel read\n"}
+,{"stream_name":"stdout","time":54.78672855,"data":"  \n"}
+,{"stream_name":"stdout","time":54.787643782,"data":"    obs-write-only time, fp32     1718.0 us  -\u003e   19.07 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":54.788699933,"data":"    obs-write-only time, uint8      429.5 us  -\u003e   76.29 M env-steps/s if the step did nothing but store obs\n"}
+,{"stream_name":"stdout","time":54.789736308,"data":"  \n"}
+,{"stream_name":"stdout","time":54.79073931,"data":"    measured whole-step, fp32      2986.6 us   -\u003e    10.97 M env-steps/s\n"}
+,{"stream_name":"stdout","time":54.791732475,"data":"    measured whole-step, u8 pre    2005.1 us   -\u003e    16.34 M env-steps/s\n"}
+,{"stream_name":"stdout","time":54.792655898,"data":"    measured whole-step, u8 full   1943.6 us   -\u003e    16.86 M env-steps/s\n"}
+,{"stream_name":"stdout","time":54.79351994,"data":"  \n"}
+,{"stream_name":"stdout","time":54.794513278,"data":"    fp32 step, obs write alone   :    134.8 GB/s =  57.5% of the write floor\n"}
+,{"stream_name":"stdout","time":54.795329085,"data":"    fp32 step, obs+voxel counted :    179.8 GB/s =   2.5% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":54.796205708,"data":"    u8   step, obs write alone   :     50.2 GB/s =  21.4% of the write floor\n"}
+,{"stream_name":"stdout","time":54.79727973,"data":"    u8   step, obs+voxel counted :    117.1 GB/s =   1.6% of the 1:1 floor\n"}
+,{"stream_name":"stdout","time":54.798190665,"data":"  \n"}
+,{"stream_name":"stdout","time":54.799039879,"data":"    The obs-write fraction is the number to compare against a claim like\n"}
+,{"stream_name":"stdout","time":54.799920458,"data":"    \"close to the write-bandwidth floor\". It is near 100% only if the\n"}
+,{"stream_name":"stdout","time":54.800862404,"data":"    render kernel is bandwidth bound; if it is far below 100% while the\n"}
+,{"stream_name":"stdout","time":54.801712484,"data":"    obs+voxel fraction is also far below, the kernel is bound by neither\n"}
+,{"stream_name":"stdout","time":54.802581896,"data":"    and is DDA-latency or issue bound, which is a different claim entirely.\n"}
+,{"stream_name":"stdout","time":54.803472453,"data":"  \n"}
+,{"stream_name":"stdout","time":54.804341732,"data":"  DONE\n"}
+,{"stream_name":"stdout","time":54.805039818,"data":"  --- w16_ms64: rc=0 in 2.8s -\u003e log_w16_ms64.txt\n"}
+,{"stream_name":"stdout","time":54.805744934,"data":"\n"}
+,{"stream_name":"stdout","time":54.806464737,"data":"--- summary ---\n"}
+,{"stream_name":"stdout","time":54.807122068,"data":"entry            path                                         M env-steps/s\n"}
+,{"stream_name":"stdout","time":54.80784787,"data":"headline_w16     (fp32 obs,                                      11.67\n"}
+,{"stream_name":"stdout","time":54.808539587,"data":"headline_w16     (7) 7                                           17.96\n"}
+,{"stream_name":"stdout","time":54.809200265,"data":"headline_w16     (9) 9                                           17.96\n"}
+,{"stream_name":"stdout","time":54.809876423,"data":"sweep_w16        (fp32 obs,                                      11.66\n"}
+,{"stream_name":"stdout","time":54.810585794,"data":"sweep_w16        (7) 7                                           17.60\n"}
+,{"stream_name":"stdout","time":54.811292786,"data":"sweep_w16        (9) 9                                           17.92\n"}
+,{"stream_name":"stdout","time":54.812204814,"data":"batch4k_w16      (fp32 obs,                                      12.52\n"}
+,{"stream_name":"stdout","time":54.813176788,"data":"batch4k_w16      (7) 7                                           15.74\n"}
+,{"stream_name":"stdout","time":54.814030954,"data":"batch4k_w16      (9) 9                                           16.18\n"}
+,{"stream_name":"stdout","time":54.815071462,"data":"batch8k_w16      (fp32 obs,                                      12.31\n"}
+,{"stream_name":"stdout","time":54.815792629,"data":"batch8k_w16      (7) 7                                           16.31\n"}
+,{"stream_name":"stdout","time":54.81646249,"data":"batch8k_w16      (9) 9                                           17.19\n"}
+,{"stream_name":"stdout","time":54.817097184,"data":"batch16k_w16     (fp32 obs,                                      11.37\n"}
+,{"stream_name":"stdout","time":54.817789402,"data":"batch16k_w16     (7) 7                                           16.84\n"}
+,{"stream_name":"stdout","time":54.818584855,"data":"batch16k_w16     (9) 9                                           17.63\n"}
+,{"stream_name":"stdout","time":54.819181341,"data":"w32_32px         (fp32 obs,                                       4.43\n"}
+,{"stream_name":"stdout","time":54.819895879,"data":"w32_32px         (7) 7                                            3.94\n"}
+,{"stream_name":"stdout","time":54.82062847,"data":"w32_32px         (9) 9                                            3.92\n"}
+,{"stream_name":"stdout","time":54.821301593,"data":"w16_64px         (fp32 obs,                                       2.91\n"}
+,{"stream_name":"stdout","time":54.821978196,"data":"w16_64px         (7) 7                                            4.64\n"}
+,{"stream_name":"stdout","time":54.822721424,"data":"w16_64px         (9) 9                                            4.64\n"}
+,{"stream_name":"stdout","time":54.823443557,"data":"w16_ms8          (fp32 obs,                                      11.14\n"}
+,{"stream_name":"stdout","time":54.824174366,"data":"w16_ms8          (7) 7                                           17.52\n"}
+,{"stream_name":"stdout","time":54.824860045,"data":"w16_ms8          (9) 9                                           17.83\n"}
+,{"stream_name":"stdout","time":54.825594161,"data":"w16_ms64         (fp32 obs,                                      10.97\n"}
+,{"stream_name":"stdout","time":54.826312223,"data":"w16_ms64         (7) 7                                           16.34\n"}
+,{"stream_name":"stdout","time":54.827001433,"data":"w16_ms64         (9) 9                                           16.86\n"}
+,{"stream_name":"stdout","time":54.827887218,"data":"\n"}
+,{"stream_name":"stdout","time":54.828738538,"data":"Budget: 36/1500 s used.\n"}
+,{"stream_name":"stdout","time":54.829560952,"data":"\n"}
+,{"stream_name":"stdout","time":54.83035611,"data":"READING THIS OUTPUT\n"}
+,{"stream_name":"stdout","time":54.83108634,"data":"  * The three selftest_* entries gate everything. If any says FAIL, the\n"}
+,{"stream_name":"stdout","time":54.83186193,"data":"    numbers below it are not trustworthy and the harness is the suspect.\n"}
+,{"stream_name":"stdout","time":54.832588245,"data":"  * env-steps/s is batch / median_us. A whole-step number, not a per-kernel one.\n"}
+,{"stream_name":"stdout","time":54.833283059,"data":"  * The measured memory floors in each log are the denominators. %-of-floor\n"}
+,{"stream_name":"stdout","time":54.833986559,"data":"    figures only mean something against a floor measured on the same card.\n"}
+,{"stream_name":"stdout","time":54.83474825,"data":"  * The author's 49.6M is an RTX 3090 claim. This is a T4. They are not\n"}
+,{"stream_name":"stdout","time":54.835475624,"data":"    comparable numbers and must not be differenced directly.\n"}
+,{"stream_name":"stdout","time":54.83613768,"data":"wrote /kaggle/working/SUMMARY.txt\n"}
+,{"stream_name":"stderr","time":57.375388116,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":57.375424001,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":57.53614046,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":57.536195316,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":58.189922707,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":58.631662215,"data":"[NbConvertApp] Writing 334018 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":61.0858847,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":61.952478198,"data":"[NbConvertApp] Writing 633165 bytes to __results__.html\n"}
+]
