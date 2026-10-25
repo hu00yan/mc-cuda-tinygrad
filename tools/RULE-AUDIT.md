@@ -255,3 +255,6 @@ without being asked.**
 | 25 self-made bugs need subject conditions | **A** | ladder.sh "bug" vanished when run from its own dir | **P** |
 | 26 can-it-go-red first | **A** | hollow L4 passed on empty dir + syntax error + random | **P** |
 | 26a identical failure ≠ measured | **A** | probe exiting 3 twice reported PASS | **P** |
+| 27 hit it at launch, once only | **A** | selftest.sh never drove L3/L4 red | **P** |
+| 27a selftest must itself go red | **A** | v1 passed a simulated hollow layer | **P** |
+| 27b hash what you did not touch | **A** | 4 factory files hashed before I added mine | **P** |

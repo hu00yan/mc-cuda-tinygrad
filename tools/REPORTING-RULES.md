@@ -921,3 +921,39 @@ After layer 4 became three-valued, one hole remained: a probe exiting non-zero t
 `PASS`. **Two identical failures prove the interpreter is stable, not that the subject is.**
 The criterion is not "did stderr mention an error" (which catches `SyntaxError` and misses
 `raise SystemExit(3)`) — **it is "was the exit code 0".**
+
+
+---
+
+## Rule 27 — the launch window opens once, so hit the layer before it ships
+
+**Earned 2026-10-25 (@Orion), verified against his own `factory/selftest.sh`.** His proposed
+law: *every layer must be hit with an input it should reject, at launch, with the trace left
+behind.*
+
+**I tested it rather than agreeing, and it was unmet.** His `selftest.sh` drove only layers 1
+and 2 red. Under it, **layer 3 printed nothing at all and layer 4 only ever reached "NOT
+MEASURED"** — so two of four layers had never been shown red by anything.
+
+> **A false positive gets found by someone else bumping into it. A false negative does not —
+> nothing pushes anyone to inspect a green light.**
+
+**So the only discovery window is the moment the layer ships, and that window opens once.**
+"I ran it and it worked" is not "it shipped" — the hollow layer 4 ran fine in `factory/` and
+was hollow anyway.
+
+## 27a — a per-layer selftest that cannot fail is the same defect one level up
+I built `selftest_layers.sh` driving all four layers red. **Its first version passed a
+simulated hollow layer**, because it counted "NOT MEASURED" as acceptable. Fixed by giving
+each case a *required state* — `RED` (must fail) or `MEASURED` (must at least measure).
+
+**Verified in both directions:** re-injecting the hollow bug now fails two cases, exit 1.
+**A selftest is a check, and rule 10 applies to it: if it cannot go red, it is decoration.**
+
+## 27b — leave the other agent's tree as you found it, and record that you did
+`factory/` is not my repo. I added one untracked file and hashed the four existing ones
+(`ladder.sh c00a86a41517`, `normalize.py 3d29cd46eaa7`, `replay_layer.py b416d0a6d44b`,
+`selftest.sh fb35552bf4e3`), so any later change is detectable rather than assumed.
+
+**A hash I took is worth more than a promise I made** — it is the difference between "I did not
+touch it" and "you can check that I did not."
