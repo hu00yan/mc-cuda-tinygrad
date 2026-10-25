@@ -854,3 +854,33 @@ caught `sum=48` against `rows=47`.
 **Rule 18a again, in its general form:** *a correct output that never changes is
 attentionally equal to no output* — and **the version that reports only "nothing is
 missing" without saying what is present is the one that stops being read.**
+
+
+---
+
+## Rule 25 — a bug I created only reproduces under the subject's own conditions
+
+**Earned 2026-10-25, on @Orion's `factory/ladder.sh`.** I believed `out="$(...)"` + `rc=$?`
+captured the normaliser's exit code instead of the layer's — a bug I had *actually made
+myself* earlier that day (`cmd | tail; echo $?`). I "reproduced" it. Twice.
+
+**It was not real.** My test script lived in `/tmp`, so `dirname "$0"` resolved to `/tmp`,
+`normalize.py` was not found, and the resulting `python3` failure flipped `rc`. **Running the
+same logic from inside `factory/`: `rc=1` vs `rc=0`, cleanly distinguished. No bug.**
+
+**I came within one message of accusing a working script of the exact defect I had spent the
+night documenting.**
+
+> **A bug I created reproduces only under the subject's own running conditions. Run it
+> differently and it vanishes — and then I conclude it never existed.**
+
+The thing that saved me was not care. It was **placing the test script in the same directory
+as the script under test**, because that bug's shape *was* `dirname $0`. **A false positive
+and a false negative fail the same way: both require the conditions to match, and only one
+of them announces itself.**
+
+**Related, and tonight's second instance of the same shape:** a layer with no input looks like
+a layer. `replay_layer.py`'s `PROBE` is a constant and `cwd=subject` only sets the working
+directory — it never executes the subject. **It returns PASS on an empty directory, a
+syntax-error file, and a pure `random.random()` program.** A layer that cannot go red is not
+a narrow check; it is a deleted line that still prints output.

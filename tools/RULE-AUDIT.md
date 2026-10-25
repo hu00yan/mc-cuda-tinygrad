@@ -252,3 +252,4 @@ without being asked.**
 | 22 presence check != content check | **A** | relabelling rule 4 P→R left check_audit OK | **P** |
 | 23 exemption is a radius | **A** | 4 phrase-holes found by hitting it from outside | **P** |
 | 24 empty AND full queues go unread | **A** | "0 P2" was wrong; composition now prints | **P** |
+| 25 self-made bugs need subject conditions | **A** | ladder.sh "bug" vanished when run from its own dir | **P** |
