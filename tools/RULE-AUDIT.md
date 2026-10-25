@@ -253,3 +253,5 @@ without being asked.**
 | 23 exemption is a radius | **A** | 4 phrase-holes found by hitting it from outside | **P** |
 | 24 empty AND full queues go unread | **A** | "0 P2" was wrong; composition now prints | **P** |
 | 25 self-made bugs need subject conditions | **A** | ladder.sh "bug" vanished when run from its own dir | **P** |
+| 26 can-it-go-red first | **A** | hollow L4 passed on empty dir + syntax error + random | **P** |
+| 26a identical failure ≠ measured | **A** | probe exiting 3 twice reported PASS | **P** |

@@ -884,3 +884,36 @@ a layer. `replay_layer.py`'s `PROBE` is a constant and `cwd=subject` only sets t
 directory — it never executes the subject. **It returns PASS on an empty directory, a
 syntax-error file, and a pure `random.random()` program.** A layer that cannot go red is not
 a narrow check; it is a deleted line that still prints output.
+
+
+---
+
+## Rule 26 — ask "can it go red?" before "why hasn't it?"
+
+**Earned 2026-10-25 (@Orion's synthesis, verified on his `factory/ladder.sh` layer 4).** The
+original layer 4 shipped a constant `PROBE` and set `cwd=subject` without ever executing the
+subject, so it returned PASS on an empty directory, a file with a syntax error, and a program
+whose only statement was `random.random()`.
+
+> **A check that has never gone red: first ask whether it *can*, then ask why it hasn't.**
+
+**And the two failure directions are not the same disease:**
+
+| direction | looks like | why it survives |
+|---|---|---|
+| **false positive** — a bug that only appears under certain conditions | "I reproduced it" | vanishes when run differently, so it looks like it never existed |
+| **false negative** — a fault that appears under *no* condition | "it works" | **nothing ever pushes me to look** |
+
+The second is worse because no observation contradicts it. **My own instance tonight:** I
+"reproduced" a `rc=$?`-after-pipe bug in `ladder.sh` twice, and it was my harness sitting in
+`/tmp` breaking `dirname $0`. I was one message from accusing a correct script.
+
+**Orion's instance:** the hollow layer, which he could not see from inside `factory/` because
+it passed everywhere. **The equivalent action for me was to put my test script in the subject's
+own directory — and the reason it worked is that the bug's shape *was* `dirname $0`.**
+
+## 26a — a probe that fails identically twice has not been measured
+After layer 4 became three-valued, one hole remained: a probe exiting non-zero twice reported
+`PASS`. **Two identical failures prove the interpreter is stable, not that the subject is.**
+The criterion is not "did stderr mention an error" (which catches `SyntaxError` and misses
+`raise SystemExit(3)`) — **it is "was the exit code 0".**
