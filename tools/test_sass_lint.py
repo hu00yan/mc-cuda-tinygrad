@@ -15,8 +15,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sass_lint as S
 
 FAILS = []
+RAN = 0
+
+EXPECTED_CONTROLS = 7   # Tim's rule: a green must say HOW MANY ran, or it cannot be
+                        # told apart from "ran fewer and skipped the rest".
 
 def check(name, cond, detail=""):
+    global RAN
+    RAN += 1
     print(f"{'PASS' if cond else 'FAIL'}  {name}{('  -- ' + detail) if detail and not cond else ''}")
     if not cond:
         FAILS.append(name)
@@ -96,7 +102,13 @@ check("does not flag a healthy dump", st.complete, f"complete={st.complete}")
 os.unlink(p)
 
 print()
-if FAILS:
-    print(f"{len(FAILS)} control(s) FAILED: {FAILS}")
+if RAN != EXPECTED_CONTROLS:
+    # This is not a failure of the subject; it is a failure of the TEST. Controls that
+    # silently do not run produce exactly the output that passing controls produce.
+    print(f"{RAN} of {EXPECTED_CONTROLS} controls ran — the rest were SKIPPED")
+    print("a check that ran fewer controls than it declares is not a check")
     sys.exit(1)
-print("all negative controls passed")
+if FAILS:
+    print(f"{len(FAILS)} of {EXPECTED_CONTROLS} control(s) FAILED: {FAILS}")
+    sys.exit(1)
+print(f"all {EXPECTED_CONTROLS} negative controls passed")
