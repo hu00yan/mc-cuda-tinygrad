@@ -613,6 +613,10 @@ Now it prints fingerprints of the two things being checked:
 
 ```
 gate has teeth: OK  (gate.sh 3fb3b211 · canary 6e7d6f62)
+<!-- measured 2026-10-24 in a-share-lab. Tim has since edited gate.sh (3e401732 at
+     2026-10-25); the point of the fingerprint is that it MOVES, so an expired hash
+     here is the feature working, not a stale citation. Re-run verify_gate.py for
+     the current pair. -->
 ```
 
 **Verified that it moves:** appending one comment to `gate.sh` produced `90640ea9` while

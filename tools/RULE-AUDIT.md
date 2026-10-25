@@ -79,7 +79,7 @@ one row (10c) had no label at all because an escaped pipe `\|` broke the pattern
 | 16a different questions have no winner | **A** | disk 10 vs git 5 measure leakage vs ownership | **R** |
 | 17 fallback: empty vs unreadable | **A** | gate printed 'slow empty' on a collect failure (exit 5) | **P** |
 | 17a fix leaves its sibling | **A** | misspelled marker still prints 'confirmed: 0' | **R** |
-| 18 never-changing output | **A** | 'gate has teeth: OK' fixed; fingerprints move 3fb3b211->90640ea9 | **P** |
+| 18 never-changing output | **A** | 'gate has teeth: OK' fixed; fingerprints move 3fb3b211->90640ea9 (2026-10-24, a-share-lab) | **P** |
 | 18a keeping correct things visible | **A** | every other rule finds wrong things; HMMA=0 and the inert README passed forever | **R** |
 | 18b crash beats a plausible default | **A** | GATE_SH undefined and str-not-Path both raised; defensive writes would have printed a hash for nothing | **R** |
 | 18c variation must be correlated | **A** | gate.sh hash moves on logic change; a timestamp would re-degrade the signal | **R** |
