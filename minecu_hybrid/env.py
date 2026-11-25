@@ -1,22 +1,20 @@
-"""MineCUEnv — TinyGrad-shaped RL loop with optional CUDA 'inline asm'.
-
-Mental model (what you asked for)::
-
-    high-level program  =  this env (Python + TinyGrad tensors / NumPy state)
-    hot block           =  ``accel.*`` Infatoshi CUDA kernels when available
-
-Not two products. One program; CUDA is plugged into the slow parts the way
-``asm`` is plugged into C.
-"""
+"""MineCUEnv — TinyGrad-shaped RL loop + optional CUDA inline accelerators."""
 from __future__ import annotations
 
 import math
-import os
 
 import numpy as np
 
 from . import accel
-from .config import BUTTON_DIM, BUTTON_NAMES, LOOK_DIM, BlockType, EnvConfig
+from .config import (
+    BUTTON_DIM,
+    BUTTON_NAMES,
+    LOOK_DIM,
+    BlockType,
+    EnvConfig,
+    TrainConfig,
+    _normalize_kwargs,
+)
 from .spaces import Box, Dict, try_gymnasium
 
 
@@ -26,17 +24,20 @@ def _tg_ctx():
     return _tg_context()
 
 
+def _is_cupy(x) -> bool:
+    return type(x).__module__.startswith("cupy")
+
+
 class MineCUEnv:
     def __init__(self, cfg: EnvConfig | None = None, **kwargs):
+        kwargs = _normalize_kwargs(kwargs)
         if cfg is None:
             cfg = EnvConfig.from_dict(kwargs)
         elif kwargs:
             cfg = EnvConfig.from_dict({**cfg.__dict__, **kwargs})
 
-        # accel: auto | on | off  (also accept legacy backend= cuda|tinygrad)
-        accel_mode = kwargs.get("accel", cfg.__dict__.get("accel", "auto"))
-        if "backend" in kwargs or (cfg.backend and cfg.backend != "cuda"):
-            # legacy mapping
+        accel_mode = kwargs.get("accel", cfg.accel)
+        if "backend" in kwargs or cfg.backend not in ("auto", "", None):
             b = kwargs.get("backend", cfg.backend)
             if b in ("tinygrad", "tg"):
                 accel_mode = "off"
@@ -56,7 +57,10 @@ class MineCUEnv:
         self.buttons = np.zeros((B, 8), np.int8)
         self.look = np.zeros((B, 2), np.float32)
         self.rewards = np.zeros((B,), np.float32)
-        self._obs = np.zeros((B, cfg.height, cfg.width, 3), np.uint8)
+        self._obs_host = np.zeros(
+            (B, cfg.height, cfg.width, 3),
+            np.float32 if cfg.obs_is_float else np.uint8,
+        )
 
         if self._use_cuda:
             self._init_cuda_buffers()
@@ -72,10 +76,9 @@ class MineCUEnv:
         if mode in ("on", "1", "true", "yes", "cuda", "force"):
             if not accel.available():
                 raise RuntimeError(
-                    f"accel=on but CUDA kernels unavailable: {accel.why_unavailable()}"
+                    f"accel=on but CUDA unavailable: {accel.why_unavailable()}"
                 )
             return True
-        # auto
         return accel.available()
 
     # ---- spaces ----
@@ -87,14 +90,17 @@ class MineCUEnv:
     def observation_space(self):
         _, gs = try_gymnasium()
         shape = self.cfg.observation_shape
-        if gs is not None:
+        if self.cfg.obs_is_float:
+            if gs:
+                return gs.Box(0.0, 1.0, shape=shape, dtype=np.float32)
+            return Box(0.0, 1.0, shape=shape, dtype=np.dtype(np.float32))
+        if gs:
             return gs.Box(0, 255, shape=shape, dtype=np.uint8)
         return Box(0, 255, shape=shape, dtype=np.dtype(np.uint8))
 
     @property
     def action_space(self):
         _, gs = try_gymnasium()
-        B = None  # per-env space; batching is outer
         buttons = (
             gs.Box(0, 1, shape=(BUTTON_DIM,), dtype=np.int8)
             if gs
@@ -105,7 +111,7 @@ class MineCUEnv:
             if gs
             else Box(-math.pi, math.pi, shape=(LOOK_DIM,), dtype=np.dtype(np.float32))
         )
-        if gs is not None:
+        if gs:
             return gs.Dict({"buttons": buttons, "look": look})
         return Dict({"buttons": buttons, "look": look})
 
@@ -126,10 +132,36 @@ class MineCUEnv:
         return self.cfg.batch
 
     @property
+    def world_size(self):
+        return self.cfg.world
+
+    @property
+    def render_width(self):
+        return self.cfg.width
+
+    @property
+    def render_height(self):
+        return self.cfg.height
+
+    @property
+    def action_dim(self):
+        """Discrete-logit width used by simple CNN examples (buttons only)."""
+        return BUTTON_DIM
+
+    @property
     def using_cuda_accel(self) -> bool:
         return self._use_cuda
 
-    # ---- CUDA buffer path (asm-backed) ----
+    def _maybe_sync(self) -> None:
+        if self.cfg.sync_every_step:
+            accel.sync()
+
+    def _to_host(self, *arrs):
+        cp = self._cp
+        accel.sync()
+        return tuple(cp.asnumpy(a) for a in arrs)
+
+    # ---- CUDA buffers ----
     def _init_cuda_buffers(self) -> None:
         import cupy as cp
 
@@ -156,7 +188,8 @@ class MineCUEnv:
         self._speed_mult = cp.ones((B,), dtype=cp.float32)
         self._cameras = cp.zeros((B, 5), dtype=cp.float32)
         self._basis = cp.zeros((B, 14), dtype=cp.float32)
-        self._obs_d = cp.zeros((B, c.height, c.width, 3), dtype=cp.uint8)
+        obs_dtype = cp.float32 if c.obs_is_float else cp.uint8
+        self._obs_d = cp.zeros((B, c.height, c.width, 3), dtype=obs_dtype)
         self._rewards_d = cp.zeros((B,), dtype=cp.float32)
 
     def _cuda_worldgen(self) -> None:
@@ -173,13 +206,10 @@ class MineCUEnv:
         accel.place_house(
             self.voxels, c.batch, c.world_x, c.world_y, c.world_z, hx, hz, g
         )
-        accel.sync()
 
-    # ---- TinyGrad path (no asm) ----
     def _build_world_tg(self) -> None:
         from minecu_tg.world import expand_world, generate_world
 
-        # cubic helper in minecu_tg.world — for non-cubic fall back to cubic min
         w = min(self.cfg.world_x, self.cfg.world_y, self.cfg.world_z)
         with _tg_ctx():
             vox = generate_world(w, self.cfg.ground_height)
@@ -187,8 +217,26 @@ class MineCUEnv:
             self._voxels_tg = vox_b
             self._voxels_np = vox_b.numpy().astype(np.int8)
 
-    # ---- lifecycle ----
-    def reset(self, mask: np.ndarray | None = None) -> np.ndarray:
+    def _ingest_actions(self, buttons, look) -> None:
+        """Accept host numpy or device cupy without redundant copies."""
+        cp = self._cp if self._use_cuda else None
+        if buttons is not None:
+            if self._use_cuda and _is_cupy(buttons):
+                self._buttons_d[:] = buttons
+            else:
+                self.buttons[:] = np.asarray(buttons, dtype=np.int8)
+                if self._use_cuda:
+                    self._buttons_d[:] = cp.asarray(self.buttons)
+        if look is not None:
+            if self._use_cuda and _is_cupy(look):
+                self._look_d[:] = look
+            else:
+                self.look[:] = np.asarray(look, dtype=np.float32)
+                if self._use_cuda:
+                    self._look_d[:] = cp.asarray(self.look)
+
+    # ---- API ----
+    def reset(self, mask: np.ndarray | None = None):
         c = self.cfg
         if mask is None:
             mask_np = np.ones((c.batch,), dtype=np.bool_)
@@ -205,9 +253,7 @@ class MineCUEnv:
                 self._do_reset_d[:] = cp.asarray(mask_np)
                 if mask_np.any():
                     self._cuda_worldgen()
-                self._step_count_d = cp.where(
-                    self._do_reset_d, 0, self._step_count_d
-                )
+                self._step_count_d = cp.where(self._do_reset_d, 0, self._step_count_d)
             accel.reset_agents(
                 self._positions_d,
                 self._velocities_d,
@@ -221,8 +267,9 @@ class MineCUEnv:
             self._do_reset_d.fill(False)
             self._buttons_d.fill(0)
             self._look_d.fill(0)
-            accel.sync()
-            # mirror host copies for API users inspecting .positions
+            self._maybe_sync()
+            if c.device_buffers:
+                return self.get_obs()
             self.positions[:] = cp.asnumpy(self._positions_d)
             self.yaws[:] = cp.asnumpy(self._yaws_d)
             self.pitches[:] = cp.asnumpy(self._pitches_d)
@@ -241,33 +288,48 @@ class MineCUEnv:
         self.look[mask_np] = 0
         return self.get_obs()
 
-    def get_obs(self) -> np.ndarray:
-        """Render observation — CUDA asm if accel on, else TinyGrad."""
+    def get_obs(self):
         if self._use_cuda:
             cp = self._cp
+            c = self.cfg
             self._cameras[:, 0] = self._positions_d[:, 0]
             self._cameras[:, 1] = self._positions_d[:, 1]
             self._cameras[:, 2] = self._positions_d[:, 2]
             self._cameras[:, 3] = self._yaws_d
             self._cameras[:, 4] = self._pitches_d
-            c = self.cfg
-            # cubic world_size for this launcher
-            w = c.world_x
-            accel.render_prebasis(
-                self.voxels,
-                self._cameras,
-                self._basis,
-                self._obs_d,
-                c.batch,
-                w,
-                c.width,
-                c.height,
-                c.max_steps,
-                c.fov_degrees,
-            )
-            accel.sync()
-            self._obs = cp.asnumpy(self._obs_d)
-            return self._obs.copy()
+            if c.obs_dtype in ("uint8_prebasis", "uint8_prebasis_full", "uint8_smem"):
+                accel.render_prebasis(
+                    self.voxels,
+                    self._cameras,
+                    self._basis,
+                    self._obs_d,
+                    c.batch,
+                    c.world_x,
+                    c.width,
+                    c.height,
+                    c.max_steps,
+                    c.fov_degrees,
+                )
+            else:
+                accel.render_cameras(
+                    self.voxels,
+                    self._cameras,
+                    self._obs_d,
+                    c.batch,
+                    c.world_x,
+                    c.width,
+                    c.height,
+                    c.max_steps,
+                    c.view_distance,
+                    c.fov_degrees,
+                    float_obs=c.obs_is_float,
+                )
+            if c.device_buffers:
+                self._maybe_sync()
+                return self._obs_d
+            obs = self._to_host(self._obs_d)[0]
+            self._obs_host = obs
+            return obs.copy()
 
         from tinygrad import Tensor, dtypes
         from minecu_tg.render import camera_basis
@@ -281,33 +343,35 @@ class MineCUEnv:
         with _tg_ctx():
             cam_t = Tensor(cameras, dtype=dtypes.float32)
             basis = camera_basis(cam_t, c.fov_degrees, c.width, c.height)
-            obs = render(
-                self._voxels_tg, basis, c.width, c.height, c.max_steps
-            )
-            self._obs = obs.numpy().astype(np.uint8)
-        return self._obs.copy()
+            obs = render(self._voxels_tg, basis, c.width, c.height, c.max_steps)
+            out = obs.numpy()
+            self._obs_host = out.astype(np.float32 if c.obs_is_float else np.uint8)
+        return self._obs_host.copy()
 
-    def step(
-        self,
-        buttons: np.ndarray | None = None,
-        look: np.ndarray | None = None,
-    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        c = self.cfg
+    def step(self, buttons=None, look=None):
+        if self._use_cuda:
+            self._ingest_actions(buttons, look)
+            return self._step_cuda()
         if buttons is not None:
             self.buttons[:] = np.asarray(buttons, dtype=np.int8)
         if look is not None:
             self.look[:] = np.asarray(look, dtype=np.float32)
-
-        if self._use_cuda:
-            return self._step_cuda()
         return self._step_tg()
 
-    def _step_cuda(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        cp = self._cp
+    def _step_cuda(self):
         c = self.cfg
-        self._buttons_d[:] = cp.asarray(self.buttons)
-        self._look_d[:] = cp.asarray(self.look)
+        cp = self._cp
+        full = c.obs_dtype == "uint8_prebasis_full"
+
+        # Non-full MineEnv paths: episode check lives in Python (full path does it in CUDA).
+        if not full:
+            if c.episode_length and c.episode_length > 0:
+                self._do_reset_d[:] = self._step_count_d >= int(c.episode_length)
+            else:
+                self._do_reset_d.fill(False)
+
         accel.fused_step(
+            c.obs_dtype,
             self.voxels,
             self._positions_d,
             self._velocities_d,
@@ -349,20 +413,35 @@ class MineCUEnv:
             spawn=c.spawn(),
             episode_length=c.episode_length,
         )
-        accel.sync()
+
+        if not full:
+            # MineEnv: step_count += 1; masked_fill_(do_reset, 1)
+            self._step_count_d += 1
+            self._step_count_d = cp.where(self._do_reset_d, 1, self._step_count_d)
+
+        # World regen when any env reset — MineEnv leaves do_reset set (dones = clone).
+        if c.device_buffers and not c.sync_every_step:
+            if c.episode_length and c.episode_length > 0:
+                accel.sync()
+                if bool(self._do_reset_d.any()):
+                    self._cuda_worldgen()
+            dones = self._do_reset_d.copy()
+            return self._obs_d, self._rewards_d, dones
+
+        self._maybe_sync()
         dones = cp.asnumpy(self._do_reset_d)
         if dones.any():
             self._cuda_worldgen()
-            self._do_reset_d.fill(False)
-        self._obs = cp.asnumpy(self._obs_d)
-        self.rewards[:] = cp.asnumpy(self._rewards_d)
+            self._maybe_sync()
+        obs, rew = self._to_host(self._obs_d, self._rewards_d)
         self.positions[:] = cp.asnumpy(self._positions_d)
         self.yaws[:] = cp.asnumpy(self._yaws_d)
         self.pitches[:] = cp.asnumpy(self._pitches_d)
-        return self._obs.copy(), self.rewards.copy(), dones
+        self.rewards[:] = rew
+        self._obs_host = obs
+        return obs.copy(), rew.copy(), dones
 
-    def _step_tg(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        # NumPy ports of decode/physics; TinyGrad render — no asm
+    def _step_tg(self):
         c = self.cfg
         dones = np.zeros((c.batch,), np.bool_)
         if c.episode_length > 0:
@@ -401,14 +480,11 @@ class MineCUEnv:
         self.positions[:, 2] = np.clip(new_z, margin, c.world_z - margin)
         self.velocities[:, 1] = vel_y
         self.on_ground = on
-
         self.rewards[:] = 0
         if (do_break.any() or do_place.any()) and self._voxels_np is not None:
             self._interact_np(do_break, do_place)
-
         self.step_count += 1
-        obs = self.get_obs()
-        return obs, self.rewards.copy(), dones
+        return self.get_obs(), self.rewards.copy(), dones
 
     def _interact_np(self, do_break, do_place) -> None:
         assert self._voxels_np is not None
@@ -427,6 +503,8 @@ class MineCUEnv:
                 ],
                 np.float32,
             )
+            hit = None
+            prev = None
             for t in np.linspace(0.5, 6.0, 24):
                 p = eye + t * d
                 ix, iy, iz = int(p[0]), int(p[1]), int(p[2])
@@ -436,10 +514,19 @@ class MineCUEnv:
                     break
                 blk = int(vox[i, iy, ix, iz])
                 if blk >= 0:
-                    if do_break[i] and blk == c.target_block:
-                        vox[i, iy, ix, iz] = int(BlockType.AIR)
-                        self.rewards[i] = c.reward_value
+                    hit = (iy, ix, iz, blk)
                     break
+                prev = (iy, ix, iz)
+            if hit is None:
+                continue
+            iy, ix, iz, blk = hit
+            if do_break[i] and blk == c.target_block:
+                vox[i, iy, ix, iz] = int(BlockType.AIR)
+                self.rewards[i] = c.reward_value
+            elif do_place[i] and prev is not None:
+                py, px, pz = prev
+                if int(vox[i, py, px, pz]) < 0:
+                    vox[i, py, px, pz] = int(BlockType.DIRT)
         from tinygrad import Tensor, dtypes
 
         with _tg_ctx():
@@ -448,8 +535,10 @@ class MineCUEnv:
     def close(self) -> None:
         return
 
-    def zero_actions(self) -> tuple[np.ndarray, np.ndarray]:
+    def zero_actions(self):
         B = self.cfg.batch
+        if self._use_cuda and self.cfg.device_buffers:
+            return self._buttons_d, self._look_d
         return (
             np.zeros((B, BUTTON_DIM), np.int8),
             np.zeros((B, LOOK_DIM), np.float32),
@@ -463,6 +552,7 @@ class MineCUEnv:
 __all__ = [
     "MineCUEnv",
     "EnvConfig",
+    "TrainConfig",
     "BlockType",
     "BUTTON_DIM",
     "LOOK_DIM",

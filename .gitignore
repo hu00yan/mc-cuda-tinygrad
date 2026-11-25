@@ -35,6 +35,11 @@ out/
 # --- hybrid CUDA shared library (build on GPU host) ---
 minecu_hybrid/libminecu.so
 
+# --- Kaggle notebooks embed kernels.cu; regenerate via make_*.py ---
+minecu_hybrid/kaggle/kernel/**/*.ipynb
+minecu_hybrid/kaggle/kernel_all/**/*.ipynb
+minecu_hybrid/kaggle/kernel_lockstep/**/*.ipynb
+
 # --- optional local secrets ---
 .env
 .env.*

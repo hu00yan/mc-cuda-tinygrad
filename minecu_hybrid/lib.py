@@ -3,20 +3,10 @@ from __future__ import annotations
 
 import ctypes
 import os
-from ctypes import (
-    POINTER,
-    c_bool,
-    c_float,
-    c_int,
-    c_int8,
-    c_uint,
-    c_uint8,
-    c_void_p,
-)
+from ctypes import c_float, c_int, c_int8, c_uint, c_void_p
 from pathlib import Path
 
 _LIB: ctypes.CDLL | None = None
-
 _HERE = Path(__file__).resolve().parent
 _DEFAULT_SO = _HERE / "libminecu.so"
 
@@ -50,11 +40,8 @@ def _bind(dll: ctypes.CDLL) -> None:
 
     vp = c_void_p
 
-    # voxels, B, wx, wy, wz, ground, seed
     f("launch_generate_world", None, vp, c_int, c_int, c_int, c_int, c_int, c_uint)
-    # voxels, B, wx, wy, wz, tree_x, tree_z, ground
     f("launch_place_tree", None, vp, c_int, c_int, c_int, c_int, c_int, c_int, c_int)
-    # voxels, B, wx, wy, wz, house_x, house_z, ground
     f("launch_place_house", None, vp, c_int, c_int, c_int, c_int, c_int, c_int, c_int)
     f("launch_reset", None, vp, vp, vp, vp, vp, vp, c_int, c_float, c_float, c_float)
     f(
@@ -73,19 +60,24 @@ def _bind(dll: ctypes.CDLL) -> None:
         None,
         vp, vp, vp, vp, vp, vp, vp, c_int, c_int, c_int8, c_float,
     )
-    f(
-        "launch_precompute_camera_basis",
-        None,
-        vp, vp, c_int, c_int, c_int, c_float,
-    )
+    f("launch_precompute_camera_basis", None, vp, vp, c_int, c_int, c_int, c_float)
+    f("launch_render", None, vp, vp, vp, c_int, c_int, c_int, c_int, c_int, c_float, c_float)
+    f("launch_render_uint8", None, vp, vp, vp, c_int, c_int, c_int, c_int, c_int, c_float, c_float)
     f(
         "launch_render_uint8_prebasis",
         None,
         vp, vp, vp, c_int, c_int, c_int, c_int, c_int,
     )
-    f(
-        "launch_step_uint8_prebasis",
-        None,
+
+    # Shared tail for simple uint8/float32 step launchers (no basis, no step_count)
+    step_tail = (
+        c_int, c_int, c_int, c_int,  # B world W H  (cubic world_size)
+        c_int, c_float, c_float,
+        c_float, c_float, c_float, c_float, c_float,
+        c_int8, c_float,
+        c_float, c_float, c_float,
+    )
+    step_head = (
         vp,  # voxels
         vp, vp, vp, vp, vp,  # pos vel yaw pitch on_ground
         vp, vp,  # buttons look
@@ -93,38 +85,57 @@ def _bind(dll: ctypes.CDLL) -> None:
         vp, vp, vp, vp,  # forward strafe dyaw dpitch
         vp, vp, vp, vp,  # jump break place speed
         vp,  # cameras
-        vp,  # basis
         vp, vp,  # obs rewards
-        c_int, c_int, c_int, c_int, c_int, c_int,  # B wx wy wz W H
-        c_int, c_float, c_float,  # max_steps view fov
-        c_float, c_float, c_float, c_float, c_float,  # dt g walk sprint jump
-        c_int8, c_float,  # target reward
-        c_float, c_float, c_float,  # spawn
     )
-    f(
-        "launch_step_uint8_prebasis_full",
-        None,
-        vp,  # voxels
-        vp, vp, vp, vp, vp,  # pos vel yaw pitch on_ground
-        vp, vp,  # buttons look
-        vp,  # do_reset (writable)
-        vp,  # step_count
-        vp, vp, vp, vp,  # forward strafe dyaw dpitch
-        vp, vp, vp, vp,  # jump break place speed
+    for name in (
+        "launch_step",
+        "launch_step_uint8",
+        "launch_step_uint8_minimal",
+        "launch_step_uint8_fp16",
+    ):
+        f(name, None, *step_head, *step_tail)
+
+    # prebasis: + basis, world_x/y/z instead of cubic
+    pre_head = (
+        vp,
+        vp, vp, vp, vp, vp,
+        vp, vp,
+        vp,
+        vp, vp, vp, vp,
+        vp, vp, vp, vp,
         vp,  # cameras
         vp,  # basis
-        vp, vp,  # obs rewards
-        c_int, c_int, c_int, c_int, c_int, c_int,
+        vp, vp,
+    )
+    pre_tail = (
+        c_int, c_int, c_int, c_int, c_int, c_int,  # B wx wy wz W H
         c_int, c_float, c_float,
         c_float, c_float, c_float, c_float, c_float,
         c_int8, c_float,
         c_float, c_float, c_float,
+    )
+    f("launch_step_uint8_prebasis", None, *pre_head, *pre_tail)
+    f(
+        "launch_step_uint8_prebasis_full",
+        None,
+        vp,
+        vp, vp, vp, vp, vp,
+        vp, vp,
+        vp,  # do_reset
+        vp,  # step_count
+        vp, vp, vp, vp,
+        vp, vp, vp, vp,
+        vp,
+        vp,
+        vp, vp,
+        *pre_tail,
         c_int,  # episode_length
     )
+    # smem: same as prebasis (basis + wx wy wz)
+    f("launch_step_uint8_smem", None, *pre_head, *pre_tail)
 
 
 def ptr(arr) -> int:
-    """Device pointer from a cupy ndarray (or object with .data.ptr)."""
     if hasattr(arr, "data") and hasattr(arr.data, "ptr"):
         return int(arr.data.ptr)
     raise TypeError(f"need cupy ndarray, got {type(arr)}")
