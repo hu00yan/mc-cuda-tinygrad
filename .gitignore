@@ -1,18 +1,39 @@
+# --- environments / OS ---
 .venv/
+venv/
 __pycache__/
-# 2.6 MB per region tensor, regenerable with:
+*.py[cod]
+.DS_Store
+.idea/
+.vscode/
+
+# --- local tool / compile caches ---
+.seiso_cache/
+*.cubin
+*.ptxas.cubin
+*.o
+*.so
+*.dylib
+
+# --- local reference binaries / SASS dumps (regenerable) ---
+.refdrv
+.refdrv_*
+.refdrv.*
+
+# --- agent / notebook scratch ---
+.agent-scratch/
+
+# --- probes: regenerable region dumps ---
 #   for s in 0 1 2 3 12345; do ./ref_oc --dump-cells cells_$s.bin --seeds $s --quiet; done
 probes/oc/cells_*.bin
 probes/oc/ref.bin
 probes/oc/ref_oc
 
-# --- added 2026-10-24 by Orion, at @prime's instruction to commit everything.
-# Run artifacts: 1.4 GB of experiment output. Keep the tracked, curated files
-# under out/ (SUMMARY.md, logs/, results.json, the pinned codegen artifact);
-# ignore the rest. Remove this block and `git add` again to track all of it.
-out/**
-!out/**/
-!out/**/*.md
-!out/**/*.log
-!out/**/*.json
-!out/**/*.txt
+# --- all run artifacts by default (1.4GB+); force-add curated proofs only ---
+out/
+
+# --- optional local secrets ---
+.env
+.env.*
+*.pem
+credentials.json

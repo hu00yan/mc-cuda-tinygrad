@@ -1,6 +1,0 @@
-ptxas info    : 0 bytes gmem
-ptxas info    : Compiling entry function 'r_1024_16_16' for 'sm_75'
-ptxas info    : Function properties for r_1024_16_16
-    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
-ptxas info    : Used 24 registers, used 1 barriers, 16 bytes smem, 368 bytes cmem[0]
-ptxas info    : Compile time = 1286.646 ms

@@ -1,9 +1,0 @@
-$ env KDA_T4_STAGES=install,gate,sass --cmd bash kda_t4/run.sh
-cwd: /kaggle/working/tree/payload
-exit: 127
-wall: 0.0 s
-
---- stdout ---
-
---- stderr ---
-env: ‘--cmd’: No such file or directory

@@ -1,7 +1,0 @@
-Starting upload for file payload.sha256
-  0%|          | 0.00/78.0 [00:00<?, ?B/s]100%|██████████| 78.0/78.0 [00:00<00:00, 168B/s]100%|██████████| 78.0/78.0 [00:01<00:00, 58.7B/s]
-Upload successful: payload.sha256 (78B)
-Starting upload for file payload.tgz
-  0%|          | 0.00/72.1k [00:00<?, ?B/s] 22%|██▏       | 16.0k/72.1k [00:00<00:01, 33.2kB/s]100%|██████████| 72.1k/72.1k [00:01<00:00, 46.8kB/s]
-Upload successful: payload.tgz (72KB)
-Dataset version is being created. Please check progress at https://www.kaggle.com/datasets/tenghuzhang/mc-cuda-tinygrad-payload

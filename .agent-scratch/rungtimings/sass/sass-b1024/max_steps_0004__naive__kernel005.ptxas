@@ -1,6 +1,0 @@
-ptxas info    : 0 bytes gmem
-ptxas info    : Compiling entry function 'E_32768_32_3' for 'sm_75'
-ptxas info    : Function properties for E_32768_32_3
-    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
-ptxas info    : Used 14 registers, used 0 barriers, 376 bytes cmem[0]
-ptxas info    : Compile time = 1223.228 ms

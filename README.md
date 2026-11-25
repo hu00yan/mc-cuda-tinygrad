@@ -1,104 +1,72 @@
 # mc-cuda-tinygrad
 
-Two questions, one repo:
+Port of [Infatoshi](https://github.com/Infatoshi)’s GPU Minecraft voxel raymarcher
+([`mine.cu`](https://github.com/Infatoshi/mine.cu) / [`netherite`](https://github.com/Infatoshi/netherite))
+from hand-written CUDA to [TinyGrad](https://github.com/tinygrad/tinygrad), plus
+measurements of where TinyGrad’s automatic codegen stops on irregular operators.
 
-1. **Can TinyGrad replace netherite's CUDA layer?** netherite
-   (`Infatoshi/netherite`) is a from-scratch C/CUDA Minecraft 1.11.2 that
-   bit-matches the real Java game and runs thousands of batched RL worlds on one
-   GPU. Its game logic is a portable C core (`blaze/core/*.h`, `MC_HD`
-   `__host__ __device__`); the CUDA layer on top is a parallel decomposition of
-   the same code.
-2. **Where does TinyGrad's automatic optimisation stop on complex operators?**
-   KDA (Kimi Delta Attention) is the specimen.
+## Status (honest)
 
-**Both answers are yes, with one caveat each.** TinyGrad expresses the
-semantic camera and KDA completely, including their sequential parts. It
-cannot deliver bit-exactness against netherite (three separate backend
-properties, none of them a knob), and on KDA it materialises 67 MB of
-intermediates that a hand-written kernel never builds.
-
-| report | verdict |
+| claim | result |
 |---|---|
-| [`notes/01-obs-camera.md`](notes/01-obs-camera.md) | 100% block-id agreement with the C reference on 41,472 pixels. 4 orders of magnitude slower, and the reason is not the kernel. |
-| [`notes/02-obs-camera-residuals.md`](notes/02-obs-camera-residuals.md) | Why bit-exactness is unreachable: FMA contraction with no knob, and **float32 division that is one ULP wrong in 25.9%–27.0% of general `a/b` cases** — `derivation/divide.py:mechanism_sentence`, which is the sentence to cite. |
-| [`notes/03-kda.md`](notes/03-kda.md) | KDA ports completely (6.6e-06). 12,090 kernels; the bottleneck is two `[C,C,K]` intermediates, not the sequential loops. |
-| [`notes/DECISIONS.md`](notes/DECISIONS.md) | 17 decisions, 11 bugs. The bugs are the interesting part. |
+| Correctness | **Byte-identical** to the CUDA reference’s own observation on a Tesla T4 (0 differing pixels out of 4 194 304) |
+| Best TinyGrad render speed | **~9–11× slower** than the hand-written kernel in the fused regime (~8–11% of CUDA) |
+| Naive first port | ~27–37× slower — mostly a worse algorithm, not “the compiler is slow” |
+| Closing the rest via TinyGrad knobs | **Ruled out** on T4 (`NOLOCALS`, `TC_*`, … do not close the gap) |
+| Hardware | Measured on **Kaggle Tesla T4 (sm_75)**. L4 requests silently got CPU. No H100/B300 numbers |
 
-## Layout
+One-sentence takeaway: the port is **correct**; the remaining gap is **framework expressiveness / register-window behaviour**, not missing tuning knobs. Details: [`notes/35-ladder-report.md`](notes/35-ladder-report.md), [`notes/36-rung-timings.md`](notes/36-rung-timings.md).
+
+## MineCU packages (the resume deliverable)
 
 ```
-netherite/            sparse clone of Infatoshi/netherite (blaze/ + docs/ only)
-derivation/           executable claims; a number in a document is cited here
-  divide.py             TinyGrad's float32 `/`: mechanism, rate, divisor law
-  divide_backends.py    the same, per backend, from the backends on this host
-probes/
-  bench.py            timing helper (rebuilds the graph per timed call)
-  gather_floor.py     does a TinyGrad gather have an O(source) floor?
-  fp32_correctness.py is TinyGrad's float32 arithmetic correctly rounded?
-  real_gather.py      the custom_kernel plugin attempt -- and why it fails
-  oc/                 probe 1: the semantic camera
-    ref_oc.c            C reference, built from netherite's own obs_camera.h
-    tiny_oc.py          the TinyGrad port
-    np_oc.py            independent NumPy third opinion, bit-exact with C
-    run_oc.py           correctness + step depth
-    oc_report.py        every number in notes/01
-    dbg_oc.py trace_oc.py trace2_oc.py   divergence finders
-kda/                  probe 2: KDA
-  SPEC.md NOTES.md    math, compiler-hardness ranking (research)
-  ref.py test_ref.py  float64 reference, 17 tests, chunked == recurrence
-  cost.py             analytic FLOP/byte model
-  tiny_kda.py         the TinyGrad port
-  test_tiny.py        6 tests against the float64 reference
-  perf_kda.py         kernel count, GPU/wall split, intermediate sizes
+minecu_ref/          hand-written CUDA reference (vendored, hash-pinned)
+minecu_tg/           naive TinyGrad DDA + verify + T4 battery
+minecu_tg_opt/       algorithmic ladder: naive → int_cursor → flat_gather → incremental → lean
+minecu_tg_faithful/  “copy the reference strategy” arm (bit-correct, slower in fused regime)
+minecu_tg_knobs/     codegen-knob sweep (mostly inert)
+notes/17,23,35,36    spec, ablation, handoff, per-rung timings
 ```
-
-## Reproducing
 
 ```bash
-uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python tinygrad numpy tabulate
+# CPU correctness (no NVIDIA needed)
+.venv/bin/python minecu_tg_opt/verify_opt.py
 
-cd probes/oc && make check      # camera: correctness against the C reference
-cd ../../kda   && ../../.venv/bin/python test_ref.py && ../../.venv/bin/python test_tiny.py
-
-cd .. && .venv/bin/python probes/fp32_correctness.py
-       .venv/bin/python probes/gather_floor.py
+# Ladder pricing / SASS (see package README)
+.venv/bin/python minecu_tg_opt/ablate.py --batch 1024 --steps 4,8,16,32,64
 ```
+
+## Secondary probes (earlier in the study)
+
+| probe | verdict |
+|---|---|
+| Semantic camera (`probes/oc/`) | 100% block-id agreement; TinyGrad float32 `/` is 1 ULP wrong ~26–27% of the time (no user knob) |
+| KDA (`kda/`) | Ports completely (~6.6e-06 vs float64); materialises large intermediates a hand kernel never builds |
+
+See [`notes/01-obs-camera.md`](notes/01-obs-camera.md), [`notes/03-kda.md`](notes/03-kda.md), [`notes/DECISIONS.md`](notes/DECISIONS.md).
+
+## Layout (what to keep vs archive)
+
+| keep for a public GitHub showcase | archive / ignore (research debris) |
+|---|---|
+| `minecu_*`, `notes/`, `derivation/`, `probes/`, `kda/`, `gpush/` | `out/` bulk (1.4 GB run dumps), `.seiso_cache/`, `.refdrv*`, `.venv/` |
+| curated `out/**/SUMMARY.txt` + `obs_equivalence.json` | `experiment_b/`, `crossover/`, `cutlass_lab/`, `matmul/`, `kernels/`, `archlab/` side labs |
+| this README | deleted `.agent-scratch/` (recoverable from git history `9e6767f`) |
+
+Cleanup plan: [`SHOWCASE.md`](SHOWCASE.md).
+
+## Setup
+
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python tinygrad numpy tabulate
+```
+
+GPU timings need an NVIDIA card (Colab Pro / Kaggle T4). Apple GPU is enough for
+correctness gates and SASS-side audits, not for the MineCU speed claims above.
 
 ## Conventions
 
-- Every claim in `notes/` has a command that reproduces it.
-- **A number is derived, never transcribed.** Every rate in these documents is
-  printed by a module in `derivation/`, and the citation names the claim that
-  prints it. When a probe's own arithmetic was wrong, its figure was propagated
-  ~58 times before anyone noticed; the fix is structural — the figure now lives
-  in exactly one executable place, and a document that cannot derive a number
-  deletes it rather than hedging it.
-- **GPU time and wall time are reported separately.** They differ by 90x on the
-  camera and 90x on KDA, and conflating them gives the wrong answer in both
-  directions. For both operators the majority of wall time is Python building
-  the graph, which a real training loop does not pay per step.
-- A third implementation whenever two disagree. Of the 11 bugs, 4 were
-  *shared* transcription errors or wrong-orientation mistakes that produced
-  finite plausible output; a two-way diff would have misattributed all of them.
-- `Tensor.realize()` on an already-realized graph is a silent no-op, so
-  `probes/bench.py` rebuilds the graph on every timed call. Getting that wrong
-  reads as ~3 ns.
-
-## What we would do next
-
-1. **Write the two upstreamable TinyGrad patches.** (a) a correctly-rounded
-   divide — the Tensor API lowers `/` to `a · fl32(1/b)`, above the scheduler and
-   above backend selection, so every backend that does not itself render a real
-   divide returns a double-rounded result and there is **no user-facing knob**
-   (`derivation/divide.py:mechanism_no_knob`); (b) a graph-replay primitive,
-   which is 99% of the wall time on both operators.
-2. **The exp-folding rewrite for KDA.** A rewrite pass that applies the decay's
-   `exp` inside the matmul that consumes it, so `[B,NT,HV,C,C,K]` is never
-   built. Without it the port cannot run at the target shape at all
-   (8.2 GB per intermediate).
-3. **Probe the second netherite kernel class.** The camera was
-   gather-sequential-per-lane. `blaze/env/blaze_cuda.cu`'s
-   `k_recenter_fill` is the opposite: a warp-cooperative bulk copy that
-   netherite says was its own dominant cost. If TinyGrad is good at that, the
-   answer generalises; if it is also bad there, the problem is deeper than
-   sequencing.
+- A number in `notes/` is **derived**, not transcribed — see `derivation/`.
+- GPU device time and wall time are always reported separately.
+- Corrections live in [`notes/06-corrections-ledger.md`](notes/06-corrections-ledger.md).
