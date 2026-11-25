@@ -1,5 +1,15 @@
-"""Hybrid MineCU: Infatoshi CUDA kernels + Python RL API."""
+"""Hybrid MineCU: stable RL API over CUDA (perf) or TinyGrad (codegen track)."""
 
-from .env import EnvConfig, MineCUEnv
+from .config import BUTTON_DIM, BUTTON_NAMES, LOOK_DIM, BlockType, EnvConfig
+from .env import MineCUEnv
+from . import viewer
 
-__all__ = ["EnvConfig", "MineCUEnv"]
+__all__ = [
+    "MineCUEnv",
+    "EnvConfig",
+    "BlockType",
+    "BUTTON_DIM",
+    "LOOK_DIM",
+    "BUTTON_NAMES",
+    "viewer",
+]

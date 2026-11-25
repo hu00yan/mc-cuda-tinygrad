@@ -31,19 +31,24 @@ notes/17,23,35,36    spec, ablation, handoff, per-rung timings
 
 ### Hybrid RL env (recommended to run)
 
-Hot path is the **original** CUDA (`launch_step_uint8_prebasis_full`: decode →
-physics → interact → reset → episode → cameras → basis → render). Python owns
-buffers and worldgen-on-reset. Verified on **Colab Tesla T4 (sm_75)**.
+Stable API (`MineCUEnv`) with swappable backends:
+
+- **`backend="cuda"`** — Infatoshi kernels (decode→physics→interact→render). Perf ceiling on NVIDIA.
+- **`backend="tinygrad"`** — `minecu_tg_opt` render + NumPy physics. Same API; improves when TinyGrad does.
 
 ```bash
-# on a CUDA Linux box / Colab T4
-./minecu_hybrid/build_lib.sh
-pip install cupy-cuda12x
+# TinyGrad path (Mac Metal / any TG device)
+PYTHONPATH=. python -c "from minecu_hybrid.smoke import _run; _run('tinygrad', 2)"
+
+# CUDA path (Colab T4 / Linux NVIDIA)
+./minecu_hybrid/build_lib.sh && pip install cupy-cuda12x
 PYTHONPATH=. python -m minecu_hybrid.smoke
 ```
 
-**TPU:** not supported. The original has no TPU backend; this hybrid links CUDA.
-TinyGrad itself has no TPU device in current builds. Use NVIDIA (T4+).
+Obs are low-res RGB; `minecu_hybrid.viewer` writes PPM mosaics so rollouts are
+**watchable**, but this is not the Java Minecraft client.
+
+**TPU:** not supported (no CUDA, no TinyGrad TPU device for this workload).
 
 ```bash
 # CPU correctness (no NVIDIA needed)
