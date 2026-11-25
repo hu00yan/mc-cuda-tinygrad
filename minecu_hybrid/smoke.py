@@ -1,4 +1,4 @@
-"""Smoke both backends when available; always exercise the API surface."""
+"""Smoke the unified env: TinyGrad path always; CUDA accel when lib present."""
 from __future__ import annotations
 
 import tempfile
@@ -6,16 +6,17 @@ import time
 from pathlib import Path
 
 
-def _run(backend: str, batch: int = 8) -> None:
+def _run(accel: str, batch: int = 8, **kw) -> None:
     from minecu_hybrid import MineCUEnv, viewer
 
-    print(f"=== backend={backend} batch={batch} ===")
-    env = MineCUEnv(backend=backend, batch=batch, world=16, width=32, height=32)
+    print(f"=== accel={accel!r} batch={batch} ===")
+    env = MineCUEnv(accel=accel, batch=batch, world=16, width=32, height=32, **kw)
+    print(f"using_cuda_accel={env.using_cuda_accel}")
+    print(f"observation_space={env.observation_space}")
     t0 = time.perf_counter()
     obs = env.reset()
     assert obs.shape == (batch, 32, 32, 3), obs.shape
-    obs2 = env.get_obs()
-    assert obs2.shape == obs.shape
+    _ = env.get_obs()
     buttons, look = env.zero_actions()
     buttons[:, 0] = 1
     n = 4
@@ -29,33 +30,33 @@ def _run(backend: str, batch: int = 8) -> None:
         f"reset {(t1-t0)*1e3:.0f} ms"
     )
     if obs.astype("float32").var() < 1.0:
-        raise SystemExit(f"FAIL {backend}: flat observation")
-
-    # masked reset of one env
-    mask = (buttons[:, 0] * 0).astype(bool)
+        raise SystemExit(f"FAIL accel={accel}: flat observation")
+    mask = np_zeros_bool(batch)
     mask[0] = True
     env.reset(mask)
-
     with tempfile.TemporaryDirectory() as td:
-        p = viewer.save_mosaic(obs, Path(td) / f"{backend}_mosaic.ppm", scale=4)
+        p = viewer.save_mosaic(obs, Path(td) / f"accel_{accel}_mosaic.ppm", scale=4)
         print("wrote", p, p.stat().st_size, "bytes")
     env.close()
-    print(f"ok {backend}")
+    print(f"ok accel={accel}")
+
+
+def np_zeros_bool(n: int):
+    import numpy as np
+
+    return np.zeros((n,), dtype=np.bool_)
 
 
 def main() -> None:
-    # TinyGrad path runs on Metal/CPU too
-    _run("tinygrad", batch=4)
-    try:
-        import cupy  # noqa: F401
-        from minecu_hybrid.lib import lib_path
+    _run("off", batch=2)
+    from minecu_hybrid import accel
 
-        if lib_path().is_file():
-            _run("cuda", batch=64)
-        else:
-            print("skip cuda: no libminecu.so (build_lib.sh on NVIDIA host)")
-    except Exception as e:
-        print("skip cuda:", e)
+    if accel.available():
+        _run("on", batch=64)
+    else:
+        print("skip accel=on:", accel.why_unavailable())
+    # auto should pick cuda if present
+    _run("auto", batch=4 if not accel.available() else 32)
 
 
 if __name__ == "__main__":

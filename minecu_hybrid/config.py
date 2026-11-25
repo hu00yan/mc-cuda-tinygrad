@@ -57,7 +57,10 @@ class EnvConfig:
     episode_length: int = 0  # 0 = unlimited
     seed: int = 42
     ground_height: int | None = None
-    backend: str = "cuda"  # "cuda" | "tinygrad"
+    # accel: auto (CUDA asm if libminecu.so present) | on | off
+    # legacy: backend="cuda"|"tinygrad" still accepted by MineCUEnv
+    accel: str = "auto"
+    backend: str = "auto"  # legacy alias; prefer accel=
 
     def __post_init__(self) -> None:
         wx = self.world_x if self.world_x is not None else self.world

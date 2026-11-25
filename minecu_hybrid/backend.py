@@ -1,34 +1,17 @@
-"""Backend protocol — upper env stays stable; swap CUDA ↔ TinyGrad underneath."""
+"""Deprecated dual-backend factory — prefer MineCUEnv(accel=...).
+
+Kept so old imports keep working; both paths now share the same MineCUEnv.
+"""
 from __future__ import annotations
 
-from typing import Protocol
-
-import numpy as np
-
 from .config import EnvConfig
+from .env import MineCUEnv
 
 
-class Backend(Protocol):
-    cfg: EnvConfig
-
-    def reset(self, mask: np.ndarray | None = None) -> np.ndarray: ...
-    def step(
-        self,
-        buttons: np.ndarray | None = None,
-        look: np.ndarray | None = None,
-    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]: ...
-    def get_obs(self) -> np.ndarray: ...
-    def close(self) -> None: ...
-
-
-def make_backend(cfg: EnvConfig) -> Backend:
-    name = (cfg.backend or "cuda").lower()
-    if name in ("cuda", "hybrid", "ref"):
-        from .backend_cuda import CudaBackend
-
-        return CudaBackend(cfg)
-    if name in ("tinygrad", "tg"):
-        from .backend_tinygrad import TinygradBackend
-
-        return TinygradBackend(cfg)
-    raise ValueError(f"unknown backend {cfg.backend!r}; use 'cuda' or 'tinygrad'")
+def make_backend(cfg: EnvConfig):
+    """Return a MineCUEnv configured like the old cuda/tinygrad split."""
+    if cfg.backend in ("tinygrad", "tg"):
+        return MineCUEnv(cfg=cfg, accel="off")
+    if cfg.backend in ("cuda", "hybrid", "ref"):
+        return MineCUEnv(cfg=cfg, accel="on")
+    return MineCUEnv(cfg=cfg, accel="auto")

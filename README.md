@@ -31,24 +31,19 @@ notes/17,23,35,36    spec, ablation, handoff, per-rung timings
 
 ### Hybrid RL env (recommended to run)
 
-Stable API (`MineCUEnv`) with swappable backends:
-
-- **`backend="cuda"`** — Infatoshi kernels (decode→physics→interact→render). Perf ceiling on NVIDIA.
-- **`backend="tinygrad"`** — `minecu_tg_opt` render + NumPy physics. Same API; improves when TinyGrad does.
+**One** `MineCUEnv`: TinyGrad-shaped control flow, with Infatoshi CUDA as
+optional **inline accelerators** (`accel.py`) for the hot render/step — like
+`asm` inside C, not a separate product that abandons TinyGrad.
 
 ```bash
-# TinyGrad path (Mac Metal / any TG device)
-PYTHONPATH=. python -c "from minecu_hybrid.smoke import _run; _run('tinygrad', 2)"
-
-# CUDA path (Colab T4 / Linux NVIDIA)
-./minecu_hybrid/build_lib.sh && pip install cupy-cuda12x
-PYTHONPATH=. python -m minecu_hybrid.smoke
+./minecu_hybrid/build_lib.sh && pip install cupy-cuda12x   # NVIDIA
+PYTHONPATH=. python -m minecu_hybrid.smoke                 # auto uses CUDA if .so exists
+# force pure TinyGrad: MineCUEnv(accel="off", ...)
 ```
 
-Obs are low-res RGB; `minecu_hybrid.viewer` writes PPM mosaics so rollouts are
-**watchable**, but this is not the Java Minecraft client.
+Obs are low-res RGB; `viewer` writes PPM mosaics (watchable, not the Java client).
 
-**TPU:** not supported (no CUDA, no TinyGrad TPU device for this workload).
+**TPU:** not supported.
 
 ```bash
 # CPU correctness (no NVIDIA needed)

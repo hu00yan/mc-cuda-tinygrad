@@ -1,8 +1,8 @@
-"""Hybrid MineCU: stable RL API over CUDA (perf) or TinyGrad (codegen track)."""
+"""MineCU: TinyGrad-shaped env with optional Infatoshi CUDA accelerators."""
 
+from . import accel, viewer
 from .config import BUTTON_DIM, BUTTON_NAMES, LOOK_DIM, BlockType, EnvConfig
 from .env import MineCUEnv
-from . import viewer
 
 __all__ = [
     "MineCUEnv",
@@ -11,5 +11,6 @@ __all__ = [
     "BUTTON_DIM",
     "LOOK_DIM",
     "BUTTON_NAMES",
+    "accel",
     "viewer",
 ]
