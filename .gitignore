@@ -32,6 +32,9 @@ probes/oc/ref_oc
 # --- all run artifacts by default (1.4GB+); force-add curated proofs only ---
 out/
 
+# --- hybrid CUDA shared library (build on GPU host) ---
+minecu_hybrid/libminecu.so
+
 # --- optional local secrets ---
 .env
 .env.*

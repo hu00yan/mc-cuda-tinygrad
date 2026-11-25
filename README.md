@@ -20,6 +20,7 @@ One-sentence takeaway: the port is **correct**; the remaining gap is **framework
 ## MineCU packages (the resume deliverable)
 
 ```
+minecu_hybrid/       ★ production-shaped path: Infatoshi CUDA step + Python RL API
 minecu_ref/          hand-written CUDA reference (vendored, hash-pinned)
 minecu_tg/           naive TinyGrad DDA + verify + T4 battery
 minecu_tg_opt/       algorithmic ladder: naive → int_cursor → flat_gather → incremental → lean
@@ -27,6 +28,22 @@ minecu_tg_faithful/  “copy the reference strategy” arm (bit-correct, slower 
 minecu_tg_knobs/     codegen-knob sweep (mostly inert)
 notes/17,23,35,36    spec, ablation, handoff, per-rung timings
 ```
+
+### Hybrid RL env (recommended to run)
+
+Hot path is the **original** CUDA (`launch_step_uint8_prebasis_full`: decode →
+physics → interact → reset → episode → cameras → basis → render). Python owns
+buffers and worldgen-on-reset. Verified on **Colab Tesla T4 (sm_75)**.
+
+```bash
+# on a CUDA Linux box / Colab T4
+./minecu_hybrid/build_lib.sh
+pip install cupy-cuda12x
+PYTHONPATH=. python -m minecu_hybrid.smoke
+```
+
+**TPU:** not supported. The original has no TPU backend; this hybrid links CUDA.
+TinyGrad itself has no TPU device in current builds. Use NVIDIA (T4+).
 
 ```bash
 # CPU correctness (no NVIDIA needed)
