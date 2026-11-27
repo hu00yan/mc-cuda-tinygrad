@@ -214,7 +214,7 @@ def independence():
 # reader can check it against the source rather than take it on trust, and so
 # that if the port changes the census has to be revisited in the same file.
 #
-# minecu_tg/render.py:235-261, the body of `for step in range(max_steps)`.
+# minecu/tinygrad/render.py:235-261, the body of `for step in range(max_steps)`.
 # Operation counts are source-level TinyGrad operations, one per operator
 # application, with a comparison and a boolean AND counted separately.
 CENSUS = [
@@ -242,7 +242,7 @@ def op_census():
     """
     total = sum(n for _, _, n in CENSUS)
     lines = [
-        "minecu_tg/render.py:235-261 -- per-DDA-step source operations",
+        "minecu/tinygrad/render.py:235-261 -- per-DDA-step source operations",
         "",
         f"  {'site':<20} {'what':<44} ops",
         f"  {'-'*20} {'-'*44} ---",

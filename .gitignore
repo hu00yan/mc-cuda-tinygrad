@@ -23,25 +23,25 @@ __pycache__/
 # --- agent / notebook scratch ---
 .agent-scratch/
 
-# --- probes: regenerable region dumps ---
-#   for s in 0 1 2 3 12345; do ./ref_oc --dump-cells cells_$s.bin --seeds $s --quiet; done
-probes/oc/cells_*.bin
-probes/oc/ref.bin
-probes/oc/ref_oc
-
-# --- all run artifacts by default (1.4GB+); force-add curated proofs only ---
+# --- all run artifacts by default; force-add curated proofs only ---
 out/
 
 # --- hybrid CUDA shared library (build on GPU host) ---
-minecu_hybrid/libminecu.so
+minecu/libminecu.so
+
+# --- regenerable CUDA build products ---
+bench_cuda/build/
 
 # --- Kaggle notebooks embed kernels.cu; regenerate via make_*.py ---
-minecu_hybrid/kaggle/kernel/**/*.ipynb
-minecu_hybrid/kaggle/kernel_all/**/*.ipynb
-minecu_hybrid/kaggle/kernel_lockstep/**/*.ipynb
+minecu/kaggle/kernel/**/*.ipynb
+minecu/kaggle/kernel_all/**/*.ipynb
+minecu/kaggle/kernel_lockstep/**/*.ipynb
 
 # --- optional local secrets ---
 .env
 .env.*
 *.pem
 credentials.json
+
+# Infatoshi/mine.cu fetch cache (see minecu/upstream.py)
+.deps/
